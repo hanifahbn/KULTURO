@@ -2,23 +2,28 @@
 //  ContentView.swift
 //  MacroApp
 //
-//  Created by Hanifah BN on 17/10/23.
+//  Created by Irvan P. Saragi on 18/10/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var matchManager = MatchManager()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group{
+            switch matchManager.gameStatus {
+            case .setup:
+                onBoardView(matchManager: matchManager)
+            case .inGame:
+                InGameView()
+            case .gameOver:
+                EndGameView()
+            }
+        }.onAppear{
+            matchManager.authenticateUser()
         }
-        .padding()
     }
 }
-
 #Preview {
     ContentView()
 }
