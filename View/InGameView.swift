@@ -39,7 +39,7 @@ struct InGameView: View {
                 Text("Choose Character")
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .padding(.top, 50)
-                CompponetButton(textButton: "Start") {
+                ComponetButton(textButton: "Start") {
                    print("Next View")
                 }
             }

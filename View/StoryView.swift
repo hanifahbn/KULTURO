@@ -13,6 +13,7 @@ struct StoryView: View {
     //data sementara
     private var typingSpeed: Double = 0.1 // Adjust the typing speed here
     @State private var position: Int = 0
+    @State var skipTextStory : Bool = false
 
     var body: some View {
         ZStack{
@@ -22,15 +23,21 @@ struct StoryView: View {
             VStack {
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                     .stroke(lineWidth: 8)
-                    .frame(width: 342, height: 170)
+                    .frame(width: 342, height: 175)
                     .overlay {
                         ZStack{
                             RoundedRectangle(cornerRadius: 23.0)
                                 .foregroundStyle(.white)
-                            Text(text)
-                                .font(.system(size: 12))
-                                .font(.caption)
-                                .padding(10)
+                            VStack{
+                                HStack{
+                                    Text(skipTextStory ? finalText : text)
+                                        .font(.system(size: 12))
+                                        .font(.caption)
+                                        .padding(10)
+                                    Spacer()
+                                }
+                                Spacer()
+                            }
                         }
                     }
                     .shadow(radius: 10)
@@ -40,9 +47,13 @@ struct StoryView: View {
                 Spacer()
             }
         }
+        .onTapGesture {
+            skipTextStory = true
+        }
     }
     // nanti di pindah ke View model
     func typeWriter() {
+        
         text = String(finalText.prefix(position))
         if position < finalText.count {
             position += 1
@@ -51,6 +62,8 @@ struct StoryView: View {
             }
         }
     }
+    
+
 }
 
 #Preview {
