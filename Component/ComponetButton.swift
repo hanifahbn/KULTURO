@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CompponetButton: View {
+struct ComponetButton: View {
     @State var ButtonTap : Bool = false
     @State var textButton : String
     let action: () -> Void
@@ -15,12 +15,12 @@ struct CompponetButton: View {
         ZStack{
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(Color("GreenColor"))
+                .foregroundStyle(Color("Hijau"))
                 .opacity(0.5)
                 .padding(.top, 15)
             RoundedRectangle(cornerRadius: 100)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(Color("GreenColor"))
+                .foregroundStyle(Color("Hijau"))
                 .padding(.top, ButtonTap ? 15 : 0 )
             Text(textButton)
                 .font(.title2)
@@ -40,7 +40,7 @@ struct CompponetButton: View {
 }
 
 #Preview {
-    CompponetButton(textButton: "Text") {
+    ComponetButton(textButton: "Text") {
             print("Button Tapped")
         }
 }
