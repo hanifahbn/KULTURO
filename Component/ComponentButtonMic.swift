@@ -16,12 +16,12 @@ struct ComponetButtonMic: View {
         ZStack{
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(Color("YellowColor"))
+                .foregroundStyle(Color("Kuning"))
                 .opacity(0.5)
                 .padding(.top, 15)
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(Color("YellowColor"))
+                .foregroundStyle(Color("Kuning"))
                 .padding(.top, ButtonTap ? 15 : 0 )
             HStack{
                 Image(systemName: "\(iconButton)")

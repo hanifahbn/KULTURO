@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MissionOneView: View {
-    let listBelanja = ["Batu", "Rokok", "Semen", "BatuBata"]
+    let listBelanja = ["Batu Kecil", "Kayu", "Semen", "BatuBata"]
     var body: some View {
         ZStack{
             Image("BackgroundImage")
@@ -17,17 +17,25 @@ struct MissionOneView: View {
                 .blur(radius: 2.0)
             VStack{
                 Image("Paper")
+                    .padding(.leading, 30)
                     .overlay {
                         VStack{
                             Text("Barang Belanjaan")
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(.system(size: 30, weight: .semibold))
+                                .font(.title)
                             List{
                                 ForEach(listBelanja, id: \.self){ item in
-                                    Text("\(item)")
-                                        .font(.system(size: 15,weight: .light))
-                                      
-                                        .listRowBackground(Color.clear)
-                                        .listRowSeparator(.hidden)
+                                    HStack{
+                                        Text("\(item)")
+                                            .font(.system(size: 20,weight: .light))
+                                            .listRowBackground(Color.clear)
+                                            .listRowSeparator(.hidden)
+                                        Spacer()
+                                        Rectangle()
+                                            .stroke(lineWidth: 4)
+                                            .frame(width: 30)
+                                            
+                                    }
                                 }
                             }
                             .listStyle(InsetGroupedListStyle())

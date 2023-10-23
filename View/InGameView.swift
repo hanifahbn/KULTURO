@@ -15,7 +15,7 @@ struct InGameView: View {
                     print("Choose 1")
                 } label: {
                     Rectangle()
-                        .foregroundStyle(Color("PurpleColor"))
+                        .foregroundStyle(Color("Ungu"))
                         .overlay {
                             Image("PersonOne")
                                 .resizable()
@@ -27,7 +27,7 @@ struct InGameView: View {
                     print("Choose 2")
                 } label: {
                     Rectangle()
-                        .foregroundStyle(Color("YellowColor"))
+                        .foregroundStyle(Color("Kuning"))
                         .overlay {
                             Image("PersonTwo")
                                 .resizable()

@@ -18,6 +18,10 @@ struct ContentView: View {
                 InGameView()
             case .gameOver:
                 EndGameView()
+            case .stories:
+                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0)
+            case .missionone:
+                MissionOneView()
             }
         }.onAppear{
             matchManager.authenticateUser()
