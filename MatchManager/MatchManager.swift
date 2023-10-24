@@ -59,6 +59,7 @@ class MatchManager: NSObject, ObservableObject{
             if GKLocalPlayer.local.isAuthenticated{
                 authStatus = .authenticated
                 self.localPlayer = GKLocalPlayer.local
+                print(self.localPlayer.displayName)
                 
                 GKLocalPlayer.local.loadPhoto(for: GKPlayer.PhotoSize.small){ image, error in
                     if let image {
