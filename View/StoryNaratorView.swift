@@ -70,11 +70,11 @@ struct StoryNaratorView: View {
     StoryNaratorView(viewModel: StoryViewModel())
 }
 
-extension String {
-    subscript(offset: Int) -> Character {
-        self[index(startIndex, offsetBy: offset)]
-    }
-}
+//extension String {
+//    subscript(offset: Int) -> Character {
+//        self[index(startIndex, offsetBy: offset)]
+//    }
+//}
 
 
 

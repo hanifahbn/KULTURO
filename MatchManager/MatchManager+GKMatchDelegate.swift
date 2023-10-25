@@ -9,12 +9,41 @@ import Foundation
 import GameKit
 
 extension MatchManager: GKMatchDelegate{
+    func match(_ match: GKMatch, didChange state: GKPlayerConnectionState, for player: GKPlayer) {
+        // Implementasi kode Anda untuk menangani perubahan status koneksi pemain
+        switch state {
+        case .connected:
+            // Pemain telah terhubung
+            print("Player \(player.displayName) is connected.")
+        case .disconnected:
+            // Pemain telah terputus
+            print("Player \(player.displayName) is disconnected.")
+        case .unknown:
+            // Status koneksi tidak diketahui
+            print("Player \(player.displayName) connection status is unknown.")
+        @unknown default:
+            break
+        }
+    }
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        let content = String(decoding: data, as: UTF8.self)
+//        let content = String(decoding: data, as: UTF8.self)
         
-        if content.starts(with: "playerScore") {
-            let message = content.replacing("playerScore", with: "")
-            receivedStringData(message)
+//        if content.starts(with: "playerScore") {
+//            let message = content.replacing("playerScore", with: "")
+//            receivedStringData(message)
+//        }
+            
+        if var receivedCharacter = try? JSONDecoder().decode(Character.self, from: data) {
+            if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
+                characters[index].isChosen.toggle()
+                otherCharacter = characters[index]
+                
+                if localCharacter != nil {
+                    gameStatus = .stories
+                }
+            }
+        } else {
+            print("Failed to decode received data as Character.")
         }
     }
     
@@ -27,7 +56,7 @@ extension MatchManager: GKMatchDelegate{
         do {
             try match?.sendData(toAllPlayers: data, with: mode)
         } catch {
-            print(error.localizedDescription)
+            print("SENDING DATA ERROR: \(error.localizedDescription)")
         }
     }
     

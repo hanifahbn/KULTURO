@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var matchManager = MatchManager()
+    @ObservedObject var matchManager = MatchManager()
+    
     var body: some View {
         Group{
             switch matchManager.gameStatus {
             case .setup:
-                onBoardView(matchManager: matchManager)
+                onBoardView()
+                    .environmentObject(matchManager)
             case .inGame:
-                InGameView()
+                CharacterChoosingView()
+                    .environmentObject(matchManager)
             case .gameOver:
                 EndGameView()
             case .stories:
