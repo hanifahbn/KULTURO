@@ -21,7 +21,7 @@ struct  GudangStoriesView: View {
                 .zIndex(1)
                 .opacity(viewModel.gudangStories[viewModel.currentIndex].transisiStories ? 1 : 0)
                 .animation(.easeIn(duration: 0.5), value: viewModel.gudangStories[viewModel.currentIndex].transisiStories)
-            Image("BrokenBalaiDesa")
+            Image(viewModel.gudangStories[viewModel.currentIndex].characterTwo)
                 .resizable()
                 .ignoresSafeArea()
             HStack(spacing : -30){
@@ -44,10 +44,8 @@ struct  GudangStoriesView: View {
                 .opacity(isAnimation ? 1 : 0)
             VStack{
                 Spacer()
-                HStack{
-                    Image(viewModel.gudangStories[viewModel.currentIndex].characterOne)
-                }
-                .padding(.bottom, -200)
+                Image(viewModel.gudangStories[viewModel.currentIndex].characterOne)
+                    .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
@@ -66,7 +64,7 @@ struct  GudangStoriesView: View {
             viewModel.currentIndex += 1
             if viewModel.currentIndex == 1{
                 isStory = false
-               
+                
             } else if viewModel.currentIndex == 3{
                 isAnimation1 = true
                 isStory = false
@@ -82,9 +80,9 @@ struct  GudangStoriesView: View {
         }
         .onAppear{
             isStory = true
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-//                
-//            }
+            //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            //
+            //            }
         }
         
     }

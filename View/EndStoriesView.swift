@@ -24,7 +24,6 @@ struct  EndStoriesView: View {
             Rectangle()
                 .ignoresSafeArea()
                 .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0.4 : 0)
-                .animation(.easeIn(duration: 0.5), value: viewModel.endStories[viewModel.currentIndex].transisiStories)
             HStack(spacing : -30){
                 Image(viewModel.desaStories[0].characterOne)
                     .resizable()

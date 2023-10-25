@@ -31,7 +31,7 @@ struct  BeliStoriesView: View {
                 }
                 .animation(.easeIn(duration: 0.5), value: isNextStory)
                 .zIndex(2)
-                Image("BackgroundImage")
+                Image("BackgroundPanglong")
                     .resizable()
                     .ignoresSafeArea()
                
@@ -44,20 +44,20 @@ struct  BeliStoriesView: View {
                         Image(viewModel.desaStories[0].characterTwo)
                             .resizable()
                             .frame(width: 110, height: 226)
-                    }.padding(.top, 200)
-                        .offset(x: isAnimation ? 10 : -200)
+                    }.padding()
+                        .offset(x: isAnimation ? -20 : -200, y: 200)
                         .animation(.linear(duration: 3), value: isAnimation)
                     Image(viewModel.beliStories[0].characterOne)
                         .resizable()
                         .frame(width: 80, height: 170)
-                        .padding(.top, 150)
+                        .padding(.top, 300)
                 }
                 VStack{
                     Spacer()
                     HStack{
                         Image(viewModel.beliStories[viewModel.currentIndex].characterOne)
                     }
-                    .padding(.bottom, -200)
+                    .padding(.bottom, -300)
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
                         .shadow(radius: 0, y: 5)
