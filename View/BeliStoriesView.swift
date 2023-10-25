@@ -18,15 +18,24 @@ struct  BeliStoriesView: View {
 //        NavigationStack{
             ZStack{
                 // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-                Rectangle()
-    //                .foregroundStyle(.white)
-                    .ignoresSafeArea()
-                    .zIndex(1)
-                    .opacity(isNextStory ? 1 : 0)
-                    .animation(.easeIn(duration: 0.5), value: isNextStory)
-                    Image("BackgroundImage")
-                        .resizable()
+                
+                ZStack{
+                    Rectangle()
+        //                .foregroundStyle(.white)
                         .ignoresSafeArea()
+                        .opacity(isNextStory ? 0.5 : 0)
+                    Text(isNextStory ?  viewModel.beliStories[viewModel.currentIndex].stories : "")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .multilineTextAlignment(.center)
+                }
+                .animation(.easeIn(duration: 0.5), value: isNextStory)
+                .zIndex(2)
+                Image("BackgroundImage")
+                    .resizable()
+                    .ignoresSafeArea()
+               
+                
                 HStack{
                     HStack(spacing : -30){
                         Image(viewModel.desaStories[0].characterOne)
@@ -44,9 +53,13 @@ struct  BeliStoriesView: View {
                         .padding(.top, 150)
                 }
                 VStack{
+                    Spacer()
+                    HStack{
+                        Image(viewModel.beliStories[viewModel.currentIndex].characterOne)
+                    }
+                    .padding(.bottom, -200)
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundStyle(.white)
-                        .opacity(0.8)
                         .shadow(radius: 0, y: 5)
                         .overlay {
                             Text(viewModel.beliStories[viewModel.currentIndex].stories)
@@ -54,25 +67,21 @@ struct  BeliStoriesView: View {
                                 .padding()
                                 
                         }
-                        .frame(width: 400, height: 200)
-                   
-                    HStack(spacing : -200){
-                        Image(viewModel.beliStories[viewModel.currentIndex].characterOne)
-                        
-                        if viewModel.currentIndex % 2 != 0{
-                            Image(viewModel.beliStories[viewModel.currentIndex].characterTwo)
-                        }
-                    }
-                    .padding(.bottom, -100)
+                        .frame(width: 350, height: 200)
                 }
                 .opacity(isStory ? 1 : 0)
 //                .animation(.linear(duration: 0.2), value: isStory)
+                
             }
             .onTapGesture {
                 //Nanti di pindah ke view model
                 viewModel.currentIndex += 1
                 if viewModel.currentIndex == 5{
-                    matchManager.gameStatus = .missionone
+                    isStory = false
+                    isNextStory = true
+                    
+                } else if viewModel.currentIndex == 6{
+                    isNextStory = true
                 }
             }
             .onAppear{

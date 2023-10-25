@@ -10,10 +10,14 @@
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
-		E20C87CA2AE4129F0054AD47 /* StoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryModel.swift */; };
+		E20C87CA2AE4129F0054AD47 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* Story.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
 		E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */; };
 		E20C87D22AE58FD20054AD47 /* BeliStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */; };
+		E20C88122AE8BC440054AD47 /* GudangStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */; };
+		E20C88142AE8D80F0054AD47 /* BantuDesaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */; };
+		E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */; };
+		E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88172AE914D40054AD47 /* EndStoriesView.swift */; };
 		E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0AA2ADFDE620024FDD1 /* ContentView.swift */; };
 		E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */; };
 		E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
@@ -33,10 +37,14 @@
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E20C87C92AE4129F0054AD47 /* StoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryModel.swift; sourceTree = "<group>"; };
+		E20C87C92AE4129F0054AD47 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesaStoriesView.swift; sourceTree = "<group>"; };
 		E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliStoriesView.swift; sourceTree = "<group>"; };
+		E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GudangStoriesView.swift; sourceTree = "<group>"; };
+		E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BantuDesaView.swift; sourceTree = "<group>"; };
+		E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasirStoriesView.swift; sourceTree = "<group>"; };
+		E20C88172AE914D40054AD47 /* EndStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStoriesView.swift; sourceTree = "<group>"; };
 		E251D0A92ADFDB630024FDD1 /* MacroApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroApp.entitlements; sourceTree = "<group>"; };
 		E251D0AA2ADFDE620024FDD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -107,7 +115,7 @@
 		E20C87CB2AE412AF0054AD47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E20C87C92AE4129F0054AD47 /* StoryModel.swift */,
+				E20C87C92AE4129F0054AD47 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,8 +147,12 @@
 				E2A729502AE187120093DD1F /* StoryNaratorView.swift */,
 				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
 				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
-				E2E5B92F2AE1365E003B4F70 /* EndGameView.swift */,
 				E2A729552AE246B40093DD1F /* MissionOneView.swift */,
+				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
+				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
+				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
+				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
+				E2E5B92F2AE1365E003B4F70 /* EndGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,19 +240,23 @@
 				E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* onBoardView.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
+				E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				E2E5B9302AE1365E003B4F70 /* EndGameView.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
+				E20C88142AE8D80F0054AD47 /* BantuDesaView.swift in Sources */,
 				E20C87D22AE58FD20054AD47 /* BeliStoriesView.swift in Sources */,
 				E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */,
 				E2A729512AE187120093DD1F /* StoryNaratorView.swift in Sources */,
 				E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */,
+				E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */,
 				E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */,
 				E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */,
 				E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */,
+				E20C88122AE8BC440054AD47 /* GudangStoriesView.swift in Sources */,
 				E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */,
 				A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */,
-				E20C87CA2AE4129F0054AD47 /* StoryModel.swift in Sources */,
+				E20C87CA2AE4129F0054AD47 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
