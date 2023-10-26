@@ -14,6 +14,9 @@ struct StoryNaratorView: View {
     @State var position: Int = 0
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
+    @State private var isFirstTap = true
+    
+    
     
     var body: some View {
         ZStack{
@@ -21,25 +24,26 @@ struct StoryNaratorView: View {
                 .resizable()
                 .ignoresSafeArea()
             VStack{
-                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                        .stroke(lineWidth: 8)
-                        .overlay {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 23.0)
-                                    .foregroundStyle(.white)
-                                    .opacity(0.8)
-                                VStack{
-                                    HStack{
-                                        Text(text)
-                                            .font(.system(size: 32, weight: .semibold,design: .rounded))
-                                        Spacer()
-                                    }
+                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                    .stroke(lineWidth: 1)
+                    .overlay {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 23.0)
+                                .foregroundStyle(.white)
+                                .opacity(0.8)
+                            VStack{
+                                HStack{
+                                    Text(nextStory ? viewModel.naratorStories[currentIndex].stories: text)
+                                        .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     Spacer()
                                 }
-                                .padding()
+                                Spacer()
                             }
+                            .padding()
                         }
-                        .shadow(radius: 10)
+                    }
+                    .frame(width: 350, height: 300)
+                    .shadow(radius: 10)
             }
             .padding(.top, 20)
         }
@@ -47,12 +51,15 @@ struct StoryNaratorView: View {
             typeWriter()
         }
         .onTapGesture {
-            nextStory = true
-            currentIndex += 1
-            if currentIndex < viewModel.naratorStories.count {
-                typeWriter()
+            if isFirstTap {
+                isFirstTap = false 
+                nextStory = true
+            } else {
+                goToNextStory()
+                isFirstTap = true
             }
-        }    }
+        }
+    }
     // nanti di pindah ke View model
     func typeWriter() {
         let Stories = viewModel.naratorStories[currentIndex].stories
@@ -62,6 +69,16 @@ struct StoryNaratorView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + typingSpeed) {
                 typeWriter()
             }
+        }
+    }
+    
+    func goToNextStory() {
+        currentIndex += 1
+        if currentIndex < viewModel.naratorStories.count {
+            position = 0
+            text = ""
+            typeWriter()
+            nextStory = false
         }
     }
 }

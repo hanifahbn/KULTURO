@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
-    
     var body: some View {
         Group{
             switch matchManager.gameStatus {
@@ -17,7 +16,7 @@ struct ContentView: View {
                 onBoardView()
                     .environmentObject(matchManager)
             case .inGame:
-                CharacterChoosingView()
+                InGameView()
                     .environmentObject(matchManager)
             case .gameOver:
                 EndGameView()

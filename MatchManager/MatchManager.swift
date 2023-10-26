@@ -32,12 +32,14 @@ class MatchManager: NSObject, ObservableObject{
     var match : GKMatch?
     var localPlayer = GKLocalPlayer.local
     var otherPlayer: GKPlayer?
-    var localCharacter: Character?
-    var otherCharacter: Character?
+    var localCharacter: Karakter?
+    var otherCharacter: Karakter?
     
-    @Published var characters: [Character] = [
-        Character(name: "Eyog", headImage: "HeadOffice", fullImage: "", halfImage: "", origin: "Batak", isChosen: false),
-        Character(name: "Oman", headImage: "HeadOffice", fullImage:"", halfImage: "", origin: "Batak", isChosen: false)
+    @Published var characters: [Karakter] = [
+        Karakter(name: "Pak Singa", headImage: "", fullImage: "", halfImage: "KadesHalf", origin: "Batak", color: "Coklat", isChosen: false),
+        Karakter(name: "Eyog", headImage: "", fullImage: "", halfImage: "Eyog", origin: "Jawa", color: "HijauMudah", isChosen: false),
+        Karakter(name: "Oman", headImage: "", fullImage: "", halfImage: "Gale", origin: "Bali", color: "Kuning", isChosen: false),
+        Karakter(name: "Mei", headImage: "", fullImage: "", halfImage: "CiMei", origin: "Surabaya", color: "BiruLangit", isChosen: false)
     ]
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
@@ -97,7 +99,7 @@ class MatchManager: NSObject, ObservableObject{
         
 //        if let otherPlayer = match?.players.first {
 //            self.otherPlayer = otherPlayer
-//            
+//
 //            self.otherPlayer?.loadPhoto(for: GKPlayer.PhotoSize.small) { (image, error) in
 //                if let image {
 //                    self.opponentAvatar = Image(uiImage: image)
@@ -107,7 +109,7 @@ class MatchManager: NSObject, ObservableObject{
 //                }
 //            }
 //        }
-//        
+//
 //        // reset
 //        Score = 0
 //        otherPlayerScore = 0
@@ -116,17 +118,17 @@ class MatchManager: NSObject, ObservableObject{
         gameStatus = .inGame
     }
     
-    func chooseCharacter(_ character: Character) {
+    func chooseCharacter(_ karakter: Karakter) {
         guard localCharacter == nil || otherCharacter == nil else {
             return
         }
 
         if localCharacter == nil {
-            localCharacter = character
-            if let index = characters.firstIndex(where: { $0.id == character.id }) {
+            localCharacter = karakter
+            if let index = characters.firstIndex(where: { $0.id == karakter.id }) {
                 characters[index].isChosen = true
             }
-            synchronizeCharacterSelection(character)
+            synchronizeCharacterSelection(karakter)
             
             if otherCharacter != nil {
                 gameStatus = .stories
@@ -139,14 +141,14 @@ class MatchManager: NSObject, ObservableObject{
 //        gameCenterVC.gameCenterDelegate = self
 //        rootViewController?.present(gameCenterVC, animated: true)
 //    }
-//    
+//
 //    func submitMyScoreToGameCenterLeaderboard(_ score: Int) {
 //        GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: ["godsfingerleaderboard"]) { [self] error in
 //            guard error == nil else {
 //                print(error?.localizedDescription ?? "")
 //                return
 //            }
-//            
+//
 //            gameStatus = .gameOver
 //        }
 //    }
@@ -161,16 +163,16 @@ class MatchManager: NSObject, ObservableObject{
     }
     
 //    func updateOtherPlayerScore(withScore score: Int) {
-//        
+//
 //        otherPlayerScore = score
-// 
+//
 //    }
     
 //    func receivedStringData(_ message: String) {
 //        let messageSplit = message.split(separator: ":")
-//        
+//
 //        let score = Int(messageSplit.last ?? "0") ?? 0
-//        
+//
 //        updateOtherPlayerScore(withScore: score)
 //    }
 

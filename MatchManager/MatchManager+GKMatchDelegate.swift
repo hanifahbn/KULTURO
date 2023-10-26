@@ -26,14 +26,7 @@ extension MatchManager: GKMatchDelegate{
         }
     }
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-//        let content = String(decoding: data, as: UTF8.self)
-        
-//        if content.starts(with: "playerScore") {
-//            let message = content.replacing("playerScore", with: "")
-//            receivedStringData(message)
-//        }
-            
-        if var receivedCharacter = try? JSONDecoder().decode(Character.self, from: data) {
+        if let receivedCharacter = try? JSONDecoder().decode(Karakter.self, from: data) {
             if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
                 characters[index].isChosen.toggle()
                 otherCharacter = characters[index]
@@ -43,7 +36,7 @@ extension MatchManager: GKMatchDelegate{
                 }
             }
         } else {
-            print("Failed to decode received data as Character.")
+            print("Failed to decode received data as Karakter.")
         }
     }
     

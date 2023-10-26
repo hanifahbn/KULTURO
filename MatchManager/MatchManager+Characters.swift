@@ -9,7 +9,7 @@ import Foundation
 import GameKit
 
 extension MatchManager{
-    func synchronizeCharacterSelection(_ selectedCharacter: Character) {
+    func synchronizeCharacterSelection(_ selectedCharacter: Karakter) {
         if let encodedData = try? JSONEncoder().encode(selectedCharacter) {
             sendData(encodedData, mode: .unreliable)
         }
