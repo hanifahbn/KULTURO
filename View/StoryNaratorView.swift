@@ -71,6 +71,7 @@ struct StoryNaratorView: View {
             }
         }
     }
+    
     func goToNextStory() {
         currentIndex += 1
         if currentIndex < viewModel.naratorStories.count {

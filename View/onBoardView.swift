@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct onBoardView: View {
-    @StateObject var matchManager : MatchManager
+    @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
         ZStack{
@@ -40,5 +40,6 @@ struct onBoardView: View {
 }
 
 #Preview {
-    onBoardView(matchManager: MatchManager())
+    onBoardView()
+        .environmentObject(MatchManager())
 }

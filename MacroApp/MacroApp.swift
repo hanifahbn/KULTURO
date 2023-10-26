@@ -11,8 +11,8 @@ import SwiftUI
 struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            DesaStoriesView(viewModel: StoryViewModel())
+            ContentView()
+//            DesaStoriesView(viewModel: StoryViewModel())
         }
     }
 }

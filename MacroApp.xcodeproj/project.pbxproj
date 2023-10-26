@@ -10,6 +10,8 @@
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
+		A3E99C8F2AEA141F002FDE6C /* MatchManager+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C8E2AEA141F002FDE6C /* MatchManager+Characters.swift */; };
+		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* Story.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
 		E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */; };
@@ -37,6 +39,8 @@
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A3E99C8E2AEA141F002FDE6C /* MatchManager+Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Characters.swift"; sourceTree = "<group>"; };
+		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesaStoriesView.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E20C87C92AE4129F0054AD47 /* Story.swift */,
+				A3E99C902AEA1698002FDE6C /* Karakter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */,
 				E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */,
 				E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */,
+				A3E99C8E2AEA141F002FDE6C /* MatchManager+Characters.swift */,
 			);
 			path = MatchManager;
 			sourceTree = "<group>";
@@ -237,10 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A729542AE216230093DD1F /* ComponetButton.swift in Sources */,
+				A3E99C8F2AEA141F002FDE6C /* MatchManager+Characters.swift in Sources */,
 				E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* onBoardView.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
 				E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */,
+				A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				E2E5B9302AE1365E003B4F70 /* EndGameView.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,

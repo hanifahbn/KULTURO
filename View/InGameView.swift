@@ -8,32 +8,22 @@
 import SwiftUI
 
 struct InGameView: View {
+    @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
         ZStack{
             Color.ungu
                 .ignoresSafeArea()
-            ScrollView (.vertical){
-                Button(action: {
-                    
-                }, label: {
-                    TextSound(imageHalfBody: "KadesHalf", namaChar: "Pak Singa", asalChar: "Batak", colorBackground: "Coklat")
-                })
-                Button(action: {
-                    
-                }, label: {
-                    TextSound(imageHalfBody: "Eyog", namaChar: "Eyog", asalChar: "Jawa", colorBackground: "HijauMudah")
-                })
-                Button(action: {
-                    
-                }, label: {
-                    TextSound(imageHalfBody: "Gale", namaChar: "Oman", asalChar: "Bali", colorBackground: "Kuning")
-                })
-                Button(action: {
-                    
-                }, label: {
-                    TextSound(imageHalfBody: "CiMei", namaChar: "Mei", asalChar: "Surabya", colorBackground: "BiruLangit")
-                })
+            ScrollView(.vertical) {
+                ForEach(matchManager.characters) { karakter in
+                    Button(action: {
+                        matchManager.chooseCharacter(karakter)
+                    }) {
+                        TextSound(imageHalfBody: karakter.halfImage, namaChar: karakter.name, asalChar: karakter.origin, colorBackground: karakter.color)
+                    }
+                    .disabled(karakter.isChosen)
+                    .opacity(karakter.isChosen ? 0.5 : 1.0)
+                }
             }
             .padding()
         }
@@ -42,6 +32,7 @@ struct InGameView: View {
 
 #Preview {
     InGameView()
+        .environmentObject(MatchManager())
 }
 
 struct TextSound: View {

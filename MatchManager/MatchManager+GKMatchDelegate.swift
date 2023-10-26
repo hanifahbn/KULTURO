@@ -10,11 +10,17 @@ import GameKit
 
 extension MatchManager: GKMatchDelegate{
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        let content = String(decoding: data, as: UTF8.self)
-        
-        if content.starts(with: "playerScore") {
-            let message = content.replacing("playerScore", with: "")
-            receivedStringData(message)
+        if let receivedCharacter = try? JSONDecoder().decode(Karakter.self, from: data) {
+            if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
+                characters[index].isChosen.toggle()
+                otherCharacter = characters[index]
+                
+                if localCharacter != nil {
+                    gameStatus = .stories
+                }
+            }
+        } else {
+            print("Failed to decode received data as Karakter.")
         }
     }
     
