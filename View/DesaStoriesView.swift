@@ -26,7 +26,7 @@ struct DesaStoriesView: View {
                     .resizable()
                     .ignoresSafeArea()
             } else {
-                Image("BackgroundImage")
+                Image("BackgroundImageGapura")
                     .resizable()
                     .ignoresSafeArea()
             }
@@ -34,6 +34,7 @@ struct DesaStoriesView: View {
                 Image(viewModel.desaStories[0].characterOne)
                     .resizable()
                     .frame(width: 110, height: 226)
+                    .padding(.top, 40)
                 Image(viewModel.desaStories[0].characterTwo)
                     .resizable()
                     .frame(width: 110, height: 226)
@@ -44,29 +45,25 @@ struct DesaStoriesView: View {
                     .offset(x: isAnimation1 ?  0 : 100)
                     .opacity(isAnimation1 ? 1 : 0)
                     .animation(.linear(duration: 2), value: isAnimation1)
-            }.padding(.top, 200)
+            }
+                .padding(.top, 200)
                 .offset(x: isAnimation ? 10 : -200)
                 .animation(.linear(duration: 3), value: isAnimation)
             VStack{
+               Spacer()
+                HStack{
+                    Image(viewModel.desaStories[viewModel.currentIndex].characterOne)
+                }
+                .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.white)
-                    .opacity(0.8)
                     .shadow(radius: 0, y: 5)
                     .overlay {
                         Text(viewModel.desaStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .font(.system(size: 28, weight: .medium, design: .rounded))
                             .padding(4)
                     }
-//                    .frame(width: 360, height: 200)
-               
-                HStack(spacing : -200){
-                    Image(viewModel.desaStories[viewModel.currentIndex].characterOne)
-                    
-                    if viewModel.currentIndex == 6{
-                        Image(viewModel.desaStories[viewModel.currentIndex].characterTwo)
-                    }
-                }
-                .padding(.bottom, -40)
+                    .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
 //            .animation(.linear(duration: 0.2), value: isStory)
