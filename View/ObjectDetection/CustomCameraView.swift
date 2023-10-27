@@ -107,7 +107,7 @@ struct CustomCameraView: View {
                                             .foregroundColor(.black)
 
                                         Button(action: {
-                                            tool = toolBrain.getRandomTool()
+                                            tool = toolBrain.getRandomTool(tool)
                                         }) {
                                             Image(tool.imageName).resizable().frame(width: 42, height: 42)
                                         }

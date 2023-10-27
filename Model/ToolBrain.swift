@@ -9,7 +9,7 @@ import Foundation
 
 struct ToolBrain {
 
-    let tools = [
+    var tools = [
         Tool(i: "Broom", o: "notebook, notebook computer"),
         Tool(i: "Bucket", o: "bucket, pail"),
 //        Tool(i: "clock", o: "analog clock"),
@@ -17,10 +17,15 @@ struct ToolBrain {
 //        Tool(i: "doormat", o: "doormat, welcome mat")
     ]
 
-    func getRandomTool() -> Tool {
-        let result = tools.randomElement()!
+    func getRandomTool(_ tool : Tool) -> Tool {
+        var randomTool: Tool = getFirstTool()
 
-       return result
+        repeat {
+            let shuffledTools = tools.shuffled()
+            randomTool = shuffledTools[0]
+        } while randomTool == tool
+
+        return randomTool
    }
 
     func getFirstTool() -> Tool {

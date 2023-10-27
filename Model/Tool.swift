@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tool {
+struct Tool: Equatable {
     let imageName: String
     let objectIdentifier: String
 

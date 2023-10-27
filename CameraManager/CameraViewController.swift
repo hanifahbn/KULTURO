@@ -87,7 +87,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
 
                 sessionQueue.async { [unowned self] in
 
-                     self.setupDetector()
+                   self.setupDetector()
                    self.session?.startRunning()
 
                 }
