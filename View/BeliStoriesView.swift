@@ -14,6 +14,7 @@ struct  BeliStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
+    @EnvironmentObject var router : Router
     var body: some View {
 //        NavigationStack{
             ZStack{
@@ -73,15 +74,20 @@ struct  BeliStoriesView: View {
 //                .animation(.linear(duration: 0.2), value: isStory)
                 
             }
+            .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 //Nanti di pindah ke view model
                 viewModel.currentIndex += 1
                 if viewModel.currentIndex == 5{
                     isStory = false
                     isNextStory = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        router.path.append(.missionOne)
+                    }
                     
                 } else if viewModel.currentIndex == 6{
                     isNextStory = true
+                    
                 }
             }
             .onAppear{

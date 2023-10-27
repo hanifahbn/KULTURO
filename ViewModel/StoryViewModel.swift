@@ -21,11 +21,11 @@ class StoryViewModel: ObservableObject {
    
     init () {
         naratorStories = [
-            NaratorStories(stories: "Eyog dan oman adalah dua anak smp yang bersahabat yang sangat kompetitif disegala bidang, kompetisi selalu menjadi hal lumrah untuk mereka berdua. "),
-            NaratorStories(stories: "Di satu liburan semeter mereka memutuskan untuk berlibur ke rumah neneknya eyog di desa laguboti di Medan"),
-            NaratorStories(stories: "Ternyata di desa tersebut sedang ada kegiatan renovasi untuk balai desa. Sang nenek pun menyuruh Eyog dan oman untuk membantu."),
-            NaratorStories(stories: "Petualangan mereka di Desa Laguboti ini akan menyebabkan suatu perubahan dalam diri mereka"),
-            NaratorStories(stories: "Dan ini lah kisahnya...")
+            NaratorStories(stories: "Eyog dan oman adalah dua anak smp yang bersahabat yang sangat kompetitif disegala bidang, kompetisi selalu menjadi hal lumrah untuk mereka berdua. ", nextChapter: false),
+            NaratorStories(stories: "Di satu liburan semeter mereka memutuskan untuk berlibur ke rumah neneknya eyog di desa laguboti di Medan", nextChapter: false),
+            NaratorStories(stories: "Ternyata di desa tersebut sedang ada kegiatan renovasi untuk balai desa. Sang nenek pun menyuruh Eyog dan oman untuk membantu.",nextChapter: false),
+            NaratorStories(stories: "Petualangan mereka di Desa Laguboti ini akan menyebabkan suatu perubahan dalam diri mereka",nextChapter: false),
+            NaratorStories(stories: "Dan ini lah kisahnya...",nextChapter: true)
         ]
         
         desaStories = [
@@ -40,7 +40,8 @@ class StoryViewModel: ObservableObject {
             DesaStories(stories: "", characterOne: "PersonOne", characterTwo: "PersonTwo"),
             DesaStories(stories: "ini bang balai desa yang akan direnovasi, Rusaknya lumayan parah. ", characterOne: "HeadOfficeDesa", characterTwo: ""),
             DesaStories(stories: "sekarang kalian berdua beli bahan bangunannya dulu ya di Warung ujung sana, ini list nya yang harus kalian beli", characterOne: "HeadOfficeDesa", characterTwo: ""),
-            DesaStories(stories: "Oke pak, kami jalan sekarang", characterOne: "Couple", characterTwo: "")
+            DesaStories(stories: "Oke pak, kami jalan sekarang", characterOne: "Couple", characterTwo: ""),
+            DesaStories(stories: "", characterOne: "", characterTwo: "")
             
         ]
         
@@ -51,6 +52,7 @@ class StoryViewModel: ObservableObject {
             BeliStories(stories: "mau beli barang bangunan untuk renovasi balai desa Bu", characterOne: "Couple", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "oh oke oke yasudah mau beli apa saja kalian?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "Ucapkan barang - \n barang yang ada di\n Daftar Belanja", characterOne: "", characterTwo: "", inMissionOne: true),
+            BeliStories(stories: "", characterOne: "", characterTwo: "", inMissionOne: false)
         ]
         
         gudangStories = [
@@ -86,6 +88,7 @@ class StoryViewModel: ObservableObject {
             PasirStories(stories: "Yasudah sekarang kalian bantu warga merenovasi ya", characterOne: "HeadOfficeDesa", transisiStories: false),
             PasirStories(stories: "Kalian berdua sekarang ayak pasir ya, hati hati kalian jangan sampai terluka", characterOne: "HeadOfficeDesa", transisiStories: false),
             PasirStories(stories: "Baik pak", characterOne: "Couple", transisiStories: false),
+            PasirStories(stories: "", characterOne: "", transisiStories: false)
         ]
         
         endStories = [

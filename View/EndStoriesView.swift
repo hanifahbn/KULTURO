@@ -11,6 +11,7 @@ import SwiftUI
 
 struct  EndStoriesView: View {
     @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var router : Router
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -85,6 +86,7 @@ struct  EndStoriesView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             viewModel.currentIndex += 1

@@ -12,7 +12,8 @@ struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            DesaStoriesView(viewModel: StoryViewModel())
+//            DesaStoriesView(viewModel: StoryViewModel())
+            InGameView()
         }
     }
 }

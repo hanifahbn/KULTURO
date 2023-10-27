@@ -9,6 +9,7 @@ import SwiftUI
 
 struct  GudangStoriesView: View {
     @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var router : Router
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -59,6 +60,7 @@ struct  GudangStoriesView: View {
             .opacity(isStory ? 1 : 0)
             //            .animation(.linear(duration: 0.2), value: isStory)
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             viewModel.currentIndex += 1
@@ -73,6 +75,8 @@ struct  GudangStoriesView: View {
                 isAnimation1 = false
             } else if viewModel.currentIndex == 8{
                 isStory = false
+            } else if viewModel.currentIndex == 10{
+                router.path.append(.cameraGame)
             }
             else {
                 isStory = true

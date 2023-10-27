@@ -10,6 +10,7 @@ import Foundation
 struct NaratorStories : Identifiable{
     var id = UUID()
     var stories: String
+    var nextChapter : Bool
 }
 
 struct DesaStories: Identifiable{
@@ -17,6 +18,7 @@ struct DesaStories: Identifiable{
     var stories: String
     var characterOne : String
     var characterTwo : String
+    
 }
 
 struct BeliStories: Identifiable{

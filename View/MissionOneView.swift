@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MissionOneView: View {
     @State private var isModalPresented = false
+    
     var body: some View {
         ZStack{
-            Image("BackgroundImage")
+            Image("BackgroundMisionOne")
                 .resizable()
                 .ignoresSafeArea()
-                .blur(radius: 2.0)
             Image("Paper")
                 .padding(.leading, 30)
             VStack{
@@ -57,9 +57,10 @@ struct MissionOneView: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: $isModalPresented) {
-            ModalView()
+            ModalView(isModalPresented: $isModalPresented)
                 .presentationDetents([.height(190)])
         }
         
@@ -91,6 +92,8 @@ struct textSound: View {
 }
 
 struct ModalView: View {
+    @EnvironmentObject var router : Router
+    @Binding var  isModalPresented : Bool
     var body: some View {
         ZStack{
             Color.ungu
@@ -100,7 +103,8 @@ struct ModalView: View {
                     .font(.system(size: 25, weight: .bold))
                     .multilineTextAlignment(.center)
                 ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
-                    print("Next Storie")
+                    router.path.append(.gudangStories)
+                    isModalPresented = false
                 }
             }
         }

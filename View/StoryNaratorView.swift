@@ -9,13 +9,14 @@ import SwiftUI
 
 struct StoryNaratorView: View {
     @ObservedObject var viewModel: StoryViewModel
+    
     @State var text: String = ""
     var typingSpeed: Double = 0.1
     @State var position: Int = 0
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
     @State private var isFirstTap = true
-    
+    @EnvironmentObject var router : Router
     
     
     var body: some View {
@@ -44,9 +45,13 @@ struct StoryNaratorView: View {
                     }
                     .frame(width: 350, height: 300)
                     .shadow(radius: 10)
+
+//                .opacity(viewModel.naratorStories[currentIndex].nextChapter ? 1 : 0)
             }
             .padding(.top, 20)
+           
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
         }
@@ -54,7 +59,10 @@ struct StoryNaratorView: View {
             if isFirstTap {
                 isFirstTap = false 
                 nextStory = true
-            } else {
+            } else if viewModel.naratorStories[currentIndex].nextChapter{
+                router.path.append(.desaStories)
+            }
+            else {
                 goToNextStory()
                 isFirstTap = true
             }
