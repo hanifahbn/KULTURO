@@ -84,6 +84,7 @@ struct StoryNaratorView: View {
             nextStory = false
         }
         else if currentIndex == viewModel.naratorStories.count {
+            position = 0
             nextStory = false
             matchManager.gameStatus = .convoBalaiDesa
         }

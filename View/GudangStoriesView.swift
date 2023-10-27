@@ -62,7 +62,12 @@ struct  GudangStoriesView: View {
         }
         .onTapGesture {
             //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
+            if viewModel.currentIndex < 10 {
+                viewModel.currentIndex += 1
+            } else {
+                matchManager.gameStatus = .convoBantuDesa
+            }
+            
             if viewModel.currentIndex == 1{
                 isStory = false
                 
@@ -83,6 +88,7 @@ struct  GudangStoriesView: View {
         }
         .onAppear{
             isStory = true
+            matchManager.isFinishedPlaying = 0
             //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             //
             //            }

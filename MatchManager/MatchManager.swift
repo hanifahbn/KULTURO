@@ -27,6 +27,9 @@ enum GameStatus {
     case convoBalaiDesa
     case convoBeli
     case convoGudang
+    case convoBantuDesa
+    case convoPasir
+    case convoBerhasil
 }
 
 class MatchManager: NSObject, ObservableObject{
@@ -44,10 +47,10 @@ class MatchManager: NSObject, ObservableObject{
     var otherTools: [String]?
     
     @Published var characters: [Karakter] = [
-        Karakter(name: "Pak Singa", headImage: "", fullImage: "", halfImage: "KadesHalf", origin: "Batak", color: "Coklat", isChosen: false),
-        Karakter(name: "Eyog", headImage: "", fullImage: "", halfImage: "Eyog", origin: "Jawa", color: "HijauMudah", isChosen: false),
-        Karakter(name: "Oman", headImage: "PersonTwoHead", fullImage: "", halfImage: "Gale", origin: "Bali", color: "Kuning", isChosen: false),
-        Karakter(name: "Mei", headImage: "", fullImage: "", halfImage: "CiMei", origin: "Surabaya", color: "BiruLangit", isChosen: false)
+        Karakter(name: "Dayu", headImage: "", fullImage: "PersonTwoHead", halfImage: "KadesHalf", origin: "Bali", color: "Coklat", isChosen: false),
+        Karakter(name: "Togar", headImage: "PersonTwoHead", fullImage: "", halfImage: "Eyog", origin: "Batak", color: "HijauMudah", isChosen: false),
+        Karakter(name: "Asep", headImage: "PersonTwoHead", fullImage: "", halfImage: "Gale", origin: "Bandung", color: "Kuning", isChosen: false),
+        Karakter(name: "Ajeng", headImage: "PersonTwoHead", fullImage: "", halfImage: "CiMei", origin: "Solo", color: "BiruLangit", isChosen: false)
     ]
     
     @Published var tools: [Tool] = [

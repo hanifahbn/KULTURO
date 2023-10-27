@@ -35,6 +35,15 @@ struct ContentView: View {
             case .convoGudang:
                 GudangStoriesView()
                     .environmentObject(matchManager)
+            case .convoBantuDesa:
+                BantuDesaView()
+                    .environmentObject(matchManager)
+            case .convoPasir:
+                PasirStoriesView()
+                    .environmentObject(matchManager)
+            case .convoBerhasil:
+                EndStoriesView()
+                    .environmentObject(matchManager)
             case .missionone:
                 MissionOneView()
                     .environmentObject(matchManager)

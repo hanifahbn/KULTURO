@@ -41,22 +41,25 @@ struct MissionOneView: View {
                 .padding(.leading, 30)
             VStack{
                 if(matchManager.isFinishedPlaying == 1 && isFinished == false){
-                    RoundedRectangle(cornerRadius: 15.0)
-                        .frame(width: 220, height: 54)
-                        .foregroundStyle(.white)
-                        .shadow(radius: 0, y: 5)
-                        .overlay {
-                            HStack{
-                                Image(matchManager.otherCharacter!.headImage)
-                                    .resizable()
-                                    .frame(width: 70, height: 70)
-                                    .padding(.bottom, 15)
-                                Text("Hei lekaslah, aku sudah selesai")
-                                    .font(.system(size: 15, weight: .bold))
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .frame(width: 220, height: 54)
+                            .foregroundStyle(.white)
+                            .shadow(radius: 0, y: 5)
+                            .overlay {
+                                HStack{
+                                    Image(matchManager.otherCharacter!.headImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70)
+                                        .padding(.bottom, 15)
+                                    Text("Hei lekaslah, aku sudah selesai")
+                                        .font(.system(size: 15, weight: .bold))
+                                }
                             }
-                        }
-    //                    .opacity(isModalPresented ? 1 : 0)
-                        .animation(.linear, value: isModalPresented)
+        //                    .opacity(isModalPresented ? 1 : 0)
+                            .animation(.linear, value: isModalPresented)
+                    }
+                    .zIndex(3)
                 }
                 Spacer()
                 Text("List Belanja")
@@ -87,12 +90,14 @@ struct MissionOneView: View {
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: $isModalPresented) {
             ModalView()
+                .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }
         .onTapGesture{
             isTutorialShown = false
         }
         .onAppear{
+            matchManager.isFinishedReading = 0
             tools = Array(matchManager.tools.shuffled().prefix(3))
         }
     }
@@ -124,6 +129,7 @@ struct textSound: View {
 }
 
 struct ModalView: View {
+    @EnvironmentObject var matchManager: MatchManager
     var body: some View {
         ZStack{
             Color.ungu
@@ -134,6 +140,7 @@ struct ModalView: View {
                     .multilineTextAlignment(.center)
                 ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
                 }
+                .disabled(matchManager.isFinishedPlaying != 2)
             }
         }
     }

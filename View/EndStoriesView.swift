@@ -10,7 +10,9 @@ import SwiftUI
 import SwiftUI
 
 struct  EndStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var matchManager: MatchManager
+    
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -93,7 +95,8 @@ struct  EndStoriesView: View {
 }
 
 #Preview {
-    EndStoriesView(viewModel: StoryViewModel())
+    EndStoriesView()
+        .environmentObject(MatchManager())
 }
 
 
