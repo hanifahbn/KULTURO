@@ -33,8 +33,7 @@ class StoryViewModel: ObservableObject {
             DesaStories(stories: "hey eyog ayo kita berlomba, siapa yang paling berkontribusi saat memperbaiki balai desa.", characterOne: "PersonOneDesa", characterTwo: ""),
             DesaStories(stories: "huh? Jangan menangis ya kalau aku yang memenangi kompetisi yang kamu buat ini", characterOne: "PersonTwoDesa", characterTwo: ""),
             DesaStories(stories: "hahaha lucu sekali teman ku yang ini, kamu pasti akan menyesal eyog", characterOne: "PersonOneDesa", characterTwo: ""),
-            DesaStories(stories: "", characterOne: "HeadOffice", characterTwo: ""),
-            DesaStories(stories: "wah oman dan eyog sudah datang ya, mari mari lihat balai desanya", characterOne: "HeadOfficeDesa", characterTwo: ""),
+            DesaStories(stories: "wah oman dan eyog sudah datang ya, mari mari lihat balai desanya", characterOne: "HeadOfficeDesa", characterTwo: "HeadOffice"),
             DesaStories(stories: "Oh iya mari pak.", characterOne: "Couple", characterTwo: ""),
             DesaStories(stories: "", characterOne: "", characterTwo: ""),
             DesaStories(stories: "", characterOne: "PersonOne", characterTwo: "PersonTwo"),
@@ -65,8 +64,8 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "Wah lengkap semua, terimakasih nak", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan renovasi nya ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
-            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
+            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: false),
+            GudangStorie(stories: "", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: true),
             
         ]
         

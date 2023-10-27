@@ -20,11 +20,18 @@ struct InGameView: View {
                 Color(red: 0.97, green: 0.96, blue: 0.96)
                     .ignoresSafeArea()
                 ScrollView (.vertical){
-                    Button(action: {
-                        router.path.append(.narator)
-                    }, label: {
-                        TextSound(imageHalfBody: "Dayu", namaChar: "Dayu", asalChar: "Bali", gradienKanan: "GkananKuning", gradienKiri: "GkiriKuning")
-                    })
+                    ZStack{
+                        Button(action: {
+                            router.path.append(.narator)
+                        }, label: {
+                            TextSound(imageHalfBody: "Dayu", namaChar: "Dayu", asalChar: "Bali", gradienKanan: "GkananKuning", gradienKiri: "GkiriKuning")
+                        })
+                        Button(action: {
+                            
+                        }, label: {
+                            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                        })
+                    }
                     Button(action: {
                         router.path.append(.narator)
                     }, label: {
@@ -92,8 +99,8 @@ struct TextSound: View {
                     }
                     .foregroundStyle(.black)
                     .padding(.leading, -20)
-                    
                     Spacer()
+                    
                 }
             }
     }

@@ -45,11 +45,20 @@ struct StoryNaratorView: View {
                     }
                     .frame(width: 350, height: 300)
                     .shadow(radius: 10)
-
-//                .opacity(viewModel.naratorStories[currentIndex].nextChapter ? 1 : 0)
             }
             .padding(.top, 20)
-           
+            HStack{
+                Spacer()
+                Button(action: {
+                    print("Sound")
+                }, label: {
+                    Image(systemName: "speaker.wave.2.circle.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                })
+                .padding(.top, 250)
+                .padding(.trailing, 40)
+            }
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{

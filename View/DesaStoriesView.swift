@@ -14,6 +14,7 @@ struct DesaStoriesView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @EnvironmentObject var router : Router
+    @State var isTapGestureEnabled = true
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -31,25 +32,29 @@ struct DesaStoriesView: View {
                     .resizable()
                     .ignoresSafeArea()
             }
-            HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                Spacer()
-                Image(viewModel.desaStories[4].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .offset(x: isAnimation1 ?  0 : 100)
-                    .opacity(isAnimation1 ? 1 : 0)
-                    .animation(.linear(duration: 2), value: isAnimation1)
+            HStack{
+                HStack(spacing : -30){
+                    Image(viewModel.desaStories[0].characterOne)
+                        .resizable()
+                        .frame(width: 110, height: 226)
+                        .padding(.top, 40)
+                    Image(viewModel.desaStories[0].characterTwo)
+                        .resizable()
+                        .frame(width: 110, height: 226)
+                    Spacer()
+                    Image(viewModel.desaStories[4].characterTwo)
+                        .resizable()
+                        .frame(width: 110, height: 226)
+                        .offset(x: isAnimation1 ?  0 : 100)
+                        .opacity(isAnimation1 ? 1 : 0)
+                        .animation(.linear(duration: 2), value: isAnimation1)
+                }
+                    .padding(.top, 200)
+                    .offset(x: isAnimation ? 10 : -200)
+                    .animation(.linear(duration: 2.5), value: isAnimation)
             }
-                .padding(.top, 200)
-                .offset(x: isAnimation ? 10 : -200)
-                .animation(.linear(duration: 3), value: isAnimation)
+//            .offset(x: isAnimation1 ? 400 : 0)
+            
             VStack{
                Spacer()
                 HStack{
@@ -71,29 +76,37 @@ struct DesaStoriesView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
-            //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
-            if viewModel.currentIndex == 4{
-                isStory = false
-                isAnimation1 = true
-            } else if viewModel.currentIndex == 5{
-                isStory = true
-            } else if viewModel.currentIndex == 7{
-                isNextStory = true
-            } else if viewModel.currentIndex == 8{
-                isNextStory = false
-                isStory = false
-            } else if viewModel.currentIndex == 9{
-                isStory = true
-            } else if viewModel.currentIndex == 12{
-                router.path.append(.beliStories)
+            if isTapGestureEnabled {
+                //Nanti di pindah ke view model
+                viewModel.currentIndex += 1
+                if viewModel.currentIndex == 4 {
+                    isStory = false
+                    isAnimation1 = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isStory = true
+                        isTapGestureEnabled = true
+                    }
+                } else if viewModel.currentIndex == 6 {
+                    isStory = false
+                    isAnimation1 = true
+                } else if viewModel.currentIndex == 8 {
+                    isNextStory = false
+                    isStory = false
+                } else if viewModel.currentIndex == 9 {
+                    isStory = true
+                } else if viewModel.currentIndex == 12 {
+                    router.path.append(.beliStories)
+                }
             }
         }
         .onAppear{
             isAnimation = true
-            
+            isTapGestureEnabled = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isStory = true
+                isTapGestureEnabled = true
+                
             }
         }
         
