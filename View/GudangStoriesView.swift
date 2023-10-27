@@ -60,6 +60,7 @@ struct  GudangStoriesView: View {
             .opacity(isStory ? 1 : 0)
             //            .animation(.linear(duration: 0.2), value: isStory)
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             if viewModel.currentIndex < 10 {

@@ -63,6 +63,7 @@ struct  BantuDesaView: View {
             .opacity(isStory ? 1 : 0)
             //            .animation(.linear(duration: 0.2), value: isStory)
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             if viewModel.currentIndex < 7 {
@@ -79,6 +80,8 @@ struct  BantuDesaView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     isStory = true
                 }
+            } else if viewModel.currentIndex == 7{
+//                router.path.append(.dragGame)
             }
         }
         .onAppear{

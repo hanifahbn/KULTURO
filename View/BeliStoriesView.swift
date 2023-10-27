@@ -14,6 +14,7 @@ struct  BeliStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
+    
     var body: some View {
 //        NavigationStack{
             ZStack{
@@ -58,6 +59,7 @@ struct  BeliStoriesView: View {
 //                .animation(.linear(duration: 0.2), value: isStory)
                 
             }
+            .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 //Nanti di pindah ke view model
                 if viewModel.currentIndex < 4 {

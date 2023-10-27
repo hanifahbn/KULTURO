@@ -33,10 +33,9 @@ struct MissionOneView: View {
                 .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                 .zIndex(2)
             }
-            Image("BackgroundImage")
+            Image("BackgroundMisionOne")
                 .resizable()
                 .ignoresSafeArea()
-                .blur(radius: 2.0)
             Image("Paper")
                 .padding(.leading, 30)
             VStack{
@@ -87,6 +86,7 @@ struct MissionOneView: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: $isModalPresented) {
             ModalView()

@@ -11,7 +11,6 @@ struct  PasirStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
     
     @StateObject var viewModel : StoryViewModel = StoryViewModel()
-    
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -67,6 +66,7 @@ struct  PasirStoriesView: View {
             .opacity(isStory ? 1 : 0)
             //            .animation(.linear(duration: 0.2), value: isStory)
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             if viewModel.currentIndex < 5 {
@@ -77,6 +77,8 @@ struct  PasirStoriesView: View {
             
             if viewModel.currentIndex == 1{
                 isStory = false
+            } else if viewModel.currentIndex == 6{
+//                router.path.append(.ayakPasirGame)
             }
         }
         .onAppear{

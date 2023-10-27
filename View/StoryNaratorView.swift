@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StoryNaratorView: View {
     @ObservedObject var viewModel: StoryViewModel
+    
     @EnvironmentObject var matchManager: MatchManager
     
     @State var text: String = ""
@@ -44,9 +45,13 @@ struct StoryNaratorView: View {
                     }
                     .frame(width: 350, height: 300)
                     .shadow(radius: 10)
+
+//                .opacity(viewModel.naratorStories[currentIndex].nextChapter ? 1 : 0)
             }
             .padding(.top, 20)
+           
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
         }

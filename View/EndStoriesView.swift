@@ -87,6 +87,7 @@ struct  EndStoriesView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             viewModel.currentIndex += 1
