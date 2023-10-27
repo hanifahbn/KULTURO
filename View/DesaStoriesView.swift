@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DesaStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var matchManager: MatchManager
+    @StateObject var viewModel: StoryViewModel = StoryViewModel()
+    
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -70,7 +72,12 @@ struct DesaStoriesView: View {
         }
         .onTapGesture {
             //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
+            if viewModel.currentIndex < 11 {
+                viewModel.currentIndex += 1
+            } else {
+                matchManager.gameStatus = .convoBeli
+            }
+            
             if viewModel.currentIndex == 4{
                 isStory = false
                 isAnimation1 = true

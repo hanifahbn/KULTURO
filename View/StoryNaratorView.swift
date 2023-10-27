@@ -9,14 +9,14 @@ import SwiftUI
 
 struct StoryNaratorView: View {
     @ObservedObject var viewModel: StoryViewModel
+    @EnvironmentObject var matchManager: MatchManager
+    
     @State var text: String = ""
     var typingSpeed: Double = 0.1
     @State var position: Int = 0
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
     @State private var isFirstTap = true
-    
-    
     
     var body: some View {
         ZStack{
@@ -56,10 +56,13 @@ struct StoryNaratorView: View {
                 nextStory = true
             } else {
                 goToNextStory()
-                isFirstTap = true
+                if currentIndex < viewModel.naratorStories.count {
+                    isFirstTap = true
+                }
             }
         }
     }
+    
     // nanti di pindah ke View model
     func typeWriter() {
         let Stories = viewModel.naratorStories[currentIndex].stories
@@ -80,6 +83,10 @@ struct StoryNaratorView: View {
             typeWriter()
             nextStory = false
         }
+        else if currentIndex == viewModel.naratorStories.count {
+            nextStory = false
+            matchManager.gameStatus = .convoBalaiDesa
+        }
     }
 }
 
@@ -87,11 +94,11 @@ struct StoryNaratorView: View {
     StoryNaratorView(viewModel: StoryViewModel())
 }
 
-//extension String {
-//    subscript(offset: Int) -> Character {
-//        self[index(startIndex, offsetBy: offset)]
-//    }
-//}
+extension String {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
 
 
 

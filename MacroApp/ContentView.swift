@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
+    
     var body: some View {
         Group{
             switch matchManager.gameStatus {
@@ -21,9 +22,22 @@ struct ContentView: View {
             case .gameOver:
                 EndGameView()
             case .stories:
-                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0)
+                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
+                    .environmentObject(matchManager)
+            case .isWaiting:
+                WaitingRoomView()
+            case .convoBalaiDesa:
+                DesaStoriesView()
+                    .environmentObject(matchManager)
+            case .convoBeli:
+                BeliStoriesView()
+                    .environmentObject(matchManager)
+            case .convoGudang:
+                GudangStoriesView()
+                    .environmentObject(matchManager)
             case .missionone:
                 MissionOneView()
+                    .environmentObject(matchManager)
             }
         }.onAppear{
             matchManager.authenticateUser()

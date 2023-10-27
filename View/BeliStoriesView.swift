@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct  BeliStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
-    @StateObject var matchManager : MatchManager
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+    @EnvironmentObject var matchManager : MatchManager
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -18,24 +18,9 @@ struct  BeliStoriesView: View {
 //        NavigationStack{
             ZStack{
                 // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-                
-                ZStack{
-                    Rectangle()
-        //                .foregroundStyle(.white)
-                        .ignoresSafeArea()
-                        .opacity(isNextStory ? 0.5 : 0)
-                    Text(isNextStory ?  viewModel.beliStories[viewModel.currentIndex].stories : "")
-                        .font(.system(size: 30, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                }
-                .animation(.easeIn(duration: 0.5), value: isNextStory)
-                .zIndex(2)
                 Image("BackgroundPanglong")
                     .resizable()
                     .ignoresSafeArea()
-               
-                
                 HStack{
                     HStack(spacing : -30){
                         Image(viewModel.desaStories[0].characterOne)
@@ -75,14 +60,19 @@ struct  BeliStoriesView: View {
             }
             .onTapGesture {
                 //Nanti di pindah ke view model
-                viewModel.currentIndex += 1
-                if viewModel.currentIndex == 5{
-                    isStory = false
-                    isNextStory = true
-                    
-                } else if viewModel.currentIndex == 6{
-                    isNextStory = true
+                if viewModel.currentIndex < 4 {
+                    viewModel.currentIndex += 1
+                } else {
+                    matchManager.isFinishedReading += 1
+                    matchManager.synchronizeGameState("Reading")
+                    if matchManager.isFinishedReading == 2 {
+                        matchManager.gameStatus = .missionone
+                    }
+                    else{
+                        matchManager.gameStatus = .isWaiting
+                    }
                 }
+                print(viewModel.currentIndex)
             }
             .onAppear{
                 isAnimation = true
@@ -96,5 +86,6 @@ struct  BeliStoriesView: View {
 }
 
 #Preview {
-    BeliStoriesView(viewModel: StoryViewModel(), matchManager: MatchManager())
+    BeliStoriesView()
+        .environmentObject(MatchManager())
 }

@@ -50,7 +50,7 @@ class StoryViewModel: ObservableObject {
             BeliStories(stories: "oh iya bang mau beli apa?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "mau beli barang bangunan untuk renovasi balai desa Bu", characterOne: "Couple", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "oh oke oke yasudah mau beli apa saja kalian?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
-            BeliStories(stories: "Ucapkan barang - \n barang yang ada di\n Daftar Belanja", characterOne: "", characterTwo: "", inMissionOne: true),
+//            BeliStories(stories: "Ucapkan barang - \n barang yang ada di\n Daftar Belanja", characterOne: "", characterTwo: "", inMissionOne: true),
         ]
         
         gudangStories = [

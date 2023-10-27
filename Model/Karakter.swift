@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Karakter: Identifiable, Equatable, Encodable, Decodable{
     var id = UUID()

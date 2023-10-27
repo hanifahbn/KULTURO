@@ -23,6 +23,10 @@ enum GameStatus {
     case stories
     case missionone
     case gameOver
+    case isWaiting
+    case convoBalaiDesa
+    case convoBeli
+    case convoGudang
 }
 
 class MatchManager: NSObject, ObservableObject{
@@ -34,12 +38,25 @@ class MatchManager: NSObject, ObservableObject{
     var otherPlayer: GKPlayer?
     var localCharacter: Karakter?
     var otherCharacter: Karakter?
+    var isFinishedReading: Int = 0
+    var isFinishedPlaying: Int = 0
+    var localTools: [String]?
+    var otherTools: [String]?
     
     @Published var characters: [Karakter] = [
         Karakter(name: "Pak Singa", headImage: "", fullImage: "", halfImage: "KadesHalf", origin: "Batak", color: "Coklat", isChosen: false),
         Karakter(name: "Eyog", headImage: "", fullImage: "", halfImage: "Eyog", origin: "Jawa", color: "HijauMudah", isChosen: false),
-        Karakter(name: "Oman", headImage: "", fullImage: "", halfImage: "Gale", origin: "Bali", color: "Kuning", isChosen: false),
+        Karakter(name: "Oman", headImage: "PersonTwoHead", fullImage: "", halfImage: "Gale", origin: "Bali", color: "Kuning", isChosen: false),
         Karakter(name: "Mei", headImage: "", fullImage: "", halfImage: "CiMei", origin: "Surabaya", color: "BiruLangit", isChosen: false)
+    ]
+    
+    @Published var tools: [Tool] = [
+        Tool(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: ""),
+        Tool(localName: "Labang", bahasaName: "Paku", exampleAudioURL: ""),
+        Tool(localName: "Lotaklotak", bahasaName: "Kayu", exampleAudioURL: ""),
+        Tool(localName: "Batu Kerengkel", bahasaName: "Batu Kerikil", exampleAudioURL: ""),
+        Tool(localName: "Sipadot", bahasaName: "Sapu", exampleAudioURL: ""),
+        Tool(localName: "Apusapus ni pat", bahasaName: "Keset", exampleAudioURL: "")
     ]
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
@@ -176,4 +193,5 @@ class MatchManager: NSObject, ObservableObject{
 //        updateOtherPlayerScore(withScore: score)
 //    }
 
+    
 }

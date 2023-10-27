@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct  GudangStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var matchManager: MatchManager
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -73,6 +74,8 @@ struct  GudangStoriesView: View {
                 isAnimation1 = false
             } else if viewModel.currentIndex == 8{
                 isStory = false
+            } else if viewModel.currentIndex > 8 {
+                // TODO
             }
             else {
                 isStory = true
@@ -90,4 +93,5 @@ struct  GudangStoriesView: View {
 
 #Preview {
     GudangStoriesView(viewModel: StoryViewModel())
+        .environmentObject(MatchManager())
 }

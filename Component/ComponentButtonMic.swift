@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ComponetButtonMic: View {
+struct ComponentButtonMic: View {
     @State var ButtonTap : Bool = false
     @State var textButton : String
     @State var iconButton : String
@@ -46,7 +46,7 @@ struct ComponetButtonMic: View {
 }
 
 #Preview {
-    ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
+    ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
         print("Next")
     }
 }

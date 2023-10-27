@@ -31,7 +31,7 @@ struct onBoardView: View {
                         .scaledToFit()
                 }
                 .padding(.top, 200)//Sementara menunggu Judul Game
-                ComponetButton(textButton: "Start Game") {
+                ComponentButton(textButton: "Start Game") {
                     matchManager.initiateMatch()
                 }
             }

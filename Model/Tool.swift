@@ -1,0 +1,15 @@
+//
+//  Tools.swift
+//  MacroApp
+//
+//  Created by Hanifah BN on 27/10/23.
+//
+
+import Foundation
+
+struct Tool: Identifiable, Equatable, Encodable, Decodable{
+    var id = UUID()
+    var localName: String
+    var bahasaName: String
+    var exampleAudioURL: String
+}
