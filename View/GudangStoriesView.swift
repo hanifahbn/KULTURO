@@ -14,12 +14,14 @@ struct  GudangStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
+    @State var isTapGestureEnabled = true
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
+           
             Rectangle()
                 .ignoresSafeArea()
-                .zIndex(1)
+                .zIndex(2)
                 .opacity(viewModel.gudangStories[viewModel.currentIndex].transisiStories ? 1 : 0)
                 .animation(.easeIn(duration: 0.5), value: viewModel.gudangStories[viewModel.currentIndex].transisiStories)
             Image(viewModel.gudangStories[viewModel.currentIndex].characterTwo)
@@ -51,9 +53,15 @@ struct  GudangStoriesView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
                     .overlay {
-                        Text(viewModel.gudangStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 28, weight: .medium, design: .rounded))
-                            .padding(4)
+                        VStack{
+                            HStack{
+                                Text(viewModel.gudangStories[viewModel.currentIndex].stories)
+                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
+                                    .padding(4)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
                     }
                     .frame(width: 350, height: 200)
             }
@@ -63,30 +71,48 @@ struct  GudangStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
-            if viewModel.currentIndex == 1{
-                isStory = false
-                
-            } else if viewModel.currentIndex == 3{
-                isAnimation1 = true
-                isStory = false
-            } else if viewModel.currentIndex == 4{
-                isAnimation = true
-                isAnimation1 = false
-            } else if viewModel.currentIndex == 8{
-                isStory = false
-            } else if viewModel.currentIndex == 10{
-                router.path.append(.cameraGame)
-            }
-            else {
-                isStory = true
+            if isTapGestureEnabled{
+                viewModel.currentIndex += 1
+                if viewModel.currentIndex == 1{
+                    isStory = false
+                    
+                } else if viewModel.currentIndex == 3{
+                    isAnimation1 = true
+                    isStory = false
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        viewModel.currentIndex += 1
+                        isAnimation = true
+                        isAnimation1 = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isStory = true
+                            isTapGestureEnabled = true
+                        }
+                    }
+                    
+                } else if viewModel.currentIndex == 7{
+//
+                    isAnimation1 = true
+                    isStory = false
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        viewModel.currentIndex += 1
+                        isAnimation1 = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isStory = true
+                            isTapGestureEnabled = true
+                        }
+                    }
+                } else if viewModel.currentIndex == 9{
+                    isStory = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        router.path.append(.cameraGame)
+                    }
+                }
             }
         }
         .onAppear{
             isStory = true
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            //
-            //            }
         }
         
     }

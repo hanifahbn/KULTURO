@@ -22,8 +22,8 @@ struct DesaStoriesView: View {
                 .ignoresSafeArea()
                 .zIndex(1)
                 .opacity(isNextStory ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: isNextStory)
-            if viewModel.currentIndex >= 8{
+                .animation(.easeIn(duration: 1), value: isNextStory)
+            if viewModel.currentIndex >= 7{
                 Image("BrokenBalaiDesa")
                     .resizable()
                     .ignoresSafeArea()
@@ -44,19 +44,20 @@ struct DesaStoriesView: View {
                     Spacer()
                     Image(viewModel.desaStories[4].characterTwo)
                         .resizable()
+                        .opacity(isAnimation1 ? 1 : 0)
                         .frame(width: 110, height: 226)
                         .offset(x: isAnimation1 ?  0 : 100)
-                        .opacity(isAnimation1 ? 1 : 0)
-                        .animation(.linear(duration: 2), value: isAnimation1)
+                        .animation(.linear(duration: 1.5), value: isAnimation1)
+                    
                 }
-                    .padding(.top, 200)
-                    .offset(x: isAnimation ? 10 : -200)
-                    .animation(.linear(duration: 2.5), value: isAnimation)
+                .padding(.top, 200)
+                .offset(x: isAnimation ? 10 : -200)
+                .animation(.linear(duration: 2.5), value: isAnimation)
             }
-//            .offset(x: isAnimation1 ? 400 : 0)
+            //            .offset(x: isAnimation1 ? 400 : 0)
             
             VStack{
-               Spacer()
+                Spacer()
                 HStack{
                     Image(viewModel.desaStories[viewModel.currentIndex].characterOne)
                 }
@@ -65,14 +66,20 @@ struct DesaStoriesView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
                     .overlay {
-                        Text(viewModel.desaStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 28, weight: .medium, design: .rounded))
-                            .padding(4)
+                        VStack{
+                            HStack{
+                                Text(viewModel.desaStories[viewModel.currentIndex].stories)
+                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
+                                    .padding(4)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
                     }
                     .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
-//            .animation(.linear(duration: 0.2), value: isStory)
+            //            .animation(.linear(duration: 0.2), value: isStory)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -83,20 +90,39 @@ struct DesaStoriesView: View {
                     isStory = false
                     isAnimation1 = true
                     isTapGestureEnabled = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         isStory = true
                         isTapGestureEnabled = true
                     }
                 } else if viewModel.currentIndex == 6 {
                     isStory = false
-                    isAnimation1 = true
-                } else if viewModel.currentIndex == 8 {
-                    isNextStory = false
+                    isAnimation = false
+                    isAnimation1 = false
+                    isNextStory = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isNextStory = false
+                        viewModel.currentIndex += 1
+                        isStory = false
+                        isAnimation1 = true
+                        isAnimation = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            viewModel.currentIndex = 8
+                            isStory = true
+                            isTapGestureEnabled = true
+                        }
+                        
+                    }
+                } else if viewModel.currentIndex == 11 {
+                    
                     isStory = false
-                } else if viewModel.currentIndex == 9 {
-                    isStory = true
-                } else if viewModel.currentIndex == 12 {
-                    router.path.append(.beliStories)
+                    isAnimation = false
+//                    isAnimation1 = true
+                    isNextStory = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        router.path.append(.beliStories)
+                    }
                 }
             }
         }

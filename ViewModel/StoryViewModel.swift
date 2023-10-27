@@ -35,7 +35,7 @@ class StoryViewModel: ObservableObject {
             DesaStories(stories: "hahaha lucu sekali teman ku yang ini, kamu pasti akan menyesal eyog", characterOne: "PersonOneDesa", characterTwo: ""),
             DesaStories(stories: "wah oman dan eyog sudah datang ya, mari mari lihat balai desanya", characterOne: "HeadOfficeDesa", characterTwo: "HeadOffice"),
             DesaStories(stories: "Oh iya mari pak.", characterOne: "Couple", characterTwo: ""),
-            DesaStories(stories: "", characterOne: "", characterTwo: ""),
+            DesaStories(stories: "", characterOne: "PersonOne", characterTwo: "PersonTwo"),
             DesaStories(stories: "", characterOne: "PersonOne", characterTwo: "PersonTwo"),
             DesaStories(stories: "ini bang balai desa yang akan direnovasi, Rusaknya lumayan parah. ", characterOne: "HeadOfficeDesa", characterTwo: ""),
             DesaStories(stories: "sekarang kalian berdua beli bahan bangunannya dulu ya di Warung ujung sana, ini list nya yang harus kalian beli", characterOne: "HeadOfficeDesa", characterTwo: ""),
@@ -59,25 +59,25 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "Sudah semua kak, terimakasih ya, kami pamit dulu", characterOne: "Couple", characterTwo: "BackgroundPanglong",  transisiStories: false),
             GudangStorie(stories: "Yaasudah, hati hati kalian", characterOne: "PedagangDesa", characterTwo: "BackgroundPanglong", transisiStories: false),
             GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BackgroundPanglong", transisiStories: true),
-            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+//            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Ini pak barang barangnya, silakan di cek dahulu", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Wah lengkap semua, terimakasih nak", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan renovasi nya ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            GudangStorie(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
-            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: false),
+            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
+            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundGudang", transisiStories: false),
             GudangStorie(stories: "", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: true),
             
         ]
         
         bantuDesaStories = [
-            BantuDesaStories(stories: "", characterOne: "", characterTwo: "", transisiStories: false),
-            BantuDesaStories(stories: "Ini pak perlengkapannya sudah ketemu", characterOne: "Couple", characterTwo: "PersonTwoDesa", transisiStories: false),
-            BantuDesaStories(stories: "Wah bagus bagus, ayuk sekarang kembali ke balai desa.tolong bantu bapak bawa barang barang ini ya", characterOne: "HeadOfficeDesa", characterTwo: "", transisiStories: false),
-            BantuDesaStories(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
-            BantuDesaStories(stories: "Wah sudah ramai nih, sudah mau mulai ya ini pak", characterOne: "Couple", characterTwo: "", transisiStories: false),
-            BantuDesaStories(stories: "Iya, sekarang kalian berdua bantu berikan barang barang ini kepada warga ya", characterOne: "HeadOfficeDesa", characterTwo: "", transisiStories: false),
-            BantuDesaStories(stories: "Baik pak, kami akan lakukan dengan baik.", characterOne: "Couple", characterTwo: "", transisiStories: false),
-            BantuDesaStories(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
+            BantuDesaStories(stories: "", characterOne: "HeadOfficeDesa", characterTwo: "", transisiStories: false),
+            BantuDesaStories(stories: "Ini pak perlengkapannya sudah ketemu", characterOne: "Couple", characterTwo: "BackgroundGudang", transisiStories: false),
+            BantuDesaStories(stories: "Wah bagus bagus, ayuk sekarang kembali ke balai desa.tolong bantu bapak bawa barang barang ini ya", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundGudang", transisiStories: false),
+            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: true),
+            BantuDesaStories(stories: "Wah sudah ramai nih, sudah mau mulai ya ini pak", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+            BantuDesaStories(stories: "Iya, sekarang kalian berdua bantu berikan barang barang ini kepada warga ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+            BantuDesaStories(stories: "Baik pak, kami akan lakukan dengan baik.", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
         ]
         
         pasirStories = [

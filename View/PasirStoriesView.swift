@@ -51,7 +51,7 @@ struct  PasirStoriesView: View {
                         HStack{
                             VStack{
                                 Text(viewModel.pasirStories[viewModel.currentIndex].stories)
-                                    .font(.system(size: 28, weight: .medium, design: .rounded))
+                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
                                     .padding(4)
                                 Spacer()
                             }

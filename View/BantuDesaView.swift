@@ -14,10 +14,11 @@ struct  BantuDesaView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
+    @State var isTapGestureEnabled = true
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Image("BrokenBalaiDesa")
+            Image(viewModel.bantuDesaStories[viewModel.currentIndex].characterTwo)
                 .resizable()
                 .ignoresSafeArea()
             Rectangle()
@@ -38,11 +39,11 @@ struct  BantuDesaView: View {
             .padding(.top, 200)
             .offset(x: isAnimation1 ? -250 : 60)
             .animation(.linear(duration: 2),value: isAnimation1)
-            Image(viewModel.bantuDesaStories[3].characterOne)
+            Image("HeadOffice")
                 .resizable()
                 .frame(width: 110, height: 226)
                 .offset(x: 100, y: 100)
-                .opacity(isAnimation ? 1 : 0)
+                .opacity(isAnimation ? 0 : 1)
             VStack{
                 Spacer()
                 HStack{
@@ -53,9 +54,15 @@ struct  BantuDesaView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
                     .overlay {
-                        Text(viewModel.bantuDesaStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 28, weight: .medium, design: .rounded))
-                            .padding(4)
+                        VStack{
+                            HStack{
+                                Text(viewModel.bantuDesaStories[viewModel.currentIndex].stories)
+                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
+                                    .padding(4)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
                     }
                     .frame(width: 350, height: 200)
             }
@@ -65,17 +72,23 @@ struct  BantuDesaView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
-            if viewModel.currentIndex == 1{
-                isStory = false
-            } else if viewModel.currentIndex == 3{
-                isStory = false
-            } else if viewModel.currentIndex == 4{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if isTapGestureEnabled{
+                viewModel.currentIndex += 1
+                if viewModel.currentIndex == 1{
                     isStory = true
+                } else if viewModel.currentIndex == 3{
+                    isStory = false
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        viewModel.currentIndex += 1
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isStory = true
+                            isTapGestureEnabled = true
+                        }
+                    }
+                } else if viewModel.currentIndex == 7{
+                    router.path.append(.dragGame)
                 }
-            } else if viewModel.currentIndex == 7{
-                router.path.append(.dragGame)
             }
         }
         .onAppear{

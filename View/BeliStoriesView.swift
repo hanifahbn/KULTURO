@@ -15,6 +15,7 @@ struct  BeliStoriesView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @EnvironmentObject var router : Router
+    @State var isTapGestureEnabled = true
     var body: some View {
 //        NavigationStack{
             ZStack{
@@ -63,9 +64,15 @@ struct  BeliStoriesView: View {
                         .foregroundStyle(.white)
                         .shadow(radius: 0, y: 5)
                         .overlay {
-                            Text(viewModel.beliStories[viewModel.currentIndex].stories)
-                                .font(.system(size: 30, weight: .bold, design: .rounded))
-                                .padding()
+                            VStack{
+                                HStack{
+                                    Text(viewModel.beliStories[viewModel.currentIndex].stories)
+                                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                                        .padding()
+                                    Spacer()
+                                }
+                                Spacer()
+                            }
                                 
                         }
                         .frame(width: 350, height: 200)
@@ -77,23 +84,26 @@ struct  BeliStoriesView: View {
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 //Nanti di pindah ke view model
-                viewModel.currentIndex += 1
-                if viewModel.currentIndex == 5{
-                    isStory = false
-                    isNextStory = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        router.path.append(.missionOne)
+                if isTapGestureEnabled {
+                    viewModel.currentIndex += 1
+                    if viewModel.currentIndex == 5{
+                        isStory = false
+                        isNextStory = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+                            router.path.append(.missionOne)
+                        }
+                        
+                    } else if viewModel.currentIndex == 6{
+                        isNextStory = true
                     }
-                    
-                } else if viewModel.currentIndex == 6{
-                    isNextStory = true
-                    
                 }
             }
             .onAppear{
                 isAnimation = true
+                isTapGestureEnabled = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                     isStory = true
+                    isTapGestureEnabled = true
                 }
             }
 //        }

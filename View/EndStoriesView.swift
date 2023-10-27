@@ -25,16 +25,16 @@ struct  EndStoriesView: View {
             Rectangle()
                 .ignoresSafeArea()
                 .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0.4 : 0)
-            HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                Spacer()
-            }
+//            HStack(spacing : -30){
+//                Image(viewModel.desaStories[0].characterOne)
+//                    .resizable()
+//                    .frame(width: 110, height: 226)
+//                    .padding(.top, 40)
+//                Image(viewModel.desaStories[0].characterTwo)
+//                    .resizable()
+//                    .frame(width: 110, height: 226)
+//                Spacer()
+//            }
             .padding(.top, 200)
             .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0 : 1)
             if viewModel.endStories[viewModel.currentIndex].transisiStories {
@@ -47,7 +47,7 @@ struct  EndStoriesView: View {
                             HStack{
                                 VStack{
                                     Text(viewModel.endStories[viewModel.currentIndex].stories)
-                                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                                        .font(.system(size: 28, weight: .semibold, design: .rounded))
                                         .padding(10)
                                     Spacer()
                                 }
