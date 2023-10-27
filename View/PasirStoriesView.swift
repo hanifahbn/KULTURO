@@ -77,9 +77,7 @@ struct  PasirStoriesView: View {
             
             if viewModel.currentIndex == 1{
                 isStory = false
-            } else if viewModel.currentIndex == 6{
-//                router.path.append(.ayakPasirGame)
-            }
+            } 
         }
         .onAppear{
             isStory = true

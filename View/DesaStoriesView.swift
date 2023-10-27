@@ -15,7 +15,7 @@ struct DesaStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
-    @EnvironmentObject var router : Router
+    
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -92,9 +92,7 @@ struct DesaStoriesView: View {
                 isStory = false
             } else if viewModel.currentIndex == 9{
                 isStory = true
-            } else if viewModel.currentIndex == 12{
-                router.path.append(.beliStories)
-            }
+            } 
         }
         .onAppear{
             isAnimation = true

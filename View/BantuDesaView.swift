@@ -80,8 +80,6 @@ struct  BantuDesaView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     isStory = true
                 }
-            } else if viewModel.currentIndex == 7{
-//                router.path.append(.dragGame)
             }
         }
         .onAppear{
