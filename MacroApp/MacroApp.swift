@@ -14,6 +14,7 @@ struct MacroApp: App {
             ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
 //            GameStartView()
+//            ObjectDetectionGame()
         }
     }
 }
