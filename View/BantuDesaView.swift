@@ -70,51 +70,70 @@ struct  BantuDesaView: View {
             }
             .opacity(isStory ? 1 : 0)
         }
+        .onAppear{
+            isStory = true
+        }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled{
                 viewModel.currentIndex += 1
-                if viewModel.currentIndex == 1{
-                    if viewModel.currentIndex < 7 {
+                if viewModel.currentIndex == 3{
+                    isAnimation1 = true
+                    isStory = false
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         viewModel.currentIndex += 1
-                    } else {
-                        matchManager.gameStatus = .convoPasir
-                    }
-                    
-                    if viewModel.currentIndex == 1{
-                        isStory = false
-                    } else if viewModel.currentIndex == 3{
-                        isStory = false
-                    } else if viewModel.currentIndex == 4{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        isAnimation1 = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             isStory = true
-//                        } else if viewModel.currentIndex == 3{
-//                            isAnimation1 = true
-//                            isStory = false
-//                            isTapGestureEnabled = false
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                                viewModel.currentIndex += 1
-//                                isAnimation1 = false
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-//                                    isStory = true
-//                                    isTapGestureEnabled = true
-//                                }
-//                            }
-//                        } else if viewModel.currentIndex == 7{
-                            //                    router.path.append(.dragGame)
+                            isTapGestureEnabled = true
+                            matchManager.gameStatus = .convoPasir
                         }
                     }
                 }
-//                    .onAppear{
-//                        isStory = true
-//                    }
             }
         }
     }
+    
 }
-
-#Preview {
-    BantuDesaView()
-        .environmentObject(MatchManager())
-}
+    
+    
+    
+    #Preview {
+        BantuDesaView()
+            .environmentObject(MatchManager())
+    }
+    
+    //if isTapGestureEnabled{
+    //    viewModel.currentIndex += 1
+    //    if viewModel.currentIndex == 1{
+    //        if viewModel.currentIndex < 7 {
+    //            viewModel.currentIndex += 1
+    //        }  else if viewModel.currentIndex == 3{
+    //            isStory = false
+    //        } else if viewModel.currentIndex == 4{
+    //            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    //                isStory = true
+    //            } else if viewModel.currentIndex == 3{
+    //                isAnimation1 = true
+    //                isStory = false
+    //                isTapGestureEnabled = false
+    //                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    //                    viewModel.currentIndex += 1
+    //                    isAnimation1 = false
+    //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+    //                        isStory = true
+    //                        isTapGestureEnabled = true
+    //                    }
+    //                }
+    //            } else if viewModel.currentIndex == 7{
+    //                //router.path.append(.dragGame)
+    //            }
+    //        }
+    //    }
+    //
+    //}
+    
+    
+    //                        matchManager.gameStatus = .convoPasir

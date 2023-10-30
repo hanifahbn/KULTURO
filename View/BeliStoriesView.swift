@@ -68,6 +68,14 @@ struct  BeliStoriesView: View {
             //                .animation(.linear(duration: 0.2), value: isStory)
             
         }
+        .onAppear{
+            isAnimation = true
+            isTapGestureEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                isStory = true
+                isTapGestureEnabled = true
+            }
+        }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
@@ -79,7 +87,6 @@ struct  BeliStoriesView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
                         //                            router.path.append(.missionOne)
                     }
-                    
                 } else if viewModel.currentIndex == 6{
                     isNextStory = true
                     if viewModel.currentIndex < 4 {
@@ -92,18 +99,11 @@ struct  BeliStoriesView: View {
                         }
                         else{
                             viewModel.currentIndex += 1
-                            //                        matchManager.gameStatus = .isWaiting
+                            matchManager.gameStatus = .isWaiting
                         }
                     }
                 }
-//                    .onAppear{
-//                        isAnimation = true
-//                        isTapGestureEnabled = false
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-//                            isStory = true
-//                            isTapGestureEnabled = true
-//                        }
-//                    }
+                              
             }
             
         }

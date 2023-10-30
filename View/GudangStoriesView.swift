@@ -21,7 +21,7 @@ struct  GudangStoriesView: View {
             
             Rectangle()
                 .ignoresSafeArea()
-                .zIndex(2)
+                .zIndex(1)
                 .opacity(viewModel.gudangStories[viewModel.currentIndex].transisiStories ? 1 : 0)
                 .animation(.easeIn(duration: 0.5), value: viewModel.gudangStories[viewModel.currentIndex].transisiStories)
             Image(viewModel.gudangStories[viewModel.currentIndex].characterTwo)
@@ -107,50 +107,28 @@ struct  GudangStoriesView: View {
                     isStory = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         //                        router.path.append(.cameraGame)
+                        
                     }
                 }
-                ///
-                //            if viewModel.currentIndex < 10 {
-                //                viewModel.currentIndex += 1
-                //            } else {
-                //                matchManager.isFinishedReading += 1
-                //                matchManager.synchronizeGameState("ReadingSecond")
-                //                if matchManager.isFinishedReading == 2 {
-                //                    matchManager.gameStatus = .cameraGame
-                //                }
-                //                else{
-                //                    viewModel.currentIndex += 1
-                //                }
-                //            }
-                //
-                //            if viewModel.currentIndex == 1{
-                //                isStory = false
-                //
-                //            } else if viewModel.currentIndex == 3{
-                //                isAnimation1 = true
-                //                isStory = false
-                //            } else if viewModel.currentIndex == 4{
-                //                isAnimation = true
-                //                isAnimation1 = false
-                //            } else if viewModel.currentIndex == 8{
-                //                isStory = false
-                //            } else if viewModel.currentIndex > 8 {
-                //                // TODO
-                //            }
-                //            else {
-                //                isStory = true
-                //            }
+                if viewModel.currentIndex < 10 {
+                    viewModel.currentIndex += 1
+                } else {
+                    matchManager.isFinishedReading += 1
+                    matchManager.synchronizeGameState("ReadingSecond")
+                    if matchManager.isFinishedReading == 2 {
+                        matchManager.gameStatus = .cameraGame
+                    }
+                    else{
+                        viewModel.currentIndex += 1
+                    }
+                }
+                
             }
         }
         .onAppear{
             isStory = true
             matchManager.isFinishedPlaying = 0
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            //
-            //            }
-            ////
         }
-        
     }
 }
 

@@ -87,7 +87,6 @@ struct DesaStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
-                //Nanti di pindah ke view model
                 viewModel.currentIndex += 1
                 if viewModel.currentIndex == 4 {
                     isStory = false
@@ -120,15 +119,14 @@ struct DesaStoriesView: View {
                     
                     isStory = false
                     isAnimation = false
-//                    isAnimation1 = true
                     isNextStory = true
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                        router.path.append(.beliStories)
+                        print("Cerita Selesai")
+                        matchManager.gameStatus = .convoBeli
                     }
                 }
             }
-
         }
         .onAppear{
             isAnimation = true

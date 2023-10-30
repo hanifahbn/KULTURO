@@ -59,15 +59,15 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "Sudah semua kak, terimakasih ya, kami pamit dulu", characterOne: "Couple", characterTwo: "BackgroundPanglong",  transisiStories: false),
             GudangStorie(stories: "Yaasudah, hati hati kalian", characterOne: "PedagangDesa", characterTwo: "BackgroundPanglong", transisiStories: false),
             GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BackgroundPanglong", transisiStories: true),
-//            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Ini pak barang barangnya, silakan di cek dahulu", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Wah lengkap semua, terimakasih nak", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan renovasi nya ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
 
-            GudangStorie(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
-            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true)
+            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
+            GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: false),
+            GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "BackgroundGudang", transisiStories: false),
+//            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true)
         ]
         
         bantuDesaStories = [

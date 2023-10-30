@@ -43,21 +43,6 @@ struct InGameView: View {
                     }, label: {
                         TextSound(imageHalfBody: "Ajeng", namaChar: "Ajeng", asalChar: "Solo",  gradienKanan: "GkananUngu", gradienKiri: "GkiriUngu")
                     })
-                    ZStack{
-                        Color.ungu
-                            .ignoresSafeArea()
-                        ScrollView(.vertical) {
-                            ForEach(matchManager.characters) { karakter in
-                                Button(action: {
-                                    matchManager.chooseCharacter(karakter)
-                                }) {
-                                    TextSound(imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin, gradienKanan: karakter.colorRight, gradienKiri: karakter.colorLeft)
-                                }
-                                .disabled(karakter.isChosen)
-                                .opacity(karakter.isChosen ? 0.5 : 1.0)
-                            }
-                        }
-                    }
                 }
             }
             .environmentObject(MatchManager())

@@ -64,7 +64,6 @@ struct  PasirStoriesView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
-            //            .animation(.linear(duration: 0.2), value: isStory)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -81,9 +80,7 @@ struct  PasirStoriesView: View {
         }
         .onAppear{
             isStory = true
-            
         }
-        
     }
 }
 

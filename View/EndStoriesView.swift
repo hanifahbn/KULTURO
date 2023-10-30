@@ -23,18 +23,8 @@ struct  EndStoriesView: View {
             Rectangle()
                 .ignoresSafeArea()
                 .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0.4 : 0)
-//            HStack(spacing : -30){
-//                Image(viewModel.desaStories[0].characterOne)
-//                    .resizable()
-//                    .frame(width: 110, height: 226)
-//                    .padding(.top, 40)
-//                Image(viewModel.desaStories[0].characterTwo)
-//                    .resizable()
-//                    .frame(width: 110, height: 226)
-//                Spacer()
-//            }
-            .padding(.top, 200)
-            .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0 : 1)
+                .padding(.top, 200)
+                .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0 : 1)
             if viewModel.endStories[viewModel.currentIndex].transisiStories {
                 VStack{
                     RoundedRectangle(cornerRadius: 16)
@@ -55,7 +45,7 @@ struct  EndStoriesView: View {
                             
                         }
                         .frame(width: 350, height: 350)
-                        
+                    
                 }
             } else {
                 VStack{
