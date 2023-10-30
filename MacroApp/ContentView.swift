@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
     
+    @StateObject var serverViewModel = ServerViewModel()
+    
     var body: some View {
         Group{
             switch matchManager.gameStatus {
@@ -56,6 +58,7 @@ struct ContentView: View {
             }
         }.onAppear{
             matchManager.authenticateUser()
+            serverViewModel.sendAudioToServer(audioURL: Bundle.main.url(forResource: "Correct", withExtension: "wav")!)
         }
     }
 }

@@ -101,7 +101,7 @@ struct MissionOneView: View {
                         }
                         else {
                             audioViewModel.stopRecording()
-                            print(audioViewModel.audio.label)
+                            print("Label di view: \(audioViewModel.audio.label)")
                             if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
                                 print("BENER")
                                 textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
@@ -149,7 +149,7 @@ struct MissionOneView: View {
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
-            matchManager.startTimer()
+            matchManager.startTimer(time: 60)
             print(textNamaTool)
         }
     }

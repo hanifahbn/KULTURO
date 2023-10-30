@@ -132,10 +132,9 @@ class MatchManager: NSObject, ObservableObject{
         }
     }
     
-    func startTimer() {
+    func startTimer(time: Int) {
        isTimerRunning = true
-       DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
-           // Tindakan yang akan dijalankan setelah 10 detik
+       DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(Int(time))) {
            self.isTimerRunning = false
        }
    }

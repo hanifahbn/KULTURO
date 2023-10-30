@@ -9,10 +9,16 @@ import Foundation
 import Combine
 
 class ServerViewModel: ObservableObject {
-    @Published var responseData: String = ""
+    @Published var responseData: String = "" {
+        didSet {
+            responseDataDidChange?(responseData)
+        }
+    }
 
+    var responseDataDidChange: ((String) -> Void)?
+    
     func sendAudioToServer(audioURL: URL) {
-        if let serverURL = URL(string: "http://10.63.32.53:8000") {
+        if let serverURL = URL(string: "https://headturner.et.r.appspot.com/") {
             var request = URLRequest(url: serverURL)
             request.httpMethod = "POST"
 
@@ -45,6 +51,7 @@ class ServerViewModel: ObservableObject {
                         if let responseString = String(data: data, encoding: .utf8) {
                             DispatchQueue.main.async {
                                 self.responseData = responseString
+                                print("RESPONSE DATA: \(self.responseData)")
                             }
                         }
                     }
