@@ -23,25 +23,53 @@ enum GameStatus {
     case stories
     case missionone
     case gameOver
+    case isWaiting
+    case cameraGame
+    case convoBalaiDesa
+    case convoBeli
+    case convoGudang
+    case convoBantuDesa
+    case convoPasir
+    case convoBerhasil
 }
 
 class MatchManager: NSObject, ObservableObject{
-    
-    
     @Published var authStatus : UserAuthenticationState = .authenticated
     @Published var gameStatus : GameStatus = .setup
+    @Published var isTimerRunning = false
+    @Published var localPlayer = GKLocalPlayer.local
+    @Published var otherPlayer: GKPlayer?
+    @Published var localCharacter: Karakter?
+    @Published var otherCharacter: Karakter?
     
     var match : GKMatch?
-    var otherPlayer: GKPlayer?
-    var localPlayer = GKLocalPlayer.local
+    var isFinishedReading: Int = 0
+    var isFinishedPlaying: Int = 0
+    var localTools: [String]?
+    var otherTools: [String]?
     
-    @Published var myAvatar = Image(systemName: "person.crop.circle")
-    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
+    @Published var characters: [Karakter] = [
+        Karakter(name: "Dayu", headImage: "Dayu", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false),
+        Karakter(name: "Togar", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false),
+        Karakter(name: "Asep", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false),
+        Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false),
+    ]
+    
+    @Published var tools: [ToolBahasa] = [
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Labang", bahasaName: "Paku", exampleAudioURL: ""),
+        ToolBahasa(localName: "Lotaklotak", bahasaName: "Kayu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Batu Kerengkel", bahasaName: "Batu Kerikil", exampleAudioURL: ""),
+        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Apusapus ni pat", bahasaName: "Keset", exampleAudioURL: "")
+    ]
+    
+//    @Published var myAvatar = Image(systemName: "person.crop.circle")
+//    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
     
     let gameDuration = 15
     var otherPlayerScore: Int = 0
     var Score : Int = 0
-    
     
     var rootViewController: UIViewController?{
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -51,7 +79,7 @@ class MatchManager: NSObject, ObservableObject{
     func authenticateUser(){
         GKLocalPlayer.local.authenticateHandler = { [self] vc, error in
             guard error == nil else {
-                print(error?.localizedDescription ?? "")
+//                print(error?.localizedDescription ?? "")
                 authStatus = .error
                 return
             }
@@ -59,16 +87,17 @@ class MatchManager: NSObject, ObservableObject{
             if GKLocalPlayer.local.isAuthenticated{
                 authStatus = .authenticated
                 self.localPlayer = GKLocalPlayer.local
+//                print(self.localPlayer.displayName)
                 
-                GKLocalPlayer.local.loadPhoto(for: GKPlayer.PhotoSize.small){ image, error in
-                    if let image {
-                        self.myAvatar = Image(uiImage: image)
-                    }
-                    if let error {
-                        // Handle an error if it occurs.
-                        print("Error: \(error.localizedDescription).")
-                    }
-                }
+//                GKLocalPlayer.local.loadPhoto(for: GKPlayer.PhotoSize.small){ image, error in
+//                    if let image {
+//                        self.myAvatar = Image(uiImage: image)
+//                    }
+//                    if let error {
+//                        // Handle an error if it occurs.
+//                        print("Error: \(error.localizedDescription).")
+//                    }
+//                }
             } else {
                 authStatus = .unauthenticated
             }
@@ -86,46 +115,91 @@ class MatchManager: NSObject, ObservableObject{
         rootViewController?.present(matchmakingVC!, animated: true)
     }
     
+    func reset(){
+        isTimerRunning = false
+        localPlayer = GKLocalPlayer.local
+        otherPlayer = nil
+        localCharacter = nil
+        otherCharacter = nil
+        
+        match = nil
+        isFinishedReading = 0
+        isFinishedPlaying = 0
+        localTools = nil
+        otherTools = nil
+        
+        for (index, _) in characters.enumerated() {
+            characters[index].isChosen = false
+        }
+    }
+    
+    func startTimer() {
+       isTimerRunning = true
+       DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+           // Tindakan yang akan dijalankan setelah 10 detik
+           self.isTimerRunning = false
+       }
+   }
+    
     func startGame(newMatch: GKMatch) {
         match = newMatch
         match?.delegate = self
         
-        if let otherPlayer = match?.players.first {
-            self.otherPlayer = otherPlayer
-            
-            self.otherPlayer?.loadPhoto(for: GKPlayer.PhotoSize.small) { (image, error) in
-                if let image {
-                    self.opponentAvatar = Image(uiImage: image)
-                }
-                if let error {
-                    print("Error: \(error.localizedDescription).")
-                }
-            }
-        }
-        
-        // reset
-        Score = 0
-        otherPlayerScore = 0
+//        if let otherPlayer = match?.players.first {
+//            self.otherPlayer = otherPlayer
+//
+//            self.otherPlayer?.loadPhoto(for: GKPlayer.PhotoSize.small) { (image, error) in
+//                if let image {
+//                    self.opponentAvatar = Image(uiImage: image)
+//                }
+//                if let error {
+//                    print("Error: \(error.localizedDescription).")
+//                }
+//            }
+//        }
+//
+//        // reset
+//        Score = 0
+//        otherPlayerScore = 0
         
         // back in game
         gameStatus = .inGame
     }
-    func openLeaderboard() {
-        let gameCenterVC = GKGameCenterViewController(leaderboardID: "godsfingerleaderboard", playerScope: .global, timeScope: .today)
-        gameCenterVC.gameCenterDelegate = self
-        rootViewController?.present(gameCenterVC, animated: true)
-    }
     
-    func submitMyScoreToGameCenterLeaderboard(_ score: Int) {
-        GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: ["godsfingerleaderboard"]) { [self] error in
-            guard error == nil else {
-                print(error?.localizedDescription ?? "")
-                return
+    func chooseCharacter(_ karakter: Karakter) {
+        guard localCharacter == nil || otherCharacter == nil else {
+            return
+        }
+
+        if localCharacter == nil {
+            localCharacter = karakter
+            if let index = characters.firstIndex(where: { $0.id == karakter.id }) {
+                characters[index].isChosen = true
             }
+            synchronizeCharacterSelection(karakter)
             
-            gameStatus = .gameOver
+            if otherCharacter != nil {
+                gameStatus = .stories
+            }
         }
     }
+    
+//    func openLeaderboard() {
+//        let gameCenterVC = GKGameCenterViewController(leaderboardID: "godsfingerleaderboard", playerScope: .global, timeScope: .today)
+//        gameCenterVC.gameCenterDelegate = self
+//        rootViewController?.present(gameCenterVC, animated: true)
+//    }
+//
+//    func submitMyScoreToGameCenterLeaderboard(_ score: Int) {
+//        GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: ["godsfingerleaderboard"]) { [self] error in
+//            guard error == nil else {
+//                print(error?.localizedDescription ?? "")
+//                return
+//            }
+//
+//            gameStatus = .gameOver
+//        }
+//    }
     
     func endGame(withScore score: Int) {
         Score = score
@@ -133,21 +207,22 @@ class MatchManager: NSObject, ObservableObject{
         // send data to other player
         sendString("playerScore:\(score)")
         
-        submitMyScoreToGameCenterLeaderboard(score)
+//        submitMyScoreToGameCenterLeaderboard(score)
     }
     
-    func updateOtherPlayerScore(withScore score: Int) {
-        
-        otherPlayerScore = score
- 
-    }
+//    func updateOtherPlayerScore(withScore score: Int) {
+//
+//        otherPlayerScore = score
+//
+//    }
     
-    func receivedStringData(_ message: String) {
-        let messageSplit = message.split(separator: ":")
-        
-        let score = Int(messageSplit.last ?? "0") ?? 0
-        
-        updateOtherPlayerScore(withScore: score)
-    }
+//    func receivedStringData(_ message: String) {
+//        let messageSplit = message.split(separator: ":")
+//
+//        let score = Int(messageSplit.last ?? "0") ?? 0
+//
+//        updateOtherPlayerScore(withScore: score)
+//    }
 
+    
 }

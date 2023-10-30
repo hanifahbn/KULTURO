@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct ComponetButtonMic: View {
+struct ComponentButtonMic: View {
     @State var ButtonTap : Bool = false
     @State var textButton : String
-    @State var iconButton : String
+    @State var iconButton : String?
+    @State var isWithIcon : Bool = false
+    
     let action: () -> Void
     var body: some View {
         ZStack{
@@ -24,9 +26,11 @@ struct ComponetButtonMic: View {
                 .foregroundStyle(Color("Kuning"))
                 .padding(.top, ButtonTap ? 15 : 0 )
             HStack{
-                Image(systemName: "\(iconButton)")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundStyle(.white)
+                if(isWithIcon == true){
+                    Image(systemName: "\(iconButton)")
+                        .font(.system(size: 30, weight: .bold))
+                        .foregroundStyle(.white)
+                }
                 Text(textButton)
                     .font(.title2)
                     .fontWeight(.bold)
@@ -46,7 +50,7 @@ struct ComponetButtonMic: View {
 }
 
 #Preview {
-    ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
+    ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
         print("Next")
     }
 }

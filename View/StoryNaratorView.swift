@@ -10,14 +10,14 @@ import SwiftUI
 struct StoryNaratorView: View {
     @ObservedObject var viewModel: StoryViewModel
     
+    @EnvironmentObject var matchManager: MatchManager
+    
     @State var text: String = ""
     var typingSpeed: Double = 0.1
     @State var position: Int = 0
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
     @State private var isFirstTap = true
-    @EnvironmentObject var router : Router
-    
     
     var body: some View {
         ZStack{
@@ -63,20 +63,21 @@ struct StoryNaratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
+            matchManager.gameStatus = .convoGudang
         }
         .onTapGesture {
             if isFirstTap {
                 isFirstTap = false 
                 nextStory = true
-            } else if viewModel.naratorStories[currentIndex].nextChapter{
-                router.path.append(.desaStories)
-            }
-            else {
+            } else {
                 goToNextStory()
-                isFirstTap = true
+                if currentIndex < viewModel.naratorStories.count {
+                    isFirstTap = true
+                }
             }
         }
     }
+    
     // nanti di pindah ke View model
     func typeWriter() {
         let Stories = viewModel.naratorStories[currentIndex].stories
@@ -88,6 +89,7 @@ struct StoryNaratorView: View {
             }
         }
     }
+    
     func goToNextStory() {
         currentIndex += 1
         if currentIndex < viewModel.naratorStories.count {
@@ -95,6 +97,11 @@ struct StoryNaratorView: View {
             text = ""
             typeWriter()
             nextStory = false
+        }
+        else if currentIndex == viewModel.naratorStories.count {
+            position = 0
+            nextStory = false
+            matchManager.gameStatus = .convoBalaiDesa
         }
     }
 }

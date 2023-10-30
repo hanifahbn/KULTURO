@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct  BantuDesaView: View {
-    @StateObject var viewModel : StoryViewModel
-    @EnvironmentObject var router : Router
+    @EnvironmentObject var matchManager: MatchManager
+    
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -75,32 +76,45 @@ struct  BantuDesaView: View {
             if isTapGestureEnabled{
                 viewModel.currentIndex += 1
                 if viewModel.currentIndex == 1{
-                    isStory = true
-                } else if viewModel.currentIndex == 3{
-                    isAnimation1 = true
-                    isStory = false
-                    isTapGestureEnabled = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    if viewModel.currentIndex < 7 {
                         viewModel.currentIndex += 1
-                        isAnimation1 = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    } else {
+                        matchManager.gameStatus = .convoPasir
+                    }
+                    
+                    if viewModel.currentIndex == 1{
+                        isStory = false
+                    } else if viewModel.currentIndex == 3{
+                        isStory = false
+                    } else if viewModel.currentIndex == 4{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             isStory = true
-                            isTapGestureEnabled = true
+//                        } else if viewModel.currentIndex == 3{
+//                            isAnimation1 = true
+//                            isStory = false
+//                            isTapGestureEnabled = false
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                                viewModel.currentIndex += 1
+//                                isAnimation1 = false
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+//                                    isStory = true
+//                                    isTapGestureEnabled = true
+//                                }
+//                            }
+//                        } else if viewModel.currentIndex == 7{
+                            //                    router.path.append(.dragGame)
                         }
                     }
-                } else if viewModel.currentIndex == 7{
-                    router.path.append(.dragGame)
                 }
+//                    .onAppear{
+//                        isStory = true
+//                    }
             }
         }
-        .onAppear{
-            isStory = true
-            
-        }
-        
     }
 }
 
 #Preview {
-    BantuDesaView(viewModel: StoryViewModel())
+    BantuDesaView()
+        .environmentObject(MatchManager())
 }

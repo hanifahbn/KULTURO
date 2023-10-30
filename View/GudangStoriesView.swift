@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct  GudangStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
-    @EnvironmentObject var router : Router
+    @EnvironmentObject var matchManager: MatchManager
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -18,7 +18,7 @@ struct  GudangStoriesView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-           
+            
             Rectangle()
                 .ignoresSafeArea()
                 .zIndex(2)
@@ -91,7 +91,7 @@ struct  GudangStoriesView: View {
                     }
                     
                 } else if viewModel.currentIndex == 7{
-//
+                    //
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
@@ -106,13 +106,49 @@ struct  GudangStoriesView: View {
                 } else if viewModel.currentIndex == 9{
                     isStory = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        router.path.append(.cameraGame)
+                        //                        router.path.append(.cameraGame)
                     }
                 }
+                ///
+                //            if viewModel.currentIndex < 10 {
+                //                viewModel.currentIndex += 1
+                //            } else {
+                //                matchManager.isFinishedReading += 1
+                //                matchManager.synchronizeGameState("ReadingSecond")
+                //                if matchManager.isFinishedReading == 2 {
+                //                    matchManager.gameStatus = .cameraGame
+                //                }
+                //                else{
+                //                    viewModel.currentIndex += 1
+                //                }
+                //            }
+                //
+                //            if viewModel.currentIndex == 1{
+                //                isStory = false
+                //
+                //            } else if viewModel.currentIndex == 3{
+                //                isAnimation1 = true
+                //                isStory = false
+                //            } else if viewModel.currentIndex == 4{
+                //                isAnimation = true
+                //                isAnimation1 = false
+                //            } else if viewModel.currentIndex == 8{
+                //                isStory = false
+                //            } else if viewModel.currentIndex > 8 {
+                //                // TODO
+                //            }
+                //            else {
+                //                isStory = true
+                //            }
             }
         }
         .onAppear{
             isStory = true
+            matchManager.isFinishedPlaying = 0
+            //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            //
+            //            }
+            ////
         }
         
     }
@@ -120,4 +156,5 @@ struct  GudangStoriesView: View {
 
 #Preview {
     GudangStoriesView(viewModel: StoryViewModel())
+        .environmentObject(MatchManager())
 }

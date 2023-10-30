@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct onBoardView: View {
-    @StateObject var matchManager : MatchManager
+struct OnBoardView: View {
+    @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
         ZStack{
@@ -31,7 +31,7 @@ struct onBoardView: View {
                         .scaledToFit()
                 }
                 .padding(.top, 200)//Sementara menunggu Judul Game
-                ComponetButton(textButton: "Start Game") {
+                ComponentButton(textButton: "Start Game") {
                     matchManager.initiateMatch()
                 }
             }
@@ -40,5 +40,6 @@ struct onBoardView: View {
 }
 
 #Preview {
-    onBoardView(matchManager: MatchManager())
+    OnBoardView()
+        .environmentObject(MatchManager())
 }

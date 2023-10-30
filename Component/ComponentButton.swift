@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ComponetButton: View {
+struct ComponentButton: View {
     @State var ButtonTap : Bool = false
     @State var textButton : String
     let action: () -> Void
@@ -40,7 +40,7 @@ struct ComponetButton: View {
 }
 
 #Preview {
-    ComponetButton(textButton: "Text") {
+    ComponentButton(textButton: "Text") {
             print("Button Tapped")
         }
 }

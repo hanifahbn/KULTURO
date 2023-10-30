@@ -8,20 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var matchManager = MatchManager()
+    @ObservedObject var matchManager = MatchManager()
+    
     var body: some View {
         Group{
             switch matchManager.gameStatus {
             case .setup:
-                onBoardView(matchManager: matchManager)
+                OnBoardView()
+                    .environmentObject(matchManager)
+                    .onAppear {
+                        matchManager.reset()
+                    }
             case .inGame:
                 InGameView()
+                    .environmentObject(matchManager)
             case .gameOver:
                 EndGameView()
             case .stories:
-                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0)
+                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
+                    .environmentObject(matchManager)
+            case .isWaiting:
+                WaitingRoomView()
+            case .convoBalaiDesa:
+                DesaStoriesView()
+                    .environmentObject(matchManager)
+            case .convoBeli:
+                BeliStoriesView()
+                    .environmentObject(matchManager)
+            case .convoGudang:
+                GudangStoriesView()
+                    .environmentObject(matchManager)
+            case .cameraGame:
+                ObjectDetectionGame()
+                    .environmentObject(matchManager)
+            case .convoBantuDesa:
+                BantuDesaView()
+                    .environmentObject(matchManager)
+            case .convoPasir:
+                PasirStoriesView()
+                    .environmentObject(matchManager)
+            case .convoBerhasil:
+                EndStoriesView()
+                    .environmentObject(matchManager)
             case .missionone:
                 MissionOneView()
+                    .environmentObject(matchManager)
             }
         }.onAppear{
             matchManager.authenticateUser()

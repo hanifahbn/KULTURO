@@ -8,68 +8,126 @@
 import SwiftUI
 
 struct MissionOneView: View {
+    @EnvironmentObject var matchManager: MatchManager
+    
     @State private var isModalPresented = false
+    @State private var isTutorialShown = true
+    @State private var isFinished = 0
+    
+    @State var tools: [ToolBahasa] = [
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: "")]
     
     var body: some View {
         ZStack{
+            if isTutorialShown {
+                ZStack{
+                    Rectangle()
+        //                .foregroundStyle(.white)
+                        .ignoresSafeArea()
+                        .opacity(isTutorialShown ? 0.8 : 0)
+                    Text("Ucapkan barang - \n barang yang ada di\n Daftar Belanja")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .multilineTextAlignment(.center)
+                }
+                .animation(.easeIn(duration: 0.5), value: isTutorialShown)
+                .zIndex(2)
+            }
             Image("BackgroundMisionOne")
                 .resizable()
                 .ignoresSafeArea()
             Image("Paper")
                 .padding(.leading, 30)
             VStack{
-                
-                RoundedRectangle(cornerRadius: 15.0)
-                    .frame(width: 220, height: 54)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 0, y: 5)
-                    .overlay {
-                        HStack{
-                            Image("PersonTwoHead")
-                                .resizable()
-                                .frame(width: 70, height: 70)
-                                .padding(.bottom, 15)
-                            Text("Hei lekaslah, aku sudah selesai")
-                                .font(.system(size: 15, weight: .bold))
-                        }
+                if(isFinished == 1){
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .frame(width: 220, height: 54)
+                            .foregroundStyle(.white)
+                            .shadow(radius: 0, y: 5)
+                            .overlay {
+                                HStack{
+                                    Image(matchManager.otherCharacter!.headImage)
+                                        .resizable()
+                                        .frame(width: 70, height: 70)
+                                        .padding(.bottom, 15)
+                                    Text("Hei lekaslah, aku sudah selesai")
+                                        .font(.system(size: 15, weight: .bold))
+                                }
+                            }
+        //                    .opacity(isModalPresented ? 1 : 0)
+                            .animation(.linear, value: isFinished == 1)
                     }
-                    .opacity(isModalPresented ? 1 : 0)
-                    .animation(.linear, value: isModalPresented)
-                
-                
+                    .onAppear{
+                        print("udah dipanggil nih")
+                    }
+                    .zIndex(3)
+                }
                 Spacer()
                 Text("List Belanja")
                     .font(.system(size: 30, weight: .semibold))
                     .font(.title)
                     .padding(.bottom, 40)
-                textSound(textBahasa: "Sipadot")
-                textSound(textBahasa: "Tel")
-                textSound(textBahasa: "Jom Dinding")
-                textSound(textBahasa: "Inganan Sampah")
-                textSound(textBahasa: "Apusapus ni pat")
+                ForEach(tools) { tool in
+                    textSound(textBahasa: tool.localName)
+                }
                 Spacer()
-                ComponetButtonMic(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                ComponentButtonMic(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
                     print("Open Mic")
-                    isModalPresented.toggle()
-                    
+                    // KELAR MISSION ONE
+                    matchManager.isFinishedPlaying += 1
+                    matchManager.synchronizeGameState("SoundMission")
+                    if matchManager.isFinishedPlaying == 2 {
+                        isModalPresented = true
+                    }
+                    else{
+                        isModalPresented = true
+                    }
                 }
                 .padding(.bottom, 40)
+                .onAppear{
+                    isFinished = matchManager.isFinishedPlaying
+                }
             }
 
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-        .sheet(isPresented: $isModalPresented) {
-            ModalView(isModalPresented: $isModalPresented)
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == true && isModalPresented },
+            set: { _ in }
+        )) {
+            ModalView()
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
+                .onAppear{
+                    print("Yang udah kelar: \(matchManager.isFinishedPlaying)")
+                }
+        }
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == false },
+            set: { _ in }
+        )) {
+            ModalView(modalType: "Lose")
+                .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }
-        
+        .onTapGesture{
+            isTutorialShown = false
+        }
+        .onAppear{
+            matchManager.isFinishedReading = 0
+            tools = Array(matchManager.tools.shuffled().prefix(3))
+            matchManager.isTimerRunning = true
+            matchManager.startTimer()
+        }
     }
 }
 
-#Preview {
-    MissionOneView()
-}
+//#Preview {
+//    MissionOneView()
+//        .environmentObject(MatchManager())
+//}
 
 struct textSound: View {
     @State var textBahasa : String
@@ -88,25 +146,5 @@ struct textSound: View {
             Spacer()
         }
         .padding(.leading, 50)
-    }
-}
-
-struct ModalView: View {
-    @EnvironmentObject var router : Router
-    @Binding var  isModalPresented : Bool
-    var body: some View {
-        ZStack{
-            Color.ungu
-                .ignoresSafeArea()
-            VStack{
-                Text("Yeay Kamu berhasil membeli semua peralatan!")
-                    .font(.system(size: 25, weight: .bold))
-                    .multilineTextAlignment(.center)
-                ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
-                    router.path.append(.gudangStories)
-                    isModalPresented = false
-                }
-            }
-        }
     }
 }

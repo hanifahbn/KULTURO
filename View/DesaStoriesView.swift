@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct DesaStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
+    @EnvironmentObject var matchManager: MatchManager
+    @StateObject var viewModel: StoryViewModel = StoryViewModel()
+    
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
-    @EnvironmentObject var router : Router
+//    @EnvironmentObject var router : Router
     @State var isTapGestureEnabled = true
+
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -121,10 +124,11 @@ struct DesaStoriesView: View {
                     isNextStory = true
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        router.path.append(.beliStories)
+//                        router.path.append(.beliStories)
                     }
                 }
             }
+
         }
         .onAppear{
             isAnimation = true

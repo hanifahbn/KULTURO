@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct  PasirStoriesView: View {
-    @StateObject var viewModel : StoryViewModel
-    @EnvironmentObject var router : Router
+    @EnvironmentObject var matchManager: MatchManager
+    
+    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -68,12 +69,15 @@ struct  PasirStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            viewModel.currentIndex += 1
+            if viewModel.currentIndex < 5 {
+                viewModel.currentIndex += 1
+            } else {
+                matchManager.gameStatus = .convoBerhasil
+            }
+            
             if viewModel.currentIndex == 1{
                 isStory = false
-            } else if viewModel.currentIndex == 6{
-                router.path.append(.ayakPasirGame)
-            }
+            } 
         }
         .onAppear{
             isStory = true
@@ -84,5 +88,6 @@ struct  PasirStoriesView: View {
 }
 
 #Preview {
-    PasirStoriesView(viewModel: StoryViewModel())
+    PasirStoriesView()
+        .environmentObject(MatchManager())
 }

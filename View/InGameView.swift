@@ -8,54 +8,66 @@
 import SwiftUI
 
 struct InGameView: View {
-    @StateObject var router = Router()
+    @EnvironmentObject var matchManager : MatchManager
+    
     var body: some View {
         var gradient = LinearGradient(
             gradient: Gradient(colors: [Color.red, Color.blue]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
-        NavigationStack (path: $router.path){
+        NavigationStack (){
             ZStack{
                 Color(red: 0.97, green: 0.96, blue: 0.96)
                     .ignoresSafeArea()
                 ScrollView (.vertical){
                     ZStack{
                         Button(action: {
-                            router.path.append(.narator)
+//                            router.path.append(.narator)
                         }, label: {
                             TextSound(imageHalfBody: "Dayu", namaChar: "Dayu", asalChar: "Bali", gradienKanan: "GkananKuning", gradienKiri: "GkiriKuning")
                         })
                     }
                     Button(action: {
-                        router.path.append(.narator)
+//                        router.path.append(.narator)
                     }, label: {
                         TextSound(imageHalfBody: "Eyog", namaChar: "Togar", asalChar: "Batak", gradienKanan: "GkananHijau", gradienKiri: "GkiriHijau")
                     })
                     Button(action: {
-                        router.path.append(.narator)
+//                        router.path.append(.narator)
                     }, label: {
                         TextSound(imageHalfBody: "Gale", namaChar: "Oman", asalChar: "Bandung",  gradienKanan: "GkananBiru", gradienKiri: "GkiriBiru")
                     })
                     Button(action: {
-                        router.path.append(.narator)
+//                        router.path.append(.narator)
                     }, label: {
                         TextSound(imageHalfBody: "Ajeng", namaChar: "Ajeng", asalChar: "Solo",  gradienKanan: "GkananUngu", gradienKiri: "GkiriUngu")
                     })
+                    ZStack{
+                        Color.ungu
+                            .ignoresSafeArea()
+                        ScrollView(.vertical) {
+                            ForEach(matchManager.characters) { karakter in
+                                Button(action: {
+                                    matchManager.chooseCharacter(karakter)
+                                }) {
+                                    TextSound(imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin, gradienKanan: karakter.colorRight, gradienKiri: karakter.colorLeft)
+                                }
+                                .disabled(karakter.isChosen)
+                                .opacity(karakter.isChosen ? 0.5 : 1.0)
+                            }
+                        }
+                    }
                 }
-                .padding()
             }
-            .navigationDestination(for: Destination.self) {
-                destination in
-                ViewFactory.viewForDestination(destination)
-            }
+            .environmentObject(MatchManager())
         }
-        .environmentObject(router)
     }
 }
 
 #Preview {
     InGameView()
+        .environmentObject(MatchManager())
 }
 
 struct TextSound: View {
@@ -100,3 +112,4 @@ struct TextSound: View {
             }
     }
 }
+
