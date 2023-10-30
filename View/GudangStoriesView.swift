@@ -67,7 +67,7 @@ struct  GudangStoriesView: View {
                 viewModel.currentIndex += 1
             } else {
                 matchManager.isFinishedReading += 1
-                matchManager.synchronizeGameState("Reading")
+                matchManager.synchronizeGameState("ReadingSecond")
                 if matchManager.isFinishedReading == 2 {
                     matchManager.gameStatus = .cameraGame
                 }

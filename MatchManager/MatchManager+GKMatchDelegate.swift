@@ -55,6 +55,12 @@ extension MatchManager: GKMatchDelegate{
                 gameStatus = .missionone
             }
         }
+        if state == "ReadingSecond" {
+            isFinishedReading += 1
+            if(isFinishedReading == 2){
+                gameStatus = .cameraGame
+            }
+        }
         if state == "SoundMission" {
             isFinishedPlaying += 1
             print("Yang udah kelar: \(isFinishedPlaying)")
