@@ -88,7 +88,7 @@ struct ModalPasirView: View {
                 Text("Yeay Kita berhasil membuat pasir menjadi lebih halus!")
                     .font(.system(size: 25, weight: .bold))
                     .multilineTextAlignment(.center)
-                ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
+                ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
                     router.path.append(.endStories)
                     isModalPresented = false
                 }

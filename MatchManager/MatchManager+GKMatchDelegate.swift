@@ -57,6 +57,7 @@ extension MatchManager: GKMatchDelegate{
         }
         if state == "SoundMission" {
             isFinishedPlaying += 1
+            print("Yang udah kelar: \(isFinishedPlaying)")
             if(isFinishedPlaying == 2){
                 gameStatus = .convoGudang
             }

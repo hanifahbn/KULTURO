@@ -12,7 +12,7 @@ struct MissionOneView: View {
     
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
-    @State private var isFinished = false
+    @State private var isFinished = 0
     
     @State var tools: [Tool] = [
         Tool(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: "")]
@@ -39,7 +39,7 @@ struct MissionOneView: View {
             Image("Paper")
                 .padding(.leading, 30)
             VStack{
-                if(matchManager.isFinishedPlaying == 1 && isFinished == false){
+                if(isFinished == 1){
                     ZStack {
                         RoundedRectangle(cornerRadius: 15.0)
                             .frame(width: 220, height: 54)
@@ -56,7 +56,10 @@ struct MissionOneView: View {
                                 }
                             }
         //                    .opacity(isModalPresented ? 1 : 0)
-                            .animation(.linear, value: isModalPresented)
+                            .animation(.linear, value: isFinished == 1)
+                    }
+                    .onAppear{
+                        print("udah dipanggil nih")
                     }
                     .zIndex(3)
                 }
@@ -72,24 +75,40 @@ struct MissionOneView: View {
                 ComponentButtonMic(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
                     print("Open Mic")
                     // KELAR MISSION ONE
-                    isFinished = true
                     matchManager.isFinishedPlaying += 1
                     matchManager.synchronizeGameState("SoundMission")
                     if matchManager.isFinishedPlaying == 2 {
-                        matchManager.gameStatus = .convoGudang
+                        isModalPresented = true
                     }
                     else{
                         isModalPresented = true
                     }
                 }
                 .padding(.bottom, 40)
+                .onAppear{
+                    isFinished = matchManager.isFinishedPlaying
+                }
             }
 
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-        .sheet(isPresented: $isModalPresented) {
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == true && isModalPresented },
+            set: { _ in }
+        )) {
             ModalView()
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
+                .onAppear{
+                    print("Yang udah kelar: \(matchManager.isFinishedPlaying)")
+                }
+        }
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == false },
+            set: { _ in }
+        )) {
+            ModalView(modalType: "Lose")
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }
@@ -99,6 +118,8 @@ struct MissionOneView: View {
         .onAppear{
             matchManager.isFinishedReading = 0
             tools = Array(matchManager.tools.shuffled().prefix(3))
+            matchManager.isTimerRunning = true
+            matchManager.startTimer()
         }
     }
 }
@@ -125,23 +146,5 @@ struct textSound: View {
             Spacer()
         }
         .padding(.leading, 50)
-    }
-}
-
-struct ModalView: View {
-    @EnvironmentObject var matchManager: MatchManager
-    var body: some View {
-        ZStack{
-            Color.ungu
-                .ignoresSafeArea()
-            VStack{
-                Text("Yeay Kamu berhasil membeli semua peralatan!")
-                    .font(.system(size: 25, weight: .bold))
-                    .multilineTextAlignment(.center)
-                ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
-                }
-                .disabled(matchManager.isFinishedPlaying != 2)
-            }
-        }
     }
 }

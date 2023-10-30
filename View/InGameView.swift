@@ -19,51 +19,11 @@ struct InGameView: View {
                     Button(action: {
                         matchManager.chooseCharacter(karakter)
                     }) {
-                        TextSound(imageHalfBody: karakter.halfImage, namaChar: karakter.name, asalChar: karakter.origin, colorBackground: karakter.color)
+                        TextSound(imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin, gradienKanan: karakter.colorRight, gradienKiri: karakter.colorLeft)
                     }
                     .disabled(karakter.isChosen)
                     .opacity(karakter.isChosen ? 0.5 : 1.0)
                 }
-//=======
-//    @StateObject var router = Router()
-//    var body: some View {
-//        var gradient = LinearGradient(
-//            gradient: Gradient(colors: [Color.red, Color.blue]),
-//            startPoint: .topLeading,
-//            endPoint: .bottomTrailing
-//        )
-//        NavigationStack (path: $router.path){
-//            ZStack{
-//                Color(red: 0.97, green: 0.96, blue: 0.96)
-//                    .ignoresSafeArea()
-//                ScrollView (.vertical){
-//                    Button(action: {
-//                        router.path.append(.narator)
-//                    }, label: {
-//                        TextSound(imageHalfBody: "Dayu", namaChar: "Dayu", asalChar: "Bali", gradienKanan: "GkananKuning", gradienKiri: "GkiriKuning")
-//                    })
-//                    Button(action: {
-//                        router.path.append(.narator)
-//                    }, label: {
-//                        TextSound(imageHalfBody: "Eyog", namaChar: "Togar", asalChar: "Batak", gradienKanan: "GkananHijau", gradienKiri: "GkiriHijau")
-//                    })
-//                    Button(action: {
-//                        router.path.append(.narator)
-//                    }, label: {
-//                        TextSound(imageHalfBody: "Gale", namaChar: "Oman", asalChar: "Bandung",  gradienKanan: "GkananBiru", gradienKiri: "GkiriBiru")
-//                    })
-//                    Button(action: {
-//                        router.path.append(.narator)
-//                    }, label: {
-//                        TextSound(imageHalfBody: "Ajeng", namaChar: "Ajeng", asalChar: "Solo",  gradienKanan: "GkananUngu", gradienKiri: "GkiriUngu")
-//                    })
-//                }
-//                .padding()
-//            }
-//            .navigationDestination(for: Destination.self) {
-//                destination in
-//                ViewFactory.viewForDestination(destination)
-//>>>>>>> GameKit
             }
         }
     }

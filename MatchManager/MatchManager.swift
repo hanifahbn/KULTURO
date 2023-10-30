@@ -35,22 +35,23 @@ enum GameStatus {
 class MatchManager: NSObject, ObservableObject{
     @Published var authStatus : UserAuthenticationState = .authenticated
     @Published var gameStatus : GameStatus = .setup
+    @Published var isTimerRunning = false
+    @Published var localPlayer = GKLocalPlayer.local
+    @Published var otherPlayer: GKPlayer?
+    @Published var localCharacter: Karakter?
+    @Published var otherCharacter: Karakter?
     
     var match : GKMatch?
-    var localPlayer = GKLocalPlayer.local
-    var otherPlayer: GKPlayer?
-    var localCharacter: Karakter?
-    var otherCharacter: Karakter?
     var isFinishedReading: Int = 0
     var isFinishedPlaying: Int = 0
     var localTools: [String]?
     var otherTools: [String]?
     
     @Published var characters: [Karakter] = [
-        Karakter(name: "Dayu", headImage: "", fullImage: "PersonTwoHead", halfImage: "KadesHalf", origin: "Bali", color: "Coklat", isChosen: false),
-        Karakter(name: "Togar", headImage: "PersonTwoHead", fullImage: "", halfImage: "Eyog", origin: "Batak", color: "HijauMudah", isChosen: false),
-        Karakter(name: "Asep", headImage: "PersonTwoHead", fullImage: "", halfImage: "Gale", origin: "Bandung", color: "Kuning", isChosen: false),
-        Karakter(name: "Ajeng", headImage: "PersonTwoHead", fullImage: "", halfImage: "CiMei", origin: "Solo", color: "BiruLangit", isChosen: false)
+        Karakter(name: "Dayu", headImage: "Dayu", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false),
+        Karakter(name: "Togar", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false),
+        Karakter(name: "Asep", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false),
+        Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false),
     ]
     
     @Published var tools: [Tool] = [
@@ -112,6 +113,32 @@ class MatchManager: NSObject, ObservableObject{
         
         rootViewController?.present(matchmakingVC!, animated: true)
     }
+    
+    func reset(){
+        isTimerRunning = false
+        localPlayer = GKLocalPlayer.local
+        otherPlayer = nil
+        localCharacter = nil
+        otherCharacter = nil
+        
+        match = nil
+        isFinishedReading = 0
+        isFinishedPlaying = 0
+        localTools = nil
+        otherTools = nil
+        
+        for (index, _) in characters.enumerated() {
+            characters[index].isChosen = false
+        }
+    }
+    
+    func startTimer() {
+       isTimerRunning = true
+       DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+           // Tindakan yang akan dijalankan setelah 10 detik
+           self.isTimerRunning = false
+       }
+   }
     
     func startGame(newMatch: GKMatch) {
         match = newMatch

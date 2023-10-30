@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct onBoardView: View {
+struct OnBoardView: View {
     @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
@@ -40,6 +40,6 @@ struct onBoardView: View {
 }
 
 #Preview {
-    onBoardView()
+    OnBoardView()
         .environmentObject(MatchManager())
 }

@@ -4,9 +4,6 @@
 //
 //  Created by Irvan P. Saragi on 25/10/23.
 //
-
-import SwiftUI
-
 import SwiftUI
 
 struct  EndStoriesView: View {

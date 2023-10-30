@@ -51,7 +51,8 @@ class ViewFactory {
         case.desaStories:
             DesaStoriesView(viewModel: StoryViewModel())
         case.beliStories:
-            BeliStoriesView(viewModel: StoryViewModel(), matchManager: MatchManager())
+            BeliStoriesView(viewModel: StoryViewModel())
+                .environmentObject(MatchManager())
         case.missionOne:
             MissionOneView()
         case.gudangStories:

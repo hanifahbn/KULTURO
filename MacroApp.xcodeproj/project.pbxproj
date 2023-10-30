@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A3519E6E2AEB6E5B00C66C4A /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* Tool.swift */; };
+		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
 		A3A8FE792AEB139300980FB9 /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE782AEB139300980FB9 /* WaitingRoomView.swift */; };
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
@@ -31,7 +32,7 @@
 		E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
 		E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */; };
 		E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */; };
-		E251D0C72AE132620024FDD1 /* onBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C62AE132620024FDD1 /* onBoardView.swift */; };
+		E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C62AE132620024FDD1 /* OnBoardView.swift */; };
 		E2A729512AE187120093DD1F /* StoryNaratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729502AE187120093DD1F /* StoryNaratorView.swift */; };
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		A3519E6D2AEB6E5B00C66C4A /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
 		A3A8FE782AEB139300980FB9 /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		A3C304722ADE898800E11CCC /* MacroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +69,7 @@
 		E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchmakerViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKGameCenterControllerDelegate.swift"; sourceTree = "<group>"; };
-		E251D0C62AE132620024FDD1 /* onBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardView.swift; sourceTree = "<group>"; };
+		E251D0C62AE132620024FDD1 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
 		E2A729502AE187120093DD1F /* StoryNaratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNaratorView.swift; sourceTree = "<group>"; };
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 		E251D0C52AE131640024FDD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E251D0C62AE132620024FDD1 /* onBoardView.swift */,
+				E251D0C62AE132620024FDD1 /* OnBoardView.swift */,
 				E2E5B92D2AE1364F003B4F70 /* InGameView.swift */,
 				E2A729502AE187120093DD1F /* StoryNaratorView.swift */,
 				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
@@ -177,6 +179,7 @@
 				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
 				E2E5B92F2AE1365E003B4F70 /* EndGameView.swift */,
 				A3A8FE782AEB139300980FB9 /* WaitingRoomView.swift */,
+				A35921552AEF2D7C0063BD8E /* ModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,7 +265,7 @@
 			files = (
 				E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */,
 				E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */,
-				E251D0C72AE132620024FDD1 /* onBoardView.swift in Sources */,
+				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
 				A3A8FE792AEB139300980FB9 /* WaitingRoomView.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
@@ -284,6 +287,7 @@
 				E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */,
 				A3519E6E2AEB6E5B00C66C4A /* Tool.swift in Sources */,
 				E20C88122AE8BC440054AD47 /* GudangStoriesView.swift in Sources */,
+				A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */,
 				E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */,
 				A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */,
 				A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */,

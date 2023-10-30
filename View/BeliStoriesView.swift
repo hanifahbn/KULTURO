@@ -64,17 +64,17 @@ struct  BeliStoriesView: View {
                 //Nanti di pindah ke view model
                 if viewModel.currentIndex < 4 {
                     viewModel.currentIndex += 1
-                } else {
+                } else if viewModel.currentIndex == 4{
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("Reading")
                     if matchManager.isFinishedReading == 2 {
                         matchManager.gameStatus = .missionone
                     }
                     else{
-                        matchManager.gameStatus = .isWaiting
+                        viewModel.currentIndex += 1
+//                        matchManager.gameStatus = .isWaiting
                     }
                 }
-                print(viewModel.currentIndex)
             }
             .onAppear{
                 isAnimation = true

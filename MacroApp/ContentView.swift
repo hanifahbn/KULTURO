@@ -14,8 +14,11 @@ struct ContentView: View {
         Group{
             switch matchManager.gameStatus {
             case .setup:
-                onBoardView()
+                OnBoardView()
                     .environmentObject(matchManager)
+                    .onAppear {
+                        matchManager.reset()
+                    }
             case .inGame:
                 InGameView()
                     .environmentObject(matchManager)

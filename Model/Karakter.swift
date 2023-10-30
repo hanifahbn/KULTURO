@@ -14,6 +14,7 @@ struct Karakter: Identifiable, Equatable, Encodable, Decodable{
     var fullImage: String
     var halfImage: String
     var origin: String
-    var color: String
+    var colorRight: String
+    var colorLeft: String
     var isChosen: Bool
 }
