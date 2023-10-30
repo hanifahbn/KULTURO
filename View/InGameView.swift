@@ -26,11 +26,6 @@ struct InGameView: View {
                         }, label: {
                             TextSound(imageHalfBody: "Dayu", namaChar: "Dayu", asalChar: "Bali", gradienKanan: "GkananKuning", gradienKiri: "GkiriKuning")
                         })
-                        Button(action: {
-                            
-                        }, label: {
-                            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                        })
                     }
                     Button(action: {
                         router.path.append(.narator)

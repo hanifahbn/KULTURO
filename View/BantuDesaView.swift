@@ -34,16 +34,17 @@ struct  BantuDesaView: View {
                 Image(viewModel.desaStories[0].characterTwo)
                     .resizable()
                     .frame(width: 110, height: 226)
+                Image("HeadOffice")
+                    .resizable()
+                    .frame(width: 110, height: 226)
+                    .offset(x: 10, y: 10)
+                    .opacity(isAnimation ? 0 : 1)
                 Spacer()
             }
             .padding(.top, 200)
             .offset(x: isAnimation1 ? -250 : 60)
             .animation(.linear(duration: 2),value: isAnimation1)
-            Image("HeadOffice")
-                .resizable()
-                .frame(width: 110, height: 226)
-                .offset(x: 100, y: 100)
-                .opacity(isAnimation ? 0 : 1)
+            
             VStack{
                 Spacer()
                 HStack{
@@ -67,7 +68,6 @@ struct  BantuDesaView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
-            //            .animation(.linear(duration: 0.2), value: isStory)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -77,11 +77,13 @@ struct  BantuDesaView: View {
                 if viewModel.currentIndex == 1{
                     isStory = true
                 } else if viewModel.currentIndex == 3{
+                    isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         viewModel.currentIndex += 1
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isAnimation1 = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             isStory = true
                             isTapGestureEnabled = true
                         }

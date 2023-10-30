@@ -74,10 +74,10 @@ class StoryViewModel: ObservableObject {
             BantuDesaStories(stories: "Ini pak perlengkapannya sudah ketemu", characterOne: "Couple", characterTwo: "BackgroundGudang", transisiStories: false),
             BantuDesaStories(stories: "Wah bagus bagus, ayuk sekarang kembali ke balai desa.tolong bantu bapak bawa barang barang ini ya", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundGudang", transisiStories: false),
             BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: true),
-            BantuDesaStories(stories: "Wah sudah ramai nih, sudah mau mulai ya ini pak", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            BantuDesaStories(stories: "Iya, sekarang kalian berdua bantu berikan barang barang ini kepada warga ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            BantuDesaStories(stories: "Baik pak, kami akan lakukan dengan baik.", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
-            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
+            BantuDesaStories(stories: "Wah sudah ramai nih, sudah mau mulai ya ini pak", characterOne: "Couple", characterTwo: "BackgroundDesaRamai", transisiStories: false),
+            BantuDesaStories(stories: "Iya, sekarang kalian berdua bantu berikan barang barang ini kepada warga ya", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundDesaRamai", transisiStories: false),
+            BantuDesaStories(stories: "Baik pak, kami akan lakukan dengan baik.", characterOne: "Couple", characterTwo: "BackgroundDesaRamai", transisiStories: false),
+            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundDesaRamai", transisiStories: true),
         ]
         
         pasirStories = [
