@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CameraResultView: View {
-
+    @EnvironmentObject var matchManager: MatchManager
+    
     @Binding var capturedImage: UIImage?
     @Binding var isSuccess: Bool
     
@@ -21,18 +22,22 @@ struct CameraResultView: View {
                 .ignoresSafeArea()
                 .overlay(Color.black.opacity(0.5))
             
-        } .sheet(isPresented: $isSuccess) {
-            VStack {
-                Text("Yeay Kamu berhasil menemukan semua perlengkapan!")
-                    .font(.system(size: 25, weight: .bold))
-                    .multilineTextAlignment(.center)
-                ComponetButtonMic(textButton: "Lanjutkan", iconButton: "") {
-                    print("Next Storie")
-                }
+        } 
+        .sheet(isPresented: $isSuccess) {
+            ModalView(modalType: "CameraSuccess")
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
+                .interactiveDismissDisabled()
+        }
+        .onAppear{
+            matchManager.isFinishedPlaying += 1
+            matchManager.synchronizeGameState("CameraMission")
+            if matchManager.isFinishedPlaying == 2 {
+                isSuccess = true
             }
-            .presentationDetents([.height(183)])
-            .interactiveDismissDisabled()
-            
+            else{
+                isSuccess = true
+            }
         }
     }
 }

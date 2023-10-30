@@ -51,7 +51,7 @@ class StoryViewModel: ObservableObject {
             BeliStories(stories: "oh iya bang mau beli apa?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "mau beli barang bangunan untuk renovasi balai desa Bu", characterOne: "Couple", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "oh oke oke yasudah mau beli apa saja kalian?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
-            BeliStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...?", characterOne: "PersonOne", characterTwo: "",inMissionOne: false),
+            BeliStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "",inMissionOne: false),
 //            BeliStories(stories: "Ucapkan barang - \n barang yang ada di\n Daftar Belanja", characterOne: "", characterTwo: "", inMissionOne: true),
         ]
         
@@ -66,8 +66,8 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan renovasi nya ya", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "", characterOne: "", characterTwo: "", transisiStories: true),
             GudangStorie(stories: "Oke cari disini ya, hati hati mencarinya ya nak", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: false),
+            GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
-            
         ]
         
         bantuDesaStories = [

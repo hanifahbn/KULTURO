@@ -54,7 +54,7 @@ struct StoryNaratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-            matchManager.gameStatus = .convoBeli
+            matchManager.gameStatus = .convoGudang
         }
         .onTapGesture {
             if isFirstTap {

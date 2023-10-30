@@ -66,7 +66,14 @@ struct  GudangStoriesView: View {
             if viewModel.currentIndex < 10 {
                 viewModel.currentIndex += 1
             } else {
-                matchManager.gameStatus = .convoBantuDesa
+                matchManager.isFinishedReading += 1
+                matchManager.synchronizeGameState("Reading")
+                if matchManager.isFinishedReading == 2 {
+                    matchManager.gameStatus = .cameraGame
+                }
+                else{
+                    viewModel.currentIndex += 1
+                }
             }
             
             if viewModel.currentIndex == 1{

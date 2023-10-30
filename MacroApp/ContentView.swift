@@ -38,6 +38,9 @@ struct ContentView: View {
             case .convoGudang:
                 GudangStoriesView()
                     .environmentObject(matchManager)
+            case .cameraGame:
+                ObjectDetectionGame()
+                    .environmentObject(matchManager)
             case .convoBantuDesa:
                 BantuDesaView()
                     .environmentObject(matchManager)

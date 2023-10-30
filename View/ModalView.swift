@@ -26,6 +26,17 @@ struct ModalView: View {
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
             }
+            if(modalType == "CameraSuccess"){
+                VStack{
+                    Text("Yeay, kamu berhasil menemukan semua peralatan!")
+                        .font(.system(size: 25, weight: .bold))
+                        .multilineTextAlignment(.center)
+                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        matchManager.gameStatus = .convoBantuDesa
+                    }
+                    .disabled(matchManager.isFinishedPlaying != 2)
+                }
+            }
             else if(modalType == "Lose"){
                 VStack{
                     Text("Waktu habis, kamu belum berhasil.")

@@ -78,7 +78,6 @@ struct AyakPasirView: View {
 }
 
 struct ModalPasirView: View {
-    @EnvironmentObject var router : Router
     @Binding var  isModalPresented : Bool
     var body: some View {
         ZStack{
@@ -89,7 +88,6 @@ struct ModalPasirView: View {
                     .font(.system(size: 25, weight: .bold))
                     .multilineTextAlignment(.center)
                 ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
-                    router.path.append(.endStories)
                     isModalPresented = false
                 }
             }

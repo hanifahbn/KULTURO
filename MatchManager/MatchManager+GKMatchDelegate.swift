@@ -62,6 +62,13 @@ extension MatchManager: GKMatchDelegate{
                 gameStatus = .convoGudang
             }
         }
+        if state == "CameraMission" {
+            isFinishedPlaying += 1
+            print("Yang udah kelar camera: \(isFinishedPlaying)")
+            if(isFinishedPlaying == 2){
+                gameStatus = .convoBantuDesa
+            }
+        }
     }
     
     func sendString(_ message: String ) {

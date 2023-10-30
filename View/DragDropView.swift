@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DragDropView: View {
-    @EnvironmentObject var router : Router
     @State var askItems : Bool = false
     @State var askItems2 : Bool = false
     @State var item = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
@@ -18,7 +17,6 @@ struct DragDropView: View {
             Color.ungu
                 .ignoresSafeArea()
             Button("next") {
-                router.path.append(.pasirStories)
             }
             ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: "Ember")
             ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: "Sapu")

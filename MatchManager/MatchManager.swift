@@ -24,6 +24,7 @@ enum GameStatus {
     case missionone
     case gameOver
     case isWaiting
+    case cameraGame
     case convoBalaiDesa
     case convoBeli
     case convoGudang
@@ -54,13 +55,13 @@ class MatchManager: NSObject, ObservableObject{
         Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false),
     ]
     
-    @Published var tools: [Tool] = [
-        Tool(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: ""),
-        Tool(localName: "Labang", bahasaName: "Paku", exampleAudioURL: ""),
-        Tool(localName: "Lotaklotak", bahasaName: "Kayu", exampleAudioURL: ""),
-        Tool(localName: "Batu Kerengkel", bahasaName: "Batu Kerikil", exampleAudioURL: ""),
-        Tool(localName: "Sipadot", bahasaName: "Sapu", exampleAudioURL: ""),
-        Tool(localName: "Apusapus ni pat", bahasaName: "Keset", exampleAudioURL: "")
+    @Published var tools: [ToolBahasa] = [
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Labang", bahasaName: "Paku", exampleAudioURL: ""),
+        ToolBahasa(localName: "Lotaklotak", bahasaName: "Kayu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Batu Kerengkel", bahasaName: "Batu Kerikil", exampleAudioURL: ""),
+        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", exampleAudioURL: ""),
+        ToolBahasa(localName: "Apusapus ni pat", bahasaName: "Keset", exampleAudioURL: "")
     ]
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")

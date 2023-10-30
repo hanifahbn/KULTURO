@@ -14,8 +14,8 @@ struct MissionOneView: View {
     @State private var isTutorialShown = true
     @State private var isFinished = 0
     
-    @State var tools: [Tool] = [
-        Tool(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: "")]
+    @State var tools: [ToolBahasa] = [
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: "")]
     
     var body: some View {
         ZStack{
