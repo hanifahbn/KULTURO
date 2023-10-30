@@ -30,7 +30,7 @@ struct CameraView: UIViewControllerRepresentable {
 
 
         let viewController = CameraViewController()
-        viewController.view.backgroundColor = .blue
+        viewController.view.backgroundColor = .black
         viewController.view.layer.addSublayer(cameraService.previewLayer)
         cameraService.previewLayer.frame = viewController.view.bounds
         cameraService.cameraDelegate = context.coordinator

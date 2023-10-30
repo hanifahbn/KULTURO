@@ -12,9 +12,9 @@ struct ToolBrain {
     var tools = [
         Tool(i: "Broom", o: "notebook, notebook computer"),
         Tool(i: "Bucket", o: "bucket, pail"),
-//        Tool(i: "clock", o: "analog clock"),
-//        Tool(i: "dustbin", o: "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"),
-//        Tool(i: "doormat", o: "doormat, welcome mat")
+        Tool(i: "Clock", o: "analog clock"),
+        Tool(i: "Dustbin", o: "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"),
+        Tool(i: "Doormat", o: "doormat, welcome mat")
     ]
 
     func getRandomTool(_ tool : Tool) -> Tool {

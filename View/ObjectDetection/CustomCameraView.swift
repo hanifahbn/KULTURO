@@ -10,20 +10,20 @@ import SwiftUI
 
 
 struct CustomCameraView: View {
-
+    
     @StateObject var cameraService = CameraViewController()
     @Binding var capturedImage: UIImage?
-
-    @Environment(\.presentationMode) private var presentationMode
-
-    @State var isDisabled: Bool = true
-
-    @Binding var tool: Tool
-
-    var toolBrain = ToolBrain()
-
     
-
+    @Environment(\.presentationMode) private var presentationMode
+    
+    @State var isDisabled: Bool = true
+    
+    @Binding var tool: Tool
+    
+    var toolBrain = ToolBrain()
+    
+    
+    
     var  body: some View {
         ZStack {
             CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
@@ -40,33 +40,41 @@ struct CustomCameraView: View {
                 }
             }
             VStack{
-                if(!isDisabled){
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .frame(width: 208, height: 32)
-                        .background(.white.opacity(0.6))
-                        .cornerRadius(8)
-                        .overlay(
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 8)
-                                    .inset(by: 0.5)
-                                    .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                HStack{
+                
+                Rectangle()
+                    .foregroundColor(.white)
+                    .frame(width: 208, height: 32)
+                    .background(.white.opacity(0.6))
+                    .cornerRadius(8)
+                    .overlay(
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 8)
+                                .inset(by: 0.5)
+                                .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
+                            HStack{
+                                if(!isDisabled){
                                     Text("Tekan tombol shutter.")
                                         .font(
                                             Font.custom("SF Pro Rounded", size: 20)
                                                 .weight(.bold)
                                         )
                                         .foregroundColor(.black)
-
-
+                                    
+                                } else{
+                                    Text("Mencari peralatan...")
+                                        .font(
+                                            Font.custom("SF Pro Rounded", size: 20)
+                                                .weight(.bold)
+                                        )
+                                        .foregroundColor(.black)
                                 }
                             }
-                        ).padding([.top], 68)
-                }
-
+                        }
+                    ).padding([.top], 68)
+                
+                
                 Spacer()
-
+                
                 HStack{
                     Button(action: {cameraService.capturePhoto()}, label: {
                         Image(systemName: "camera")
@@ -78,7 +86,7 @@ struct CustomCameraView: View {
                     }).disabled(isDisabled)
                 }
                 .frame(height: 75)
-
+                
                 ZStack {
                     HStack(spacing: -60) {
                         Image("Headman")
@@ -86,8 +94,8 @@ struct CustomCameraView: View {
                             .frame(width: 85, height: 87 )
                             .zIndex(1)
                             .padding(.top, -10)
-
-
+                        
+                        
                         Rectangle()
                             .foregroundColor(.white)
                             .frame(width: 260, height: 76)
@@ -105,7 +113,7 @@ struct CustomCameraView: View {
                                                     .weight(.bold)
                                             )
                                             .foregroundColor(.black)
-
+                                        
                                         Button(action: {
                                             tool = toolBrain.getRandomTool(tool)
                                         }) {
@@ -115,10 +123,10 @@ struct CustomCameraView: View {
                                     .padding(.leading, 36)
                                 }
                             )
-
-
+                        
+                        
                     }
-
+                    
                 }
                 .frame(width: 260, height: 76)
                 .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
@@ -127,6 +135,6 @@ struct CustomCameraView: View {
             }
         }
     }
-
+    
 }
 
