@@ -13,7 +13,8 @@ struct MacroApp: App {
         WindowGroup {
 //            ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
-            InGameView()
+ //           InGameView()
+            DragDropView()
         }
     }
 }
