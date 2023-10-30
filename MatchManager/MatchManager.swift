@@ -56,12 +56,11 @@ class MatchManager: NSObject, ObservableObject{
     ]
     
     @Published var tools: [ToolBahasa] = [
-        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: ""),
-        ToolBahasa(localName: "Labang", bahasaName: "Paku", exampleAudioURL: ""),
-        ToolBahasa(localName: "Lotaklotak", bahasaName: "Kayu", exampleAudioURL: ""),
-        ToolBahasa(localName: "Batu Kerengkel", bahasaName: "Batu Kerikil", exampleAudioURL: ""),
-        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", exampleAudioURL: ""),
-        ToolBahasa(localName: "Apusapus ni pat", bahasaName: "Keset", exampleAudioURL: "")
+        ToolBahasa(localName: "Apusapus Ni Pat", bahasaName: "Keset", labelName:"ApusapusNiPat", exampleAudioURL: ""),
+        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", labelName:"Sipadot", exampleAudioURL: ""),
+        ToolBahasa(localName: "Tel", bahasaName: "Ember", labelName:"Tel", exampleAudioURL: ""),
+        ToolBahasa(localName: "Inganan Sampah", bahasaName: "Tempat Sampah", labelName:"IngananSampah", exampleAudioURL: ""),
+        ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: ""),
     ]
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")

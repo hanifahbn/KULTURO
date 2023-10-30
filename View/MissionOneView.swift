@@ -13,9 +13,17 @@ struct MissionOneView: View {
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
     @State private var isFinished = 0
-    
+    @State private var jumlahBenar = 0
+    @StateObject var audioViewModel = AudioViewModel()
+    @StateObject var playerViewModel = PlayerViewModel()
+    @State var currentStep = 0
+    @State var spoken = [false, false, false]
     @State var tools: [ToolBahasa] = [
-        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", exampleAudioURL: "")]
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", labelName: "ApusapusNiPat", exampleAudioURL: ""),
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", labelName: "ApusapusNiPat", exampleAudioURL: ""),
+        ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", labelName: "ApusapusNiPat", exampleAudioURL: "")]
+    
+    @State var textNamaTool : [String] = ["A"]
     
     var body: some View {
         ZStack{
@@ -68,22 +76,43 @@ struct MissionOneView: View {
                     .font(.system(size: 30, weight: .semibold))
                     .font(.title)
                     .padding(.bottom, 40)
-                ForEach(tools) { tool in
-                    textSound(textBahasa: tool.localName)
+                
+                if textNamaTool.count > 2 {
+                    textSound(textBahasa: $textNamaTool[0])
+                    textSound(textBahasa: $textNamaTool[1])
+                    textSound(textBahasa: $textNamaTool[2])
                 }
+
                 Spacer()
-                ComponentButtonMic(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
-                    print("Open Mic")
-                    // KELAR MISSION ONE
-                    matchManager.isFinishedPlaying += 1
-                    matchManager.synchronizeGameState("SoundMission")
-                    if matchManager.isFinishedPlaying == 2 {
-                        isModalPresented = true
+                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                    if(jumlahBenar == 3){
+                        matchManager.isFinishedPlaying += 1
+                        matchManager.synchronizeGameState("SoundMission")
+                        if matchManager.isFinishedPlaying == 2 {
+                            isModalPresented = true
+                        }
+                        else{
+                            isModalPresented = true
+                        }
                     }
                     else{
-                        isModalPresented = true
+                        if audioViewModel.audio.isRecording == false {
+                            audioViewModel.startRecording()
+                        }
+                        else {
+                            audioViewModel.stopRecording()
+                            print(audioViewModel.audio.label)
+                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+                                print("BENER")
+                                textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
+                                playerViewModel.playAudio(fileName: "Correct")
+                                spoken[currentStep] = true
+                                currentStep = currentStep + 1
+                            }
+                        }
                     }
                 }
+                .disabled(jumlahBenar == 3)
                 .padding(.bottom, 40)
                 .onAppear{
                     isFinished = matchManager.isFinishedPlaying
@@ -118,8 +147,10 @@ struct MissionOneView: View {
         .onAppear{
             matchManager.isFinishedReading = 0
             tools = Array(matchManager.tools.shuffled().prefix(3))
+            textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
             matchManager.startTimer()
+            print(textNamaTool)
         }
     }
 }
@@ -130,7 +161,7 @@ struct MissionOneView: View {
 //}
 
 struct textSound: View {
-    @State var textBahasa : String
+    @Binding var textBahasa : String
     var body: some View {
         HStack(spacing: 20){
             Button(action: {
@@ -141,7 +172,7 @@ struct textSound: View {
                     .frame(width: 30, height: 26)
             })
             Text(textBahasa)
-                .font(.system(size: 23, weight: .semibold))
+                .font(.system(size: 15, weight: .semibold))
                 .font(.title)
             Spacer()
         }

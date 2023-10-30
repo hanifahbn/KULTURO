@@ -11,5 +11,6 @@ struct ToolBahasa: Identifiable, Equatable, Encodable, Decodable {
     var id = UUID()
     var localName: String
     var bahasaName: String
+    var labelName: String
     var exampleAudioURL: String
 }
