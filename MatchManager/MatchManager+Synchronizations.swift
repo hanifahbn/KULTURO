@@ -20,4 +20,10 @@ extension MatchManager{
             sendData(encodedData, mode: .unreliable)
         }
     }
+    
+    func synchronizeGameCharacters(_ characters: [Karakter]) {
+        if let encodedData = try? JSONEncoder().encode(characters) {
+            sendData(encodedData, mode: .reliable)
+        }
+    }
 }

@@ -41,6 +41,14 @@ extension MatchManager: GKMatchDelegate{
             print("Failed to decode received data as Karakter.")
         }
         
+        if let receivedGameCharacters = try? JSONDecoder().decode([Karakter].self, from: data) {
+            // Mengganti karakter lokal dengan karakter yang diterima
+            choosenCharacters = receivedGameCharacters
+            
+        } else {
+            print("Failed to decode received data as Kumpulan Karakter.")
+        }
+        
         if let receivedState = try? String(decoding: data, as: UTF8.self) {
             handleReceivedState(receivedState)
         } else {
@@ -63,14 +71,19 @@ extension MatchManager: GKMatchDelegate{
         }
         if state == "SoundMission" {
             isFinishedPlaying += 1
-            print("Yang udah kelar: \(isFinishedPlaying)")
             if(isFinishedPlaying == 2){
                 gameStatus = .convoGudang
             }
         }
+        if state == "DragAndDropMission" {
+            isFinishedPlaying += 1
+            if(isFinishedPlaying == 2){
+                gameStatus = .convoPasir
+            }
+        }
         if state == "CameraMission" {
             isFinishedPlaying += 1
-            print("Yang udah kelar camera: \(isFinishedPlaying)")
+//            print("Yang udah kelar camera: \(isFinishedPlaying)")
             if(isFinishedPlaying == 2){
                 gameStatus = .convoBantuDesa
             }

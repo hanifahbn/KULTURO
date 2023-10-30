@@ -15,7 +15,8 @@ struct DesaStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
-    
+    @State var isTapGestureEnabled = true
+
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -23,8 +24,8 @@ struct DesaStoriesView: View {
                 .ignoresSafeArea()
                 .zIndex(1)
                 .opacity(isNextStory ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: isNextStory)
-            if viewModel.currentIndex >= 8{
+                .animation(.easeIn(duration: 1), value: isNextStory)
+            if viewModel.currentIndex >= 7{
                 Image("BrokenBalaiDesa")
                     .resizable()
                     .ignoresSafeArea()
@@ -33,27 +34,32 @@ struct DesaStoriesView: View {
                     .resizable()
                     .ignoresSafeArea()
             }
-            HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                Spacer()
-                Image(viewModel.desaStories[4].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .offset(x: isAnimation1 ?  0 : 100)
-                    .opacity(isAnimation1 ? 1 : 0)
-                    .animation(.linear(duration: 2), value: isAnimation1)
-            }
+            HStack{
+                HStack(spacing : -30){
+                    Image(viewModel.desaStories[0].characterOne)
+                        .resizable()
+                        .frame(width: 110, height: 226)
+                        .padding(.top, 40)
+                    Image(viewModel.desaStories[0].characterTwo)
+                        .resizable()
+                        .frame(width: 110, height: 226)
+                    Spacer()
+                    Image(viewModel.desaStories[4].characterTwo)
+                        .resizable()
+                        .opacity(isAnimation1 ? 1 : 0)
+                        .frame(width: 110, height: 226)
+                        .offset(x: isAnimation1 ?  0 : 100)
+                        .animation(.linear(duration: 1.5), value: isAnimation1)
+                    
+                }
                 .padding(.top, 200)
                 .offset(x: isAnimation ? 10 : -200)
-                .animation(.linear(duration: 3), value: isAnimation)
+                .animation(.linear(duration: 2.5), value: isAnimation)
+            }
+            //            .offset(x: isAnimation1 ? 400 : 0)
+            
             VStack{
-               Spacer()
+                Spacer()
                 HStack{
                     Image(viewModel.desaStories[viewModel.currentIndex].characterOne)
                 }
@@ -62,43 +68,72 @@ struct DesaStoriesView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
                     .overlay {
-                        Text(viewModel.desaStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 28, weight: .medium, design: .rounded))
-                            .padding(4)
+                        VStack{
+                            HStack{
+                                Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
+                                    .font(.system(size: 24, weight: .semibold, design: .rounded))
+                                    .padding(4)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
                     }
                     .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
-//            .animation(.linear(duration: 0.2), value: isStory)
+            //            .animation(.linear(duration: 0.2), value: isStory)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
-            //Nanti di pindah ke view model
-            if viewModel.currentIndex < 11 {
+            if isTapGestureEnabled {
                 viewModel.currentIndex += 1
-            } else {
-                matchManager.gameStatus = .convoBeli
+                if viewModel.currentIndex == 4 {
+                    isStory = false
+                    isAnimation1 = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        isStory = true
+                        isTapGestureEnabled = true
+                    }
+                } else if viewModel.currentIndex == 6 {
+                    isStory = false
+                    isAnimation = false
+                    isAnimation1 = false
+                    isNextStory = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isNextStory = false
+                        viewModel.currentIndex += 1
+                        isStory = false
+                        isAnimation1 = true
+                        isAnimation = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            viewModel.currentIndex = 8
+                            isStory = true
+                            isTapGestureEnabled = true
+                        }
+                        
+                    }
+                } else if viewModel.currentIndex == 11 {
+                    
+                    isStory = false
+                    isAnimation = false
+                    isNextStory = true
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        print("Cerita Selesai")
+                        matchManager.gameStatus = .convoBeli
+                    }
+                }
             }
-            
-            if viewModel.currentIndex == 4{
-                isStory = false
-                isAnimation1 = true
-            } else if viewModel.currentIndex == 5{
-                isStory = true
-            } else if viewModel.currentIndex == 7{
-                isNextStory = true
-            } else if viewModel.currentIndex == 8{
-                isNextStory = false
-                isStory = false
-            } else if viewModel.currentIndex == 9{
-                isStory = true
-            } 
         }
         .onAppear{
             isAnimation = true
-            
+            isTapGestureEnabled = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isStory = true
+                isTapGestureEnabled = true
+                
             }
         }
         

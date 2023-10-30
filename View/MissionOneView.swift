@@ -129,9 +129,6 @@ struct MissionOneView: View {
             ModalView()
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
-                .onAppear{
-                    print("Yang udah kelar: \(matchManager.isFinishedPlaying)")
-                }
         }
         .sheet(isPresented: Binding(
             get: { matchManager.isTimerRunning == false },

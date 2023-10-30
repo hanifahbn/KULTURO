@@ -34,7 +34,7 @@ struct StoryNaratorView: View {
                                 .opacity(0.8)
                             VStack{
                                 HStack{
-                                    Text(nextStory ? viewModel.naratorStories[currentIndex].stories: text)
+                                    Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name) : text)
                                         .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     Spacer()
                                 }
@@ -45,20 +45,29 @@ struct StoryNaratorView: View {
                     }
                     .frame(width: 350, height: 300)
                     .shadow(radius: 10)
-
-//                .opacity(viewModel.naratorStories[currentIndex].nextChapter ? 1 : 0)
             }
             .padding(.top, 20)
-           
+            HStack{
+                Spacer()
+                Button(action: {
+                    print("Sound")
+                }, label: {
+                    Image(systemName: "speaker.wave.2.circle.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                })
+                .padding(.top, 250)
+                .padding(.trailing, 40)
+            }
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{
-            typeWriter()
-            matchManager.gameStatus = .missionone
+//            typeWriter()
+            matchManager.gameStatus = .convoBeli
         }
         .onTapGesture {
             if isFirstTap {
-                isFirstTap = false 
+                isFirstTap = false
                 nextStory = true
             } else {
                 goToNextStory()
@@ -71,7 +80,7 @@ struct StoryNaratorView: View {
     
     // nanti di pindah ke View model
     func typeWriter() {
-        let Stories = viewModel.naratorStories[currentIndex].stories
+        let Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name)
         text = String(Stories.prefix(position))
         if position < Stories.count {
             position += 1

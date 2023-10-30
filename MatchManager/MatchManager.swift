@@ -25,6 +25,7 @@ enum GameStatus {
     case gameOver
     case isWaiting
     case cameraGame
+    case dragAndDrop
     case convoBalaiDesa
     case convoBeli
     case convoGudang
@@ -66,6 +67,8 @@ class MatchManager: NSObject, ObservableObject{
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
 //    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
     
+    @Published var choosenCharacters: [Karakter]? = []
+        
     let gameDuration = 15
     var otherPlayerScore: Int = 0
     var Score : Int = 0
@@ -143,24 +146,6 @@ class MatchManager: NSObject, ObservableObject{
         match = newMatch
         match?.delegate = self
         
-//        if let otherPlayer = match?.players.first {
-//            self.otherPlayer = otherPlayer
-//
-//            self.otherPlayer?.loadPhoto(for: GKPlayer.PhotoSize.small) { (image, error) in
-//                if let image {
-//                    self.opponentAvatar = Image(uiImage: image)
-//                }
-//                if let error {
-//                    print("Error: \(error.localizedDescription).")
-//                }
-//            }
-//        }
-//
-//        // reset
-//        Score = 0
-//        otherPlayerScore = 0
-        
-        // back in game
         gameStatus = .inGame
     }
     
@@ -177,6 +162,9 @@ class MatchManager: NSObject, ObservableObject{
             synchronizeCharacterSelection(karakter)
             
             if otherCharacter != nil {
+                choosenCharacters?.append(localCharacter!)
+                choosenCharacters?.append(otherCharacter!)
+                synchronizeGameCharacters(choosenCharacters!)
                 gameStatus = .stories
             }
         }

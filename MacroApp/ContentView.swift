@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
     
-    @StateObject var serverViewModel = ServerViewModel()
+    @StateObject var audioViewModel = AudioViewModel()
     
     var body: some View {
         Group{
@@ -43,6 +43,9 @@ struct ContentView: View {
             case .cameraGame:
                 ObjectDetectionGame()
                     .environmentObject(matchManager)
+            case .dragAndDrop:
+                DragDropView()
+                    .environmentObject(matchManager)
             case .convoBantuDesa:
                 BantuDesaView()
                     .environmentObject(matchManager)
@@ -58,7 +61,8 @@ struct ContentView: View {
             }
         }.onAppear{
             matchManager.authenticateUser()
-            serverViewModel.sendAudioToServer(audioURL: Bundle.main.url(forResource: "Correct", withExtension: "wav")!)
+            audioViewModel.startRecording()
+            audioViewModel.stopRecording()
         }
     }
 }

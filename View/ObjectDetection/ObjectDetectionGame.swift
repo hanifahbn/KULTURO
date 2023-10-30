@@ -42,7 +42,7 @@ struct ObjectDetectionGame: View {
         }
         .onAppear{
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 10)
+            matchManager.startTimer(time: 60)
         }
     }
 }
