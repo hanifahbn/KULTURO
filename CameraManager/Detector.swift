@@ -10,26 +10,22 @@ import AVFoundation
 import UIKit
 
 extension CameraViewController {
-
+    
     func setupDetector() {
-
-
+        
         guard let visionModel = try? VNCoreMLModel(for: Resnet50().model) else { return }
-
-        self.debouncingTimer?.invalidate()
-        self.debouncingTimer = nil
-
+        
+        
         let recognitions = VNCoreMLRequest(model: visionModel)
-        { (finishedReq, err) in
-
+        { [self] (finishedReq, err) in
+            
             guard let results  = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObservation = results.first else { return }
-
-            print("self.tool?.objectIdentifier", self.tool.objectIdentifier)
-
+            
+            
             if firstObservation.identifier == self.tool.objectIdentifier {
-
-
+                
+                
                 // change to brown
                 //                    DispatchQueue.main.async { [weak self] in
                 //                        let camPreviewBounds = self!.view.bounds
@@ -50,37 +46,25 @@ extension CameraViewController {
                 //
                 //                        self!.view.layer.addSublayer(layer)
                 //                    }
-
+                
                 self.cameraDelegate?.changeButton(isDisabled: false)
-
+                
+                
             } else {
-
-                self.debouncingTimer?.invalidate()
-                self.debouncingTimer = nil
-
-
-
-
-                if self.debouncingTimer == nil || self.debouncingTimer?.isValid == false {
-                    self.debouncingTimer = Timer.scheduledTimer(
-                        withTimeInterval: self.DEBOUNCE_TIME,
-                        repeats: false) { [weak self] timer in
-                            print("invalidate")
-                            timer.invalidate()
-                            self?.debouncingTimer = nil
-                        }
-
-                    // your heavy functionality
-//                    print("hubla")
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0, execute: {
                     self.cameraDelegate?.changeButton(isDisabled: true)
-                }
+                })
+                
             }
         }
-
+        
         self.requests = [recognitions]
-
+        
     }
-
+    
+    
+    
     func setupLayers() {
         // setup blur layer
         DispatchQueue.main.async { [weak self] in
@@ -89,30 +73,30 @@ extension CameraViewController {
             blurView.frame = self!.view.bounds
             blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self!.view.addSubview(blurView)
-
+            
             let path = UIBezierPath(rect: blurView.bounds)
             path.usesEvenOddFillRule = true
             path.append(UIBezierPath(roundedRect: CGRect(x: 50, y: 60, width: 300, height: 592), cornerRadius: 20))
-
+            
             let layer = CAShapeLayer()
             layer.path = path.cgPath
             layer.fillRule = .evenOdd
             blurView.layer.mask = layer
         }
-
+        
     }
-
-
+    
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: [:]) // Create handler to perform request on the buffer
-
-
+        
+        
         do {
             try imageRequestHandler.perform(self.requests) // Schedules vision requests to be performed
         } catch {
             print(error)
         }
     }
-
+    
 }
