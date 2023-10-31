@@ -23,9 +23,9 @@ enum GameStatus {
     case stories
     case missionone
     case gameOver
-    case isWaiting
     case cameraGame
     case dragAndDrop
+    case shakeGame
     case convoBalaiDesa
     case convoBeli
     case convoGudang

@@ -79,6 +79,7 @@ class StoryViewModel: ObservableObject {
             BantuDesaStories(stories: "Iya, sekarang ayo bantu berikan barang-barang ini ke warga yang lain, ya", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundDesaRamai", transisiStories: false),
             BantuDesaStories(stories: "Baik, pak.", characterOne: "Couple", characterTwo: "BackgroundDesaRamai", transisiStories: false),
             BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundDesaRamai", transisiStories: true),
+            BantuDesaStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonTwoDesa", characterTwo: "BackgroundDesaRamai", transisiStories: false),
         ]
         
         pasirStories = [
@@ -94,8 +95,8 @@ class StoryViewModel: ObservableObject {
         endStories = [
             EndStories(stories: "", characterOne: "", transisiStories: false),
             EndStories(stories: "Akhirnya selesai juga renovasinya. Terima kasih, ya, nama1 dan nama2.", characterOne: "HeadOfficeDesa", transisiStories: false),
-            EndStories(stories: "Iya, pak, sama-sama. Ternyata gotong royong dengan warga asik juga, ya. Aku merasa berperan penting.", characterOne: "Couple", transisiStories: false),
-            EndStories(stories: "Seru sekali bisa saling bantu kayak begini. Akhirnya liburku produktif juga, hehehe.", characterOne: "Couple", transisiStories: false),
+            EndStories(stories: "Iya, pak, sama-sama. Ternyata gotong royong dengan warga asik juga, ya. Aku merasa berperan penting.", characterOne: "PersonOneDesa", transisiStories: false),
+            EndStories(stories: "Seru sekali bisa saling bantu kayak begini. Akhirnya liburku produktif juga, hehehe.", characterOne: "PersonTwoDesa", transisiStories: false),
             EndStories(stories: "Wah, wah. Saya juga senang melihat kalian mau bekerja sama dan saling membantu.", characterOne: "HeadOfficeDesa", transisiStories: false),
             EndStories(stories: "Yuk, sekarang kalian ikut acara makan-makan di rumah saya.", characterOne: "HeadOfficeDesa", transisiStories: false),
             EndStories(stories: "Ayo!", characterOne: "Couple", transisiStories: false),

@@ -52,7 +52,7 @@ struct  PasirStoriesView: View {
                         HStack{
                             VStack{
                                 Text(viewModel.pasirStories[viewModel.currentIndex].stories)
-                                    .font(.system(size: 28, weight: .medium, design: .rounded))
+                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
                                     .padding(4)
                                 Spacer()
                             }
@@ -64,7 +64,6 @@ struct  PasirStoriesView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isStory ? 1 : 0)
-            //            .animation(.linear(duration: 0.2), value: isStory)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -72,16 +71,20 @@ struct  PasirStoriesView: View {
             if viewModel.currentIndex < 5 {
                 viewModel.currentIndex += 1
             } else {
-                matchManager.gameStatus = .convoBerhasil
+                matchManager.isFinishedReading += 1
+                matchManager.synchronizeGameState("ReadingFourth")
+                if matchManager.isFinishedReading == 2 {
+                    matchManager.gameStatus = .shakeGame
+                }
             }
             
             if viewModel.currentIndex == 1{
                 isStory = false
-            } 
+            }
         }
         .onAppear{
-            isStory = true
             matchManager.isFinishedPlaying = 0
+            isStory = true
         }
     }
 }

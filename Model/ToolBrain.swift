@@ -10,7 +10,7 @@ import Foundation
 struct ToolBrain {
 
     var tools = [
-        Tool(i: "Broom", o: "notebook, notebook computer"),
+        Tool(i: "Broom", o: "broom"),
         Tool(i: "Bucket", o: "bucket, pail"),
         Tool(i: "Clock", o: "analog clock"),
         Tool(i: "Dustbin", o: "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"),

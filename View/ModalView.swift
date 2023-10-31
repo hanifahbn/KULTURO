@@ -43,7 +43,18 @@ struct ModalView: View {
                         .font(.system(size: 25, weight: .bold))
                         .multilineTextAlignment(.center)
                     ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
-                        matchManager.gameStatus = .convoBantuDesa
+                        matchManager.gameStatus = .convoPasir
+                    }
+                    .disabled(matchManager.isFinishedPlaying != 2)
+                }
+            }
+            if(modalType == "AyakPasirSuccess"){
+                VStack{
+                    Text("Yeay, kita berhasil membuat pasir menjadi lebih halus!")
+                        .font(.system(size: 25, weight: .bold))
+                        .multilineTextAlignment(.center)
+                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        matchManager.gameStatus = .convoBerhasil
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }

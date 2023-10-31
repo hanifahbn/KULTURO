@@ -11,13 +11,13 @@ import GameKit
 extension MatchManager{
     func synchronizeCharacterSelection(_ selectedCharacter: Karakter) {
         if let encodedData = try? JSONEncoder().encode(selectedCharacter) {
-            sendData(encodedData, mode: .unreliable)
+            sendData(encodedData, mode: .reliable)
         }
     }
     
     func synchronizeGameState(_ updatedState: String) {
         if let encodedData = updatedState.data(using: .utf8) {
-            sendData(encodedData, mode: .unreliable)
+            sendData(encodedData, mode: .reliable)
         }
     }
     

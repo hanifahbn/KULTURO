@@ -69,6 +69,18 @@ extension MatchManager: GKMatchDelegate{
                 gameStatus = .cameraGame
             }
         }
+        if state == "ReadingThird" {
+            isFinishedReading += 1
+            if(isFinishedReading == 2){
+                gameStatus = .dragAndDrop
+            }
+        }
+        if state == "ReadingFourth" {
+            isFinishedReading += 1
+            if(isFinishedReading == 2){
+                gameStatus = .shakeGame
+            }
+        }
         if state == "SoundMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
@@ -79,6 +91,12 @@ extension MatchManager: GKMatchDelegate{
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 gameStatus = .convoPasir
+            }
+        }
+        if state == "AyakPasirMission" {
+            isFinishedPlaying += 1
+            if(isFinishedPlaying == 2){
+                gameStatus = .convoBerhasil
             }
         }
         if state == "CameraMission" {

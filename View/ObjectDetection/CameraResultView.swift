@@ -23,11 +23,21 @@ struct CameraResultView: View {
                 .overlay(Color.black.opacity(0.5))
             
         } 
-        .sheet(isPresented: $isSuccess) {
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == true && isSuccess },
+            set: { _ in }
+        )) {
             ModalView(modalType: "CameraSuccess")
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
-                .interactiveDismissDisabled()
+        }
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == false },
+            set: { _ in }
+        )) {
+            ModalView(modalType: "Lose")
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
         }
         .onAppear{
             matchManager.isFinishedPlaying += 1

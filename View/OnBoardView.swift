@@ -16,7 +16,7 @@ struct OnBoardView: View {
                 .resizable()
                 .ignoresSafeArea()
             VStack{
-                Text ("HeadTurner")
+                Text ("KULTURO")
                     .font(.title)
                     .fontWeight(.semibold)
                 HStack{

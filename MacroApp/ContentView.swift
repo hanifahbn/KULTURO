@@ -29,8 +29,6 @@ struct ContentView: View {
             case .stories:
                 StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
                     .environmentObject(matchManager)
-            case .isWaiting:
-                WaitingRoomView()
             case .convoBalaiDesa:
                 DesaStoriesView()
                     .environmentObject(matchManager)
@@ -45,6 +43,9 @@ struct ContentView: View {
                     .environmentObject(matchManager)
             case .dragAndDrop:
                 DragDropView()
+                    .environmentObject(matchManager)
+            case .shakeGame:
+                AyakPasirView()
                     .environmentObject(matchManager)
             case .convoBantuDesa:
                 BantuDesaView()

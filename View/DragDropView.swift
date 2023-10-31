@@ -97,7 +97,7 @@ struct DragDropView: View {
         }
         .onAppear{
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 5)
+            matchManager.startTimer(time: 10)
         }
     }
     

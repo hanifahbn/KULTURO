@@ -23,18 +23,8 @@ struct  EndStoriesView: View {
             Rectangle()
                 .ignoresSafeArea()
                 .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0.4 : 0)
-            HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                    .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
-                    .resizable()
-                    .frame(width: 110, height: 226)
-                Spacer()
-            }
-            .padding(.top, 200)
-            .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0 : 1)
+                .padding(.top, 200)
+                .opacity(viewModel.endStories[viewModel.currentIndex].transisiStories ? 0 : 1)
             if viewModel.endStories[viewModel.currentIndex].transisiStories {
                 VStack{
                     RoundedRectangle(cornerRadius: 16)
@@ -44,9 +34,9 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    Text(viewModel.endStories[viewModel.currentIndex].stories)
-                                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                                        .padding(10)
+                                    Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
+                                        .font(.system(size: 25, weight: .semibold, design: .rounded))
+                                        .padding(25)
                                     Spacer()
                                 }
                                 
@@ -55,7 +45,7 @@ struct  EndStoriesView: View {
                             
                         }
                         .frame(width: 350, height: 350)
-                        
+                    
                 }
             } else {
                 VStack{
@@ -70,9 +60,9 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    Text(viewModel.endStories[viewModel.currentIndex].stories)
-                                        .font(.system(size: 28, weight: .medium, design: .rounded))
-                                        .padding(4)
+                                    Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
+                                        .font(.system(size: 25, weight: .medium, design: .rounded))
+                                        .padding(15)
                                     Spacer()
                                 }
                                 
@@ -84,6 +74,9 @@ struct  EndStoriesView: View {
                 }
             }
         }
+        .onAppear{
+            matchManager.isFinishedPlaying = 0
+        }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
@@ -92,9 +85,9 @@ struct  EndStoriesView: View {
     }
 }
 
-#Preview {
-    EndStoriesView()
-        .environmentObject(MatchManager())
-}
+//#Preview {
+//    EndStoriesView()
+//        .environmentObject(MatchManager())
+//}
 
 
