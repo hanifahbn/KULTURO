@@ -63,7 +63,7 @@ struct StoryNaratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
 //            typeWriter()
-            matchManager.gameStatus = .convoBeli
+            matchManager.gameStatus = .convoGudang
         }
         .onTapGesture {
             if isFirstTap {
@@ -106,9 +106,9 @@ struct StoryNaratorView: View {
     }
 }
 
-#Preview {
-    StoryNaratorView(viewModel: StoryViewModel())
-}
+//#Preview {
+//    StoryNaratorView(viewModel: StoryViewModel())
+//}
 
 extension String {
     subscript(offset: Int) -> Character {

@@ -30,8 +30,8 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
 
         let settings: [String: Any] = [
             AVFormatIDKey: Int(kAudioFormatLinearPCM),
-            AVSampleRateKey: 16000.0,
-            AVNumberOfChannelsKey: 1,
+            AVSampleRateKey: 48000.0,
+            AVNumberOfChannelsKey: 2,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
 
@@ -62,13 +62,9 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
         print("stopping")
         
         serverViewModel.sendAudioToServer(audioURL: getDocumentsDirectory().appendingPathComponent("recorded.wav"))
-//        self.audio.label = serverViewModel.responseData
-//        print("LABEL: \(self.audio.label)")
+        self.audio.label = serverViewModel.responseData
+        print("LABEL: \(self.audio.label)")
         
-        serverViewModel.responseDataDidChange = { [weak self] newResponseData in
-            self?.audio.label = newResponseData
-            print("LABEL: \(self?.audio.label ?? "")")
-        }
     }
 
 }

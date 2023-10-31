@@ -58,7 +58,7 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "", characterOne: "", characterTwo: "", transisiStories: false),
             GudangStorie(stories: "Sudah semua, Bu, terimakasih. Kami pamit dulu.", characterOne: "Couple", characterTwo: "BackgroundPanglong",  transisiStories: false),
             GudangStorie(stories: "Yasudah, hati-hati kalian.", characterOne: "PedagangDesa", characterTwo: "BackgroundPanglong", transisiStories: false),
-            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BackgroundPanglong", transisiStories: true),
+            GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BackgroundPanglong", transisiStories: false),
             GudangStorie(stories: "", characterOne: "HeadOffice", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Ini pak barang-barangnya, silakan dicek.", characterOne: "Couple", characterTwo: "BrokenBalaiDesa", transisiStories: false),
             GudangStorie(stories: "Wah, lengkap semua, terimakasih, nak.", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
@@ -66,7 +66,7 @@ class StoryViewModel: ObservableObject {
 
             GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
             GudangStorie(stories: "Oke, kita cari disini ya.", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: false),
-            GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "BackgroundGudang", transisiStories: false),
+            GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOneDesa", characterTwo: "BackgroundGudang", transisiStories: false),
 //            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true)
         ]
         

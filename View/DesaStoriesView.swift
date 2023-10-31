@@ -140,6 +140,7 @@ struct DesaStoriesView: View {
     }
 }
 
-#Preview {
-    DesaStoriesView(viewModel: StoryViewModel())
-}
+//#Preview {
+//    DesaStoriesView(viewModel: StoryViewModel())
+//        .environmentObject(MatchManager())
+//}

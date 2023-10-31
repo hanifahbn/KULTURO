@@ -173,6 +173,6 @@ struct textSound: View {
                 .font(.title)
             Spacer()
         }
-        .padding(.leading, 50)
+        .padding(.leading, 70)
     }
 }

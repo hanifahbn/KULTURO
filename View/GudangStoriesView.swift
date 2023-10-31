@@ -14,6 +14,7 @@ struct  GudangStoriesView: View {
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
+    @State var isTapGestureEnabled = true
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -63,35 +64,41 @@ struct  GudangStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            if viewModel.currentIndex < 10 {
-                viewModel.currentIndex += 1
-            } else {
-                matchManager.isFinishedReading += 1
-                matchManager.synchronizeGameState("ReadingSecond")
-                if matchManager.isFinishedReading == 2 {
-                    matchManager.gameStatus = .cameraGame
-                }
-                else{
+            if isTapGestureEnabled{
+                if(viewModel.currentIndex < 10) {
                     viewModel.currentIndex += 1
                 }
-            }
-            
-            if viewModel.currentIndex == 1{
-                isStory = false
                 
-            } else if viewModel.currentIndex == 3{
-                isAnimation1 = true
-                isStory = false
-            } else if viewModel.currentIndex == 4{
-                isAnimation = true
-                isAnimation1 = false
-            } else if viewModel.currentIndex == 8{
-                isStory = false
-            } else if viewModel.currentIndex > 8 {
-                // TODO
-            }
-            else {
-                isStory = true
+                if viewModel.currentIndex == 1 {
+                    isStory = false
+                } else if viewModel.currentIndex == 3{
+                    isAnimation1 = true
+                    isStory = false
+                    isTapGestureEnabled = false
+                    print("sekarang 3")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        viewModel.currentIndex += 1
+                        isAnimation = true
+                        isAnimation1 = false
+                        isStory = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            isStory = false
+                            isTapGestureEnabled = true
+                        }
+                    }
+                } else if  viewModel.currentIndex >= 4 || viewModel.currentIndex == 7 {
+                    isStory = true
+                } else if viewModel.currentIndex == 8 {
+                    isStory = false
+                    isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        matchManager.isFinishedReading += 1
+                        matchManager.synchronizeGameState("ReadingSecond")
+                        if matchManager.isFinishedReading == 2 {
+                            matchManager.gameStatus = .cameraGame
+                        }
+                    }
+                }
             }
         }
         .onAppear{
