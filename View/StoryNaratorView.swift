@@ -62,8 +62,8 @@ struct StoryNaratorView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{
-//            typeWriter()
-            matchManager.gameStatus = .shakeGame
+            typeWriter()
+//            matchManager.gameStatus = .shakeGame
         }
         .onTapGesture {
             if isFirstTap {

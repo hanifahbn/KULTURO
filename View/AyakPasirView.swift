@@ -62,72 +62,52 @@ struct AyakPasirView: View {
                     .animation(.bouncy(duration: 1), value: isFlying)
                     .padding(.bottom, 50)
             }
+            .opacity(flyCounter > 5 && elapsedTime == 10 ? 0 : 1)
             .padding(.top, 50)
-            if flyCounter > 12 && elapsedTime == 30 {
-                Image("PasirAkhir")
-                    .resizable()
-                    .frame(width: 400, height: 900)
-                    .animation(.easeOut(duration: 1), value: flyCounter)
+            if flyCounter > 10 && elapsedTime == 5 {
+                ZStack{
+                    Image("PasirAkhir")
+                        .resizable()
+                        .frame(width: 400, height: 900)
+//                        .animation(.easeOut(duration: 1), value: flyCounter)
+                        .onAppear{
+                            matchManager.isFinishedPlaying += 1
+                            matchManager.synchronizeGameState("AyakPasirMission")
+                            isModalPresented = true
+                        }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-//        .sheet(isPresented: $isModalPresented) {
-//            ModalPasirView(isModalPresented: $isModalPresented)
-//                .presentationDetents([.height(190)])
-//        }
-//        .sheet(isPresented: Binding(
-//            get: { matchManager.isTimerRunning == true && isModalPresented },
-//            set: { _ in }
-//        )) {
-//            ModalView(modalType: "AyakPasirSuccess")
-//                .environmentObject(matchManager)
-//                .presentationDetents([.height(190)])
-//        }
-//        .sheet(isPresented: Binding(
-//            get: { matchManager.isTimerRunning == false },
-//            set: { _ in }
-//        )) {
-//            ModalView(modalType: "Lose")
-//                .environmentObject(matchManager)
-//                .presentationDetents([.height(190)])
-//        }
-        .sheet(isPresented: $isModalPresented) {
-            if matchManager.isTimerRunning == false && matchManager.isFinishedPlaying != 2 {
-                ModalView(modalType: "Lose")
-                    .environmentObject(matchManager)
-                    .presentationDetents([.height(190)])
-            } else if matchManager.isTimerRunning == true && matchManager.isFinishedPlaying != 2 {
-                ModalView(modalType: "AyakPasirSuccess")
-                    .environmentObject(matchManager)
-                    .presentationDetents([.height(190)])
-            }
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == true && matchManager.isFinishedPlaying > 0 },
+            set: { _ in }
+        )) {
+            ModalView(modalType: "AyakPasirSuccess")
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
+        }
+        .sheet(isPresented: Binding(
+            get: { matchManager.isTimerRunning == false && matchManager.isFinishedPlaying != 2},
+            set: { _ in }
+        )) {
+            ModalView(modalType: "Lose")
+                .environmentObject(matchManager)
+                .presentationDetents([.height(190)])
         }
         .onAppear{
             startMotionUpdates()
             startTimer()
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 10)
+            matchManager.startTimer(time: 15)
+            matchManager.isFinishedPlaying = 0
         }
     }
     func startTimer() {
         isTimerRunning = true
         Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
             elapsedTime += timerInterval
-            if elapsedTime >= 5 && flyCounter == 0 {
-//                timer.invalidate()
-                isTimerRunning = false
-                print("kamu gagal")
-                isModalPresented = true
-            } else if flyCounter > 1 && elapsedTime == 5{
-                isModalPresented = true
-                matchManager.isFinishedPlaying += 1
-                matchManager.synchronizeGameState("AyakPasirMission")
-                if matchManager.isFinishedPlaying == 2 {
-                    isModalPresented = true
-                }
-                isTimerRunning = false
-            }
         }
     }
     
@@ -152,28 +132,4 @@ struct AyakPasirView: View {
         }
     }
 }
-
-
-//#Preview {
-//    AyakPasirView()
-//        .environmentObject(MatchManager())
-//}
-
-//struct ModalPasirView: View {
-//    @Binding var  isModalPresented : Bool
-//    var body: some View {
-//        ZStack{
-//            Color.ungu
-//                .ignoresSafeArea()
-//            VStack{
-//                Text("Yeay, kita berhasil membuat pasir menjadi lebih halus!")
-//                    .font(.system(size: 25, weight: .bold))
-//                    .multilineTextAlignment(.center)
-//                ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
-//                    isModalPresented = false
-//                }
-//            }
-//        }
-//    }
-//}
 
