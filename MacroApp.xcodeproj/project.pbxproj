@@ -16,7 +16,6 @@
 		32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401702AEB987E007A15AA /* CameraViewController.swift */; };
 		32E401732AEB9897007A15AA /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401722AEB9897007A15AA /* Detector.swift */; };
 		A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31CD01C2AEFB69D00B91325 /* RecordButton.swift */; };
-		A31CD01F2AEFBF1D00B91325 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A31CD01E2AEFBF1D00B91325 /* Correct.wav */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
@@ -26,6 +25,7 @@
 		A3AF9E9E2AEFAC560075E5B8 /* AudioClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E9D2AEFAC560075E5B8 /* AudioClassifier.swift */; };
 		A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */; };
 		A3AF9EA22AEFAF2B0075E5B8 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */; };
+		A3BCFD382AF0955100F4722E /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3BCFD372AF0955100F4722E /* backsound.wav */; };
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
@@ -66,7 +66,6 @@
 		32E401702AEB987E007A15AA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		32E401722AEB9897007A15AA /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		A31CD01C2AEFB69D00B91325 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		A31CD01E2AEFBF1D00B91325 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../../../Downloads/Correct.wav; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
@@ -76,6 +75,8 @@
 		A3AF9E9D2AEFAC560075E5B8 /* AudioClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClassifier.swift; sourceTree = "<group>"; };
 		A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		A3BCFD352AF093BB00F4722E /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
+		A3BCFD372AF0955100F4722E /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = backsound.wav; path = ../../../../../Downloads/backsound.wav; sourceTree = "<group>"; };
 		A3C304722ADE898800E11CCC /* MacroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,10 +140,19 @@
 			path = CameraManager;
 			sourceTree = "<group>";
 		};
+		A3BCFD342AF093B400F4722E /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				A3BCFD372AF0955100F4722E /* backsound.wav */,
+				A3BCFD352AF093BB00F4722E /* Correct.wav */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
 		A3C304692ADE898800E11CCC = {
 			isa = PBXGroup;
 			children = (
-				A31CD01E2AEFBF1D00B91325 /* Correct.wav */,
+				A3BCFD342AF093B400F4722E /* Audios */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,
 				E20C87CC2AE412E60054AD47 /* ViewModel */,
@@ -313,8 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
-				A31CD01F2AEFBF1D00B91325 /* Correct.wav in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
+				A3BCFD382AF0955100F4722E /* backsound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

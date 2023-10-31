@@ -68,6 +68,14 @@ struct  GudangStoriesView: View {
                 if(viewModel.currentIndex < 10) {
                     viewModel.currentIndex += 1
                 }
+                else{
+                    isTapGestureEnabled = false
+                    matchManager.isFinishedReading += 1
+                    matchManager.synchronizeGameState("ReadingSecond")
+                    if matchManager.isFinishedReading == 2 {
+                        matchManager.gameStatus = .cameraGame
+                    }
+                }
                 
                 if viewModel.currentIndex == 1 {
                     isStory = false
@@ -92,11 +100,6 @@ struct  GudangStoriesView: View {
                     isStory = false
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        matchManager.isFinishedReading += 1
-                        matchManager.synchronizeGameState("ReadingSecond")
-                        if matchManager.isFinishedReading == 2 {
-                            matchManager.gameStatus = .cameraGame
-                        }
                     }
                 }
             }

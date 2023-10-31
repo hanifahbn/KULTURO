@@ -146,7 +146,7 @@ struct MissionOneView: View {
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 60)
+            matchManager.startTimer(time: 120)
             print(textNamaTool)
         }
     }

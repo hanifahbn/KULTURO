@@ -69,7 +69,7 @@ struct  BantuDesaView: View {
             if viewModel.currentIndex < 7 {
                 viewModel.currentIndex += 1
             } else {
-                matchManager.gameStatus = .convoPasir
+                matchManager.gameStatus = .dragAndDrop
             }
             
             if viewModel.currentIndex == 1{

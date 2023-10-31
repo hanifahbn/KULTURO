@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
-    
     @StateObject var audioViewModel = AudioViewModel()
+    @ObservedObject var backsoundPlayer = PlayerViewModel()
     
     var body: some View {
         Group{
@@ -63,6 +63,7 @@ struct ContentView: View {
             matchManager.authenticateUser()
             audioViewModel.startRecording()
             audioViewModel.stopRecording()
+            backsoundPlayer.playAudioLoop(fileName: "backsound")
         }
     }
 }

@@ -9,8 +9,6 @@ import SwiftUI
 import Vision
 import AVFoundation
 
-
-
 struct ObjectDetectionGame: View {
     @EnvironmentObject var matchManager: MatchManager
     
