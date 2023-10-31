@@ -27,8 +27,8 @@
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
-		A3C601B52AF0F79200CE493B /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601B42AF0F79200CE493B /* Correct.wav */; };
-		A3C601B72AF0F7A400CE493B /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601B62AF0F7A400CE493B /* backsound.wav */; };
+		A3C601B92AF0F87500CE493B /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601B82AF0F87500CE493B /* backsound.wav */; };
+		A3C601BB2AF0F88400CE493B /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601BA2AF0F88400CE493B /* Correct.wav */; };
 		A3C85B622AEF7337001669A6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C85B612AEF7337001669A6 /* Tool.swift */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* Story.swift */; };
@@ -79,8 +79,8 @@
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A3C601B42AF0F79200CE493B /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../../../../Downloads/Correct.wav; sourceTree = "<group>"; };
-		A3C601B62AF0F7A400CE493B /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = backsound.wav; path = ../../../../../Downloads/backsound.wav; sourceTree = "<group>"; };
+		A3C601B82AF0F87500CE493B /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
+		A3C601BA2AF0F88400CE493B /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
 		A3C85B612AEF7337001669A6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -140,19 +140,11 @@
 			path = CameraManager;
 			sourceTree = "<group>";
 		};
-		A3BCFD342AF093B400F4722E /* Audios */ = {
-			isa = PBXGroup;
-			children = (
-				A3C601B42AF0F79200CE493B /* Correct.wav */,
-				A3C601B62AF0F7A400CE493B /* backsound.wav */,
-			);
-			path = Audios;
-			sourceTree = "<group>";
-		};
 		A3C304692ADE898800E11CCC = {
 			isa = PBXGroup;
 			children = (
-				A3BCFD342AF093B400F4722E /* Audios */,
+				A3C601B82AF0F87500CE493B /* backsound.wav */,
+				A3C601BA2AF0F88400CE493B /* Correct.wav */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,
 				E20C87CC2AE412E60054AD47 /* ViewModel */,
@@ -323,9 +315,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
-				A3C601B52AF0F79200CE493B /* Correct.wav in Resources */,
+				A3C601BB2AF0F88400CE493B /* Correct.wav in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
-				A3C601B72AF0F7A400CE493B /* backsound.wav in Resources */,
+				A3C601B92AF0F87500CE493B /* backsound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
