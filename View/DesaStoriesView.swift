@@ -10,7 +10,7 @@ import SwiftUI
 struct DesaStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel: StoryViewModel = StoryViewModel()
-    
+
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -50,14 +50,14 @@ struct DesaStoriesView: View {
                         .frame(width: 110, height: 226)
                         .offset(x: isAnimation1 ?  0 : 100)
                         .animation(.linear(duration: 1.5), value: isAnimation1)
-                    
+
                 }
                 .padding(.top, 200)
                 .offset(x: isAnimation ? 10 : -200)
                 .animation(.linear(duration: 2.5), value: isAnimation)
             }
             //            .offset(x: isAnimation1 ? 400 : 0)
-            
+
             VStack{
                 Spacer()
                 HStack{
@@ -71,8 +71,8 @@ struct DesaStoriesView: View {
                         VStack{
                             HStack{
                                 Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
-                                    .font(.system(size: 24, weight: .semibold, design: .rounded))
-                                    .padding(4)
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
                                 Spacer()
                             }
                             Spacer()
@@ -112,10 +112,10 @@ struct DesaStoriesView: View {
                             isStory = true
                             isTapGestureEnabled = true
                         }
-                        
+
                     }
                 } else if viewModel.currentIndex == 11 {
-                    
+
                     isStory = false
                     isAnimation = false
                     isNextStory = true
@@ -133,10 +133,10 @@ struct DesaStoriesView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isStory = true
                 isTapGestureEnabled = true
-                
+
             }
         }
-        
+
     }
 }
 

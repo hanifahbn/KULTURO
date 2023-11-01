@@ -53,8 +53,8 @@ struct  BeliStoriesView: View {
                         VStack{
                             HStack{
                                 Text(viewModel.beliStories[viewModel.currentIndex].stories)
-                                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                                    .padding()
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
                                 Spacer()
                             }
                             Spacer()
