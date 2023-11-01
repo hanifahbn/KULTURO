@@ -107,6 +107,7 @@ struct  GudangStoriesView: View {
         .onAppear{
             isStory = true
             matchManager.isFinishedPlaying = 0
+            matchManager.isFinishedReading = 0
             //            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             //
             //            }

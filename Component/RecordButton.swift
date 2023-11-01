@@ -20,7 +20,7 @@ struct RecordButton: View {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
                 .foregroundStyle(ButtonTap ? Color.gray : Color("Kuning"))
-                .opacity(0.5)
+//                .opacity(0.5)
                 .padding(.top, 15)
             HStack{
                 if(isWithIcon == true){

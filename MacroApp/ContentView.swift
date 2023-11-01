@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
-    @StateObject var audioViewModel = AudioViewModel()
+//    @StateObject var audioViewModel = AudioViewModel()
     @ObservedObject var backsoundPlayer = PlayerViewModel()
     
     var body: some View {
@@ -37,7 +37,7 @@ struct ContentView: View {
                     .environmentObject(matchManager)
             case .convoGudang:
                 GudangStoriesView()
-                    .environmentObject(matchManager)
+                        .environmentObject(matchManager)
             case .cameraGame:
                 ObjectDetectionGame()
                     .environmentObject(matchManager)
@@ -62,8 +62,8 @@ struct ContentView: View {
             }
         }.onAppear{
             matchManager.authenticateUser()
-            audioViewModel.startRecording()
-            audioViewModel.stopRecording()
+//            audioViewModel.startRecording()
+//            audioViewModel.stopRecording()
             backsoundPlayer.playAudioLoop(fileName: "backsound")
         }
     }

@@ -85,34 +85,45 @@ struct MissionOneView: View {
 
                 Spacer()
                 RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
-                    if(jumlahBenar == 3){
-                        matchManager.isFinishedPlaying += 1
-                        matchManager.synchronizeGameState("SoundMission")
-                        if matchManager.isFinishedPlaying == 2 {
-                            isModalPresented = true
-                        }
-                        else{
-                            isModalPresented = true
-                        }
-                    }
-                    else{
+//                    if(jumlahBenar == 3){
+//                        matchManager.isFinishedPlaying += 1
+//                        matchManager.synchronizeGameState("SoundMission")
+//                        if matchManager.isFinishedPlaying == 2 {
+//                            isModalPresented = true
+//                        }
+//                        else{
+//                            isModalPresented = true
+//                        }
+//                    }
+//                    else{
                         if audioViewModel.audio.isRecording == false {
                             audioViewModel.startRecording()
                         }
                         else {
                             audioViewModel.stopRecording()
-                            print("Label di view: \(audioViewModel.audio.label)")
-                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                                print("BENER")
+//                            print("Label di view: \(audioViewModel.audio.label)")
+//                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+//                                print("BENER")
                                 textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
                                 playerViewModel.playAudio(fileName: "Correct")
                                 spoken[currentStep] = true
                                 currentStep = currentStep + 1
-                            }
+                                jumlahBenar = jumlahBenar + 1
+                                if(jumlahBenar == 3){
+                                    matchManager.isFinishedPlaying += 1
+                                    matchManager.synchronizeGameState("SoundMission")
+                                    if matchManager.isFinishedPlaying == 2 {
+                                        isModalPresented = true
+                                    }
+                                    else{
+                                        isModalPresented = true
+                                    }
+                                }
+//                            }
                         }
                     }
-                }
-                .disabled(jumlahBenar == 3)
+//                }
+                .disabled(jumlahBenar == 4)
                 .padding(.bottom, 40)
                 .onAppear{
                     isFinished = matchManager.isFinishedPlaying
@@ -146,7 +157,7 @@ struct MissionOneView: View {
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 120)
+            matchManager.startTimer(time: 45)
             print(textNamaTool)
         }
     }
