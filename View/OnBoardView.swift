@@ -15,10 +15,12 @@ struct OnBoardView: View {
             Image("BackgroundImage")
                 .resizable()
                 .ignoresSafeArea()
+           
             VStack{
-                Text ("KULTURO")
-                    .font(.title)
-                    .fontWeight(.semibold)
+                Image("NamaApp")
+                    .resizable()
+                    .frame(width: 300, height: 150)
+                    .padding(.bottom, 100)
                 HStack{
                     Image("PersonOne")
                         .resizable()
@@ -30,7 +32,7 @@ struct OnBoardView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .padding(.top, 200)//Sementara menunggu Judul Game
+               
                 ComponentButton(textButton: "Start Game") {
                     matchManager.initiateMatch()
                 }

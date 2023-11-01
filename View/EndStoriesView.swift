@@ -10,10 +10,7 @@ struct  EndStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
     
     @StateObject var viewModel : StoryViewModel = StoryViewModel()
-    @State var isStory : Bool = false
     @State var isAnimation : Bool = false
-    @State var isAnimation1 : Bool = false
-    @State var isNextStory : Bool = false
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -62,7 +59,7 @@ struct  EndStoriesView: View {
                                 VStack{
                                     Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
-                                        .padding(15)
+                                        .padding(16)
                                     Spacer()
                                 }
                                 

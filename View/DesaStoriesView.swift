@@ -16,6 +16,7 @@ struct DesaStoriesView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @State var isTapGestureEnabled = true
+    @State var OpacityCharacter = false
 
     var body: some View {
         ZStack{
@@ -49,14 +50,14 @@ struct DesaStoriesView: View {
                         .opacity(isAnimation1 ? 1 : 0)
                         .frame(width: 110, height: 226)
                         .offset(x: isAnimation1 ?  0 : 100)
-                        .animation(.linear(duration: 1.5), value: isAnimation1)
+                        .animation(.linear(duration: 1), value: isAnimation1)
                     
                 }
                 .padding(.top, 200)
                 .offset(x: isAnimation ? 10 : -200)
                 .animation(.linear(duration: 2.5), value: isAnimation)
+                .opacity(OpacityCharacter ? 0 : 1)
             }
-            //            .offset(x: isAnimation1 ? 400 : 0)
             
             VStack{
                 Spacer()
@@ -71,8 +72,10 @@ struct DesaStoriesView: View {
                         VStack{
                             HStack{
                                 Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
-                                    .font(.system(size: 24, weight: .semibold, design: .rounded))
-                                    .padding(4)
+//                                Text(viewModel.desaStories[viewModel.currentIndex].stories)
+
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
                                 Spacer()
                             }
                             Spacer()
@@ -91,9 +94,11 @@ struct DesaStoriesView: View {
                     isStory = false
                     isAnimation1 = true
                     isTapGestureEnabled = false
+                    OpacityCharacter = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         isStory = true
                         isTapGestureEnabled = true
+                        OpacityCharacter = true
                     }
                 } else if viewModel.currentIndex == 6 {
                     isStory = false
@@ -101,16 +106,20 @@ struct DesaStoriesView: View {
                     isAnimation1 = false
                     isNextStory = true
                     isTapGestureEnabled = false
+                    OpacityCharacter = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         isNextStory = false
                         viewModel.currentIndex += 1
                         isStory = false
                         isAnimation1 = true
                         isAnimation = true
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             viewModel.currentIndex = 8
                             isStory = true
                             isTapGestureEnabled = true
+                            OpacityCharacter = true
+                            
                         }
                         
                     }
@@ -121,7 +130,6 @@ struct DesaStoriesView: View {
                     isNextStory = true
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        print("Cerita Selesai")
                         matchManager.gameStatus = .convoBeli
                     }
                 }
@@ -133,6 +141,7 @@ struct DesaStoriesView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isStory = true
                 isTapGestureEnabled = true
+                OpacityCharacter = true
                 
             }
         }
@@ -140,7 +149,7 @@ struct DesaStoriesView: View {
     }
 }
 
-//#Preview {
-//    DesaStoriesView(viewModel: StoryViewModel())
-//        .environmentObject(MatchManager())
-//}
+#Preview {
+    DesaStoriesView(viewModel: StoryViewModel())
+        .environmentObject(MatchManager())
+}
