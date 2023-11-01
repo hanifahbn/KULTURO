@@ -39,6 +39,7 @@ struct  PasirStoriesView: View {
             .padding(.top, 200)
             .offset(x: isAnimation1 ? -250 : 60)
             .animation(.linear(duration: 2),value: isAnimation1)
+            .opacity(isAnimation ? 1 : 0)
             VStack{
                 Spacer()
                 HStack{
@@ -52,8 +53,8 @@ struct  PasirStoriesView: View {
                         HStack{
                             VStack{
                                 Text(viewModel.pasirStories[viewModel.currentIndex].stories)
-                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
-                                    .padding(4)
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
                                 Spacer()
                             }
                             
@@ -80,6 +81,7 @@ struct  PasirStoriesView: View {
             
             if viewModel.currentIndex == 1{
                 isStory = false
+                isAnimation = false
             }
         }
         .onAppear{

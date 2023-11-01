@@ -39,6 +39,7 @@ struct  BeliStoriesView: View {
                     .resizable()
                     .frame(width: 80, height: 170)
                     .padding(.top, 300)
+                    .opacity(isAnimation1 ? 1 : 0)
             }
             VStack{
                 Spacer()
@@ -54,7 +55,7 @@ struct  BeliStoriesView: View {
                             HStack{
                                 Text(viewModel.beliStories[viewModel.currentIndex].stories)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
-                                    .padding(16)
+                                    .padding(15)
                                 Spacer()
                             }
                             Spacer()

@@ -16,6 +16,7 @@ struct  BantuDesaView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @State var isTapGestureEnabled = true
+    @State var isPakDesaAnimation : Bool = false
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
@@ -39,12 +40,13 @@ struct  BantuDesaView: View {
                     .resizable()
                     .frame(width: 110, height: 226)
                     .offset(x: 10, y: 10)
-                    .opacity(isAnimation ? 0 : 1)
+                    .opacity(isPakDesaAnimation ? 0 : 1)
                 Spacer()
             }
             .padding(.top, 200)
             .offset(x: isAnimation1 ? -250 : 60)
             .animation(.linear(duration: 2),value: isAnimation1)
+            .opacity(isAnimation ? 1 : 0)
             
             VStack{
                 Spacer()
@@ -59,8 +61,8 @@ struct  BantuDesaView: View {
                         VStack{
                             HStack{
                                 Text(viewModel.bantuDesaStories[viewModel.currentIndex].stories)
-                                    .font(.system(size: 28, weight: .semibold, design: .rounded))
-                                    .padding(4)
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
                                 Spacer()
                             }
                             Spacer()
@@ -73,6 +75,7 @@ struct  BantuDesaView: View {
         .onAppear{
             isStory = true
             matchManager.isFinishedPlaying = 0
+            isPakDesaAnimation = true
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -88,20 +91,25 @@ struct  BantuDesaView: View {
                         matchManager.gameStatus = .dragAndDrop
                     }
                 }
-                if viewModel.currentIndex == 3{
+                if viewModel.currentIndex == 2 {
+                    isAnimation = true
+                } else if viewModel.currentIndex == 3{
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
+                    isPakDesaAnimation = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         viewModel.currentIndex += 1
                         isAnimation1 = false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             isStory = true
+                            isAnimation = false
                             isTapGestureEnabled = true
                             matchManager.gameStatus = .dragAndDrop
                         }
                     }
                 }
+               
             }
         }
     }

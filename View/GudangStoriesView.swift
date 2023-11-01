@@ -15,14 +15,15 @@ struct  GudangStoriesView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @State var isTapGestureEnabled = true
+    @State var isPakDesaHilang : Bool = false
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
             Rectangle()
                 .ignoresSafeArea()
                 .zIndex(1)
-                .opacity(viewModel.gudangStories[viewModel.currentIndex].transisiStories ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: viewModel.gudangStories[viewModel.currentIndex].transisiStories)
+                .opacity(isNextStory ? 1 : 0)
+                .animation(.easeIn(duration: 0.5), value: isNextStory)
             Image(viewModel.gudangStories[viewModel.currentIndex].characterTwo)
                 .resizable()
                 .ignoresSafeArea()
@@ -37,13 +38,14 @@ struct  GudangStoriesView: View {
                 Spacer()
             }
             .padding(.top, 200)
-            .offset(x: isAnimation1 ? -250 : 60)
+            .offset(x: isAnimation1 ? -250 : 60, y: 60)
             .animation(.linear(duration: 2),value: isAnimation1)
+            .opacity(isAnimation ? 1 : 0)
             Image(viewModel.gudangStories[3].characterOne)
                 .resizable()
                 .frame(width: 110, height: 226)
                 .offset(x: 100, y: 100)
-                .opacity(isAnimation ? 1 : 0)
+                .opacity(isPakDesaHilang ? 1 : 0)
             VStack{
                 Spacer()
                 Image(viewModel.gudangStories[viewModel.currentIndex].characterOne)
@@ -52,9 +54,16 @@ struct  GudangStoriesView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 0, y: 5)
                     .overlay {
-                        Text(viewModel.gudangStories[viewModel.currentIndex].stories)
-                            .font(.system(size: 28, weight: .medium, design: .rounded))
-                            .padding(4)
+                        VStack{
+                            HStack{
+                                Text(viewModel.gudangStories[viewModel.currentIndex].stories)
+                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .padding(16)
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                        Spacer()
                     }
                     .frame(width: 350, height: 200)
             }
@@ -83,23 +92,37 @@ struct  GudangStoriesView: View {
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
-                    print("sekarang 3")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    isNextStory = true
+                    isAnimation = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        isNextStory = false
                         viewModel.currentIndex += 1
                         isAnimation = true
                         isAnimation1 = false
                         isStory = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            isStory = false
+                        isPakDesaHilang = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            viewModel.currentIndex += 1
+                            isStory = true
                             isTapGestureEnabled = true
+                            isAnimation = false
+                            isPakDesaHilang = false
                         }
                     }
-                } else if  viewModel.currentIndex >= 4 || viewModel.currentIndex == 7 {
-                    isStory = true
                 } else if viewModel.currentIndex == 8 {
                     isStory = false
-                    isTapGestureEnabled = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    isNextStory = true
+                    isAnimation1 = true
+                    isPakDesaHilang = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isNextStory = false
+                        viewModel.currentIndex += 1
+                        isAnimation = true
+                        isAnimation1 = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isStory = true
+                            isPakDesaHilang = false
+                        }
                     }
                 }
             }

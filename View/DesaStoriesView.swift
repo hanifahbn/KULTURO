@@ -16,6 +16,7 @@ struct DesaStoriesView: View {
     @State var isAnimation1 : Bool = false
     @State var isNextStory : Bool = false
     @State var isTapGestureEnabled = true
+    @State var OpacityCharacter = false
 
     var body: some View {
         ZStack{
@@ -55,6 +56,7 @@ struct DesaStoriesView: View {
                 .padding(.top, 200)
                 .offset(x: isAnimation ? 10 : -200)
                 .animation(.linear(duration: 2.5), value: isAnimation)
+                .opacity(OpacityCharacter ? 0 : 1)
             }
             //            .offset(x: isAnimation1 ? 400 : 0)
 
@@ -72,7 +74,7 @@ struct DesaStoriesView: View {
                             HStack{
                                 Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
-                                    .padding(16)
+                                    .padding(15)
                                 Spacer()
                             }
                             Spacer()
@@ -91,9 +93,11 @@ struct DesaStoriesView: View {
                     isStory = false
                     isAnimation1 = true
                     isTapGestureEnabled = false
+                    OpacityCharacter = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         isStory = true
                         isTapGestureEnabled = true
+                        OpacityCharacter = true
                     }
                 } else if viewModel.currentIndex == 6 {
                     isStory = false
@@ -101,6 +105,7 @@ struct DesaStoriesView: View {
                     isAnimation1 = false
                     isNextStory = true
                     isTapGestureEnabled = false
+                    OpacityCharacter = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         isNextStory = false
                         viewModel.currentIndex += 1
@@ -111,6 +116,7 @@ struct DesaStoriesView: View {
                             viewModel.currentIndex = 8
                             isStory = true
                             isTapGestureEnabled = true
+                            OpacityCharacter = true
                         }
 
                     }
@@ -133,6 +139,7 @@ struct DesaStoriesView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isStory = true
                 isTapGestureEnabled = true
+                OpacityCharacter = true
 
             }
         }

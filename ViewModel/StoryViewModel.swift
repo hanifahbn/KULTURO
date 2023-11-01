@@ -50,7 +50,7 @@ class StoryViewModel: ObservableObject {
             BeliStories(stories: "Oh, iya, mau beli apa?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "Mau beli barang bangunan untuk renovasi balai desa, Bu.", characterOne: "Couple", characterTwo: "",inMissionOne: false),
             BeliStories(stories: "Oh, mari sini. Mau beli apa saja kalian?", characterOne: "PedagangDesa", characterTwo: "",inMissionOne: false),
-            BeliStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOne", characterTwo: "",inMissionOne: false),
+            BeliStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOneDesa", characterTwo: "",inMissionOne: false),
 //            BeliStories(stories: "Ucapkan barang - \n barang yang ada di\n Daftar Belanja", characterOne: "", characterTwo: "", inMissionOne: true),
         ]
         
@@ -65,7 +65,7 @@ class StoryViewModel: ObservableObject {
             GudangStorie(stories: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan, ya.", characterOne: "HeadOfficeDesa", characterTwo: "BrokenBalaiDesa", transisiStories: false),
 
             GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true),
-            GudangStorie(stories: "Oke, kita cari disini ya.", characterOne: "", characterTwo: "BackgroundGudang", transisiStories: false),
+            GudangStorie(stories: "Oke, kita cari disini ya.", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundGudang", transisiStories: false),
             GudangStorie(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonOneDesa", characterTwo: "BackgroundGudang", transisiStories: false),
 //            GudangStorie(stories: "", characterOne: "", characterTwo: "BrokenBalaiDesa", transisiStories: true)
         ]
@@ -78,7 +78,7 @@ class StoryViewModel: ObservableObject {
             BantuDesaStories(stories: "Wah, sudah ramai. Sudah mau mulai kayaknya.", characterOne: "Couple", characterTwo: "BackgroundDesaRamai", transisiStories: false),
             BantuDesaStories(stories: "Iya, sekarang ayo bantu berikan barang-barang ini ke warga yang lain, ya", characterOne: "HeadOfficeDesa", characterTwo: "BackgroundDesaRamai", transisiStories: false),
             BantuDesaStories(stories: "Baik, pak.", characterOne: "Couple", characterTwo: "BackgroundDesaRamai", transisiStories: false),
-            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundDesaRamai", transisiStories: true),
+//            BantuDesaStories(stories: "", characterOne: "", characterTwo: "BackgroundDesaRamai", transisiStories: true),
             BantuDesaStories(stories: "Tunggu sebentar, aku tidak mau buru-buru...", characterOne: "PersonTwoDesa", characterTwo: "BackgroundDesaRamai", transisiStories: false),
         ]
         
