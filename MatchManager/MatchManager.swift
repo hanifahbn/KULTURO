@@ -49,13 +49,6 @@ class MatchManager: NSObject, ObservableObject{
     var localTools: [String]?
     var otherTools: [String]?
     
-    @Published var characters: [Karakter] = [
-        Karakter(name: "Asep", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false),
-        Karakter(name: "Togar", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false),
-        Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false),
-        Karakter(name: "Dayu", headImage: "Dayu", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false),
-    ]
-    
     @Published var tools: [ToolBahasa] = [
         ToolBahasa(localName: "Apusapus Ni Pat", bahasaName: "Keset", labelName:"ApusapusNiPat", exampleAudioURL: ""),
         ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", labelName:"Sipadot", exampleAudioURL: ""),
@@ -66,8 +59,6 @@ class MatchManager: NSObject, ObservableObject{
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
 //    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
-    
-    @Published var choosenCharacters: [Karakter] = []
         
     let gameDuration = 15
     var otherPlayerScore: Int = 0
@@ -162,9 +153,9 @@ class MatchManager: NSObject, ObservableObject{
             synchronizeCharacterSelection(karakter)
             
             if otherCharacter != nil {
-                choosenCharacters.append(localCharacter!)
-                choosenCharacters.append(otherCharacter!)
-                synchronizeGameCharacters(choosenCharacters)
+                chosenCharacters.append(localCharacter!)
+                chosenCharacters.append(otherCharacter!)
+                synchronizeGameCharacters(chosenCharacters)
                 gameStatus = .stories
             }
         }
