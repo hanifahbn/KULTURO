@@ -29,8 +29,6 @@
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
-		A3C601B92AF0F87500CE493B /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601B82AF0F87500CE493B /* backsound.wav */; };
-		A3C601BB2AF0F88400CE493B /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3C601BA2AF0F88400CE493B /* Correct.wav */; };
 		A3C85B622AEF7337001669A6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C85B612AEF7337001669A6 /* Tool.swift */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* Story.swift */; };
@@ -50,6 +48,8 @@
 		E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */; };
 		E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */; };
 		E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C62AE132620024FDD1 /* OnBoardView.swift */; };
+		E25D6AE82AF3957B0045565F /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D6AE72AF3957B0045565F /* Transition.swift */; };
+		E25D6AEB2AF3961F0045565F /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D6AEA2AF3961F0045565F /* example.swift */; };
 		E2A729512AE187120093DD1F /* StoryNaratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729502AE187120093DD1F /* StoryNaratorView.swift */; };
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
@@ -83,8 +83,6 @@
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A3C601B82AF0F87500CE493B /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
-		A3C601BA2AF0F88400CE493B /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
 		A3C85B612AEF7337001669A6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKGameCenterControllerDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C62AE132620024FDD1 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
+		E25D6AE72AF3957B0045565F /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		E25D6AEA2AF3961F0045565F /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 		E2A729502AE187120093DD1F /* StoryNaratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNaratorView.swift; sourceTree = "<group>"; };
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
@@ -238,6 +238,7 @@
 				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
 				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
 				E2A729552AE246B40093DD1F /* MissionOneView.swift */,
+				E25D6AE92AF395C20045565F /* Transition */,
 				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
 				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
 				E23832912AEA4E29001DB289 /* DragDropView.swift */,
@@ -248,6 +249,15 @@
 				A35921552AEF2D7C0063BD8E /* ModalView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E25D6AE92AF395C20045565F /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				E25D6AE72AF3957B0045565F /* Transition.swift */,
+				E25D6AEA2AF3961F0045565F /* example.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		E2A729522AE215D10093DD1F /* Component */ = {
@@ -360,7 +370,9 @@
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
 				E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
+				E25D6AE82AF3957B0045565F /* Transition.swift in Sources */,
 				E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */,
+				E25D6AEB2AF3961F0045565F /* example.swift in Sources */,
 				E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */,
 				32E401632AEB80C3007A15AA /* CustomCameraView.swift in Sources */,
 				E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */,
