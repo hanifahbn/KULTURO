@@ -16,8 +16,6 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
     private var audioFilename: URL!
     private var serverViewModel = ServerViewModel()
     var audioPlayer: AVAudioPlayer?
-//    let options : AudioClassifierOptions
-//    private var soundClassifier: BatakClassifierTest?
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

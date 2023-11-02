@@ -15,7 +15,7 @@ struct InGameView: View {
             Color.ungu
                 .ignoresSafeArea()
             ScrollView(.vertical) {
-                ForEach(matchManager.characters) { karakter in
+                ForEach(characters) { karakter in
 //                    Button(action: {
 //                        matchManager.chooseCharacter(karakter)
 //                    }) {
@@ -28,7 +28,8 @@ struct InGameView: View {
                     }) {
                         ZStack {
                             
-                            TextSound(imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin, gradienKanan: karakter.colorRight, gradienKiri: karakter.colorLeft)
+                            TextSound(
+                                imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin, gradienKanan: karakter.colorRight, gradienKiri: karakter.colorLeft)
                                 .opacity(karakter.name == "Ajeng" || karakter.name == "Dayu" ? 0.3 : 1.0)
                             
                             if karakter.name == "Ajeng" || karakter.name == "Dayu" {
