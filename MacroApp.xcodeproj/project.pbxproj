@@ -31,7 +31,6 @@
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
 		A3C85B622AEF7337001669A6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C85B612AEF7337001669A6 /* Tool.swift */; };
 		A3D5E89A2AF3957F002F5888 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E8992AF3957F002F5888 /* Story.swift */; };
-		A3D5E89C2AF3A823002F5888 /* NPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89B2AF3A823002F5888 /* NPC.swift */; };
 		A3D5E89E2AF3AC1F002F5888 /* Narrative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryTemp.swift */; };
@@ -86,7 +85,6 @@
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A3C85B612AEF7337001669A6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		A3D5E8992AF3957F002F5888 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
-		A3D5E89B2AF3A823002F5888 /* NPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPC.swift; sourceTree = "<group>"; };
 		A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narrative.swift; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* StoryTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTemp.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				A3C85B612AEF7337001669A6 /* Tool.swift */,
 				A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */,
 				A3D5E8992AF3957F002F5888 /* Story.swift */,
-				A3D5E89B2AF3A823002F5888 /* NPC.swift */,
 				A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */,
 			);
 			path = Model;
@@ -369,7 +366,6 @@
 				E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */,
 				32E401632AEB80C3007A15AA /* CustomCameraView.swift in Sources */,
 				E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */,
-				A3D5E89C2AF3A823002F5888 /* NPC.swift in Sources */,
 				E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */,
 				A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */,
 				A3C85B622AEF7337001669A6 /* Tool.swift in Sources */,
