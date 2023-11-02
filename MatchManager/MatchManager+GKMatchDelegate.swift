@@ -43,7 +43,7 @@ extension MatchManager: GKMatchDelegate{
         
         if let receivedGameCharacters = try? JSONDecoder().decode([Karakter].self, from: data) {
             // Mengganti karakter lokal dengan karakter yang diterima
-            choosenCharacters = receivedGameCharacters
+            chosenCharacters = receivedGameCharacters
             
         } else {
             print("Failed to decode received data as Kumpulan Karakter.")
