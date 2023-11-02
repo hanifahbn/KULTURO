@@ -12,6 +12,7 @@ struct StoryNaratorView: View {
     
     @EnvironmentObject var matchManager: MatchManager
     
+    @State var Stories: String = ""
     @State var text: String = ""
     var typingSpeed: Double = 0.1
     @State var position: Int = 0
@@ -34,8 +35,14 @@ struct StoryNaratorView: View {
                                 .opacity(0.8)
                             VStack{
                                 HStack{
-                                    Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name) : text)
-                                        .font(.system(size: 28, weight: .semibold,design: .rounded))
+                                    if(!matchManager.choosenCharacters.isEmpty){
+                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name) : text)
+                                            .font(.system(size: 28, weight: .semibold,design: .rounded))
+                                    }
+                                    else{
+                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar") : text)
+                                            .font(.system(size: 28, weight: .semibold,design: .rounded))
+                                    }
                                     Spacer()
                                 }
                                 Spacer()
@@ -80,7 +87,12 @@ struct StoryNaratorView: View {
     
     // nanti di pindah ke View model
     func typeWriter() {
-        let Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name)
+        if(!matchManager.choosenCharacters.isEmpty){
+            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name)
+        }
+        else{
+            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar")
+        }
         text = String(Stories.prefix(position))
         if position < Stories.count {
             position += 1

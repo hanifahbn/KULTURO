@@ -67,7 +67,7 @@ class MatchManager: NSObject, ObservableObject{
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
 //    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
     
-    @Published var choosenCharacters: [Karakter]? = []
+    @Published var choosenCharacters: [Karakter] = []
         
     let gameDuration = 15
     var otherPlayerScore: Int = 0
@@ -162,9 +162,9 @@ class MatchManager: NSObject, ObservableObject{
             synchronizeCharacterSelection(karakter)
             
             if otherCharacter != nil {
-                choosenCharacters?.append(localCharacter!)
-                choosenCharacters?.append(otherCharacter!)
-                synchronizeGameCharacters(choosenCharacters!)
+                choosenCharacters.append(localCharacter!)
+                choosenCharacters.append(otherCharacter!)
+                synchronizeGameCharacters(choosenCharacters)
                 gameStatus = .stories
             }
         }

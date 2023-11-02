@@ -34,9 +34,15 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
-                                        .font(.system(size: 25, weight: .semibold, design: .rounded))
-                                        .padding(25)
+                                    if(!matchManager.choosenCharacters.isEmpty){
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                            .font(.system(size: 25, weight: .semibold, design: .rounded))
+                                            .padding(25)
+                                    } else{
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                            .font(.system(size: 25, weight: .semibold, design: .rounded))
+                                            .padding(25)
+                                    }
                                     Spacer()
                                 }
                                 
@@ -60,9 +66,16 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
-                                        .font(.system(size: 25, weight: .medium, design: .rounded))
-                                        .padding(15)
+                                    if(!matchManager.choosenCharacters.isEmpty){
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                            .font(.system(size: 25, weight: .medium, design: .rounded))
+                                            .padding(15)
+                                    } else {
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                            .font(.system(size: 25, weight: .medium, design: .rounded))
+                                            .padding(15)
+                                    }
+                                    
                                     Spacer()
                                 }
                                 

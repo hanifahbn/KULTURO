@@ -39,8 +39,10 @@ struct ObjectDetectionGame: View {
                 .presentationDetents([.height(190)])
         }
         .onAppear{
-            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 180)
+            if(matchManager.isTimerRunning == false){
+                matchManager.isTimerRunning = true
+                matchManager.startTimer(time: 180)
+            }
             matchManager.isFinishedReading = 0
         }
     }

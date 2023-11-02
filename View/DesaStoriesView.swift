@@ -72,9 +72,16 @@ struct DesaStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters![0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters![1].name))
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
-                                    .padding(15)
+                                if(!matchManager.choosenCharacters.isEmpty){
+                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                        .font(.system(size: 25, weight: .medium, design: .rounded))
+                                        .padding(15)
+                                }
+                                else{
+                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                        .font(.system(size: 25, weight: .medium, design: .rounded))
+                                        .padding(15)
+                                }
                                 Spacer()
                             }
                             Spacer()
