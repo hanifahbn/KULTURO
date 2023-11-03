@@ -30,7 +30,7 @@
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
 		A3C85B622AEF7337001669A6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C85B612AEF7337001669A6 /* Tool.swift */; };
 		A3D5E89A2AF3957F002F5888 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E8992AF3957F002F5888 /* Story.swift */; };
-		A3D5E89E2AF3AC1F002F5888 /* Narrative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */; };
+		A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narration.swift */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryTemp.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
@@ -82,7 +82,7 @@
 		A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A3C85B612AEF7337001669A6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		A3D5E8992AF3957F002F5888 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
-		A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narrative.swift; sourceTree = "<group>"; };
+		A3D5E89D2AF3AC1F002F5888 /* Narration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narration.swift; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* StoryTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTemp.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 				A3C85B612AEF7337001669A6 /* Tool.swift */,
 				A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */,
 				A3D5E8992AF3957F002F5888 /* Story.swift */,
-				A3D5E89D2AF3AC1F002F5888 /* Narrative.swift */,
+				A3D5E89D2AF3AC1F002F5888 /* Narration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,7 +381,7 @@
 				A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */,
 				E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */,
 				32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */,
-				A3D5E89E2AF3AC1F002F5888 /* Narrative.swift in Sources */,
+				A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */,
 				A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */,
 				A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */,
 				A3AF9E9A2AEFAC0D0075E5B8 /* AudioViewModel.swift in Sources */,

@@ -27,6 +27,7 @@ var characters: [Karakter] = [
     Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false, isNPC: false),
     Karakter(name: "Dayu", headImage: "Dayu", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false, isNPC: false),
     Karakter(name: "Pak Kades", headImage: "", fullImage: "", halfImage: "", isNPC: true),
+    Karakter(name: "Ci Mei", headImage: "", fullImage: "", halfImage: "", isNPC: true),
 ]
 
 // Ini untuk yang aktif (dipilih user). Bisa berganti, 
