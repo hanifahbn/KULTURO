@@ -24,8 +24,6 @@ struct ContentView: View {
             case .inGame:
                 InGameView()
                     .environmentObject(matchManager)
-            case .gameOver:
-                EndGameView()
             case .stories:
                 StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
                     .environmentObject(matchManager)

@@ -30,7 +30,7 @@ extension MatchManager: GKMatchDelegate{
         
         if let receivedCharacter = try? JSONDecoder().decode(Karakter.self, from: data) {
             if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
-                characters[index].isChosen.toggle()
+                characters[index].isChosen!.toggle()
                 otherCharacter = characters[index]
                 
                 if localCharacter != nil {

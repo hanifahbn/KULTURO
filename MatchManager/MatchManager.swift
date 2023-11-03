@@ -22,7 +22,6 @@ enum GameStatus {
     case inGame
     case stories
     case missionone
-    case gameOver
     case cameraGame
     case dragAndDrop
     case shakeGame
