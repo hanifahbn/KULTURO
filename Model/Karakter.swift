@@ -21,7 +21,7 @@ struct Karakter: Identifiable, Equatable, Encodable, Decodable{
     var isNPC: Bool
 }
 
-var characters: [Karakter] = [
+var characters = [
     Karakter(name: "Asep", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
     Karakter(name: "Togar", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
     Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false, isNPC: false),
@@ -30,10 +30,10 @@ var characters: [Karakter] = [
     Karakter(name: "Ci Mei", headImage: "", fullImage: "", halfImage: "", isNPC: true),
 ]
 
-// Ini untuk yang aktif (dipilih user). Bisa berganti, 
+// Ini untuk yang aktif (dipilih user). Bisa berganti,
 // tapi ini dummy-nya. Nanti jadinya di stories modelnya isinya
 // chosenCharacters[0], chosenCharacters[1].
-var chosenCharacters: [Karakter] = [
+var chosenCharacters = [
     Karakter(name: "Asep", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
     Karakter(name: "Togar", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
 ]

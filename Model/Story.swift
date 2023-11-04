@@ -23,7 +23,6 @@ var desaStories = [
     Story(text: "Ini dia balai desa yang akan kita renovasi. Rusaknya lumayan parah, ya?", isTalking: characters[4]),
     Story(text: "Sekarang, saya minta tolong kalian berdua berdua beli bahan bangunan, ya, di warung ujung sana. Ini uang dan daftar yang harus dibeli.", isTalking: characters[4]),
     Story(text: "Oke, pak, kami jalan sekarang.", isTalking: chosenCharacters[0]),
-    
 ]
 
 var beliStories = [
