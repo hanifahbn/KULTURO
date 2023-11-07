@@ -34,6 +34,6 @@ var characters = [
 // tapi ini dummy-nya. Nanti jadinya di stories modelnya isinya
 // chosenCharacters[0], chosenCharacters[1].
 var chosenCharacters = [
-    Karakter(name: "XXX", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
-    Karakter(name: "YYY", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+    Karakter(name: "XXX", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
+    Karakter(name: "YYY", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
 ]

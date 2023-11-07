@@ -11,8 +11,8 @@ import SwiftUI
 struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
-            ObjectDetectionGame()
-//            ContentView()
+//            ObjectDetectionGame()
+            ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
 //            GameStartView()
         }

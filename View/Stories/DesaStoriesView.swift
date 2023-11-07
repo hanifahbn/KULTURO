@@ -135,7 +135,7 @@ struct DesaStoriesView: View {
                     isNextStory = true
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        matchManager.gameStatus = .convoBeli
+                        matchManager.gameStatus = .storyToko
                     }
                 }
             }

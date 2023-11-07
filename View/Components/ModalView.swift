@@ -21,7 +21,7 @@ struct ModalView: View {
                         .font(.system(size: 25, weight: .bold))
                         .multilineTextAlignment(.center)
                     ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
-                        matchManager.gameStatus = .convoGudang
+                        matchManager.gameStatus = .storyGudang
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -32,7 +32,7 @@ struct ModalView: View {
                         .font(.system(size: 25, weight: .bold))
                         .multilineTextAlignment(.center)
                     ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
-                        matchManager.gameStatus = .convoBantuDesa
+                        matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -43,7 +43,7 @@ struct ModalView: View {
                         .font(.system(size: 25, weight: .bold))
                         .multilineTextAlignment(.center)
                     ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
-                        matchManager.gameStatus = .convoPasir
+                        matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -54,7 +54,7 @@ struct ModalView: View {
                         .font(.system(size: 25, weight: .bold))
                         .multilineTextAlignment(.center)
                     ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
-                        matchManager.gameStatus = .convoBerhasil
+                        matchManager.gameStatus = .storyBalaiDesaRenovated
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }

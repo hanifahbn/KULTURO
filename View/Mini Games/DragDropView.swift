@@ -103,9 +103,10 @@ struct DragDropView: View {
     
 }
 
-//#Preview {
-//    DragDropView()
-//}
+#Preview {
+    DragDropView()
+        .environmentObject(MatchManager())
+}
 
 struct ItemDrag: View {
     @State var dragOffset: CGSize = .zero

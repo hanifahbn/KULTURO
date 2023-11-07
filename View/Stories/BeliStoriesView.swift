@@ -88,8 +88,8 @@ struct  BeliStoriesView: View {
                     isNextStory = true
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("Reading")
-                    if matchManager.isFinishedReading == 1 {
-                        matchManager.gameStatus = .missionone
+                    if matchManager.isFinishedReading == 2 {
+                        matchManager.gameStatus = .soundGame
                         print("Masuk misi")
                     }
                     else{

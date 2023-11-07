@@ -35,8 +35,8 @@ extension MatchManager: GKMatchDelegate{
                 
                 if localCharacter != nil {
                     chosenCharacters[1] = otherCharacter!
-                    synchronizeGameCharacters(chosenCharacters)
-                    gameStatus = .stories
+//                    synchronizeGameCharacters(chosenCharacters)
+                    gameStatus = .beginning
                 }
             }
         } else {
@@ -61,7 +61,7 @@ extension MatchManager: GKMatchDelegate{
         if state == "Reading" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
-                gameStatus = .missionone
+                gameStatus = .soundGame
             }
         }
         if state == "ReadingSecond" {
@@ -86,25 +86,25 @@ extension MatchManager: GKMatchDelegate{
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 stopTimer()
-                gameStatus = .convoGudang
+                gameStatus = .storyGudang
             }
         }
         if state == "DragAndDropMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
-                gameStatus = .convoPasir
+                gameStatus = .storyPerbaikanBalaiDesaSecond
             }
         }
         if state == "AyakPasirMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
-                gameStatus = .convoBerhasil
+                gameStatus = .storyBalaiDesaRenovated
             }
         }
         if state == "CameraMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
-                gameStatus = .convoBantuDesa
+                gameStatus = .storyPerbaikanBalaiDesaFirst
                 stopTimer()
             }
         }

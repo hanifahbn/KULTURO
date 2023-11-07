@@ -119,9 +119,7 @@ struct MissionOneView: View {
                                 if(jumlahBenar == 3){
                                     matchManager.isFinishedPlaying += 1
                                     matchManager.synchronizeGameState("SoundMission")
-//                                    if matchManager.isFinishedPlaying == 2 {
                                         isModalPresented = true
-//                                    }
                                 }
 //                            }
                         }
@@ -164,7 +162,7 @@ struct MissionOneView: View {
     }
 }
 
-//#Preview {
-//    MissionOneView()
-//        .environmentObject(MatchManager())
-//}
+#Preview {
+    MissionOneView()
+        .environmentObject(MatchManager())
+}

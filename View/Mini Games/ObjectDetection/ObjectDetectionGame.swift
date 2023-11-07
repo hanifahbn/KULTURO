@@ -41,7 +41,7 @@ struct ObjectDetectionGame: View {
                                 HStack{
                                     Image(systemName: "timer")
                                         .font(.system(size: 32, weight: .bold))
-                                    Text(matchManager.timeInString)
+                                     Text(matchManager.timeInString)
                                         .font(.system(size: 19, weight: .bold))
                                 }
                             })
@@ -55,7 +55,7 @@ struct ObjectDetectionGame: View {
             get: { matchManager.isTimerRunning == false },
             set: { _ in }
         )) {
-            ModalView(modalType: "L ose")
+            ModalView(modalType: "Lose")
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }

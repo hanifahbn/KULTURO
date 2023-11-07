@@ -74,7 +74,7 @@ struct  PasirStoriesView: View {
             } else {
                 matchManager.isFinishedReading += 1
                 matchManager.synchronizeGameState("ReadingFourth")
-                if matchManager.isFinishedReading == 1 {
+                if matchManager.isFinishedReading == 2 {
                     matchManager.gameStatus = .shakeGame
                 }
             }

@@ -95,7 +95,7 @@ struct  BantuDesaView: View {
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("ReadingThird")
-                    if matchManager.isFinishedReading == 1 {
+                    if matchManager.isFinishedReading == 2 {
                         matchManager.gameStatus = .dragAndDrop
                     }
                 }

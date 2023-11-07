@@ -54,7 +54,7 @@ struct  GudangStoriesView: View {
                 .opacity(isPakDesaHilang ? 1 : 0)
             VStack{
                 Spacer()
-                Image(gudangStories[viewModel.currentIndex].isTalking.halfImage)
+                Image(gudangStoriesLama[viewModel.currentIndex].isTalking.halfImage)
                     .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.white)
@@ -62,7 +62,7 @@ struct  GudangStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(gudangStories[viewModel.currentIndex].text)
+                                Text(gudangStoriesLama[viewModel.currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -87,7 +87,7 @@ struct  GudangStoriesView: View {
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("ReadingSecond")
-                    if matchManager.isFinishedReading == 1 {
+                    if matchManager.isFinishedReading == 2 {
                         matchManager.gameStatus = .cameraGame
                     }
                 }
