@@ -19,17 +19,22 @@ struct  GudangStoriesView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(isNextStory ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: isNextStory)
-            if viewModel.currentIndex > 2{
-                Image("BrokenBalaiDesa")
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+//                .opacity(isNextStory ? 1 : 0)
+//                .animation(.easeIn(duration: 0.5), value: isNextStory)
+            if viewModel.currentIndex < 3{
+                Image("BackgroundPanglong")
                     .resizable()
                     .ignoresSafeArea()
-            } else {
-                Image("BackgroundPanglong")
+            } else if viewModel.currentIndex > 5{
+                Image("BackgroundGudang")
+                    .resizable()
+                    .ignoresSafeArea()
+            }
+            else {
+                Image("BrokenBalaiDesa")
                     .resizable()
                     .ignoresSafeArea()
             }
@@ -79,8 +84,9 @@ struct  GudangStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
+            print(viewModel.currentIndex)
             if isTapGestureEnabled{
-                if(viewModel.currentIndex < 9) {
+                if(viewModel.currentIndex < 8) {
                     viewModel.currentIndex += 1
                 }
                 else{
@@ -108,25 +114,9 @@ struct  GudangStoriesView: View {
                         isStory = false
                         isPakDesaHilang = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            viewModel.currentIndex += 1
                             isStory = true
                             isTapGestureEnabled = true
                             isAnimation = false
-                            isPakDesaHilang = false
-                        }
-                    }
-                } else if viewModel.currentIndex == 7 {
-                    isStory = false
-                    isNextStory = true
-                    isAnimation1 = true
-                    isPakDesaHilang = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isNextStory = false
-                        viewModel.currentIndex += 1
-                        isAnimation = true
-                        isAnimation1 = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            isStory = true
                             isPakDesaHilang = false
                         }
                     }

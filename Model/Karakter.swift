@@ -21,7 +21,14 @@ struct Karakter: Identifiable, Equatable, Encodable, Decodable{
     var isNPC: Bool
 }
 
-
+var characters = [
+    Karakter(name: "Asep", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
+    Karakter(name: "Togar", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+    Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false, isNPC: false),
+    Karakter(name: "Dayu", headImage: "Dayu", fullImage: "", halfImage: "", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false, isNPC: false),
+    Karakter(name: "Pak Kades", headImage: "", fullImage: "FullKepalaDesa", halfImage: "HalfKepalaDesa", isNPC: true),
+    Karakter(name: "Ci Mei", headImage: "", fullImage: "FullCiMei", halfImage: "HalfCiMei", isNPC: true),
+]
 
 // Ini untuk yang aktif (dipilih user). Bisa berganti,
 // tapi ini dummy-nya. Nanti jadinya di stories modelnya isinya
@@ -29,6 +36,8 @@ struct Karakter: Identifiable, Equatable, Encodable, Decodable{
 var chosenCharacters = [
     Karakter(name: "Asep", headImage: "Gale", fullImage: "FullAsep", halfImage: "HalfAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
     Karakter(name: "Togar", headImage: "Eyog", fullImage: "FullTogar", halfImage: "HalfTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
-    Karakter(name: "XXX", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
-    Karakter(name: "YYY", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+
+//    Karakter(name: "XXX", headImage: "Gale", fullImage: "", halfImage: "", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
+//    Karakter(name: "YYY", headImage: "Eyog", fullImage: "", halfImage: "", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+
 ]
