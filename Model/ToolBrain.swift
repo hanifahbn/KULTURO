@@ -17,8 +17,8 @@ struct ToolBrain {
         Tool(i: "Doormat", o: "doormat, welcome mat")
     ]
 
-    func getRandomTool(_ tool : Tool) -> Tool {
-        var randomTool: Tool = getFirstTool()
+    func getRandomTool(_ tool : Tool?) -> Tool {
+        var randomTool: Tool = tools.randomElement() ?? tools[0]
 
         repeat {
             let shuffledTools = tools.shuffled()
@@ -27,10 +27,6 @@ struct ToolBrain {
 
         return randomTool
    }
-
-    func getFirstTool() -> Tool {
-        return tools[0]
-    }
 
 
 }

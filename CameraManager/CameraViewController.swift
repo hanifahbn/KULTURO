@@ -30,7 +30,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     weak var cameraDelegate: CameraServiceDelegate?
     
-    var tool: Tool = ToolBrain().getFirstTool()
+    var tool: Tool = ToolBrain().getRandomTool(nil)
 
     var isDelay: Bool = false
     
