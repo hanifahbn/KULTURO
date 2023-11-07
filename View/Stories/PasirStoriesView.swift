@@ -10,7 +10,8 @@ import SwiftUI
 struct  PasirStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
     
-    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+//    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -21,11 +22,11 @@ struct  PasirStoriesView: View {
             Image("BrokenBalaiDesa")
                 .resizable()
                 .ignoresSafeArea()
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(viewModel.pasirStories[viewModel.currentIndex].transisiStories ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: viewModel.pasirStories[viewModel.currentIndex].transisiStories)
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+//                .opacity(viewModel.pasirStories[viewModel.currentIndex].transisiStories ? 1 : 0)
+//                .animation(.easeIn(duration: 0.5), value: viewModel.pasirStories[viewModel.currentIndex].transisiStories)
             HStack(spacing : -30){
                 Image(chosenCharacters[0].fullImage)
                     .resizable()
@@ -43,7 +44,7 @@ struct  PasirStoriesView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(pasirStories[viewModel.currentIndex].isTalking.halfImage)
+                    Image(pasirStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -52,7 +53,7 @@ struct  PasirStoriesView: View {
                     .overlay {
                         HStack{
                             VStack{
-                                Text(pasirStories[viewModel.currentIndex].text)
+                                Text(pasirStories[currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -69,8 +70,8 @@ struct  PasirStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            if viewModel.currentIndex < 4 {
-                viewModel.currentIndex += 1
+            if currentIndex < 4 {
+                currentIndex += 1
             } else {
                 matchManager.isFinishedReading += 1
                 matchManager.synchronizeGameState("ReadingFourth")
@@ -79,7 +80,7 @@ struct  PasirStoriesView: View {
                 }
             }
             
-            if viewModel.currentIndex == 0{
+            if currentIndex == 0{
                 isStory = false
                 isAnimation = false
             }

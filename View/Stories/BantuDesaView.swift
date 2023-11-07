@@ -10,7 +10,8 @@ import SwiftUI
 struct  BantuDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
     
-    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+//    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -20,7 +21,7 @@ struct  BantuDesaView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            if viewModel.currentIndex > 2{
+            if currentIndex > 2{
                 Image("BackgroundDesaRamai")
                     .resizable()
                     .ignoresSafeArea()
@@ -57,7 +58,7 @@ struct  BantuDesaView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(bantuDesaStories[viewModel.currentIndex].isTalking.halfImage)
+                    Image(bantuDesaStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -66,7 +67,7 @@ struct  BantuDesaView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(bantuDesaStories[viewModel.currentIndex].text)
+                                Text(bantuDesaStories[currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -88,9 +89,8 @@ struct  BantuDesaView: View {
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled{
-                print(viewModel.currentIndex)
-                if viewModel.currentIndex < 7 {
-                    viewModel.currentIndex += 1
+                if currentIndex < 7 {
+                    currentIndex += 1
                 } else {
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
@@ -99,15 +99,15 @@ struct  BantuDesaView: View {
                         matchManager.gameStatus = .dragAndDrop
                     }
                 }
-                if viewModel.currentIndex == 1 {
+                if currentIndex == 1 {
                     isAnimation = true
-                } else if viewModel.currentIndex == 2{
+                } else if currentIndex == 2{
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
                     isPakDesaAnimation = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        viewModel.currentIndex += 1
+                        currentIndex += 1
                         isAnimation1 = false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             isStory = true

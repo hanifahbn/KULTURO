@@ -97,8 +97,8 @@ var beliStories = [
 var gudangStoriesLama = [
     Story(text: "Sudah semua, Bu, terimakasih. Kami pamit dulu.", isTalking: chosenCharacters[0]),
     Story(text: "Yasudah, hati-hati kalian.", isTalking: characters[5]),
-    Story(text: "Ini pak barang-barangnya, silakan dicek.", isTalking: chosenCharacters[1]),
     Story(text: "", isTalking: chosenCharacters[0]),
+    Story(text: "Ini pak barang-barangnya, silakan dicek.", isTalking: chosenCharacters[1]),
     Story(text: "Wah, lengkap semua, terimakasih, nak.", isTalking: characters[4]),
     Story(text: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan, ya.", isTalking: characters[4]),
     Story(text: "Oke, kita cari disini, ya.", isTalking: characters[4]),

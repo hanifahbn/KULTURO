@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransitionOpen: View {
+struct Transition: View {
     @State var transition: Bool = false
     @State var transition2: Bool = false
 
@@ -51,5 +51,5 @@ struct TransitionOpen: View {
 }
 
 #Preview {
-    TransitionOpen()
+    Transition()
 }

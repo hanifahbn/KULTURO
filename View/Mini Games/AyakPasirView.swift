@@ -133,7 +133,6 @@ struct AyakPasirView: View {
     }
 }
 
-
 #Preview {
     AyakPasirView()
         .environmentObject(MatchManager())
