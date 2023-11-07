@@ -26,6 +26,7 @@ struct StoryNaratorView: View {
         ZStack{
             Image("BackgroundImage")
                 .resizable()
+                .blur(radius: 4)
                 .ignoresSafeArea()
             VStack{
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)

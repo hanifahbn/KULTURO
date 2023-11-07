@@ -12,7 +12,7 @@ struct OnBoardView: View {
     
     var body: some View {
         ZStack{
-            Image("BackgroundImage")
+            Image("BackgroundImageBoard")
                 .resizable()
                 .blur(radius: 1.5)
                 .ignoresSafeArea()

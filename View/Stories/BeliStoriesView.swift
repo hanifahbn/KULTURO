@@ -33,7 +33,7 @@ struct  BeliStoriesView: View {
                         .resizable()
                         .frame(width: 110, height: 226)
                 }.padding()
-                    .offset(x: isAnimation ? -20 : -200, y: 200)
+                    .offset(x: isAnimation ? 20 : -200, y: 240)
                     .animation(.linear(duration: 3), value: isAnimation)
                 Image(characters[5].fullImage)
                     .resizable()
