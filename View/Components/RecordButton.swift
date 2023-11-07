@@ -11,7 +11,7 @@ struct RecordButton: View {
     @State private var ButtonTap : Bool = false
     @State var textButton : String
     @State var iconButton : String = ""
-    @State var isWithIcon : Bool = false
+    @State var isWithIcon : Bool = true
     
     let action: () -> Void
     
