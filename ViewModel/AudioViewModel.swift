@@ -16,8 +16,6 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
     private var audioFilename: URL!
     private var serverViewModel = ServerViewModel()
     var audioPlayer: AVAudioPlayer?
-//    let options : AudioClassifierOptions
-//    private var soundClassifier: BatakClassifierTest?
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -47,7 +45,7 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
             audioRecorder?.record()
             audio.isRecording = true
 
-            print("starting")
+            print("start recording")
         } catch {
             // Handle
             print("Recording error: \(error.localizedDescription)")
@@ -59,7 +57,7 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
         audioRecorder = nil
         audio.isRecording = false
 
-        print("stopping")
+        print("stopped recording")
         
 //        serverViewModel.sendAudioToServer(audioURL: getDocumentsDirectory().appendingPathComponent("recorded.wav"))
 //        self.audio.label = serverViewModel.responseData

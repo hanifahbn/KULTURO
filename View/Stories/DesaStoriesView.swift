@@ -72,8 +72,8 @@ struct DesaStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                if(!matchManager.choosenCharacters.isEmpty){
-                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                if(chosenCharacters.isEmpty){
+                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .padding(15)
                                 }
@@ -134,7 +134,6 @@ struct DesaStoriesView: View {
                     isNextStory = true
                     isTapGestureEnabled = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        print("Cerita Selesai")
                         matchManager.gameStatus = .convoBeli
                     }
                 }

@@ -1,56 +1,53 @@
 //
-//  ComponentButtonMic.swift
+//  RecordButton.swift
 //  MacroApp
 //
-//  Created by Irvan P. Saragi on 20/10/23.
+//  Created by Hanifah BN on 30/10/23.
 //
 
 import SwiftUI
 
-struct ComponentButtonMic: View {
-    @State var ButtonTap : Bool = false
+struct RecordButton: View {
+    @State private var ButtonTap : Bool = false
     @State var textButton : String
-    @State var iconButton : String?
-    @State var isWithIcon : Bool = false
+    @State var iconButton : String = ""
+    @State var isWithIcon : Bool = true
     
     let action: () -> Void
+    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
                 .foregroundStyle(Color("Kuning"))
-                .opacity(0.5)
+                .opacity(0.3)
                 .padding(.top, 15)
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(Color("Kuning"))
+                .foregroundStyle(ButtonTap ? Color.gray : Color("Kuning"))
                 .padding(.top, ButtonTap ? 15 : 0 )
             HStack{
                 if(isWithIcon == true){
-                    Image(systemName: "\(iconButton)")
+                    Image(systemName: iconButton)
                         .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                 }
-                Text(textButton)
+                Text(ButtonTap ? "Tekan Jika Selesai" : "Tekan Untuk Bicara")
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
             }
             .padding(.top, ButtonTap ? 15 : 0 )
         }
         .onTapGesture {
-            ButtonTap = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                ButtonTap = false
-                action()
-            }
+            ButtonTap.toggle()
+            isWithIcon.toggle()
+            action()
         }
         
     }
 }
 
-#Preview {
-    ComponentButtonMic(textButton: "Lanjutkan", iconButton: "") {
-        print("Next")
-    }
-}
+//#Preview {
+//    RecordButton()
+//}

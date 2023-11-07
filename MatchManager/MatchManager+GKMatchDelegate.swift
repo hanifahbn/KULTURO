@@ -30,10 +30,12 @@ extension MatchManager: GKMatchDelegate{
         
         if let receivedCharacter = try? JSONDecoder().decode(Karakter.self, from: data) {
             if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
-                characters[index].isChosen.toggle()
+                characters[index].isChosen!.toggle()
                 otherCharacter = characters[index]
                 
                 if localCharacter != nil {
+                    chosenCharacters[1] = otherCharacter!
+                    synchronizeGameCharacters(chosenCharacters)
                     gameStatus = .stories
                 }
             }
@@ -43,8 +45,7 @@ extension MatchManager: GKMatchDelegate{
         
         if let receivedGameCharacters = try? JSONDecoder().decode([Karakter].self, from: data) {
             // Mengganti karakter lokal dengan karakter yang diterima
-            choosenCharacters = receivedGameCharacters
-            
+            chosenCharacters = receivedGameCharacters
         } else {
             print("Failed to decode received data as Kumpulan Karakter.")
         }
@@ -84,6 +85,7 @@ extension MatchManager: GKMatchDelegate{
         if state == "SoundMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
+                stopTimer()
                 gameStatus = .convoGudang
             }
         }
@@ -101,9 +103,9 @@ extension MatchManager: GKMatchDelegate{
         }
         if state == "CameraMission" {
             isFinishedPlaying += 1
-//            print("Yang udah kelar camera: \(isFinishedPlaying)")
             if(isFinishedPlaying == 2){
                 gameStatus = .convoBantuDesa
+                stopTimer()
             }
         }
     }

@@ -34,8 +34,8 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    if(!matchManager.choosenCharacters.isEmpty){
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                    if(!chosenCharacters.isEmpty){
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
                                             .font(.system(size: 25, weight: .semibold, design: .rounded))
                                             .padding(25)
                                     } else{
@@ -66,8 +66,8 @@ struct  EndStoriesView: View {
                         .overlay {
                             HStack{
                                 VStack{
-                                    if(!matchManager.choosenCharacters.isEmpty){
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: matchManager.choosenCharacters[0].name).replacingOccurrences(of: "nama2", with: matchManager.choosenCharacters[1].name))
+                                    if(!chosenCharacters.isEmpty){
+                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
                                             .font(.system(size: 25, weight: .medium, design: .rounded))
                                             .padding(15)
                                     } else {
@@ -89,6 +89,7 @@ struct  EndStoriesView: View {
         }
         .onAppear{
             matchManager.isFinishedPlaying = 0
+            matchManager.stopTimer()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

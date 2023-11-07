@@ -24,6 +24,7 @@ struct MissionOneView: View {
         ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", labelName: "ApusapusNiPat", exampleAudioURL: "")]
     
     @State var textNamaTool : [String] = ["A"]
+    @State var timerText: String = ""
     
     var body: some View {
         ZStack{
@@ -71,6 +72,24 @@ struct MissionOneView: View {
                     }
                     .zIndex(3)
                 }
+                ZStack{
+                    HStack{
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: 120, height: 54)
+                            .foregroundStyle(.white)
+                            .opacity(0.5)
+                            .overlay(content: {
+                                HStack{
+                                    Image(systemName: "timer")
+                                        .font(.system(size: 32, weight: .bold))
+                                    Text(matchManager.timeInString)
+                                        .font(.system(size: 19, weight: .bold))
+                                }
+                            })
+                    }
+                    .padding(.trailing, 30)
+                }
                 Spacer()
                 Text("List Belanja")
                     .font(.system(size: 30, weight: .semibold))
@@ -78,24 +97,13 @@ struct MissionOneView: View {
                     .padding(.bottom, 40)
                 
                 if textNamaTool.count > 2 {
-                    textSound(textBahasa: $textNamaTool[0])
-                    textSound(textBahasa: $textNamaTool[1])
-                    textSound(textBahasa: $textNamaTool[2])
+                    TextKata(textBahasa: $textNamaTool[0])
+                    TextKata(textBahasa: $textNamaTool[1])
+                    TextKata(textBahasa: $textNamaTool[2])
                 }
 
                 Spacer()
                 RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
-//                    if(jumlahBenar == 3){
-//                        matchManager.isFinishedPlaying += 1
-//                        matchManager.synchronizeGameState("SoundMission")
-//                        if matchManager.isFinishedPlaying == 2 {
-//                            isModalPresented = true
-//                        }
-//                        else{
-//                            isModalPresented = true
-//                        }
-//                    }
-//                    else{
                         if audioViewModel.audio.isRecording == false {
                             audioViewModel.startRecording()
                         }
@@ -103,7 +111,6 @@ struct MissionOneView: View {
                             audioViewModel.stopRecording()
 //                            print("Label di view: \(audioViewModel.audio.label)")
 //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-//                                print("BENER")
                                 textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
                                 playerViewModel.playAudio(fileName: "Correct")
                                 spoken[currentStep] = true
@@ -112,37 +119,33 @@ struct MissionOneView: View {
                                 if(jumlahBenar == 3){
                                     matchManager.isFinishedPlaying += 1
                                     matchManager.synchronizeGameState("SoundMission")
-                                    if matchManager.isFinishedPlaying == 2 {
+//                                    if matchManager.isFinishedPlaying == 2 {
                                         isModalPresented = true
-                                    }
-                                    else{
-                                        isModalPresented = true
-                                    }
+//                                    }
                                 }
 //                            }
                         }
                     }
 //                }
-                .disabled(jumlahBenar == 4)
+                .disabled(jumlahBenar == 3)
                 .padding(.bottom, 40)
                 .onAppear{
                     isFinished = matchManager.isFinishedPlaying
                 }
             }
-
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: Binding(
             get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in }
+            set: { _ in matchManager.stopTimer()}
         )) {
             ModalView()
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }
         .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false },
+            get: { matchManager.isTimerRunning == false && jumlahBenar < 3 },
             set: { _ in }
         )) {
             ModalView(modalType: "Lose")
@@ -157,9 +160,7 @@ struct MissionOneView: View {
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 45)
-            print(textNamaTool)
-        }
+            matchManager.startTimer(time: 46)        }
     }
 }
 
@@ -167,23 +168,3 @@ struct MissionOneView: View {
 //    MissionOneView()
 //        .environmentObject(MatchManager())
 //}
-
-struct textSound: View {
-    @Binding var textBahasa : String
-    var body: some View {
-        HStack(spacing: 20){
-            Button(action: {
-                
-            }, label: {
-                Image(systemName: "speaker.wave.3.fill")
-                    .resizable()
-                    .frame(width: 30, height: 26)
-            })
-            Text(textBahasa)
-                .font(.system(size: 15, weight: .semibold))
-                .font(.title)
-            Spacer()
-        }
-        .padding(.leading, 70)
-    }
-}

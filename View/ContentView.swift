@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
-//    @StateObject var audioViewModel = AudioViewModel()
     @ObservedObject var backsoundPlayer = PlayerViewModel()
     
     var body: some View {
@@ -24,8 +23,6 @@ struct ContentView: View {
             case .inGame:
                 InGameView()
                     .environmentObject(matchManager)
-            case .gameOver:
-                EndGameView()
             case .stories:
                 StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
                     .environmentObject(matchManager)

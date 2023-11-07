@@ -28,7 +28,6 @@ class ServerViewModel: ObservableObject {
             do {
                 // Read the audio file data
                 let audioData = try Data(contentsOf: audioURL)
-//                print(audioData)
 
                 let boundary = "Boundary-\(UUID().uuidString)"
                 request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
@@ -41,7 +40,6 @@ class ServerViewModel: ObservableObject {
                 body.append("\r\n".data(using: .utf8)!)
                 body.append("--\(boundary)--\r\n".data(using: .utf8)!)
 
-                print(body)
                 request.httpBody = body
 
                 URLSession.shared.dataTask(with: request) { data, response, error in
