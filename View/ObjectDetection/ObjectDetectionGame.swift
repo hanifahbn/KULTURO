@@ -22,7 +22,7 @@ struct ObjectDetectionGame: View {
         ZStack{
             if capturedImage != nil {
                 CameraResultView(capturedImage: $capturedImage, isSuccess: $isSuccess)
-                    .environmentObject(matchManager)
+//                    .environmentObject(matchManager)
             } else {
                 ZStack{
                     CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
@@ -30,21 +30,21 @@ struct ObjectDetectionGame: View {
             }
 
         }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
-        .onAppear{
-            if(matchManager.isTimerRunning == false){
-                matchManager.isTimerRunning = true
-                matchManager.startTimer(time: 180)
-            }
-            matchManager.isFinishedReading = 0
-        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == false },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "Lose")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
+//        .onAppear{
+//            if(matchManager.isTimerRunning == false){
+//                matchManager.isTimerRunning = true
+//                matchManager.startTimer(time: 180)
+//            }
+//            matchManager.isFinishedReading = 0
+//        }
     }
 }
 
