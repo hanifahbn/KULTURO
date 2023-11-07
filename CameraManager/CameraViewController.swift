@@ -31,11 +31,8 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     weak var cameraDelegate: CameraServiceDelegate?
     
     var tool: Tool = ToolBrain().getFirstTool()
-    
-    override func viewDidLoad() {
-        self.setupLayers()
-    }
-    
+
+    var isDelay: Bool = false
     
     func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
         self.delegate = delegate

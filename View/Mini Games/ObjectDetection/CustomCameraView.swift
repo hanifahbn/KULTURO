@@ -21,7 +21,9 @@ struct CustomCameraView: View {
     @Binding var tool: Tool
     
     var toolBrain = ToolBrain()
-    
+
+    var timer = Timer()
+
     
     
     var  body: some View {
