@@ -17,11 +17,11 @@ struct OnBoardView: View {
                 .blur(radius: 1.5)
                 .ignoresSafeArea()
             VStack{
-                Image("AppName")
-                    .resizable()
-                    .frame(width: 300, height: 150)
-                
-                    .padding(.bottom, 100)
+//                Image("AppName")
+//                    .resizable()
+//                    .frame(width: 300, height: 150)
+//                
+//                    .padding(.bottom, 100)
                 HStack{
                     Image(characters[1].fullImage)
                         .resizable()

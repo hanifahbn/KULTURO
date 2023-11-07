@@ -9,7 +9,8 @@ import SwiftUI
 
 struct  GudangStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
-    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+//    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -24,11 +25,11 @@ struct  GudangStoriesView: View {
 //                .zIndex(1)
 //                .opacity(isNextStory ? 1 : 0)
 //                .animation(.easeIn(duration: 0.5), value: isNextStory)
-            if viewModel.currentIndex < 3{
+            if currentIndex < 3{
                 Image("BackgroundPanglong")
                     .resizable()
                     .ignoresSafeArea()
-            } else if viewModel.currentIndex > 5{
+            } else if currentIndex > 5{
                 Image("BackgroundGudang")
                     .resizable()
                     .ignoresSafeArea()
@@ -59,7 +60,7 @@ struct  GudangStoriesView: View {
                 .opacity(isPakDesaHilang ? 1 : 0)
             VStack{
                 Spacer()
-                Image(gudangStories[viewModel.currentIndex].isTalking.halfImage)
+                Image(gudangStories[currentIndex].isTalking.halfImage)
                     .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.white)
@@ -67,7 +68,7 @@ struct  GudangStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(gudangStories[viewModel.currentIndex].text)
+                                Text(gudangStories[currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -84,10 +85,9 @@ struct  GudangStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            print(viewModel.currentIndex)
             if isTapGestureEnabled{
-                if(viewModel.currentIndex < 8) {
-                    viewModel.currentIndex += 1
+                if(currentIndex < 8) {
+                    currentIndex += 1
                 }
                 else{
                     isTapGestureEnabled = false
@@ -98,9 +98,9 @@ struct  GudangStoriesView: View {
                     }
                 }
                 
-                if viewModel.currentIndex == 0 {
+                if currentIndex == 0 {
                     isStory = false
-                } else if viewModel.currentIndex == 2{
+                } else if currentIndex == 2{
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
@@ -108,7 +108,7 @@ struct  GudangStoriesView: View {
                     isAnimation = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         isNextStory = false
-                        viewModel.currentIndex += 1
+                        currentIndex += 1
                         isAnimation = true
                         isAnimation1 = false
                         isStory = false
@@ -133,6 +133,6 @@ struct  GudangStoriesView: View {
 }
 
 #Preview {
-    GudangStoriesView(viewModel: StoryViewModel())
+    GudangStoriesView()
         .environmentObject(MatchManager())
 }

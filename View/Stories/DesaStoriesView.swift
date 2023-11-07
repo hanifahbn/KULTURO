@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DesaStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
-    @StateObject var viewModel: StoryViewModel = StoryViewModel()
-
+//    @StateObject var viewModel: StoryViewModel = StoryViewModel()
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -26,7 +26,7 @@ struct DesaStoriesView: View {
                 .zIndex(1)
                 .opacity(isNextStory ? 1 : 0)
                 .animation(.easeIn(duration: 1), value: isNextStory)
-            if viewModel.currentIndex > 5{
+            if currentIndex > 5{
                 Image("BrokenBalaiDesa")
                     .resizable()
                     .ignoresSafeArea()
@@ -63,7 +63,7 @@ struct DesaStoriesView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(desaStories[viewModel.currentIndex].isTalking.halfImage)
+                    Image(desaStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -73,12 +73,12 @@ struct DesaStoriesView: View {
                         VStack{
                             HStack{
                                 if(chosenCharacters.isEmpty){
-                                    Text(desaStories[viewModel.currentIndex].text)
+                                    Text(desaStories[currentIndex].text)
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .padding(15)
                                 }
                                 else{
-                                    Text(desaStories[viewModel.currentIndex].text)
+                                    Text(desaStories[currentIndex].text)
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .padding(15)
                                 }
@@ -95,8 +95,8 @@ struct DesaStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
-                viewModel.currentIndex += 1
-                if viewModel.currentIndex == 3 {
+                currentIndex += 1
+                if currentIndex == 3 {
                     isStory = false
                     isAnimation1 = true
                     isTapGestureEnabled = false
@@ -106,7 +106,7 @@ struct DesaStoriesView: View {
                         isTapGestureEnabled = true
                         OpacityCharacter = true
                     }
-                } else if viewModel.currentIndex == 5 {
+                } else if currentIndex == 5 {
                     isStory = false
                     isAnimation = false
                     isAnimation1 = false
@@ -115,7 +115,7 @@ struct DesaStoriesView: View {
                     OpacityCharacter = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         isNextStory = false
-                        viewModel.currentIndex += 1
+                        currentIndex += 1
                         isStory = false
                         isAnimation1 = true
                         isAnimation = true
@@ -128,7 +128,7 @@ struct DesaStoriesView: View {
 
                     }
                 } 
-                else if viewModel.currentIndex == 8 {
+                else if currentIndex == 8 {
 
                     isStory = false
                     isAnimation = false
@@ -155,6 +155,6 @@ struct DesaStoriesView: View {
 }
 
 #Preview {
-    DesaStoriesView(viewModel: StoryViewModel())
+    DesaStoriesView()
         .environmentObject(MatchManager())
 }

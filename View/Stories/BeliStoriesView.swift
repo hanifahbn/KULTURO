@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct  BeliStoriesView: View {
-    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+//    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @EnvironmentObject var matchManager : MatchManager
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -45,7 +46,7 @@ struct  BeliStoriesView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(beliStories[viewModel.currentIndex].isTalking.halfImage)
+                    Image(beliStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -54,7 +55,7 @@ struct  BeliStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(beliStories[viewModel.currentIndex].text)
+                                Text(beliStories[currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(15)
                                 Spacer()
@@ -81,10 +82,10 @@ struct  BeliStoriesView: View {
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled {
-                if viewModel.currentIndex < 3{
-                    viewModel.currentIndex += 1
+                if currentIndex < 3{
+                    currentIndex += 1
                     isAnimation1 = true
-                } else if viewModel.currentIndex == 3{
+                } else if currentIndex == 3{
                     isNextStory = true
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("Reading")
@@ -93,7 +94,7 @@ struct  BeliStoriesView: View {
                         print("Masuk misi")
                     }
                     else{
-                        viewModel.currentIndex += 1
+                        currentIndex += 1
                     }
                 }
             }
