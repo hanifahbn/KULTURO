@@ -24,15 +24,21 @@ struct  GudangStoriesView: View {
                 .zIndex(1)
                 .opacity(isNextStory ? 1 : 0)
                 .animation(.easeIn(duration: 0.5), value: isNextStory)
-            Image(viewModel.gudangStories[viewModel.currentIndex].characterTwo)
-                .resizable()
-                .ignoresSafeArea()
+            if viewModel.currentIndex > 2{
+                Image("BrokenBalaiDesa")
+                    .resizable()
+                    .ignoresSafeArea()
+            } else {
+                Image("BackgroundPanglong")
+                    .resizable()
+                    .ignoresSafeArea()
+            }
             HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
+                Image(characters[0].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                     .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
+                Image(characters[1].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                 Spacer()
@@ -41,14 +47,14 @@ struct  GudangStoriesView: View {
             .offset(x: isAnimation1 ? -250 : 60, y: 60)
             .animation(.linear(duration: 2),value: isAnimation1)
             .opacity(isAnimation ? 1 : 0)
-            Image(viewModel.gudangStories[3].characterOne)
+            Image(characters[4].fullImage)
                 .resizable()
                 .frame(width: 110, height: 226)
-                .offset(x: 100, y: 100)
+                .offset(x: 100, y: 120)
                 .opacity(isPakDesaHilang ? 1 : 0)
             VStack{
                 Spacer()
-                Image(viewModel.gudangStories[viewModel.currentIndex].characterOne)
+                Image(gudangStories[viewModel.currentIndex].isTalking.halfImage)
                     .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.white)
@@ -56,7 +62,7 @@ struct  GudangStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(viewModel.gudangStories[viewModel.currentIndex].stories)
+                                Text(gudangStories[viewModel.currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -74,21 +80,21 @@ struct  GudangStoriesView: View {
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled{
-                if(viewModel.currentIndex < 10) {
+                if(viewModel.currentIndex < 9) {
                     viewModel.currentIndex += 1
                 }
                 else{
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("ReadingSecond")
-                    if matchManager.isFinishedReading == 2 {
+                    if matchManager.isFinishedReading == 1 {
                         matchManager.gameStatus = .cameraGame
                     }
                 }
                 
-                if viewModel.currentIndex == 1 {
+                if viewModel.currentIndex == 0 {
                     isStory = false
-                } else if viewModel.currentIndex == 3{
+                } else if viewModel.currentIndex == 2{
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
@@ -109,7 +115,7 @@ struct  GudangStoriesView: View {
                             isPakDesaHilang = false
                         }
                     }
-                } else if viewModel.currentIndex == 8 {
+                } else if viewModel.currentIndex == 7 {
                     isStory = false
                     isNextStory = true
                     isAnimation1 = true

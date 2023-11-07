@@ -14,7 +14,7 @@ struct Narration: Identifiable {
 }
 
 var beginningNarration = [
-    Narration(text: "nama1 dan nama2 adalah dua orang anak yang bersahabat namun sangat kompetitif."),
+    Narration(text: "\(chosenCharacters[0].name) dan \(chosenCharacters[1].name) adalah dua orang anak yang bersahabat namun sangat kompetitif."),
     Narration(text: "Suatu ketika mereka memutuskan untuk berlibur bersama ke rumah nenek nama1 di desa Laguboti, di Kota Medan."),
     Narration(text: "Di desa Laguboti sedang berlangsung renovasi balai desa. Nenek pun mengarahkan nama1 dan nama2 untuk membantu."),
     Narration(text: "Petualangan mereka di Desa Laguboti ini akan memberi mereka pengalaman yang berkesan."),
@@ -22,6 +22,6 @@ var beginningNarration = [
 ]
               
 var endingNarration = [
-    Narration(text: "Begitulah cerita nama1 dan nama2. Mereka yang tadinya kompetitif namun akhirnya memahami kalau saling membantu sesama adalah perbuatan yang tak kalah menyenangkan."),
+    Narration(text: "Begitulah cerita \(chosenCharacters[0].name) dan \(chosenCharacters[1].name). Mereka yang tadinya kompetitif namun akhirnya memahami kalau saling membantu sesama adalah perbuatan yang tak kalah menyenangkan."),
     Narration(text: "MEDAN MAP SUCCESS")
 ]

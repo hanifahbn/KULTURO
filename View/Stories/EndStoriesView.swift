@@ -35,11 +35,11 @@ struct  EndStoriesView: View {
                             HStack{
                                 VStack{
                                     if(!chosenCharacters.isEmpty){
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
+                                        Text(endStories[viewModel.currentIndex].text)
                                             .font(.system(size: 25, weight: .semibold, design: .rounded))
                                             .padding(25)
                                     } else{
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                        Text(endStories[viewModel.currentIndex].text)
                                             .font(.system(size: 25, weight: .semibold, design: .rounded))
                                             .padding(25)
                                     }
@@ -57,7 +57,7 @@ struct  EndStoriesView: View {
                 VStack{
                     Spacer()
                     HStack{
-                        Image(viewModel.endStories[viewModel.currentIndex].characterOne)
+                        Image(endStories[viewModel.currentIndex].isTalking.halfImage)
                     }
                     .padding(.bottom, -300)
                     RoundedRectangle(cornerRadius: 16)
@@ -67,11 +67,11 @@ struct  EndStoriesView: View {
                             HStack{
                                 VStack{
                                     if(!chosenCharacters.isEmpty){
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
+                                        Text(endStories[viewModel.currentIndex].text)
                                             .font(.system(size: 25, weight: .medium, design: .rounded))
                                             .padding(15)
                                     } else {
-                                        Text(viewModel.endStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                        Text(endStories[viewModel.currentIndex].text)
                                             .font(.system(size: 25, weight: .medium, design: .rounded))
                                             .padding(15)
                                     }
@@ -99,9 +99,9 @@ struct  EndStoriesView: View {
     }
 }
 
-//#Preview {
-//    EndStoriesView()
-//        .environmentObject(MatchManager())
-//}
+#Preview {
+    EndStoriesView()
+        .environmentObject(MatchManager())
+}
 
 

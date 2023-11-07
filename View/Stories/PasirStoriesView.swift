@@ -27,11 +27,11 @@ struct  PasirStoriesView: View {
                 .opacity(viewModel.pasirStories[viewModel.currentIndex].transisiStories ? 1 : 0)
                 .animation(.easeIn(duration: 0.5), value: viewModel.pasirStories[viewModel.currentIndex].transisiStories)
             HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
+                Image(chosenCharacters[0].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                     .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
+                Image(chosenCharacters[0].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                 Spacer()
@@ -43,7 +43,7 @@ struct  PasirStoriesView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(viewModel.pasirStories[viewModel.currentIndex].characterOne)
+                    Image(pasirStories[viewModel.currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -52,7 +52,7 @@ struct  PasirStoriesView: View {
                     .overlay {
                         HStack{
                             VStack{
-                                Text(viewModel.pasirStories[viewModel.currentIndex].stories)
+                                Text(pasirStories[viewModel.currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -69,17 +69,17 @@ struct  PasirStoriesView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             //Nanti di pindah ke view model
-            if viewModel.currentIndex < 5 {
+            if viewModel.currentIndex < 4 {
                 viewModel.currentIndex += 1
             } else {
                 matchManager.isFinishedReading += 1
                 matchManager.synchronizeGameState("ReadingFourth")
-                if matchManager.isFinishedReading == 2 {
+                if matchManager.isFinishedReading == 1 {
                     matchManager.gameStatus = .shakeGame
                 }
             }
             
-            if viewModel.currentIndex == 1{
+            if viewModel.currentIndex == 0{
                 isStory = false
                 isAnimation = false
             }
