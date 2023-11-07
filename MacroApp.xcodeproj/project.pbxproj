@@ -21,6 +21,8 @@
 		A38699BF2AF1E3FA00C7D458 /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38699BE2AF1E3FA00C7D458 /* backsound.wav */; };
 		A38699C12AF1E40800C7D458 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38699C02AF1E40800C7D458 /* Correct.wav */; };
 		A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A2E772AF5F15000E3F52A /* TextSound.swift */; };
+		A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */; };
+		A39AEC022AF9DFD1006A0FB6 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEC012AF9DFD1006A0FB6 /* DummyView.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
 		A3AF9E9A2AEFAC0D0075E5B8 /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E992AEFAC0D0075E5B8 /* AudioViewModel.swift */; };
 		A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E9B2AEFAC470075E5B8 /* ServerViewModel.swift */; };
@@ -74,6 +76,8 @@
 		A38699BE2AF1E3FA00C7D458 /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
 		A38699C02AF1E40800C7D458 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
 		A39A2E772AF5F15000E3F52A /* TextSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSound.swift; sourceTree = "<group>"; };
+		A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKata.swift; sourceTree = "<group>"; };
+		A39AEC012AF9DFD1006A0FB6 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
 		A3AF9E992AEFAC0D0075E5B8 /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		A3AF9E9B2AEFAC470075E5B8 /* ServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModel.swift; sourceTree = "<group>"; };
@@ -195,7 +199,6 @@
 				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
 				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
 				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
-				E23832912AEA4E29001DB289 /* DragDropView.swift */,
 				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
 				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
 			);
@@ -206,7 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				E2A729552AE246B40093DD1F /* MissionOneView.swift */,
+				E23832912AEA4E29001DB289 /* DragDropView.swift */,
 				E23832932AEA4E45001DB289 /* AyakPasirView.swift */,
+				A39AEC012AF9DFD1006A0FB6 /* DummyView.swift */,
 				32E4015E2AEB8089007A15AA /* ObjectDetection */,
 			);
 			path = "Mini Games";
@@ -274,6 +279,7 @@
 				E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */,
 				A31CD01C2AEFB69D00B91325 /* RecordButton.swift */,
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
+				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -385,8 +391,10 @@
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
 				E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */,
+				A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
 				E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */,
+				A39AEC022AF9DFD1006A0FB6 /* DummyView.swift in Sources */,
 				E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */,
 				32E401632AEB80C3007A15AA /* CustomCameraView.swift in Sources */,
 				E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */,

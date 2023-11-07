@@ -45,7 +45,7 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
             audioRecorder?.record()
             audio.isRecording = true
 
-            print("starting")
+            print("start recording")
         } catch {
             // Handle
             print("Recording error: \(error.localizedDescription)")
@@ -57,7 +57,7 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
         audioRecorder = nil
         audio.isRecording = false
 
-        print("stopping")
+        print("stopped recording")
         
 //        serverViewModel.sendAudioToServer(audioURL: getDocumentsDirectory().appendingPathComponent("recorded.wav"))
 //        self.audio.label = serverViewModel.responseData

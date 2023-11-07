@@ -82,6 +82,7 @@ struct  BantuDesaView: View {
             isStory = true
             matchManager.isFinishedPlaying = 0
             isPakDesaAnimation = true
+            matchManager.stopTimer()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

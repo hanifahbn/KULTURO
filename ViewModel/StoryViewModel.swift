@@ -42,7 +42,6 @@ class StoryViewModel: ObservableObject {
             DesaStories(stories: "Sekarang, saya minta tolong kalian berdua berdua beli bahan bangunan, ya, di warung ujung sana. Ini uang dan daftar yang harus dibeli.", characterOne: "HeadOfficeDesa", characterTwo: ""),
             DesaStories(stories: "Oke, pak, kami jalan sekarang.", characterOne: "Couple", characterTwo: ""),
             DesaStories(stories: "", characterOne: "", characterTwo: "")
-            
         ]
         
         beliStories = [

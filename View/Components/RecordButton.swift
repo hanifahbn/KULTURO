@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RecordButton: View {
-    @State private var ButtonTap: Bool = false
-    @State var textButton: String
-    @State var iconButton: String?
-    @State var isWithIcon: Bool = false
+    @State private var ButtonTap : Bool = false
+    @State var textButton : String
+    @State var iconButton : String = ""
+    @State var isWithIcon : Bool = true
     
     let action: () -> Void
     
@@ -19,26 +19,32 @@ struct RecordButton: View {
         ZStack{
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 342, height: 50)
-                .foregroundStyle(ButtonTap ? Color.gray : Color("Kuning"))
-//                .opacity(0.5)
+                .foregroundStyle(Color("Kuning"))
+                .opacity(0.3)
                 .padding(.top, 15)
+            RoundedRectangle(cornerRadius: 8)
+                .frame(width: 342, height: 50)
+                .foregroundStyle(ButtonTap ? Color.gray : Color("Kuning"))
+                .padding(.top, ButtonTap ? 15 : 0 )
             HStack{
                 if(isWithIcon == true){
-                    Image(systemName: "\(iconButton ?? "")")
+                    Image(systemName: iconButton)
                         .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                 }
-                Text(textButton)
+                Text(ButtonTap ? "Tekan Jika Selesai" : "Tekan Untuk Bicara")
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
             }
-            .padding(.top, 15)
+            .padding(.top, ButtonTap ? 15 : 0 )
         }
         .onTapGesture {
             ButtonTap.toggle()
+            isWithIcon.toggle()
             action()
         }
+        
     }
 }
 

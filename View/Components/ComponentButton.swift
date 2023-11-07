@@ -41,6 +41,5 @@ struct ComponentButton: View {
 
 #Preview {
     ComponentButton(textButton: "Text") {
-            print("Button Tapped")
         }
 }
