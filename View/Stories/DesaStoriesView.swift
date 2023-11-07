@@ -26,7 +26,7 @@ struct DesaStoriesView: View {
                 .zIndex(1)
                 .opacity(isNextStory ? 1 : 0)
                 .animation(.easeIn(duration: 1), value: isNextStory)
-            if viewModel.currentIndex >= 7{
+            if viewModel.currentIndex > 5{
                 Image("BrokenBalaiDesa")
                     .resizable()
                     .ignoresSafeArea()
@@ -37,15 +37,15 @@ struct DesaStoriesView: View {
             }
             HStack{
                 HStack(spacing : -30){
-                    Image(viewModel.desaStories[0].characterOne)
+                    Image(chosenCharacters[0].fullImage)
                         .resizable()
                         .frame(width: 110, height: 226)
                         .padding(.top, 40)
-                    Image(viewModel.desaStories[0].characterTwo)
+                    Image(chosenCharacters[1].fullImage)
                         .resizable()
                         .frame(width: 110, height: 226)
                     Spacer()
-                    Image(viewModel.desaStories[4].characterTwo)
+                    Image(characters[4].fullImage)
                         .resizable()
                         .opacity(isAnimation1 ? 1 : 0)
                         .frame(width: 110, height: 226)
@@ -63,7 +63,7 @@ struct DesaStoriesView: View {
             VStack{
                 Spacer()
                 HStack{
-                    Image(viewModel.desaStories[viewModel.currentIndex].characterOne)
+                    Image(desaStories[viewModel.currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -73,12 +73,12 @@ struct DesaStoriesView: View {
                         VStack{
                             HStack{
                                 if(chosenCharacters.isEmpty){
-                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name))
+                                    Text(desaStories[viewModel.currentIndex].text)
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .padding(15)
                                 }
                                 else{
-                                    Text(viewModel.desaStories[viewModel.currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar"))
+                                    Text(desaStories[viewModel.currentIndex].text)
                                         .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .padding(15)
                                 }
@@ -96,7 +96,7 @@ struct DesaStoriesView: View {
         .onTapGesture {
             if isTapGestureEnabled {
                 viewModel.currentIndex += 1
-                if viewModel.currentIndex == 4 {
+                if viewModel.currentIndex == 3 {
                     isStory = false
                     isAnimation1 = true
                     isTapGestureEnabled = false
@@ -106,7 +106,7 @@ struct DesaStoriesView: View {
                         isTapGestureEnabled = true
                         OpacityCharacter = true
                     }
-                } else if viewModel.currentIndex == 6 {
+                } else if viewModel.currentIndex == 5 {
                     isStory = false
                     isAnimation = false
                     isAnimation1 = false
@@ -120,14 +120,15 @@ struct DesaStoriesView: View {
                         isAnimation1 = true
                         isAnimation = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            viewModel.currentIndex = 8
+//                            viewModel.currentIndex = 4
                             isStory = true
                             isTapGestureEnabled = true
                             OpacityCharacter = true
                         }
 
                     }
-                } else if viewModel.currentIndex == 11 {
+                } 
+                else if viewModel.currentIndex == 8 {
 
                     isStory = false
                     isAnimation = false
@@ -154,7 +155,7 @@ struct DesaStoriesView: View {
     }
 }
 
-//#Preview {
-//    DesaStoriesView(viewModel: StoryViewModel())
-//        .environmentObject(MatchManager())
-//}
+#Preview {
+    DesaStoriesView(viewModel: StoryViewModel())
+        .environmentObject(MatchManager())
+}

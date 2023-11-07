@@ -19,6 +19,8 @@ struct StoryNaratorView: View {
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
     @State private var isFirstTap = true
+    @State var isTapGestureEnabled = true
+
     
     var body: some View {
         ZStack{
@@ -36,11 +38,11 @@ struct StoryNaratorView: View {
                             VStack{
                                 HStack{
                                     if(!chosenCharacters.isEmpty){
-                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name) : text)
+                                        Text(nextStory ? beginningNarration[currentIndex].text : text)
                                             .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     }
                                     else{
-                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar") : text)
+                                        Text(nextStory ? beginningNarration[currentIndex].text : text)
                                             .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     }
                                     Spacer()
@@ -73,13 +75,15 @@ struct StoryNaratorView: View {
 //            matchManager.gameStatus = .shakeGame
         }
         .onTapGesture {
-            if isFirstTap {
-                isFirstTap = false
-                nextStory = true
-            } else {
-                goToNextStory()
-                if currentIndex < viewModel.naratorStories.count {
-                    isFirstTap = true
+            if isTapGestureEnabled {
+                if isFirstTap {
+                    isFirstTap = false
+                    nextStory = true
+                } else {
+                    goToNextStory()
+                    if currentIndex < viewModel.naratorStories.count {
+                        isFirstTap = true
+                    }
                 }
             }
         }
@@ -88,10 +92,10 @@ struct StoryNaratorView: View {
     // nanti di pindah ke View model
     func typeWriter() {
         if(!chosenCharacters.isEmpty){
-            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name)
+            Stories = beginningNarration[currentIndex].text
         }
         else{
-            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar")
+            Stories = beginningNarration[currentIndex].text
         }
         text = String(Stories.prefix(position))
         if position < Stories.count {
@@ -109,18 +113,21 @@ struct StoryNaratorView: View {
             text = ""
             typeWriter()
             nextStory = false
+            
         }
         else if currentIndex == viewModel.naratorStories.count {
+           
             position = 0
             nextStory = false
             matchManager.gameStatus = .convoBalaiDesa
+            isTapGestureEnabled = false
         }
     }
 }
 
-//#Preview {
-//    StoryNaratorView(viewModel: StoryViewModel())
-//}
+#Preview {
+    StoryNaratorView(viewModel: StoryViewModel())
+}
 
 extension String {
     subscript(offset: Int) -> Character {

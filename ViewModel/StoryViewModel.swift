@@ -16,7 +16,8 @@ class StoryViewModel: ObservableObject {
     @Published var bantuDesaStories : [BantuDesaStories] = []
     @Published var pasirStories : [PasirStories] = []
     @Published var endStories : [EndStories] = []
-    @Published var currentIndex = 1
+    @Published var currentIndex : Int = 0
+//    @Published var CurrentIndex = 0
 //    @Published var
    
     init () {

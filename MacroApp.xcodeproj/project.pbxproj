@@ -54,6 +54,7 @@
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
 		E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */; };
+		E2D73EE92AF8F0A3006E99A1 /* TransitionOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EE82AF8F0A3006E99A1 /* TransitionOpen.swift */; };
 		E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5B92D2AE1364F003B4F70 /* InGameView.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
 		E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButtonMic.swift; sourceTree = "<group>"; };
+		E2D73EE82AF8F0A3006E99A1 /* TransitionOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionOpen.swift; sourceTree = "<group>"; };
 		E2E5B92D2AE1364F003B4F70 /* InGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,6 +268,7 @@
 		E2A729522AE215D10093DD1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E2D73EE72AF8F08B006E99A1 /* Transition */,
 				A35921552AEF2D7C0063BD8E /* ModalView.swift */,
 				E2A729532AE216230093DD1F /* ComponentButton.swift */,
 				E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */,
@@ -273,6 +276,14 @@
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E2D73EE72AF8F08B006E99A1 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				E2D73EE82AF8F0A3006E99A1 /* TransitionOpen.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +366,7 @@
 				E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
+				E2D73EE92AF8F0A3006E99A1 /* TransitionOpen.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
 				E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */,

@@ -20,23 +20,29 @@ struct  BantuDesaView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Image(viewModel.bantuDesaStories[viewModel.currentIndex].characterTwo)
-                .resizable()
-                .ignoresSafeArea()
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(viewModel.bantuDesaStories[viewModel.currentIndex].transisiStories ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: viewModel.bantuDesaStories[viewModel.currentIndex].transisiStories)
+            if viewModel.currentIndex > 2{
+                Image("BackgroundDesaRamai")
+                    .resizable()
+                    .ignoresSafeArea()
+            } else {
+                Image("BackgroundGudang")
+                    .resizable()
+                    .ignoresSafeArea()
+            }
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+////                .opacity(viewModel.bantuDesaStories[viewModel.currentIndex].transisiStories ? 1 : 0)
+//                .animation(.easeIn(duration: 0.5), value: viewModel.bantuDesaStories[viewModel.currentIndex].transisiStories)
             HStack(spacing : -30){
-                Image(viewModel.desaStories[0].characterOne)
+                Image(characters[0].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                     .padding(.top, 40)
-                Image(viewModel.desaStories[0].characterTwo)
+                Image(characters[1].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
-                Image("HeadOffice")
+                Image(characters[4].fullImage)
                     .resizable()
                     .frame(width: 110, height: 226)
                     .offset(x: 10, y: 10)
@@ -44,14 +50,14 @@ struct  BantuDesaView: View {
                 Spacer()
             }
             .padding(.top, 200)
-            .offset(x: isAnimation1 ? -250 : 60)
+            .offset(x: isAnimation1 ? -300 : 60)
             .animation(.linear(duration: 2),value: isAnimation1)
             .opacity(isAnimation ? 1 : 0)
             
             VStack{
                 Spacer()
                 HStack{
-                    Image(viewModel.bantuDesaStories[viewModel.currentIndex].characterOne)
+                    Image(bantuDesaStories[viewModel.currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -60,7 +66,7 @@ struct  BantuDesaView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(viewModel.bantuDesaStories[viewModel.currentIndex].stories)
+                                Text(bantuDesaStories[viewModel.currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(16)
                                 Spacer()
@@ -81,19 +87,20 @@ struct  BantuDesaView: View {
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled{
-                if viewModel.currentIndex < 8 {
+                print(viewModel.currentIndex)
+                if viewModel.currentIndex < 7 {
                     viewModel.currentIndex += 1
                 } else {
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("ReadingThird")
-                    if matchManager.isFinishedReading == 2 {
+                    if matchManager.isFinishedReading == 1 {
                         matchManager.gameStatus = .dragAndDrop
                     }
                 }
-                if viewModel.currentIndex == 2 {
+                if viewModel.currentIndex == 1 {
                     isAnimation = true
-                } else if viewModel.currentIndex == 3{
+                } else if viewModel.currentIndex == 2{
                     isAnimation1 = true
                     isStory = false
                     isTapGestureEnabled = false
