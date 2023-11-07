@@ -87,6 +87,7 @@ struct  PasirStoriesView: View {
         .onAppear{
             matchManager.isFinishedPlaying = 0
             isStory = true
+            matchManager.stopTimer()
         }
     }
 }

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MissionOneView: View {
-    @EnvironmentObject var matchManager: MatchManager
+struct DummyView: View {
+//    @EnvironmentObject var matchManager: MatchManager
     
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
@@ -31,7 +31,6 @@ struct MissionOneView: View {
             if isTutorialShown {
                 ZStack{
                     Rectangle()
-        //                .foregroundStyle(.white)
                         .ignoresSafeArea()
                         .opacity(isTutorialShown ? 0.8 : 0)
                     Text("Ucapkan barang - \n barang yang ada di\n Daftar Belanja")
@@ -56,7 +55,7 @@ struct MissionOneView: View {
                             .shadow(radius: 0, y: 5)
                             .overlay {
                                 HStack{
-                                    Image(matchManager.otherCharacter!.headImage)
+                                    Image("PersonTwo")
                                         .resizable()
                                         .frame(width: 70, height: 70)
                                         .padding(.bottom, 15)
@@ -64,7 +63,6 @@ struct MissionOneView: View {
                                         .font(.system(size: 15, weight: .bold))
                                 }
                             }
-        //                    .opacity(isModalPresented ? 1 : 0)
                             .animation(.linear, value: isFinished == 1)
                     }
                     .onAppear{
@@ -83,7 +81,7 @@ struct MissionOneView: View {
                                 HStack{
                                     Image(systemName: "timer")
                                         .font(.system(size: 32, weight: .bold))
-                                    Text(matchManager.timeInString)
+                                    Text("00:00")
                                         .font(.system(size: 19, weight: .bold))
                                 }
                             })
@@ -103,68 +101,29 @@ struct MissionOneView: View {
                 }
 
                 Spacer()
-                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill", isWithIcon: true) {
                         if audioViewModel.audio.isRecording == false {
                             audioViewModel.startRecording()
                         }
                         else {
-                            audioViewModel.stopRecording()
-//                            print("Label di view: \(audioViewModel.audio.label)")
-//                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                                textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
-                                playerViewModel.playAudio(fileName: "Correct")
-                                spoken[currentStep] = true
-                                currentStep = currentStep + 1
-                                jumlahBenar = jumlahBenar + 1
-                                if(jumlahBenar == 3){
-                                    matchManager.isFinishedPlaying += 1
-                                    matchManager.synchronizeGameState("SoundMission")
-//                                    if matchManager.isFinishedPlaying == 2 {
-                                        isModalPresented = true
-//                                    }
-                                }
-//                            }
                         }
                     }
-//                }
                 .disabled(jumlahBenar == 3)
                 .padding(.bottom, 40)
-                .onAppear{
-                    isFinished = matchManager.isFinishedPlaying
-                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in matchManager.stopTimer()}
-        )) {
-            ModalView()
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false && jumlahBenar < 3 },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
         .onTapGesture{
             isTutorialShown = false
         }
         .onAppear{
-            matchManager.isFinishedReading = 0
-            tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
-            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 46)        }
+        }
     }
 }
 
-//#Preview {
-//    MissionOneView()
+#Preview {
+    DummyView()
 //        .environmentObject(MatchManager())
-//}
+}

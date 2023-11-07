@@ -89,6 +89,7 @@ struct  EndStoriesView: View {
         }
         .onAppear{
             matchManager.isFinishedPlaying = 0
+            matchManager.stopTimer()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

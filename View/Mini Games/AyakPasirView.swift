@@ -100,7 +100,7 @@ struct AyakPasirView: View {
             startMotionUpdates()
             startTimer()
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 10)
+            matchManager.startTimer(time: 11)
             matchManager.isFinishedPlaying = 0
         }
     }

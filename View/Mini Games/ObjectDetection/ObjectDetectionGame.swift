@@ -20,29 +20,47 @@ struct ObjectDetectionGame: View {
 
     var body: some View {
         ZStack{
-            if capturedImage != nil {
-                CameraResultView(capturedImage: $capturedImage, isSuccess: $isSuccess)
-                    .environmentObject(matchManager)
-            } else {
-                ZStack{
-                    CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
+           
+            ZStack{
+                if capturedImage != nil {
+                    CameraResultView(capturedImage: $capturedImage, isSuccess: $isSuccess)
+                        .environmentObject(matchManager)
+                } else {
+                    ZStack{
+                        CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
+                    }
+                }
+                VStack{
+                    HStack{
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: 120, height: 54)
+                            .foregroundStyle(.white)
+                            .opacity(0.5)
+                            .overlay(content: {
+                                HStack{
+                                    Image(systemName: "timer")
+                                        .font(.system(size: 32, weight: .bold))
+                                    Text(matchManager.timeInString)
+                                        .font(.system(size: 19, weight: .bold))
+                                }
+                            })
+                    }
+                    .padding(.trailing, 30)
+                    Spacer()
                 }
             }
-
         }
         .sheet(isPresented: Binding(
             get: { matchManager.isTimerRunning == false },
             set: { _ in }
         )) {
-            ModalView(modalType: "Lose")
+            ModalView(modalType: "L ose")
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }
         .onAppear{
-            if(matchManager.isTimerRunning == false){
-                matchManager.isTimerRunning = true
-                matchManager.startTimer(time: 180)
-            }
+            matchManager.startTimer(time: 181)
             matchManager.isFinishedReading = 0
         }
     }

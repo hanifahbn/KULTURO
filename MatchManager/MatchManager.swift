@@ -41,6 +41,8 @@ class MatchManager: NSObject, ObservableObject{
     @Published var otherPlayer: GKPlayer?
     @Published var localCharacter: Karakter?
     @Published var otherCharacter: Karakter?
+    @Published var timer: Timer?
+    @Published var timeInString: String = ""
     
     var match : GKMatch?
     var isFinishedReading: Int = 0
@@ -71,7 +73,6 @@ class MatchManager: NSObject, ObservableObject{
     func authenticateUser(){
         GKLocalPlayer.local.authenticateHandler = { [self] vc, error in
             guard error == nil else {
-//                print(error?.localizedDescription ?? "")
                 authStatus = .error
                 return
             }
@@ -125,12 +126,41 @@ class MatchManager: NSObject, ObservableObject{
         }
     }
     
+//    func startTimer(time: Int) {
+//       isTimerRunning = true
+//       DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(Int(time))) {
+//           self.isTimerRunning = false
+//           let elapsedTime: TimeInterval = TimeInterval(time)
+//           self.timeInText = self.changeTimerToText(elapsedTime: elapsedTime)
+//       }
+//    }
+    
     func startTimer(time: Int) {
-       isTimerRunning = true
-       DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(Int(time))) {
-           self.isTimerRunning = false
-       }
-   }
+        var remainingTime = time
+        isTimerRunning = true
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            self?.updateTimer(remainingTime: &remainingTime)
+        }
+    }
+    
+    func updateTimer(remainingTime: inout Int) {
+        if remainingTime > 0 {
+            remainingTime -= 1
+            let minutes = remainingTime / 60
+            let seconds = remainingTime % 60
+            let timeString = String(format: "%02d:%02d", minutes, seconds)
+            self.timeInString = timeString
+        } else {
+            stopTimer()
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        isTimerRunning = false
+    }
     
     func startGame(newMatch: GKMatch) {
         match = newMatch
@@ -146,14 +176,14 @@ class MatchManager: NSObject, ObservableObject{
 
         if localCharacter == nil {
             localCharacter = karakter
+            chosenCharacters[0] = localCharacter!
             if let index = characters.firstIndex(where: { $0.id == karakter.id }) {
                 characters[index].isChosen = true
             }
             synchronizeCharacterSelection(karakter)
             
             if otherCharacter != nil {
-                chosenCharacters.append(localCharacter!)
-                chosenCharacters.append(otherCharacter!)
+                chosenCharacters[1] = otherCharacter!
                 synchronizeGameCharacters(chosenCharacters)
                 gameStatus = .stories
             }
