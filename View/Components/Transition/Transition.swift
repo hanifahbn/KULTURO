@@ -26,9 +26,8 @@ struct Transition: View {
     
     var body: some View {
         ZStack {
-            Image("BackgroundImage")
+            Image("BackgroundPanglong")
                 .resizable()
-                .blur(radius: 1.5)
                 .ignoresSafeArea()
             
             Image("Transition")

@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct MacroApp: App {
+    @ObservedObject var matchManager = MatchManager()
     var body: some Scene {
         WindowGroup {
 //            ObjectDetectionGame()
-            ContentView()
+//            ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
 //            GameStartView()
+            AyakPasirView()
+                .environmentObject(matchManager)
         }
     }
 }
