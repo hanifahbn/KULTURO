@@ -99,24 +99,42 @@ struct ObjectDetectionGame: View {
 //                    .presentationDetents([.height(190)])
 //            }
 //        }
-        .sheet(isPresented:  $isSheetPresented) {
+//        .sheet(isPresented:  $isSheetPresented) {
+//            ZStack {
+//                Color.red
+//                    .ignoresSafeArea()
+//                if currentSheet == .cameraSuccess {
+//                    ModalView(modalType: "CameraSuccess")
+//                        .environmentObject(matchManager)
+//                        .presentationDetents([.height(190)])
+//                } else if currentSheet == .cameraSuccessAll {
+//                    ModalView(modalType: "CameraSuccess")
+//                        .environmentObject(matchManager)
+//                        .presentationDetents([.height(190)])
+//                } else if currentSheet == .lose {
+//                    ModalView(modalType: "Lose")
+//                        .environmentObject(matchManager)
+//                        .presentationDetents([.height(190)])
+//                }
+//            }
+//            .presentationDetents([.height(190)])
+//        }
+        .sheet(isPresented: $isSheetPresented) {
             ZStack {
-                if currentSheet == .cameraSuccess {
+                switch currentSheet {
+                case .cameraSuccess, .cameraSuccessAll:
                     ModalView(modalType: "CameraSuccess")
                         .environmentObject(matchManager)
-                        .presentationDetents([.height(190)])
-                } else if currentSheet == .cameraSuccessAll {
-                    ModalView(modalType: "CameraSuccess")
-                        .environmentObject(matchManager)
-                        .presentationDetents([.height(190)])
-                } else if currentSheet == .lose {
+                case .lose:
                     ModalView(modalType: "Lose")
                         .environmentObject(matchManager)
-                        .presentationDetents([.height(190)])
+                case .none:
+                    ModalView(modalType: "CameraSuccess")
                 }
             }
             .presentationDetents([.height(190)])
         }
+
     }
     
     private func updateSheets() {
