@@ -104,7 +104,7 @@ extension MatchManager: GKMatchDelegate{
         if state == "DragAndDropMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
-                gameStatus = .storyPerbaikanBalaiDesaSecond
+//                gameStatus = .storyPerbaikanBalaiDesaSecond
                 stopTimer()
                 isFinishedPlaying = 0
             }

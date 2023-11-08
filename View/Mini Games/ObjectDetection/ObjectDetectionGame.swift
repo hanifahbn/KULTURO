@@ -44,9 +44,10 @@ struct ObjectDetectionGame: View {
             }
         }
         .onAppear{
-            matchManager.startTimer(time: 20)
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                isSuccess = true
+            matchManager.startTimer(time: 121)
+//            isSuccess = true
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                matchManager.isFinishedPlaying += 2
 //            }
         }
         .onChange(of: isSuccess) { _ in
@@ -90,7 +91,7 @@ struct ObjectDetectionGame: View {
     }
     
     private func updateSheets() {
-        if isSuccess && matchManager.isTimerRunning {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .cameraSuccess
             isSheetPresented = true
         } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {

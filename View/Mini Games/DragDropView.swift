@@ -59,12 +59,7 @@ struct DragDropView: View {
                         .onAppear{
                             matchManager.isFinishedPlaying += 1
                             matchManager.synchronizeGameState("DragAndDropMission")
-                            if matchManager.isFinishedPlaying == 2 {
-                                isModalPresented = true
-                            }
-                            else{
-                                isModalPresented = true
-                            }
+                            isSuccess = true
                         }
                         .hidden()
                 } else if askItems2 {
@@ -155,7 +150,23 @@ struct DragDropView: View {
 //        }
         .onAppear{
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 15)
+            matchManager.startTimer(time: 20)
+        }
+    }
+    
+    private func updateSheets() {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            currentSheet = .dndSuccess
+            isSheetPresented = true
+        } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
+            currentSheet = .dndSuccessAll
+            isSheetPresented = true
+        } else if isSuccess && !matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            currentSheet = .lose
+            isSheetPresented = true
+        } else if !isSuccess && !matchManager.isTimerRunning {
+            currentSheet = .lose
+            isSheetPresented = true
         }
     }
     

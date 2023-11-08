@@ -35,7 +35,7 @@ struct ModalView: View {
                         .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
-                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
                         matchManager.isFinishedPlaying = 0
                     }
@@ -48,7 +48,7 @@ struct ModalView: View {
                         .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
-                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)

@@ -207,7 +207,7 @@ struct MissionOneView: View {
     }
     
     private func updateSheets() {
-        if isSuccess && matchManager.isTimerRunning {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .soundSuccess
             isSheetPresented = true
         } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
