@@ -14,7 +14,7 @@ struct ObjectDetectionGame: View {
     
     @State private var capturedImage: UIImage? = nil
     @State private var isCustomCameraViewPresented = false
-    @State var tool: Tool = ToolBrain().getFirstTool()
+    @State var tool: Tool = ToolBrain().getRandomTool(nil)
     @State var isSuccess: Bool = true
 
 

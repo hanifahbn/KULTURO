@@ -10,22 +10,23 @@ import SwiftUI
 
 
 struct CustomCameraView: View {
-    
+    @EnvironmentObject var matchManager: MatchManager
+
     @StateObject var cameraService = CameraViewController()
     @Binding var capturedImage: UIImage?
-    
+
     @Environment(\.presentationMode) private var presentationMode
-    
+
     @State var isDisabled: Bool = true
-    
+
     @Binding var tool: Tool
-    
+
     var toolBrain = ToolBrain()
 
     var timer = Timer()
 
-    
-    
+
+
     var  body: some View {
         ZStack {
             CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
@@ -42,65 +43,20 @@ struct CustomCameraView: View {
                 }
             }
             VStack{
-                
-                Rectangle()
-                    .foregroundColor(.white)
-                    .frame(width: 208, height: 32)
-                    .background(.white.opacity(0.6))
-                    .cornerRadius(8)
-                    .overlay(
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 8)
-                                .inset(by: 0.5)
-                                .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                            HStack{
-                                if(!isDisabled){
-                                    Text("Tekan tombol shutter.")
-                                        .font(
-                                            Font.custom("SF Pro Rounded", size: 20)
-                                                .weight(.bold)
-                                        )
-                                        .foregroundColor(.black)
-                                    
-                                } else{
-                                    Text("Mencari peralatan...")
-                                        .font(
-                                            Font.custom("SF Pro Rounded", size: 20)
-                                                .weight(.bold)
-                                        )
-                                        .foregroundColor(.black)
-                                }
-                            }
-                        }
-                    ).padding([.top], 68)
-                
-                
-                Spacer()
-                
-                HStack{
-                    Button(action: {cameraService.capturePhoto()}, label: {
-                        Image(systemName: "camera")
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.white)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                    }).disabled(isDisabled)
-                }
-                .frame(height: 75)
-                
-                ZStack {
+
+                HStack(){
+
                     HStack(spacing: -60) {
                         Image("Headman")
                             .resizable()
-                            .frame(width: 85, height: 87 )
+                            .frame(width: 75, height: 79 )
                             .zIndex(1)
-                            .padding(.top, -10)
-                        
-                        
+                            .padding(.bottom, 28)
+
+
                         Rectangle()
                             .foregroundColor(.white)
-                            .frame(width: 260, height: 76)
+                            .frame(width: 217, height: 48)
                             .background(.white.opacity(0.6))
                             .cornerRadius(16)
                             .overlay(
@@ -109,34 +65,74 @@ struct CustomCameraView: View {
                                         .inset(by: 0.5)
                                         .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
                                     HStack{
-                                        Text("Tolong Carikan")
-                                            .font(
-                                                Font.custom("SF Pro Rounded", size: 20)
-                                                    .weight(.bold)
-                                            )
-                                            .foregroundColor(.black)
-                                        
+                                        Button(action: {
+                                            tool = toolBrain.getRandomTool(tool)
+                                        }) {
+                                            Text("Tolong Carikan")
+                                                .font(.system(size: 17, weight: .bold, design: .rounded))
+                                                .foregroundColor(.black)
+                                        }
+
+
                                         Button(action: {
                                             tool = toolBrain.getRandomTool(tool)
                                         }) {
                                             Image(tool.imageName).resizable().frame(width: 42, height: 42)
                                         }
+
+                                        Button(action: {
+                                            tool = toolBrain.getRandomTool(tool)
+                                        }, label: {
+                                            Image(systemName: "arrow.triangle.2.circlepath")
+                                                .padding(8)
+                                                .background(.black)
+                                                .foregroundColor(.white)
+                                                .clipShape(Circle())
+
+                                        })
                                     }
-                                    .padding(.leading, 36)
+                                    .padding(.leading, 48)
                                 }
                             )
-                        
-                        
                     }
-                    
+
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: 120, height: 54)
+                        .foregroundStyle(.white)
+                        .opacity(0.5)
+                        .overlay(content: {
+                            HStack{
+                                Image(systemName: "timer")
+                                    .font(.system(size: 32, weight: .bold))
+//                                Text(matchManager.timeInString)
+//                                    .font(.system(size: 19, weight: .bold))
+                            }
+                        })
                 }
-                .frame(width: 260, height: 76)
-                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
-                .padding(.top, 11)
-                .padding(.bottom, 20)
+                .padding(.trailing, 30)
+                .padding(.top, 60)
+
+
+
+                Spacer()
+
+                HStack{
+                    Button(action: {cameraService.capturePhoto()}, label: {
+                        Image(isDisabled ? "CameraOff" : "Camera")
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 22)
+                            .background(isDisabled ? .abuAbu : .ungu)
+                            .clipShape(Circle())
+                    })
+                    .disabled(isDisabled)
+                }
+                .padding(.bottom, 60)
+
+
             }
         }
     }
-    
+
 }
 
