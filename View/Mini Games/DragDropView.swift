@@ -14,6 +14,7 @@ struct DragDropView: View {
     @State var askItems2: Bool = false
     @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
     @State var currentIndex = 0
+    @State private var isTutorial = true
     
     var body: some View {
         ZStack{
@@ -63,7 +64,7 @@ struct DragDropView: View {
                 }
                 
                 Spacer()
-                
+                //Tempat Drop
                 if(items.count != 0){
                     VStack{
                         Spacer()
@@ -98,26 +99,40 @@ struct DragDropView: View {
                 }
 
             }
+            ZStack{
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+                Text("Drag and drop barang yang dibutuhkan warga desa ke arah kepala desa")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 38, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .padding(30)
+            }
+            .opacity(isTutorial ? 1 : 0)
         }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "DragAndDropSuccess")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == true && isModalPresented },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "DragAndDropSuccess")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == false },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "Lose")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
         .onAppear{
-            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 15)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                isTutorial = false
+                matchManager.isTimerRunning = true
+                            matchManager.startTimer(time: 15)
+            }
         }
     }
     
@@ -191,7 +206,9 @@ struct ItemDrag: View {
             }
             
         } else if position.width > 170 || position.width < -170 {
-            print("Kirim Barang")
+            print(imageTool)
         }
     }
 }
+
+

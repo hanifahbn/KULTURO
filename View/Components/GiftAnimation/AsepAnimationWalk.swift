@@ -26,6 +26,7 @@ struct AsepAnimationWalk: View {
                     .resizable()
                     .frame(width: 100, height: 200)
                     .opacity(isAnimation2 ? 1 : 0)
+//                    .animation(.linear, value: isAnimation2)
             }
             .offset(y: 150)
         }
