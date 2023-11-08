@@ -36,5 +36,83 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D858A4F0-BC76-4F38-B897-EF6E3C9B73CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/PlayerViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "stopAudio()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D858A4F0-BC76-4F38-B897-EF6E3C9B73CA - 33e4275713169052"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroApp.PlayerViewModel.stopAudio() -&gt; ()"
+                  moduleName = "MacroApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/ViewModel/PlayerViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "D858A4F0-BC76-4F38-B897-EF6E3C9B73CA - 33e4275713169073"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroApp.PlayerViewModel.stopAudio() -&gt; ()"
+                  moduleName = "MacroApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/ViewModel/PlayerViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "D858A4F0-BC76-4F38-B897-EF6E3C9B73CA - 33e42757131693ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroApp.PlayerViewModel.stopAudio() -&gt; ()"
+                  moduleName = "MacroApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/ViewModel/PlayerViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "D858A4F0-BC76-4F38-B897-EF6E3C9B73CA - 33e4275713169073"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroApp.PlayerViewModel.stopAudio() -&gt; ()"
+                  moduleName = "MacroApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/ViewModel/PlayerViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
