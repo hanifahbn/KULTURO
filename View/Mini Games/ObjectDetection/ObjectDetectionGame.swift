@@ -30,25 +30,6 @@ struct ObjectDetectionGame: View {
                         CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
                     }
                 }
-                VStack{
-                    HStack{
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 120, height: 54)
-                            .foregroundStyle(.white)
-                            .opacity(0.5)
-                            .overlay(content: {
-                                HStack{
-                                    Image(systemName: "timer")
-                                        .font(.system(size: 32, weight: .bold))
-                                     Text(matchManager.timeInString)
-                                        .font(.system(size: 19, weight: .bold))
-                                }
-                            })
-                    }
-                    .padding(.trailing, 30)
-                    Spacer()
-                }
             }
         }
         .sheet(isPresented: Binding(

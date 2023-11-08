@@ -49,14 +49,14 @@ struct CustomCameraView: View {
                     HStack(spacing: -60) {
                         Image("Headman")
                             .resizable()
-                            .frame(width: 75, height: 79 )
+                            .frame(width: 70, height: 74)
                             .zIndex(1)
-                            .padding(.bottom, 28)
+                            .padding(.bottom, 15)
 
 
                         Rectangle()
                             .foregroundColor(.white)
-                            .frame(width: 217, height: 48)
+                            .frame(width: 217, height: 55)
                             .background(.white.opacity(0.6))
                             .cornerRadius(16)
                             .overlay(
@@ -91,22 +91,23 @@ struct CustomCameraView: View {
 
                                         })
                                     }
-                                    .padding(.leading, 48)
+                                    .padding(.leading, 50)
                                 }
                             )
                     }
+                    .padding(.leading, 20)
 
                     Spacer()
                     RoundedRectangle(cornerRadius: 16)
-                        .frame(width: 120, height: 54)
+                        .frame(width: 110, height: 55)
                         .foregroundStyle(.white)
                         .opacity(0.5)
                         .overlay(content: {
                             HStack{
                                 Image(systemName: "timer")
-                                    .font(.system(size: 32, weight: .bold))
-//                                Text(matchManager.timeInString)
-//                                    .font(.system(size: 19, weight: .bold))
+                                    .font(.system(size: 25, weight: .bold))
+                                Text(matchManager.timeInString)
+                                    .font(.system(size: 17, weight: .bold))
                             }
                         })
                 }
@@ -136,3 +137,7 @@ struct CustomCameraView: View {
 
 }
 
+#Preview {
+    ObjectDetectionGame()
+        .environmentObject(MatchManager())
+}
