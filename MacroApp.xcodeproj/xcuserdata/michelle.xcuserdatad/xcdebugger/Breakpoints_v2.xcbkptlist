@@ -7,85 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9AFD4C5A-76EB-43E6-97E2-C5F3D3AF4273"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CameraManager/Detector.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "setupDetector()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9AFD4C5A-76EB-43E6-97E2-C5F3D3AF4273 - 23dfe5578ab5502f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroApp.CameraViewController.setupDetector() -&gt; ()"
-                  moduleName = "MacroApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/CameraManager/Detector.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "1256">
-               </Location>
-               <Location
-                  uuid = "9AFD4C5A-76EB-43E6-97E2-C5F3D3AF4273 - 2707a637f623771e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroApp.CameraViewController.setupDetector() -&gt; ()"
-                  moduleName = "MacroApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/CameraManager/Detector.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "9AFD4C5A-76EB-43E6-97E2-C5F3D3AF4273 - 23dfe5578ab55195"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.VNRequest, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MacroApp.CameraViewController.setupDetector() -&gt; ()"
-                  moduleName = "MacroApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michelle/Documents/GitHub/MacroApp/CameraManager/Detector.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "1500">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5FAA8429-216E-41FD-BBB8-509929659447"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CameraManager/Detector.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "setupDetector()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CAEAD812-5BAA-43C0-A78E-AF1B572501F3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -111,22 +32,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "setupDetector()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90361FEA-D595-41FB-A365-A49A2970D47B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CameraManager/Detector.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
             landmarkName = "setupDetector()"
             landmarkType = "7">
          </BreakpointContent>
