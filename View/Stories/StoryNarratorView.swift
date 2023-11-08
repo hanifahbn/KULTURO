@@ -72,6 +72,7 @@ struct StoryNarratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
+            matchManager.gameStatus = .cameraGame
         }
         .onTapGesture {
             if isTapGestureEnabled {
@@ -112,13 +113,12 @@ struct StoryNarratorView: View {
             text = ""
             typeWriter()
             nextStory = false
-            
         }
-        else if currentIndex == narration.count {
+        else {
+            isTapGestureEnabled = false
             position = 0
             nextStory = false
             matchManager.gameStatus = nextGameStatus
-            isTapGestureEnabled = false
         }
     }
 }

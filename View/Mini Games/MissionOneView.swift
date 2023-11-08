@@ -76,15 +76,15 @@ struct MissionOneView: View {
                     HStack{
                         Spacer()
                         RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 120, height: 54)
+                            .frame(width: 110, height: 55)
                             .foregroundStyle(.white)
                             .opacity(0.5)
                             .overlay(content: {
                                 HStack{
                                     Image(systemName: "timer")
-                                        .font(.system(size: 32, weight: .bold))
+                                        .font(.system(size: 25, weight: .bold))
                                     Text(matchManager.timeInString)
-                                        .font(.system(size: 19, weight: .bold))
+                                        .font(.system(size: 17, weight: .bold))
                                 }
                             })
                     }
@@ -136,9 +136,9 @@ struct MissionOneView: View {
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: Binding(
             get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in matchManager.stopTimer()}
+            set: { _ in }
         )) {
-            ModalView()
+            ModalView(modalType: "SoundSuccess")
                 .environmentObject(matchManager)
                 .presentationDetents([.height(190)])
         }

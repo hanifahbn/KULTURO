@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ModalView: View {
     @EnvironmentObject var matchManager: MatchManager
-    @State var modalType: String? = "Waiting"
+    @State var modalType: String? = "SoundSuccess"
     
     var body: some View {
         ZStack{
             Color.ungu
                 .ignoresSafeArea()
-            if(modalType == "Waiting"){
+            if(modalType == "SoundSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil membeli semua peralatan!")
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
-                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        .padding(.horizontal, 35)
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyGudang
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
@@ -29,10 +30,12 @@ struct ModalView: View {
             if(modalType == "CameraSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil menemukan semua peralatan!")
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
-                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        .padding(.horizontal, 35)
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
+                        matchManager.isFinishedPlaying = 0
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -40,9 +43,10 @@ struct ModalView: View {
             if(modalType == "DragAndDropSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil menemukan semua peralatan!")
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
-                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        .padding(.horizontal, 35)
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
@@ -51,9 +55,10 @@ struct ModalView: View {
             if(modalType == "AyakPasirSuccess"){
                 VStack{
                     Text("Yeay, kita berhasil membuat pasir menjadi lebih halus!")
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
-                    ComponentButtonMic(textButton: "Lanjutkan", isWithIcon: false) {
+                        .padding(.horizontal, 35)
+                    ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyBalaiDesaRenovated
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
@@ -61,10 +66,11 @@ struct ModalView: View {
             }
             else if(modalType == "Lose"){
                 VStack{
-                    Text("Waktu habis, kamu belum berhasil.")
-                        .font(.system(size: 25, weight: .bold))
+                    Text("Waktu habis, kamu dan temanmu belum berhasil.")
+                        .font(.system(size: 23, weight: .bold))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.red)
+                        .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: "Keluar", isWithIcon: false) {
                         matchManager.gameStatus = .setup
                     }

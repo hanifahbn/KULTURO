@@ -62,49 +62,58 @@ extension MatchManager: GKMatchDelegate{
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .soundGame
+                isFinishedReading = 0
             }
         }
         if state == "ReadingSecond" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .cameraGame
+                isFinishedReading = 0
             }
         }
         if state == "ReadingThird" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .dragAndDrop
+                isFinishedReading = 0
             }
         }
         if state == "ReadingFourth" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .shakeGame
+                isFinishedReading = 0
             }
         }
         if state == "SoundMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 stopTimer()
-                gameStatus = .storyGudang
+//                gameStatus = .storyGudang
+                isFinishedPlaying = 0
+            }
+        }
+        if state == "CameraMission" {
+            isFinishedPlaying += 1
+            if(isFinishedPlaying == 2){
+//                gameStatus = .storyPerbaikanBalaiDesaFirst
+                stopTimer()
             }
         }
         if state == "DragAndDropMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 gameStatus = .storyPerbaikanBalaiDesaSecond
+                stopTimer()
+                isFinishedPlaying = 0
             }
         }
         if state == "AyakPasirMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 gameStatus = .storyBalaiDesaRenovated
-            }
-        }
-        if state == "CameraMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-                gameStatus = .storyPerbaikanBalaiDesaFirst
+                isFinishedPlaying = 0
                 stopTimer()
             }
         }
