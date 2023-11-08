@@ -105,9 +105,11 @@ struct MissionOneView: View {
                     .padding(.bottom, 40)
                 
                 if textNamaTool.count > 2 {
-                    TextKata(textBahasa: $textNamaTool[0])
-                    TextKata(textBahasa: $textNamaTool[1])
-                    TextKata(textBahasa: $textNamaTool[2])
+                    TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL)
+                    TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL)
+                        .opacity(currentStep == 1 ? 0 : 1)
+                    TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL)
+                        .opacity(currentStep == 2 ? 0 : 1)
                 }
 
                 Spacer()

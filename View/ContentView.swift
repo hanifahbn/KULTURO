@@ -107,6 +107,8 @@ struct ContentView: View {
                     .onAppear{
                         backsoundPlayer.playAudioLoop(fileName: "backsound")
                     }
+            case .empty:
+                VStack {}
             }
         }
         .onAppear{

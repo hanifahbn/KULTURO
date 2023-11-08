@@ -27,11 +27,11 @@ class MatchManager: NSObject, ObservableObject{
     var otherTools: [String]?
     
     @Published var tools: [ToolBahasa] = [
-        ToolBahasa(localName: "Apusapus Ni Pat", bahasaName: "Keset", labelName:"ApusapusNiPat", exampleAudioURL: ""),
-        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", labelName:"Sipadot", exampleAudioURL: ""),
-        ToolBahasa(localName: "Tel", bahasaName: "Ember", labelName:"Tel", exampleAudioURL: ""),
-        ToolBahasa(localName: "Inganan Sampah", bahasaName: "Tempat Sampah", labelName:"IngananSampah", exampleAudioURL: ""),
-        ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: ""),
+        ToolBahasa(localName: "Apusapus Ni Pat", bahasaName: "Keset", labelName:"ApusapusNiPat", exampleAudioURL: "ApusapusNiPat"),
+        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", labelName:"Sipadot", exampleAudioURL: "Sipadot"),
+        ToolBahasa(localName: "Tel", bahasaName: "Ember", labelName:"Tel", exampleAudioURL: "Tel"),
+        ToolBahasa(localName: "Inganan Sampah", bahasaName: "Tempat Sampah", labelName:"IngananSampah", exampleAudioURL: "IngananSampah"),
+        ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: "JomDinding"),
     ]
     
 //    @Published var myAvatar = Image(systemName: "person.crop.circle")
