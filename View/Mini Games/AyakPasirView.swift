@@ -19,10 +19,20 @@ struct AyakPasirView: View {
     let timerInterval = 1.0
     @State private var isTutorial = true
     
-    var timerText: String {
-        let minutes = Int(elapsedTime) / 60
-        let seconds = Int(elapsedTime) % 60
-        return String(format: "%02d.%02d", minutes, seconds)
+    @State var isSuccess: Bool = false
+    @State private var currentSheet: SheetType? = nil
+    @State private var isSheetPresented: Bool = false
+    
+//    var timerText: String {
+//        let minutes = Int(elapsedTime) / 60
+//        let seconds = Int(elapsedTime) % 60
+//        return String(format: "%02d.%02d", minutes, seconds)
+//    }
+    
+    enum SheetType {
+        case shakeSuccess
+        case shakeSuccessAll
+        case lose
     }
     
     var body: some View {
@@ -65,24 +75,24 @@ struct AyakPasirView: View {
             }
 //            .opacity(flyCounter == 10 ? 0 : 1)
             .padding(.top, 50)
-            if flyCounter == 10 {
+            if flyCounter == 15 {
                 ZStack{
                     Image("PasirAkhir")
                         .resizable()
                         .frame(width: 400, height: 900)
 //                        .animation(.easeOut(duration: 1), value: flyCounter)
-                        .onAppear{
+                        .onAppear {
                             matchManager.isFinishedPlaying += 1
                             matchManager.synchronizeGameState("AyakPasirMission")
-                            isModalPresented = true
+                            isSuccess = true
                         }
                 }
             }
             ZStack{
                 Color.black
                     .ignoresSafeArea()
-                    .opacity(0.5)
-                Text("Goyangkan handphone kalian bersamaan untuk memisahkan pasir dan batu")
+                    .opacity(0.8)
+                Text("Goyangkan handphone kalian bersamaan untuk memisahkan pasir dan batu.")
                     .foregroundStyle(.white)
                     .font(.system(size: 38, weight: .bold, design: .rounded))
                     .multilineTextAlignment(.center)
@@ -92,39 +102,59 @@ struct AyakPasirView: View {
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == true && matchManager.isFinishedPlaying > 0 },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "AyakPasirSuccess")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false && matchManager.isFinishedPlaying != 2},
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
+        .sheet(isPresented: $isSheetPresented) {
+            ZStack {
+                Color.ungu
+                    .ignoresSafeArea()
+                switch currentSheet {
+                case .shakeSuccess:
+                    ModalView(modalType: "AyakPasirSuccess", textButton: "Menunggu temanmu selesai...")
+                        .environmentObject(matchManager)
+                case .shakeSuccessAll:
+                    ModalView(modalType: "AyakPasirSuccess", textButton: "Lanjutkan")
+                        .environmentObject(matchManager)
+                case .lose:
+                    ModalView(modalType: "Lose", backTo: .cameraGame)
+                        .environmentObject(matchManager)
+                case .none:
+                    VStack {
+                        EmptyView()
+                    }
+                    .onAppear{
+                        isSuccess.toggle()
+                        isSuccess.toggle()
+                    }
+                }
+            }
+            .interactiveDismissDisabled()
+            .presentationDetents([.height(190)])
         }
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                isTutorial = false
                 startMotionUpdates()
-                startTimer()
-//                matchManager.isTimerRunning = true
                 matchManager.startTimer(time: 11)
-//                matchManager.isFinishedPlaying = 0
             }
         }
-    }
-    func startTimer() {
-        isTimerRunning = true
-        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-            elapsedTime += timerInterval
+        .onTapGesture {
+            isTutorial = false
+        }
+        .onChange(of: isSuccess) { _ in
+            updateSheets()
+        }
+        .onChange(of: matchManager.isTimerRunning) { _ in
+            updateSheets()
+        }
+        .onChange(of: matchManager.isFinishedPlaying) { _ in
+            updateSheets()
         }
     }
+    
+//    func startTimer() {
+//        isTimerRunning = true
+//        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
+//            elapsedTime += timerInterval
+//        }
+//    }
     
     func startMotionUpdates() {
         motionManager.accelerometerUpdateInterval = 0.1
@@ -135,7 +165,7 @@ struct AyakPasirView: View {
                     // Device is shaken, trigger the fly animation
                     isFlying = true
                     flyCounter += 1
-                    if flyCounter == 10 {
+                    if flyCounter == 15 {
                         // Disable onAppear after 10 times
                         self.motionManager.stopAccelerometerUpdates()
                     }
@@ -144,6 +174,22 @@ struct AyakPasirView: View {
                     }
                 }
             }
+        }
+    }
+    
+    private func updateSheets() {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            currentSheet = .shakeSuccess
+            isSheetPresented = true
+        } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
+            currentSheet = .shakeSuccessAll
+            isSheetPresented = true
+        } else if isSuccess && !matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            currentSheet = .lose
+            isSheetPresented = true
+        } else if !isSuccess && !matchManager.isTimerRunning {
+            currentSheet = .lose
+            isSheetPresented = true
         }
     }
 }

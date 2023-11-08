@@ -56,6 +56,10 @@ struct BalaiDesaRenovatedView: View {
                 }
                 else {
                     isTapGestureEnabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        isGoingToNextView = true
+                        matchManager.gameStatus = .ending
+                    }
                 }
             }
         }

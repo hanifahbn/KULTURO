@@ -18,6 +18,7 @@ struct ObjectDetectionGame: View {
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
+    @State private var isTutorialShown = true
 
     enum SheetType {
         case cameraSuccess
@@ -27,6 +28,20 @@ struct ObjectDetectionGame: View {
     
     var body: some View {
         ZStack{
+            if isTutorialShown {
+                ZStack{
+                    Color.black
+                        .ignoresSafeArea()
+                        .opacity(0.8)
+                    Text("Carilah barang yang diminta Pak Kades di sekitarmu, kemudian ambil gambarnya.")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 38, weight: .bold, design: .rounded))
+                        .multilineTextAlignment(.center)
+                        .padding(30)
+                }
+                .animation(.easeIn(duration: 0.5), value: isTutorialShown)
+                .zIndex(2)
+            }
             ZStack{
                 if capturedImage != nil {
                     CameraResultView(capturedImage: $capturedImage, isSuccess: $isSuccess)
@@ -44,7 +59,6 @@ struct ObjectDetectionGame: View {
             }
         }
         .onAppear{
-            matchManager.startTimer(time: 121)
 //            matchManager.isFinishedPlaying += 1
 //            print("here \(matchManager.isFinishedPlaying)")
 //            isSuccess = true
@@ -52,6 +66,10 @@ struct ObjectDetectionGame: View {
 //                matchManager.isFinishedPlaying += 1
 //                print("there \(matchManager.isFinishedPlaying)")
 //            }
+        }
+        .onTapGesture{
+            matchManager.startTimer(time: 121)
+            isTutorialShown = false
         }
         .onChange(of: isSuccess) { _ in
             updateSheets()

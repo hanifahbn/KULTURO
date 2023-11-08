@@ -14,6 +14,7 @@ struct DragDropView: View {
     @State var askItems2: Bool = false
     @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
     @State var currentIndex = 0
+    @State private var isTutorialShown = true
     
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
@@ -29,6 +30,20 @@ struct DragDropView: View {
         ZStack{
             Color.ungu
                 .ignoresSafeArea()
+            if isTutorialShown {
+                ZStack{
+                    Color.black
+                        .ignoresSafeArea()
+                        .opacity(0.8)
+                    Text("Geserlah barang-barang yang dibutuhkan untuk menyerahkannya ke Kepala Desa.")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 38, weight: .bold, design: .rounded))
+                        .multilineTextAlignment(.center)
+                        .padding(30)
+                }
+                .animation(.easeIn(duration: 0.5), value: isTutorialShown)
+                .zIndex(2)
+            }
             ZStack{
                 VStack{
                     HStack{
@@ -57,7 +72,7 @@ struct DragDropView: View {
                 if askItems {
                     Text("Terimakasih")
                         .font(.system(size: 50, weight: .semibold))
-                        .onAppear{
+                        .onAppear {
                             matchManager.isFinishedPlaying += 1
                             matchManager.synchronizeGameState("DragAndDropMission")
                             isSuccess = true
@@ -135,8 +150,10 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-//            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 30)
+                matchManager.startTimer(time: 30)
+        }
+        .onTapGesture {
+            isTutorialShown = false
         }
         .onChange(of: isSuccess) { _ in
             updateSheets()
