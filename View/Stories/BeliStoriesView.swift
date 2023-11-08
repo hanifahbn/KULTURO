@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct  BeliStoriesView: View {
-    @StateObject var viewModel : StoryViewModel = StoryViewModel()
+//    @StateObject var viewModel : StoryViewModel = StoryViewModel()
     @EnvironmentObject var matchManager : MatchManager
+    @State private var currentIndex = 0
     @State var isStory : Bool = false
     @State var isAnimation : Bool = false
     @State var isAnimation1 : Bool = false
@@ -26,25 +27,26 @@ struct  BeliStoriesView: View {
                 .ignoresSafeArea()
             HStack{
                 HStack(spacing : -30){
-                    Image(viewModel.desaStories[0].characterOne)
+                    Image(characters[0].fullImage)
                         .resizable()
                         .frame(width: 110, height: 226)
-                    Image(viewModel.desaStories[0].characterTwo)
+                    Image(characters[1].fullImage)
                         .resizable()
                         .frame(width: 110, height: 226)
                 }.padding()
-                    .offset(x: isAnimation ? -20 : -200, y: 200)
+                    .offset(x: isAnimation ? 20 : -200, y: 240)
                     .animation(.linear(duration: 3), value: isAnimation)
-                Image(viewModel.beliStories[0].characterOne)
+                Image(characters[5].fullImage)
                     .resizable()
                     .frame(width: 80, height: 170)
                     .padding(.top, 300)
-                    .opacity(isAnimation1 ? 1 : 0)
+                    
             }
+            .opacity(isAnimation1 ? 0 : 1)
             VStack{
                 Spacer()
                 HStack{
-                    Image(viewModel.beliStories[viewModel.currentIndex].characterOne)
+                    Image(beliStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
                 RoundedRectangle(cornerRadius: 16)
@@ -53,7 +55,7 @@ struct  BeliStoriesView: View {
                     .overlay {
                         VStack{
                             HStack{
-                                Text(viewModel.beliStories[viewModel.currentIndex].stories)
+                                Text(beliStories[currentIndex].text)
                                     .font(.system(size: 25, weight: .medium, design: .rounded))
                                     .padding(15)
                                 Spacer()
@@ -80,17 +82,19 @@ struct  BeliStoriesView: View {
         .onTapGesture {
             //Nanti di pindah ke view model
             if isTapGestureEnabled {
-                if viewModel.currentIndex < 4{
-                    viewModel.currentIndex += 1
-                } else if viewModel.currentIndex == 4{
+                if currentIndex < 3{
+                    currentIndex += 1
+                    isAnimation1 = true
+                } else if currentIndex == 3{
                     isNextStory = true
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("Reading")
                     if matchManager.isFinishedReading == 2 {
-                        matchManager.gameStatus = .missionone
+                        matchManager.gameStatus = .soundGame
+                        print("Masuk misi")
                     }
                     else{
-                        viewModel.currentIndex += 1
+                        currentIndex += 1
                     }
                 }
             }

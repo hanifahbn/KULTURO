@@ -29,12 +29,12 @@ struct ComponentButtonMic: View {
                 if(isWithIcon == true){
                     Image(systemName: iconButton)
                         .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                 }
                 Text(textButton)
-                    .font(.title2)
+                    .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
             }
             .padding(.top, ButtonTap ? 15 : 0 )
         }

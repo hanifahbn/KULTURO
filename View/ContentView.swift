@@ -23,48 +23,54 @@ struct ContentView: View {
             case .inGame:
                 InGameView()
                     .environmentObject(matchManager)
-            case .stories:
-                StoryNaratorView(viewModel: StoryViewModel(), typingSpeed: 0.1)
+            case .beginning:
+                StoryNarratorView(narration: beginningNarration, nextGameStatus: .storyGapura)
                     .environmentObject(matchManager)
-            case .convoBalaiDesa:
-                DesaStoriesView()
+            case .storyGapura:
+                GapuraView()
                     .environmentObject(matchManager)
-            case .convoBeli:
-                BeliStoriesView()
+            case .storyBalaiDesa:
+                BalaiDesaView()
                     .environmentObject(matchManager)
-            case .convoGudang:
-                GudangStoriesView()
-                        .environmentObject(matchManager)
+            case .storyToko:
+                TokoView()
+                    .environmentObject(matchManager)
+            case .soundGame:
+                MissionOneView()
+                    .environmentObject(matchManager)
+            case .storyGudang:
+                GudangView()
+                    .environmentObject(matchManager)
             case .cameraGame:
                 ObjectDetectionGame()
+                    .environmentObject(matchManager)
+            case .storyPerbaikanBalaiDesaFirst:
+                PerbaikanBalaiDesaView(stories: perbaikanStoriesFirst, nextGameStatus: .dragAndDrop)
                     .environmentObject(matchManager)
             case .dragAndDrop:
                 DragDropView()
                     .environmentObject(matchManager)
+            case .storyPerbaikanBalaiDesaSecond:
+                PerbaikanBalaiDesaView(stories: perbaikanStoriesSecond, nextGameStatus: .shakeGame)
+                    .environmentObject(matchManager)
             case .shakeGame:
                 AyakPasirView()
                     .environmentObject(matchManager)
-            case .convoBantuDesa:
-                BantuDesaView()
+            case .storyBalaiDesaRenovated:
+                BalaiDesaRenovatedView()
                     .environmentObject(matchManager)
-            case .convoPasir:
-                PasirStoriesView()
-                    .environmentObject(matchManager)
-            case .convoBerhasil:
-                EndStoriesView()
-                    .environmentObject(matchManager)
-            case .missionone:
-                MissionOneView()
+            case .ending:
+                StoryNarratorView(narration: endingNarration, nextGameStatus: .setup)
                     .environmentObject(matchManager)
             }
-        }.onAppear{
+        }
+        .onAppear{
             matchManager.authenticateUser()
-//            audioViewModel.startRecording()
-//            audioViewModel.stopRecording()
             backsoundPlayer.playAudioLoop(fileName: "backsound")
         }
     }
 }
+
 #Preview {
     ContentView()
 }

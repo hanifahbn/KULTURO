@@ -9,30 +9,6 @@ import Foundation
 import SwiftUI
 import GameKit
 
-enum UserAuthenticationState: String {
-    case authenticating = "Logging to Game Center..."
-    case authenticated = "Good to go!"
-    case unauthenticated = "Please sign in to Game Center!"
-    case error = "There was an error logging to Game Center."
-    case restricted = "You're restricted to play game."
-}
-
-enum GameStatus {
-    case setup
-    case inGame
-    case stories
-    case missionone
-    case cameraGame
-    case dragAndDrop
-    case shakeGame
-    case convoBalaiDesa
-    case convoBeli
-    case convoGudang
-    case convoBantuDesa
-    case convoPasir
-    case convoBerhasil
-}
-
 class MatchManager: NSObject, ObservableObject{
     @Published var authStatus : UserAuthenticationState = .authenticated
     @Published var gameStatus : GameStatus = .setup
@@ -125,16 +101,7 @@ class MatchManager: NSObject, ObservableObject{
             characters[index].isChosen = false
         }
     }
-    
-//    func startTimer(time: Int) {
-//       isTimerRunning = true
-//       DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(Int(time))) {
-//           self.isTimerRunning = false
-//           let elapsedTime: TimeInterval = TimeInterval(time)
-//           self.timeInText = self.changeTimerToText(elapsedTime: elapsedTime)
-//       }
-//    }
-    
+
     func startTimer(time: Int) {
         var remainingTime = time
         isTimerRunning = true
@@ -184,8 +151,8 @@ class MatchManager: NSObject, ObservableObject{
             
             if otherCharacter != nil {
                 chosenCharacters[1] = otherCharacter!
-                synchronizeGameCharacters(chosenCharacters)
-                gameStatus = .stories
+//                synchronizeGameCharacters(chosenCharacters)
+                gameStatus = .beginning
             }
         }
     }

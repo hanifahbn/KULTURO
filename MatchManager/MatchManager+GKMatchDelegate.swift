@@ -35,8 +35,8 @@ extension MatchManager: GKMatchDelegate{
                 
                 if localCharacter != nil {
                     chosenCharacters[1] = otherCharacter!
-                    synchronizeGameCharacters(chosenCharacters)
-                    gameStatus = .stories
+//                    synchronizeGameCharacters(chosenCharacters)
+                    gameStatus = .beginning
                 }
             }
         } else {
@@ -61,50 +61,59 @@ extension MatchManager: GKMatchDelegate{
         if state == "Reading" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
-                gameStatus = .missionone
+                gameStatus = .soundGame
+                isFinishedReading = 0
             }
         }
         if state == "ReadingSecond" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .cameraGame
+                isFinishedReading = 0
             }
         }
         if state == "ReadingThird" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .dragAndDrop
+                isFinishedReading = 0
             }
         }
         if state == "ReadingFourth" {
             isFinishedReading += 1
             if(isFinishedReading == 2){
                 gameStatus = .shakeGame
+                isFinishedReading = 0
             }
         }
         if state == "SoundMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
                 stopTimer()
-                gameStatus = .convoGudang
-            }
-        }
-        if state == "DragAndDropMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-                gameStatus = .convoPasir
-            }
-        }
-        if state == "AyakPasirMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-                gameStatus = .convoBerhasil
+//                gameStatus = .storyGudang
+                isFinishedPlaying = 0
             }
         }
         if state == "CameraMission" {
             isFinishedPlaying += 1
             if(isFinishedPlaying == 2){
-                gameStatus = .convoBantuDesa
+//                gameStatus = .storyPerbaikanBalaiDesaFirst
+                stopTimer()
+            }
+        }
+        if state == "DragAndDropMission" {
+            isFinishedPlaying += 1
+            if(isFinishedPlaying == 2){
+                gameStatus = .storyPerbaikanBalaiDesaSecond
+                stopTimer()
+                isFinishedPlaying = 0
+            }
+        }
+        if state == "AyakPasirMission" {
+            isFinishedPlaying += 1
+            if(isFinishedPlaying == 2){
+                gameStatus = .storyBalaiDesaRenovated
+                isFinishedPlaying = 0
                 stopTimer()
             }
         }

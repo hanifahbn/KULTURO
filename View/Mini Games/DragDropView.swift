@@ -19,65 +19,85 @@ struct DragDropView: View {
         ZStack{
             Color.ungu
                 .ignoresSafeArea()
-            if(items.count != 0){
-                ForEach(items, id: \.self) { item in
-                    ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
-                }
-            }
-            if askItems {
-                Text("Terimakasih")
-                    .font(.system(size: 50, weight: .semibold))
-                    .onAppear{
-                        matchManager.isFinishedPlaying += 1
-                        matchManager.synchronizeGameState("DragAndDropMission")
-                        if matchManager.isFinishedPlaying == 2 {
-                            isModalPresented = true
-                        }
-                        else{
-                            isModalPresented = true
-                        }
-                    }
-                    .hidden()
-            } else if askItems2 {
-                Text("Item Pindah")
-                    .font(.system(size: 50, weight: .semibold))
-            }
-            
-            Spacer()
-            
-            if(items.count != 0){
-                VStack{
+            VStack{
+                HStack{
                     Spacer()
-                    HStack(spacing: -60) {
-                        Image("Office")
-                            .resizable()
-                            .frame(width: 85, height: 87 )
-                            .zIndex(1)
-                            .padding(.top, -10)
-                        
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .frame(width: 260, height: 76)
-                            .background(.white.opacity(0.6))
-                            .cornerRadius(16)
-                            .overlay(
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .inset(by: 0.5)
-                                        .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                    VStack(alignment: .leading){
-                                        Text("Tolong Ambilkan")
-                                        Text(items[currentIndex])
-                                            .foregroundStyle(.red)
-                                    }.font(.system(size: 20, weight: .bold))
-                                    
-                                        .padding(.leading, 36)
-                                }
-                            )
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: 110, height: 55)
+                        .foregroundStyle(.white)
+                        .opacity(0.5)
+                        .overlay(content: {
+                            HStack{
+                                Image(systemName: "timer")
+                                    .font(.system(size: 25, weight: .bold))
+                                Text(matchManager.timeInString)
+                                    .font(.system(size: 17, weight: .bold))
+                            }
+                        })
+                        .padding(.trailing, 30)
+                }
+                .zIndex(2)
+                Spacer()
+                if(items.count != 0){
+                    ForEach(items, id: \.self) { item in
+                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
                     }
                 }
+                if askItems {
+                    Text("Terimakasih")
+                        .font(.system(size: 50, weight: .semibold))
+                        .onAppear{
+                            matchManager.isFinishedPlaying += 1
+                            matchManager.synchronizeGameState("DragAndDropMission")
+                            if matchManager.isFinishedPlaying == 2 {
+                                isModalPresented = true
+                            }
+                            else{
+                                isModalPresented = true
+                            }
+                        }
+                        .hidden()
+                } else if askItems2 {
+                    Text("Item Pindah")
+                        .font(.system(size: 50, weight: .semibold))
+                }
+                
+                Spacer()
+                
+                if(items.count != 0){
+                    VStack{
+                        Spacer()
+                        HStack(spacing: -60) {
+                            Image("Office")
+                                .resizable()
+                                .frame(width: 85, height: 87 )
+                                .zIndex(1)
+                                .padding(.top, -10)
+                            
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .frame(width: 260, height: 76)
+                                .background(.white.opacity(0.6))
+                                .cornerRadius(16)
+                                .overlay(
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .inset(by: 0.5)
+                                            .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
+                                        VStack(alignment: .leading){
+                                            Text("Tolong Ambilkan")
+                                            Text(items[currentIndex])
+                                                .foregroundStyle(.red)
+                                        }.font(.system(size: 20, weight: .bold))
+                                        
+                                            .padding(.leading, 36)
+                                    }
+                                )
+                        }
+                    }
+                }
+
             }
-            
         }
         .sheet(isPresented: Binding(
             get: { matchManager.isTimerRunning == true && isModalPresented },
@@ -97,15 +117,16 @@ struct DragDropView: View {
         }
         .onAppear{
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 30)
+            matchManager.startTimer(time: 15)
         }
     }
     
 }
 
-//#Preview {
-//    DragDropView()
-//}
+#Preview {
+    DragDropView()
+        .environmentObject(MatchManager())
+}
 
 struct ItemDrag: View {
     @State var dragOffset: CGSize = .zero

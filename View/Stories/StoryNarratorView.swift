@@ -7,23 +7,25 @@
 
 import SwiftUI
 
-struct StoryNaratorView: View {
-    @ObservedObject var viewModel: StoryViewModel
-    
+struct StoryNarratorView: View {
     @EnvironmentObject var matchManager: MatchManager
     
     @State var Stories: String = ""
     @State var text: String = ""
-    var typingSpeed: Double = 0.1
+    var typingSpeed: Double = 0.05
     @State var position: Int = 0
     @State var nextStory : Bool = false
     @State private var currentIndex = 0
     @State private var isFirstTap = true
+    @State var isTapGestureEnabled = true
+    @State var narration = beginningNarration
+    @State var nextGameStatus: GameStatus = .storyGapura
     
     var body: some View {
         ZStack{
-            Image("BackgroundImage")
+            Image("BalaiDesaRenovated")
                 .resizable()
+                .blur(radius: 4)
                 .ignoresSafeArea()
             VStack{
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
@@ -36,11 +38,11 @@ struct StoryNaratorView: View {
                             VStack{
                                 HStack{
                                     if(!chosenCharacters.isEmpty){
-                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name) : text)
+                                        Text(nextStory ? narration[currentIndex].text : text)
                                             .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     }
                                     else{
-                                        Text(nextStory ? viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar") : text)
+                                        Text(nextStory ? narration[currentIndex].text : text)
                                             .font(.system(size: 28, weight: .semibold,design: .rounded))
                                     }
                                     Spacer()
@@ -70,16 +72,18 @@ struct StoryNaratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-            matchManager.gameStatus = .missionone
+            matchManager.gameStatus = .cameraGame
         }
         .onTapGesture {
-            if isFirstTap {
-                isFirstTap = false
-                nextStory = true
-            } else {
-                goToNextStory()
-                if currentIndex < viewModel.naratorStories.count {
-                    isFirstTap = true
+            if isTapGestureEnabled {
+                if isFirstTap {
+                    isFirstTap = false
+                    nextStory = true
+                } else {
+                    goToNextStory()
+                    if currentIndex < narration.count {
+                        isFirstTap = true
+                    }
                 }
             }
         }
@@ -88,10 +92,10 @@ struct StoryNaratorView: View {
     // nanti di pindah ke View model
     func typeWriter() {
         if(!chosenCharacters.isEmpty){
-            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: chosenCharacters[0].name).replacingOccurrences(of: "nama2", with: chosenCharacters[1].name)
+            Stories = narration[currentIndex].text
         }
         else{
-            Stories = viewModel.naratorStories[currentIndex].stories.replacingOccurrences(of: "nama1", with: "Asep").replacingOccurrences(of: "nama2", with: "Togar")
+            Stories = narration[currentIndex].text
         }
         text = String(Stories.prefix(position))
         if position < Stories.count {
@@ -103,24 +107,25 @@ struct StoryNaratorView: View {
     }
     
     func goToNextStory() {
-        currentIndex += 1
-        if currentIndex < viewModel.naratorStories.count {
+        if currentIndex < narration.count - 1 {
+            currentIndex += 1
             position = 0
             text = ""
             typeWriter()
             nextStory = false
         }
-        else if currentIndex == viewModel.naratorStories.count {
+        else {
+            isTapGestureEnabled = false
             position = 0
             nextStory = false
-            matchManager.gameStatus = .convoBalaiDesa
+            matchManager.gameStatus = nextGameStatus
         }
     }
 }
 
-//#Preview {
-//    StoryNaratorView(viewModel: StoryViewModel())
-//}
+#Preview {
+    StoryNarratorView()
+}
 
 extension String {
     subscript(offset: Int) -> Character {
