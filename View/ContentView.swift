@@ -62,6 +62,9 @@ struct ContentView: View {
             case .ending:
                 StoryNarratorView(narration: endingNarration, nextGameStatus: .setup)
                     .environmentObject(matchManager)
+            case .empty:
+                VStack {
+                }
             }
         }
         .onAppear{

@@ -15,6 +15,16 @@ struct DragDropView: View {
     @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
     @State var currentIndex = 0
     
+    @State var isSuccess: Bool = false
+    @State private var currentSheet: SheetType? = nil
+    @State private var isSheetPresented: Bool = false
+    
+    enum SheetType {
+        case dndSuccess
+        case dndSuccessAll
+        case lose
+    }
+    
     var body: some View {
         ZStack{
             Color.ungu
@@ -99,22 +109,50 @@ struct DragDropView: View {
 
             }
         }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "DragAndDropSuccess")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
+        .sheet(isPresented: $isSheetPresented) {
+            ZStack {
+                Color.ungu
+                    .ignoresSafeArea()
+                switch currentSheet {
+                case .dndSuccess:
+                    ModalView(modalType: "DragAndDropSuccess", textButton: "Menunggu temanmu selesai...")
+                        .environmentObject(matchManager)
+                case .dndSuccessAll:
+                    ModalView(modalType: "DragAndDropSuccess", textButton: "Lanjutkan")
+                        .environmentObject(matchManager)
+                case .lose:
+                    ModalView(modalType: "Lose", backTo: .dragAndDrop)
+                        .environmentObject(matchManager)
+                case .none:
+//                    ModalView(modalType: "Lose", backTo: .cameraGame)
+//                        .environmentObject(matchManager)
+                    VStack {
+                        EmptyView()
+                    }
+                    .onAppear{
+                        isSuccess.toggle()
+                        isSuccess.toggle()
+                    }
+                }
+            }
+            .presentationDetents([.height(190)])
         }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == true && isModalPresented },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "DragAndDropSuccess")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == false },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "Lose")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
         .onAppear{
             matchManager.isTimerRunning = true
             matchManager.startTimer(time: 15)

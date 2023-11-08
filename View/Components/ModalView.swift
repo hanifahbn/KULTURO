@@ -10,6 +10,8 @@ import SwiftUI
 struct ModalView: View {
     @EnvironmentObject var matchManager: MatchManager
     @State var modalType: String? = "SoundSuccess"
+    @State var textButton: String? = ""
+    @State var backTo: GameStatus = .setup
     
     var body: some View {
         ZStack{
@@ -72,7 +74,8 @@ struct ModalView: View {
                         .foregroundStyle(Color.red)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: "Keluar", isWithIcon: false) {
-                        matchManager.gameStatus = .setup
+                        matchManager.gameStatus = .empty
+                        matchManager.gameStatus = backTo
                     }
                 }
             }

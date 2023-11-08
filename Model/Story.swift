@@ -15,9 +15,8 @@ struct Story: Identifiable {
 }
 
 var gapuraStories = [
-    Story(text: "Hey, \(chosenCharacters[1].name), kita lomba, yuk. Siapa yang paling banyak membantu nanti dalam kegiatan perbaikan balai desa.", isTalking: chosenCharacters[0]),
-    Story(text: "Aku yakin aku pasti lebih banyak membantu. Liat aja, ya, aku pasti lebih oke!", isTalking: chosenCharacters[1]),
-    Story(text: "Kamu pikir aku bakal tinggal diam? Aku akan berusaha sebisa mungkin!", isTalking: chosenCharacters[0]),
+    Story(text: "Hey, \(chosenCharacters[1].name), kita lomba, yuk. Siapa yang paling banyak membantu dalam kegiatan perbaikan balai desa.", isTalking: chosenCharacters[0]),
+    Story(text: "Ya sudah jelas aku, lah!", isTalking: chosenCharacters[1]),
     Story(text: "", isTalking: characters[4]),
     Story(text: "Wah \(chosenCharacters[0].name) dan \(chosenCharacters[1].name) sudah datang, ya, mari kita ke balai desa.", isTalking: characters[4]),
     Story(text: "Oh, iya, mari, pak.", isTalking: chosenCharacters[0]),
@@ -25,7 +24,7 @@ var gapuraStories = [
 
 var balaiDesaStories = [
     Story(text: "Ini dia balai desa yang akan kita renovasi. Rusaknya lumayan parah, ya?", isTalking: characters[4]),
-    Story(text: "Sekarang, saya minta tolong kalian berdua berdua beli bahan bangunan, ya, di warung ujung sana. Ini uang dan daftar yang harus dibeli.", isTalking: characters[4]),
+    Story(text: "Sekarang, saya minta tolong kalian beli bahan bangunan di warung ujung sana, ya.", isTalking: characters[4]),
     Story(text: "Oke, pak, kami jalan sekarang.", isTalking: chosenCharacters[0]),
 ]
 
@@ -40,16 +39,13 @@ var tokoStories = [
 var gudangStories = [
     Story(text: "Ini pak barang-barangnya, silakan dicek.", isTalking: chosenCharacters[1]),
     Story(text: "Wah, lengkap semua, terima kasih, nak.", isTalking: characters[4]),
-    Story(text: "Sekarang kalian bantu saya ke gudang sana untuk cari peralatan, ya.", isTalking: characters[4]),
-    Story(text: "Oke, kita cari disini.", isTalking: characters[4]),
+    Story(text: "Sekarang kalian bantu saya cari peralatan di gudang ini, ya.", isTalking: characters[4]),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]
 
 var perbaikanStoriesFirst = [
     Story(text: "Ini, pak, perlengkapannya sudah ketemu.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, bagus sekali. Yuk, sekarang kita kembali ke balai desa. Tolong bantu bapak bawa barang-barang ini, ya.", isTalking: characters[4]),
-    Story(text: "Wah, sudah ramai. Sudah mau mulai kayaknya.", isTalking: chosenCharacters[0]),
-    Story(text: "Iya, sekarang ayo bantu berikan barang-barang ini ke warga yang lain, ya", isTalking: characters[4]),
+    Story(text: "Wah, bagus sekali. Sekarang ayo bantu berikan barang-barangnya ke warga yang lain, ya.", isTalking: characters[4]),
     Story(text: "Baik, pak.", isTalking: chosenCharacters[0]),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]

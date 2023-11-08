@@ -24,7 +24,15 @@ struct MissionOneView: View {
         ToolBahasa(localName: "AtukAntuk", bahasaName: "Palu", labelName: "ApusapusNiPat", exampleAudioURL: "")]
     
     @State var textNamaTool : [String] = ["A"]
-    @State var timerText: String = ""
+    @State var isSuccess: Bool = false
+    @State private var currentSheet: SheetType? = nil
+    @State private var isSheetPresented: Bool = false
+    
+    enum SheetType {
+        case soundSuccess
+        case soundSuccessAll
+        case lose
+    }
     
     var body: some View {
         ZStack{
@@ -119,7 +127,7 @@ struct MissionOneView: View {
                                 if(jumlahBenar == 3){
                                     matchManager.isFinishedPlaying += 1
                                     matchManager.synchronizeGameState("SoundMission")
-                                        isModalPresented = true
+                                    isSuccess = true
                                 }
 //                            }
                         }
@@ -130,25 +138,60 @@ struct MissionOneView: View {
                 .onAppear{
                     isFinished = matchManager.isFinishedPlaying
                 }
+                .onChange(of: isSuccess) { _ in
+                    updateSheets()
+                }
+                .onChange(of: matchManager.isTimerRunning) { _ in
+                    updateSheets()
+                }
+                .onChange(of: matchManager.isFinishedPlaying) { _ in
+                    updateSheets()
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == true && isModalPresented },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "SoundSuccess")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
-        }
-        .sheet(isPresented: Binding(
-            get: { matchManager.isTimerRunning == false && jumlahBenar < 3 },
-            set: { _ in }
-        )) {
-            ModalView(modalType: "Lose")
-                .environmentObject(matchManager)
-                .presentationDetents([.height(190)])
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == true && isModalPresented },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "SoundSuccess")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
+//        .sheet(isPresented: Binding(
+//            get: { matchManager.isTimerRunning == false && jumlahBenar < 3 },
+//            set: { _ in }
+//        )) {
+//            ModalView(modalType: "Lose")
+//                .environmentObject(matchManager)
+//                .presentationDetents([.height(190)])
+//        }
+        .sheet(isPresented: $isSheetPresented) {
+            ZStack {
+                Color.ungu
+                    .ignoresSafeArea()
+                switch currentSheet {
+                case .soundSuccess:
+                    ModalView(modalType: "SoundSuccess", textButton: "Menunggu temanmu selesai...")
+                        .environmentObject(matchManager)
+                case .soundSuccessAll:
+                    ModalView(modalType: "SoundSuccess", textButton: "Lanjutkan")
+                        .environmentObject(matchManager)
+                case .lose:
+                    ModalView(modalType: "Lose", backTo: .soundGame)
+                        .environmentObject(matchManager)
+                case .none:
+                    VStack {
+                        EmptyView()
+                    }
+                    .onAppear{
+                        isSuccess.toggle()
+                        isSuccess.toggle()
+                    }
+                }
+            }
+            .presentationDetents([.height(190)])
         }
         .onTapGesture{
             isTutorialShown = false
@@ -159,6 +202,22 @@ struct MissionOneView: View {
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
             matchManager.startTimer(time: 46)        }
+    }
+    
+    private func updateSheets() {
+        if isSuccess && matchManager.isTimerRunning {
+            currentSheet = .soundSuccess
+            isSheetPresented = true
+        } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
+            currentSheet = .soundSuccessAll
+            isSheetPresented = true
+        } else if isSuccess && !matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            currentSheet = .lose
+            isSheetPresented = true
+        } else if !isSuccess && !matchManager.isTimerRunning {
+            currentSheet = .lose
+            isSheetPresented = true
+        }
     }
 }
 
