@@ -102,6 +102,7 @@ struct GudangView: View {
         .onAppear{
             isFirstAnimation = true
             isSecondAnimation = true
+            matchManager.stopTimer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isConversation = true
                 isTapGestureEnabled = true

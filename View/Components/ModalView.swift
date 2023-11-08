@@ -25,6 +25,9 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyGudang
+                        matchManager.isFinishedPlaying = 0
+                        matchManager.isFinishedReading = 0
+                        matchManager.stopTimer()
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -38,6 +41,8 @@ struct ModalView: View {
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
                         matchManager.isFinishedPlaying = 0
+                        matchManager.isFinishedReading = 0
+                        matchManager.stopTimer()
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -50,6 +55,9 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
+                        matchManager.isFinishedPlaying = 0
+                        matchManager.isFinishedReading = 0
+                        matchManager.stopTimer()
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -62,6 +70,9 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyBalaiDesaRenovated
+                        matchManager.isFinishedPlaying = 0
+                        matchManager.isFinishedReading = 0
+                        matchManager.stopTimer()
                     }
                     .disabled(matchManager.isFinishedPlaying != 2)
                 }
@@ -74,8 +85,10 @@ struct ModalView: View {
                         .foregroundStyle(Color.red)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: "Keluar", isWithIcon: false) {
-                        matchManager.gameStatus = .empty
-                        matchManager.gameStatus = backTo
+                        matchManager.gameStatus = .setup
+                        matchManager.isFinishedPlaying = 0
+                        matchManager.isFinishedReading = 0
+                        matchManager.stopTimer()
                     }
                 }
             }

@@ -94,15 +94,24 @@ struct PerbaikanBalaiDesaView: View {
                 else {
                     isTapGestureEnabled = false
                     matchManager.isFinishedReading += 1
-                    matchManager.synchronizeGameState("ReadingThird")
-                    if matchManager.isFinishedReading == 2 {
-                        matchManager.gameStatus = nextGameStatus
+                    if nextGameStatus == .dragAndDrop {
+                        matchManager.synchronizeGameState("ReadingThird")
+                        if matchManager.isFinishedReading == 2 {
+                            matchManager.gameStatus = nextGameStatus
+                        }
+                    }
+                    else {
+                        matchManager.synchronizeGameState("ReadingFourth")
+                        if matchManager.isFinishedReading == 2 {
+                            matchManager.gameStatus = nextGameStatus
+                        }
                     }
                 }
             }
         }
         .onAppear{
             isFirstAnimation = true
+            matchManager.stopTimer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
                 isConversation = true
                 isTapGestureEnabled = true

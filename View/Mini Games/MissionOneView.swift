@@ -107,9 +107,9 @@ struct MissionOneView: View {
                 if textNamaTool.count > 2 {
                     TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL)
                     TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL)
-                        .opacity(currentStep == 1 ? 0 : 1)
+                        .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
                     TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL)
-                        .opacity(currentStep == 2 ? 0 : 1)
+                        .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
                 }
 
                 Spacer()
@@ -193,17 +193,18 @@ struct MissionOneView: View {
                     }
                 }
             }
+            .interactiveDismissDisabled()
             .presentationDetents([.height(190)])
         }
         .onTapGesture{
             isTutorialShown = false
         }
         .onAppear{
-            matchManager.isFinishedReading = 0
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
             matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 46)        }
+            matchManager.startTimer(time: 46)
+        }
     }
     
     private func updateSheets() {

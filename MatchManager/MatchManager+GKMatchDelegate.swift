@@ -86,36 +86,9 @@ extension MatchManager: GKMatchDelegate{
                 isFinishedReading = 0
             }
         }
-        if state == "SoundMission" {
+        if state == "SoundMission" || state == "CameraMission"
+            || state == "DragAndDropMission" || state == "AyakPasirMission"{
             isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-                stopTimer()
-//                gameStatus = .storyGudang
-                isFinishedPlaying = 0
-            }
-        }
-        if state == "CameraMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-//                gameStatus = .storyPerbaikanBalaiDesaFirst
-                stopTimer()
-            }
-        }
-        if state == "DragAndDropMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-//                gameStatus = .storyPerbaikanBalaiDesaSecond
-                stopTimer()
-                isFinishedPlaying = 0
-            }
-        }
-        if state == "AyakPasirMission" {
-            isFinishedPlaying += 1
-            if(isFinishedPlaying == 2){
-                gameStatus = .storyBalaiDesaRenovated
-                isFinishedPlaying = 0
-                stopTimer()
-            }
         }
     }
     

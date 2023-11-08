@@ -130,27 +130,21 @@ struct DragDropView: View {
                     }
                 }
             }
+            .interactiveDismissDisabled()
             .presentationDetents([.height(190)])
         }
-//        .sheet(isPresented: Binding(
-//            get: { matchManager.isTimerRunning == true && isModalPresented },
-//            set: { _ in }
-//        )) {
-//            ModalView(modalType: "DragAndDropSuccess")
-//                .environmentObject(matchManager)
-//                .presentationDetents([.height(190)])
-//        }
-//        .sheet(isPresented: Binding(
-//            get: { matchManager.isTimerRunning == false },
-//            set: { _ in }
-//        )) {
-//            ModalView(modalType: "Lose")
-//                .environmentObject(matchManager)
-//                .presentationDetents([.height(190)])
-//        }
         .onAppear{
-            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 20)
+//            matchManager.isTimerRunning = true
+            matchManager.startTimer(time: 30)
+        }
+        .onChange(of: isSuccess) { _ in
+            updateSheets()
+        }
+        .onChange(of: matchManager.isTimerRunning) { _ in
+            updateSheets()
+        }
+        .onChange(of: matchManager.isFinishedPlaying) { _ in
+            updateSheets()
         }
     }
     

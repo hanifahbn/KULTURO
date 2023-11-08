@@ -45,9 +45,12 @@ struct ObjectDetectionGame: View {
         }
         .onAppear{
             matchManager.startTimer(time: 121)
+//            matchManager.isFinishedPlaying += 1
+//            print("here \(matchManager.isFinishedPlaying)")
 //            isSuccess = true
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                matchManager.isFinishedPlaying += 2
+//                matchManager.isFinishedPlaying += 1
+//                print("there \(matchManager.isFinishedPlaying)")
 //            }
         }
         .onChange(of: isSuccess) { _ in
@@ -74,8 +77,6 @@ struct ObjectDetectionGame: View {
                     ModalView(modalType: "Lose", backTo: .cameraGame)
                         .environmentObject(matchManager)
                 case .none:
-//                    ModalView(modalType: "Lose", backTo: .cameraGame)
-//                        .environmentObject(matchManager)
                     VStack {
                         EmptyView()
                     }
@@ -85,6 +86,7 @@ struct ObjectDetectionGame: View {
                     }
                 }
             }
+            .interactiveDismissDisabled()
             .presentationDetents([.height(190)])
         }
 

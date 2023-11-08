@@ -13,11 +13,11 @@ struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
 //            ObjectDetectionGame()
-//            ContentView()
+            ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
 //            GameStartView()
-            AyakPasirView()
-                .environmentObject(matchManager)
+//            AyakPasirView()
+//                .environmentObject(matchManager)
         }
     }
 }

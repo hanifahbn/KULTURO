@@ -59,6 +59,9 @@ struct BalaiDesaRenovatedView: View {
                 }
             }
         }
+        .onAppear{
+            matchManager.stopTimer()
+        }
 
     }
 }
