@@ -18,14 +18,14 @@ struct ToolBrain {
     ]
 
     func getRandomTool(_ tool : Tool?) -> Tool {
-        var randomTool: Tool = tools.randomElement() ?? tools[0]
+        var randomTool: Tool? = nil
 
         repeat {
             let shuffledTools = tools.shuffled()
             randomTool = shuffledTools[0]
         } while randomTool == tool
 
-        return randomTool
+        return randomTool ?? tools[0]
    }
 
 
