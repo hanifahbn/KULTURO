@@ -29,25 +29,26 @@ struct DragDropView: View {
         ZStack{
             Color.ungu
                 .ignoresSafeArea()
-            VStack{
-                HStack{
+            ZStack{
+                VStack{
+                    HStack{
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(width: 110, height: 55)
+                            .foregroundStyle(.white)
+                            .opacity(0.5)
+                            .overlay(content: {
+                                HStack{
+                                    Image(systemName: "timer")
+                                        .font(.system(size: 25, weight: .bold))
+                                    Text(matchManager.timeInString)
+                                        .font(.system(size: 17, weight: .bold))
+                                }
+                            })
+                            .padding(.trailing, 30)
+                    }
                     Spacer()
-                    RoundedRectangle(cornerRadius: 16)
-                        .frame(width: 110, height: 55)
-                        .foregroundStyle(.white)
-                        .opacity(0.5)
-                        .overlay(content: {
-                            HStack{
-                                Image(systemName: "timer")
-                                    .font(.system(size: 25, weight: .bold))
-                                Text(matchManager.timeInString)
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                        })
-                        .padding(.trailing, 30)
                 }
-                .zIndex(2)
-                Spacer()
                 if(items.count != 0){
                     ForEach(items, id: \.self) { item in
                         ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
@@ -68,7 +69,7 @@ struct DragDropView: View {
                 }
                 
                 Spacer()
-                
+    
                 if(items.count != 0){
                     VStack{
                         Spacer()
@@ -234,7 +235,6 @@ struct ItemDrag: View {
             }
             
         } else if position.width > 170 || position.width < -170 {
-            print("Kirim Barang")
         }
     }
 }

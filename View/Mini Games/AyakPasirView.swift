@@ -17,6 +17,7 @@ struct AyakPasirView: View {
     @State private var elapsedTime: TimeInterval = 0
     @State private var isTimerRunning = false
     let timerInterval = 1.0
+    @State private var isTutorial = true
     
     var timerText: String {
         let minutes = Int(elapsedTime) / 60
@@ -62,9 +63,9 @@ struct AyakPasirView: View {
                     .animation(.bouncy(duration: 1), value: isFlying)
                     .padding(.bottom, 50)
             }
-            .opacity(flyCounter > 5 && elapsedTime == 10 ? 0 : 1)
+//            .opacity(flyCounter == 10 ? 0 : 1)
             .padding(.top, 50)
-            if flyCounter > 10 && elapsedTime == 5 {
+            if flyCounter == 10 {
                 ZStack{
                     Image("PasirAkhir")
                         .resizable()
@@ -77,6 +78,17 @@ struct AyakPasirView: View {
                         }
                 }
             }
+            ZStack{
+                Color.black
+                    .ignoresSafeArea()
+                    .opacity(0.5)
+                Text("Goyangkan handphone kalian bersamaan untuk memisahkan pasir dan batu")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 38, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .padding(30)
+            }
+            .opacity(isTutorial ? 1 : 0)
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
@@ -97,11 +109,14 @@ struct AyakPasirView: View {
                 .presentationDetents([.height(190)])
         }
         .onAppear{
-            startMotionUpdates()
-            startTimer()
-            matchManager.isTimerRunning = true
-            matchManager.startTimer(time: 11)
-            matchManager.isFinishedPlaying = 0
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                isTutorial = false
+                startMotionUpdates()
+                startTimer()
+//                matchManager.isTimerRunning = true
+                matchManager.startTimer(time: 11)
+//                matchManager.isFinishedPlaying = 0
+            }
         }
     }
     func startTimer() {
@@ -120,7 +135,7 @@ struct AyakPasirView: View {
                     // Device is shaken, trigger the fly animation
                     isFlying = true
                     flyCounter += 1
-                    if flyCounter >= 100 {
+                    if flyCounter == 10 {
                         // Disable onAppear after 10 times
                         self.motionManager.stopAccelerometerUpdates()
                     }
