@@ -49,12 +49,6 @@
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryTemp.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
-		E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */; };
-		E20C87D22AE58FD20054AD47 /* BeliStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */; };
-		E20C88122AE8BC440054AD47 /* GudangStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */; };
-		E20C88142AE8D80F0054AD47 /* BantuDesaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */; };
-		E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */; };
-		E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C88172AE914D40054AD47 /* EndStoriesView.swift */; };
 		E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238328F2AEA272B001DB289 /* NavigationViewModel.swift */; };
 		E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832912AEA4E29001DB289 /* DragDropView.swift */; };
 		E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832932AEA4E45001DB289 /* AyakPasirView.swift */; };
@@ -120,12 +114,6 @@
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* StoryTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTemp.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
-		E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesaStoriesView.swift; sourceTree = "<group>"; };
-		E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeliStoriesView.swift; sourceTree = "<group>"; };
-		E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GudangStoriesView.swift; sourceTree = "<group>"; };
-		E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BantuDesaView.swift; sourceTree = "<group>"; };
-		E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasirStoriesView.swift; sourceTree = "<group>"; };
-		E20C88172AE914D40054AD47 /* EndStoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStoriesView.swift; sourceTree = "<group>"; };
 		E238328F2AEA272B001DB289 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		E23832912AEA4E29001DB289 /* DragDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropView.swift; sourceTree = "<group>"; };
 		E23832932AEA4E45001DB289 /* AyakPasirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyakPasirView.swift; sourceTree = "<group>"; };
@@ -158,15 +146,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32E4015E2AEB8089007A15AA /* ObjectDetection */ = {
+		32E4015E2AEB8089007A15AA /* Object Detection */ = {
 			isa = PBXGroup;
 			children = (
+				A35B6A782AFC845B002C0116 /* DummyView.swift */,
 				32E4015F2AEB80C3007A15AA /* CameraResultView.swift */,
 				32E401612AEB80C3007A15AA /* CameraView.swift */,
 				32E401602AEB80C3007A15AA /* CustomCameraView.swift */,
 				32E401652AEB80F3007A15AA /* ObjectDetectionGame.swift */,
 			);
-			path = ObjectDetection;
+			path = "Object Detection";
 			sourceTree = "<group>";
 		};
 		32E4016F2AEB9864007A15AA /* CameraManager */ = {
@@ -178,16 +167,22 @@
 			path = CameraManager;
 			sourceTree = "<group>";
 		};
+		A320CD842AFCD29D00067815 /* Batak Example Audios */ = {
+			isa = PBXGroup;
+			children = (
+				A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */,
+				A36182282AFB888E0067FC2F /* Sipadot.wav */,
+				A36182262AFB887D0067FC2F /* JomDinding.wav */,
+				A36182242AFB886B0067FC2F /* IngananSampah.wav */,
+				A36182222AFB884A0067FC2F /* Tel.wav */,
+			);
+			path = "Batak Example Audios";
+			sourceTree = "<group>";
+		};
 		A3C304692ADE898800E11CCC = {
 			isa = PBXGroup;
 			children = (
-				A38699BE2AF1E3FA00C7D458 /* backsound.wav */,
-				A38699C02AF1E40800C7D458 /* Correct.wav */,
-				A36182222AFB884A0067FC2F /* Tel.wav */,
-				A36182242AFB886B0067FC2F /* IngananSampah.wav */,
-				A36182262AFB887D0067FC2F /* JomDinding.wav */,
-				A36182282AFB888E0067FC2F /* Sipadot.wav */,
-				A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */,
+				A3ED9E682AFCCE050041E7D1 /* Audio */,
 				E2D73EF12AFA3AC7006E99A1 /* AsepAnimation.gif */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,
@@ -231,12 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
-				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
-				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
-				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
-				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
-				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
-				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
 				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
@@ -253,10 +242,19 @@
 				E2A729552AE246B40093DD1F /* MissionOneView.swift */,
 				E23832912AEA4E29001DB289 /* DragDropView.swift */,
 				E23832932AEA4E45001DB289 /* AyakPasirView.swift */,
-				32E4015E2AEB8089007A15AA /* ObjectDetection */,
-				A35B6A782AFC845B002C0116 /* DummyView.swift */,
+				32E4015E2AEB8089007A15AA /* Object Detection */,
 			);
 			path = "Mini Games";
+			sourceTree = "<group>";
+		};
+		A3ED9E682AFCCE050041E7D1 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A38699C02AF1E40800C7D458 /* Correct.wav */,
+				A38699BE2AF1E3FA00C7D458 /* backsound.wav */,
+				A320CD842AFCD29D00067815 /* Batak Example Audios */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		E20C87CB2AE412AF0054AD47 /* Model */ = {
@@ -430,14 +428,12 @@
 				32E401662AEB80F3007A15AA /* ObjectDetectionGame.swift in Sources */,
 				A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */,
 				32E401732AEB9897007A15AA /* Detector.swift in Sources */,
-				E20C87D02AE435EB0054AD47 /* DesaStoriesView.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
 				A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
 				E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
-				E20C88162AE90FE20054AD47 /* PasirStoriesView.swift in Sources */,
 				A3B13C182AFAB3900060535C /* BalaiDesaView.swift in Sources */,
 				A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
@@ -445,9 +441,7 @@
 				A3B13C162AFA7AF30060535C /* GapuraView.swift in Sources */,
 				E2D73EF02AFA340B006E99A1 /* AsepAnimationWalk.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
-				E20C88142AE8D80F0054AD47 /* BantuDesaView.swift in Sources */,
 				32E401642AEB80C3007A15AA /* CameraView.swift in Sources */,
-				E20C87D22AE58FD20054AD47 /* BeliStoriesView.swift in Sources */,
 				A3B13C202AFABBDE0060535C /* BalaiDesaRenovatedView.swift in Sources */,
 				A3AF9EA22AEFAF2B0075E5B8 /* PlayerViewModel.swift in Sources */,
 				E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */,
@@ -456,7 +450,6 @@
 				E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */,
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
-				E20C88182AE914D40054AD47 /* EndStoriesView.swift in Sources */,
 				A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
 				E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */,
@@ -468,7 +461,6 @@
 				A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */,
 				A3B13C272AFB03BD0060535C /* Enums.swift in Sources */,
 				A3C85B622AEF7337001669A6 /* Tool.swift in Sources */,
-				E20C88122AE8BC440054AD47 /* GudangStoriesView.swift in Sources */,
 				A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */,
 				E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */,
 				32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */,

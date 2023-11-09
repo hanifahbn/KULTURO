@@ -24,8 +24,8 @@ struct Karakter: Identifiable, Equatable, Encodable, Decodable{
 var characters = [
     Karakter(name: "Asep", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
     Karakter(name: "Togar", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
-    Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "FullAjeng", halfImage: "HalfAjeng", origin: "Bali", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false, isNPC: false),
-    Karakter(name: "Dayu", headImage: "Dayu", fullImage: "FullDayu", halfImage: "HalfDayu", origin: "Bali", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false, isNPC: false),
+    Karakter(name: "Ajeng", headImage: "Ajeng", fullImage: "FullAjeng", halfImage: "HalfAjeng", origin: "Malang", colorRight: "GkananUngu", colorLeft: "GkiriUngu", isChosen: false, isNPC: false),
+    Karakter(name: "Dayu", headImage: "Dayu", fullImage: "FullDayu", halfImage: "HalfDayu", origin: "Denpasar", colorRight: "GkananKuning", colorLeft: "GkiriKuning", isChosen: false, isNPC: false),
     Karakter(name: "Pak Kades", headImage: "", fullImage: "FullKepalaDesa", halfImage: "HalfKepalaDesa", isNPC: true),
     Karakter(name: "Ci Mei", headImage: "", fullImage: "FullCiMei", halfImage: "HalfCiMei", isNPC: true),
 ]

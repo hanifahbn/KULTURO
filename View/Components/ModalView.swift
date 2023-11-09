@@ -84,8 +84,9 @@ struct ModalView: View {
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.red)
                         .padding(.horizontal, 35)
-                    ComponentButtonMic(textButton: "Keluar", isWithIcon: false) {
-                        matchManager.gameStatus = .setup
+                    ComponentButtonMic(textButton: "Ulangi", isWithIcon: false) {
+                        matchManager.gameStatus = .inGame
+                        matchManager.gameStatus = .dragAndDrop
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()

@@ -33,9 +33,6 @@ class MatchManager: NSObject, ObservableObject{
         ToolBahasa(localName: "Inganan Sampah", bahasaName: "Tempat Sampah", labelName:"IngananSampah", exampleAudioURL: "IngananSampah"),
         ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: "JomDinding"),
     ]
-    
-//    @Published var myAvatar = Image(systemName: "person.crop.circle")
-//    @Published var opponentAvatar = Image(systemName: "person.crop.circle")
         
     let gameDuration = 15
     var otherPlayerScore: Int = 0
@@ -56,17 +53,6 @@ class MatchManager: NSObject, ObservableObject{
             if GKLocalPlayer.local.isAuthenticated{
                 authStatus = .authenticated
                 self.localPlayer = GKLocalPlayer.local
-//                print(self.localPlayer.displayName)
-                
-//                GKLocalPlayer.local.loadPhoto(for: GKPlayer.PhotoSize.small){ image, error in
-//                    if let image {
-//                        self.myAvatar = Image(uiImage: image)
-//                    }
-//                    if let error {
-//                        // Handle an error if it occurs.
-//                        print("Error: \(error.localizedDescription).")
-//                    }
-//                }
             } else {
                 authStatus = .unauthenticated
             }
@@ -156,46 +142,13 @@ class MatchManager: NSObject, ObservableObject{
             }
         }
     }
-    
-//    func openLeaderboard() {
-//        let gameCenterVC = GKGameCenterViewController(leaderboardID: "godsfingerleaderboard", playerScope: .global, timeScope: .today)
-//        gameCenterVC.gameCenterDelegate = self
-//        rootViewController?.present(gameCenterVC, animated: true)
-//    }
-//
-//    func submitMyScoreToGameCenterLeaderboard(_ score: Int) {
-//        GKLeaderboard.submitScore(score, context: 0, player: localPlayer, leaderboardIDs: ["godsfingerleaderboard"]) { [self] error in
-//            guard error == nil else {
-//                print(error?.localizedDescription ?? "")
-//                return
-//            }
-//
-//            gameStatus = .gameOver
-//        }
-//    }
-    
+        
     func endGame(withScore score: Int) {
         Score = score
         
-        // send data to other player
         sendString("playerScore:\(score)")
-        
-//        submitMyScoreToGameCenterLeaderboard(score)
     }
     
-//    func updateOtherPlayerScore(withScore score: Int) {
-//
-//        otherPlayerScore = score
-//
-//    }
-    
-//    func receivedStringData(_ message: String) {
-//        let messageSplit = message.split(separator: ":")
-//
-//        let score = Int(messageSplit.last ?? "0") ?? 0
-//
-//        updateOtherPlayerScore(withScore: score)
-//    }
 
     
 }
