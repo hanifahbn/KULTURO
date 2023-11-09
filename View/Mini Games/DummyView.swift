@@ -1,67 +1,39 @@
 import SwiftUI
 
 struct DummyView: View {
-    @State private var isSheet1Presented = false
-    @State private var isSheet2Presented = false
-
+    @EnvironmentObject var matchManager: MatchManager
+    @State private var refreshTrigger = false
+    
+    @State var text = "helow"
+    
     var body: some View {
         VStack {
-            Button("Show Sheet 1") {
-                isSheet1Presented = true
-            }
+            Text("Tampilan SwiftUI yang ingin Anda atur ulang")
+                .padding()
 
-            Button("Show Sheet 2") {
-                isSheet2Presented = true
+            Text(text)
+                .padding()
+            
+            Button(action: {
+                self.refreshTrigger.toggle() // Ubah nilai untuk memicu pembaruan
+            }) {
+                Text("Atur Ulang Tampilan")
             }
         }
-        .sheet(isPresented: Binding(
-            get: { isSheet1Presented || isSheet2Presented }, // Logic to show either of the sheets
-            set: { shouldShow in
-                if !shouldShow {
-                    isSheet1Presented = false
-                    isSheet2Presented = false
-                }
+        .onAppear {
+            text = "hai ini yah"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                text = "berubah"
+                matchManager.gameStatus = .empty
             }
-        )) {
-            if isSheet1Presented {
-                Sheet1View(isSheet1Presented: $isSheet1Presented, isSheet2Presented: $isSheet2Presented)
-            } else if isSheet2Presented {
-                Sheet2View(isSheet2Presented: $isSheet2Presented)
-            }
+            matchManager.gameStatus = .dummy
         }
     }
 }
 
-struct Sheet1View: View {
-    @Binding var isSheet1Presented: Bool
-    @Binding var isSheet2Presented: Bool
-
-    var body: some View {
-        Text("This is Sheet 1")
-        Button("Show Sheet 2") {
-            isSheet1Presented = false
-            isSheet2Presented = true
-        }
-        .presentationDetents([.height(190)])
-        Button("Dismiss") {
-            isSheet1Presented = false
-        }
-    }
-}
-
-struct Sheet2View: View {
-    @Binding var isSheet2Presented: Bool
-
-    var body: some View {
-        Text("This is Sheet 2")
-        Button("Dismiss") {
-            isSheet2Presented = false
-        }
-        .presentationDetents([.height(190)])
-    }
-}
 
 
 #Preview {
     DummyView()
+        .environmentObject(MatchManager())
 }

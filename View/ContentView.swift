@@ -28,7 +28,7 @@ struct ContentView: View {
                         backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
                     }
             case .beginning:
-                StoryNarratorView(narration: beginningNarration, nextGameStatus: .storyGapura)
+                StoryNarratorView(narration: beginningNarration, nextGameStatus: .storyBalaiDesa)
                     .environmentObject(matchManager)
                     .onAppear{
                         backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
@@ -107,6 +107,9 @@ struct ContentView: View {
                     .onAppear{
                         backsoundPlayer.playAudioLoop(fileName: "backsound")
                     }
+            case .dummy:
+                DummyView()
+                    .environmentObject(matchManager)
             case .empty:
                 VStack {}
             }

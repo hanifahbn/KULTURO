@@ -39,11 +39,11 @@ struct StoryNarratorView: View {
                                 HStack{
                                     if(!chosenCharacters.isEmpty){
                                         Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.system(size: 28, weight: .semibold,design: .rounded))
+                                            .font(.system(size: 25, weight: .semibold,design: .rounded))
                                     }
                                     else{
                                         Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.system(size: 28, weight: .semibold,design: .rounded))
+                                            .font(.system(size: 25, weight: .semibold,design: .rounded))
                                     }
                                     Spacer()
                                 }
@@ -72,7 +72,7 @@ struct StoryNarratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-//            matchManager.gameStatus = .shakeGame
+//            matchManager.gameStatus = .dummy
         }
         .onTapGesture {
             if isTapGestureEnabled {
