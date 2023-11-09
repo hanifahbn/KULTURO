@@ -74,7 +74,7 @@ struct TokoView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
-                if currentIndex < tokoStories.count - 1 {
+                if currentIndex < tokoStories.count - 2 {
                     currentIndex += 1
                     if tokoStories[currentIndex].text == "" {
                         isCharacterShown = true
@@ -95,6 +95,8 @@ struct TokoView: View {
                     matchManager.synchronizeGameState("Reading")
                     if matchManager.isFinishedReading == 2 {
                         matchManager.gameStatus = .soundGame
+                    } else {
+                        currentIndex += 1
                     }
                 }
             }

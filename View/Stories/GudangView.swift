@@ -74,7 +74,7 @@ struct GudangView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
-                if currentIndex < gudangStories.count - 1 {
+                if currentIndex < gudangStories.count - 2 {
                     currentIndex += 1
                     if gudangStories[currentIndex].text == "" {
                         isCharacterShown = true
@@ -95,6 +95,8 @@ struct GudangView: View {
                     matchManager.synchronizeGameState("ReadingSecond")
                     if matchManager.isFinishedReading == 2 {
                         matchManager.gameStatus = .cameraGame
+                    } else {
+                        currentIndex += 1
                     }
                 }
             }

@@ -62,6 +62,30 @@ struct DragDropView: View {
                             })
                             .padding(.trailing, 30)
                     }
+                    if(matchManager.isFinishedPlaying == 1 && !isSuccess){
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 230, height: 54)
+                                .foregroundStyle(.white)
+                                .shadow(radius: 0, y: 5)
+                                .overlay {
+                                    HStack{
+                                        Image(chosenCharacters[1].headImage)
+                                            .resizable()
+                                            .frame(width: 70, height: 70)
+                                            .padding(.bottom, 15)
+                                        Text("Hei, lekaslah! Aku sudah selesai.")
+                                            .font(.system(size: 15, weight: .bold))
+                                    }
+                                }
+                                .opacity(matchManager.isFinishedPlaying == 1 ? 1 : 0)
+                                .animation(
+                                    .linear.delay(1.0),
+                                    value: matchManager.isFinishedPlaying == 1
+                                )
+                        }
+                        .zIndex(3)
+                    }
                     Spacer()
                 }
                 if(items.count != 0){
@@ -150,7 +174,7 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-                matchManager.startTimer(time: 30)
+            matchManager.startTimer(time: 30)
         }
         .onTapGesture {
             isTutorialShown = false
