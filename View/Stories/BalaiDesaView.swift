@@ -114,7 +114,7 @@ struct BalaiDesaView: View {
         }
         .onAppear{
             isFirstAnimation = true
-            isSecondAnimation = true
+//            isSecondAnimation = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 isConversation = true
                 isTapGestureEnabled = true

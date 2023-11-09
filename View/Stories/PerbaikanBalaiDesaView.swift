@@ -76,7 +76,7 @@ struct PerbaikanBalaiDesaView: View {
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
-                if currentIndex < stories.count - 1 {
+                if currentIndex < stories.count - 2 {
                     currentIndex += 1
                     if stories[currentIndex].text == "" {
                         isCharacterShown = true
@@ -104,6 +104,8 @@ struct PerbaikanBalaiDesaView: View {
                         matchManager.synchronizeGameState("ReadingFourth")
                         if matchManager.isFinishedReading == 2 {
                             matchManager.gameStatus = nextGameStatus
+                        } else {
+                            currentIndex += 1
                         }
                     }
                 }

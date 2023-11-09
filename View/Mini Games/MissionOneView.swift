@@ -55,7 +55,7 @@ struct MissionOneView: View {
             Image("Paper")
                 .padding(.leading, 30)
             VStack{
-                if(matchManager.isFinishedPlaying == 1){
+                if(matchManager.isFinishedPlaying == 1 && !isSuccess){
                     ZStack {
                         RoundedRectangle(cornerRadius: 15.0)
                             .frame(width: 220, height: 54)
@@ -63,19 +63,16 @@ struct MissionOneView: View {
                             .shadow(radius: 0, y: 5)
                             .overlay {
                                 HStack{
-                                    Image(matchManager.otherCharacter!.headImage)
+                                    Image(chosenCharacters[1].headImage)
                                         .resizable()
                                         .frame(width: 70, height: 70)
                                         .padding(.bottom, 15)
-                                    Text("Hei lekaslah, aku sudah selesai")
+                                    Text("Hei, lekaslah! Aku sudah selesai.")
                                         .font(.system(size: 15, weight: .bold))
                                 }
                             }
         //                    .opacity(isModalPresented ? 1 : 0)
                             .animation(.linear, value: matchManager.isFinishedPlaying == 1)
-                    }
-                    .onAppear{
-                        print("udah dipanggil nih")
                     }
                     .zIndex(3)
                 }

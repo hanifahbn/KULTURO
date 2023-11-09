@@ -52,6 +52,27 @@ struct ObjectDetectionGame: View {
                             matchManager.synchronizeGameState("CameraMission")
                         }
                 } else {
+                    if(matchManager.isFinishedPlaying == 1 && !isSuccess){
+                        VStack {
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: 230, height: 54)
+                                .foregroundStyle(.white)
+                                .shadow(radius: 0, y: 5)
+                                .overlay {
+                                    HStack{
+                                        Image(chosenCharacters[1].headImage)
+                                            .resizable()
+                                            .frame(width: 70, height: 70)
+                                            .padding(.bottom, 15)
+                                        Text("Hei, lekaslah! Aku sudah selesai.")
+                                            .font(.system(size: 15, weight: .bold))
+                                    }
+                                }
+                                .animation(.linear, value: matchManager.isFinishedPlaying == 1)
+                        }
+                        .padding(.bottom, 400)
+                        .zIndex(3)
+                    }
                     ZStack{
                         CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
                     }
@@ -59,16 +80,9 @@ struct ObjectDetectionGame: View {
             }
         }
         .onAppear{
-//            matchManager.isFinishedPlaying += 1
-//            print("here \(matchManager.isFinishedPlaying)")
-//            isSuccess = true
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                matchManager.isFinishedPlaying += 1
-//                print("there \(matchManager.isFinishedPlaying)")
-//            }
+            matchManager.startTimer(time: 121)
         }
         .onTapGesture{
-            matchManager.startTimer(time: 121)
             isTutorialShown = false
         }
         .onChange(of: isSuccess) { _ in
