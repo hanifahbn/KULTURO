@@ -25,6 +25,7 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyGudang
+                        matchManager.isRetrying = false
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()
@@ -40,6 +41,7 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
+                        matchManager.isRetrying = false
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()
@@ -55,6 +57,7 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
+                        matchManager.isRetrying = false
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()
@@ -70,6 +73,7 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyBalaiDesaRenovated
+                        matchManager.isRetrying = false
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()
@@ -85,8 +89,7 @@ struct ModalView: View {
                         .foregroundStyle(Color.red)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: "Ulangi", isWithIcon: false) {
-                        matchManager.gameStatus = .inGame
-                        matchManager.gameStatus = .dragAndDrop
+                        matchManager.isRetrying = true
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
                         matchManager.stopTimer()

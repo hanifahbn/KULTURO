@@ -19,6 +19,7 @@ class MatchManager: NSObject, ObservableObject{
     @Published var otherCharacter: Karakter?
     @Published var timer: Timer?
     @Published var timeInString: String = ""
+    @Published var isRetrying: Bool = false
     
     var match : GKMatch?
     var isFinishedReading: Int = 0
