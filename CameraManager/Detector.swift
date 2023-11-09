@@ -28,8 +28,19 @@ extension CameraViewController {
                 if (!isDelay) {
                     self.isDelay = true
                     self.cameraDelegate?.changeButton(isDisabled: false)
+
+                    // haptic setiap kelipatan 0.3
+                    self.notificationGenerator.notificationOccurred(.success)
+                    for _ in 1...9 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + timerCounter) {
+                            self.notificationGenerator.notificationOccurred(.success)
+                        }
+                        self.timerCounter += 0.3
+                    }
+
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         self.isDelay = false
+                        self.timerCounter = 0.3
                     }
                 }
 
