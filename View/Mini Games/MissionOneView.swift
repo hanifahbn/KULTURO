@@ -177,11 +177,12 @@ struct MissionOneView: View {
         }
         .onTapGesture{
             isTutorialShown = false
-            matchManager.startTimer(time: 46)
+
         }
         .onAppear{
             tools = Array(matchManager.tools.shuffled().prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName }
+            matchManager.startTimer(time: 46)
         }
     }
     
