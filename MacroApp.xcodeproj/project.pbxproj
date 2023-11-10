@@ -245,14 +245,7 @@
 		A3D5E89F2AF3B568002F5888 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
-				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
-				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
-				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
-				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
-				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
-				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
-				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
+				E2791F442AFE7B0D00391F1B /* TempStories */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
@@ -335,6 +328,21 @@
 				E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		E2791F442AFE7B0D00391F1B /* TempStories */ = {
+			isa = PBXGroup;
+			children = (
+				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
+				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
+				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
+				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
+				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
+				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
+				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
+				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
+			);
+			path = TempStories;
 			sourceTree = "<group>";
 		};
 		E2A729522AE215D10093DD1F /* Components */ = {

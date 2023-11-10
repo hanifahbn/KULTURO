@@ -14,22 +14,17 @@ struct BalaiDesaView: View {
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
     @State var isthirdAnimation : Bool = false
-    @State var isGoingToNextView : Bool = false
+    @State var isAnimatedKepalaDesa : Bool = false
     @State var isTapGestureEnabled = false
     @State var isCharacterShown = true
     @State var currentIndex = 0
     
     var body: some View {
         ZStack{
-            // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-//            Rectangle()
-//                .ignoresSafeArea()
-//                .zIndex(1)
-//                .opacity(isGoingToNextView ? 1 : 0)
-//                .animation(.easeIn(duration: 1), value: isGoingToNextView)
             Image("BrokenBalaiDesa")
                 .resizable()
                 .ignoresSafeArea()
+            //MARK: Animation
             HStack(spacing : -30){
                 ZStack{
                     GifImage("AnimationAsep")
@@ -60,7 +55,7 @@ struct BalaiDesaView: View {
                 .offset(x: 40, y: 100)
                 Image(characters[4].fullImage)
                     .resizable()
-                    .opacity(isCharacterShown ? 0 : 1)
+                    .opacity(isAnimatedKepalaDesa ? 1 : 0)
                     .opacity(isConversation ? 0 : 1)
                     .frame(width: 100, height: 200)
                     .offset(y: 70)
@@ -70,7 +65,7 @@ struct BalaiDesaView: View {
                 .padding(.leading, 50)
                 .offset(x:  isSecondAnimation ? -120 : -300, y: 100)
                 .animation(.linear(duration: 1.5), value: isSecondAnimation)
-                .opacity(isCharacterShown ? 1 : 0)
+                .opacity(isAnimatedKepalaDesa ? 0 : 1)
                 .scaleEffect(x: -1, y : 1)
             VStack{
                 Spacer()
@@ -95,24 +90,31 @@ struct BalaiDesaView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
+            //MARK: Transition
             TransitionOpening()
             TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {
                     currentIndex += 1
                     if balaiDesaStories[currentIndex].text == "" {
                         isCharacterShown = true
+                        isAnimatedKepalaDesa = false
                         isConversation = false
                         isSecondAnimation = true
                         isTapGestureEnabled = false
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             currentIndex += 1
-                            isCharacterShown = false
-                            isConversation = true
-                            isTapGestureEnabled = true
+                            isAnimatedKepalaDesa = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                isConversation = true
+                                isTapGestureEnabled = true
+                                isCharacterShown = false
+                            }
+                            
                         }
                     }
                 }
@@ -122,11 +124,11 @@ struct BalaiDesaView: View {
                     
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        //                        isSecondAnimation = true
                         isConversation = false
                         isthirdAnimation = false
                         isCharacterShown = false
-                        isGoingToNextView = true
+                        isAnimatedKepalaDesa = false
+                        isAnimatedKepalaDesa = true
                         isFirstAnimation = false
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
@@ -141,8 +143,7 @@ struct BalaiDesaView: View {
         }
         .onAppear{
             isFirstAnimation = true
-            //            isSecondAnimation = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isthirdAnimation = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     isConversation = true

@@ -12,41 +12,52 @@ struct GudangView: View {
     @StateObject var viewModel = TransitionViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
-    @State var isSecondAnimation : Bool = false
-    @State var isGoingToNextView : Bool = false
+    @State var isAnimationWalking : Bool = false
     @State var isTapGestureEnabled = false
-    @State var isCharacterShown = true
     @State var currentIndex = 0
+    //MARK: Ini tidak ada fungsimya
+    //    @State var isCharacterShown = true
+    //    @State var isGoingToNextView : Bool = false
 
     var body: some View {
         ZStack{
-            // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(isGoingToNextView ? 1 : 0)
-                .animation(.easeIn(duration: 1), value: isGoingToNextView)
+            //MARK: Ini tidak ada fungsimya
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+//                .opacity(isGoingToNextView ? 1 : 0)
+//                .animation(.easeIn(duration: 1), value: isGoingToNextView)
             Image("BackgroundGudang")
                 .resizable()
                 .ignoresSafeArea()
-            HStack{
-                HStack(spacing : -30){
-                    Image(chosenCharacters[0].fullImage)
-                        .resizable()
-                        .frame(width: 110, height: 226)
-                    Image(chosenCharacters[1].fullImage)
-                        .resizable()
-                        .frame(width: 110, height: 226)
-                }.padding()
-                    .offset(x: isFirstAnimation ? 20 : -200, y: 240)
-                    .animation(.linear(duration: 3), value: isFirstAnimation)
-                Image(characters[4].fullImage)
-                    .resizable()
-                    .frame(width: 80, height: 170)
-                    .padding(.top, 300)
-                    
+            HStack(spacing : -30){
+                ZStack{
+                    GifImage("AnimationAsep")
+                        .frame(width: 200, height: 220)
+                        .padding(.trailing, 50)
+                    GifImage("AnimationTogar")
+                        .frame(width: 200, height: 220)
+                        .padding(.leading, 50)
+                }
             }
-            .opacity(isCharacterShown ? 1 : 0)
+            .offset(x: isFirstAnimation ? 0 : -200, y: 200)
+            .animation(.linear(duration: 3), value: isFirstAnimation)
+            .opacity(isAnimationWalking ? 0 : 1)
+            HStack(spacing : -40){
+                Image(chosenCharacters[0].fullImage)
+                    .resizable()
+                    .frame(width: 100, height: 224)
+                Image(chosenCharacters[1].fullImage)
+                    .resizable()
+                    .frame(width: 100, height: 224)
+            }
+            .opacity(isAnimationWalking ? 1 : 0)
+            .offset(y: 200)
+            Image(characters[4].fullImage)
+                .resizable()
+                .frame(width: 100, height: 200)
+                .offset(x : 120, y: 150)
+                .opacity(isConversation ? 0 : 1)
             VStack{
                 Spacer()
                 HStack{
@@ -70,25 +81,26 @@ struct GudangView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
-            TransitionOpening()
+//            TransitionOpening()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
             if isTapGestureEnabled {
                 if currentIndex < gudangStories.count - 2 {
                     currentIndex += 1
-                    if gudangStories[currentIndex].text == "" {
-                        isCharacterShown = true
-                        isConversation = false
-                        isSecondAnimation = true
-                        isTapGestureEnabled = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            currentIndex += 1
-                            isCharacterShown = false
-                            isConversation = true
-                            isTapGestureEnabled = true
-                        }
-                    }
+                    //MARK: Ini tidak ada fungsimya
+//                    if gudangStories[currentIndex].text == "" {
+//                        isCharacterShown = true
+//                        isConversation = false
+//                        isAnimationWalking = true
+//                        isTapGestureEnabled = false
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                            currentIndex += 1
+//                            isCharacterShown = false
+//                            isConversation = true
+//                            isTapGestureEnabled = true
+//                        }
+//                    }
                 }
                 else {
                     isTapGestureEnabled = false
@@ -104,13 +116,13 @@ struct GudangView: View {
         }
         .onAppear{
             isFirstAnimation = true
-            isSecondAnimation = true
             matchManager.stopTimer()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                isConversation = true
-                isTapGestureEnabled = true
-                isConversation = true
-                isCharacterShown = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                isAnimationWalking = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    isConversation = true
+                    isTapGestureEnabled = true
+                }
             }
         }
 
