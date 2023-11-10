@@ -38,7 +38,7 @@ struct BalaiDesaRenovatedView: View {
                         VStack{
                             HStack{
                                 Text(medanSuccessStories[currentIndex].text)
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .font(.custom("Chalkboard-Regular", size: 30))
                                     .padding(15)
                                 Spacer()
                             }

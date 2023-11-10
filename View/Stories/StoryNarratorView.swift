@@ -39,11 +39,11 @@ struct StoryNarratorView: View {
                                 HStack{
                                     if(!chosenCharacters.isEmpty){
                                         Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.system(size: 25, weight: .semibold,design: .rounded))
+                                            .font(.custom("Chalkboard-Regular", size: 35))
                                     }
                                     else{
                                         Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.system(size: 25, weight: .semibold,design: .rounded))
+                                            .font(.custom("Chalkboard-Regular", size: 35))
                                     }
                                     Spacer()
                                 }

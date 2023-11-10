@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MissionOneView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
     @State private var jumlahBenar = 0
@@ -145,6 +145,7 @@ struct MissionOneView: View {
                     updateSheets()
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)

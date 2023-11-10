@@ -64,6 +64,7 @@
 		E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */; };
 		E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */; };
 		E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C62AE132620024FDD1 /* OnBoardView.swift */; };
+		E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */; };
 		E2A729512AE187120093DD1F /* StoryNarratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729502AE187120093DD1F /* StoryNarratorView.swift */; };
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
@@ -141,6 +142,7 @@
 		E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKGameCenterControllerDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C62AE132620024FDD1 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
+		E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Regular.ttf"; sourceTree = "<group>"; };
 		E2A729502AE187120093DD1F /* StoryNarratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNarratorView.swift; sourceTree = "<group>"; };
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
 				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
 				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
+				E2791F412AFE260400391F1B /* Font */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,
 				E20C87CC2AE412E60054AD47 /* ViewModel */,
@@ -326,6 +329,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E2791F412AFE260400391F1B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		E2A729522AE215D10093DD1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
 				A36182232AFB884A0067FC2F /* Tel.wav in Resources */,
 				E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,

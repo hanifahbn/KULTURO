@@ -24,7 +24,7 @@ struct TransitionClosing: View {
                 .resizable()
                 .ignoresSafeArea()
                 .opacity(viewModel.transition2 ? 1 : 0)
-                .animation(.easeOut, value: viewModel.transition)
+                .animation(.easeIn, value: viewModel.transition)
         }
     }
 }

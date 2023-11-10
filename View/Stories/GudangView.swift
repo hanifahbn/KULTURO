@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GudangView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
@@ -60,7 +60,7 @@ struct GudangView: View {
                         VStack{
                             HStack{
                                 Text(gudangStories[currentIndex].text)
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .font(.custom("Chalkboard-Regular", size: 30))
                                     .padding(15)
                                 Spacer()
                             }
@@ -70,6 +70,7 @@ struct GudangView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
+            TransitionOpening()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

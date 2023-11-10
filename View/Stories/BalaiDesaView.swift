@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BalaiDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
@@ -85,7 +85,7 @@ struct BalaiDesaView: View {
                         VStack{
                             HStack{
                                 Text(balaiDesaStories[currentIndex].text)
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .font(.custom("Chalkboard-Regular", size: 30))
                                     .padding(15)
                                 Spacer()
                             }
@@ -96,6 +96,7 @@ struct BalaiDesaView: View {
             }
             .opacity(isConversation ? 1 : 0)
             TransitionOpening()
+            TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -127,8 +128,13 @@ struct BalaiDesaView: View {
                         isCharacterShown = false
                         isGoingToNextView = true
                         isFirstAnimation = false
-                        matchManager.gameStatus = .storyToko
-                        print("we")
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            viewModel.startTransition()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                matchManager.gameStatus = .storyToko
+                            }
+                        }
                     }
                 }
             }
@@ -143,6 +149,7 @@ struct BalaiDesaView: View {
                     isTapGestureEnabled = true
                     isConversation = true
                     isCharacterShown = false
+                    
                 }
             }
         }

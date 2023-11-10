@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PerbaikanBalaiDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
@@ -62,7 +62,7 @@ struct PerbaikanBalaiDesaView: View {
                         VStack{
                             HStack{
                                 Text(stories[currentIndex].text)
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .font(.custom("Chalkboard-Regular", size: 30))
                                     .padding(15)
                                 Spacer()
                             }
@@ -72,6 +72,8 @@ struct PerbaikanBalaiDesaView: View {
                     .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
+            TransitionOpening()
+            TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -97,13 +99,19 @@ struct PerbaikanBalaiDesaView: View {
                     if nextGameStatus == .dragAndDrop {
                         matchManager.synchronizeGameState("ReadingThird")
                         if matchManager.isFinishedReading == 2 {
-                            matchManager.gameStatus = nextGameStatus
+                            viewModel.startTransition()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                matchManager.gameStatus = nextGameStatus
+                            }
                         }
                     }
                     else {
                         matchManager.synchronizeGameState("ReadingFourth")
                         if matchManager.isFinishedReading == 2 {
-                            matchManager.gameStatus = nextGameStatus
+                            viewModel.startTransition()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                matchManager.gameStatus = nextGameStatus
+                            }
                         } else {
                             currentIndex += 1
                         }
