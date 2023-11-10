@@ -7,48 +7,48 @@
 
 import SwiftUI
 
-struct Transition: View {
-    @State var transition: Bool = false
-    @State var transition2: Bool = false
-
-    func startTransition() {
-        transition = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            transition2 = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                transition2 = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    transition = false
-                }
-            }
-        }
-    }
+struct TransitionClosing: View {
     
+    
+    @StateObject var viewModel = TransitionViewModel()
     var body: some View {
         ZStack {
-            Image("BackgroundPanglong")
-                .resizable()
-                .ignoresSafeArea()
             
             Image("Transition")
                 .resizable()
                 .ignoresSafeArea()
-                .scaleEffect(CGSize(width: transition ? 1 : 300, height: transition ? 1 : 300))
-                .animation(.easeInOut(duration: 1.5), value: transition)
+                .scaleEffect(CGSize(width: viewModel.transition ? 1 : 300, height: viewModel.transition ? 1 : 300))
+                .animation(.easeInOut(duration: 1), value: viewModel.transition)
             
             Image("Transition2")
                 .resizable()
                 .ignoresSafeArea()
-                .opacity(transition2 ? 1 : 0)
-                .animation(.easeOut, value: transition2)
-            
-            Button("Next") {
-                startTransition()
-            }
+                .opacity(viewModel.transition2 ? 1 : 0)
+                .animation(.easeOut, value: viewModel.transition)
         }
     }
 }
 
 #Preview {
-    Transition()
+    TransitionClosing()
+}
+
+struct TransitionOpening: View {
+    
+    
+    @StateObject var viewModel = TransitionViewModel()
+    var body: some View {
+        ZStack {
+            Image("Transition")
+                .resizable()
+                .ignoresSafeArea()
+                .scaleEffect(CGSize(width: viewModel.transition ? 300 : 1, height: viewModel.transition ? 300 : 1))
+                .animation(.easeInOut(duration: 1.5), value: viewModel.transition)
+        }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1 ){
+                viewModel.transition = true
+            }
+        }
+    }
 }

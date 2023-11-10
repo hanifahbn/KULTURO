@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoryNarratorView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State var Stories: String = ""
     @State var text: String = ""
     var typingSpeed: Double = 0.05
@@ -19,7 +19,7 @@ struct StoryNarratorView: View {
     @State private var isFirstTap = true
     @State var isTapGestureEnabled = true
     @State var narration = beginningNarration
-    @State var nextGameStatus: GameStatus = .storyGapura
+    @State var nextGameStatus: GameStatus = .storyBalaiDesa
     
     var body: some View {
         ZStack{
@@ -68,6 +68,7 @@ struct StoryNarratorView: View {
                 .padding(.top, 250)
                 .padding(.trailing, 40)
             }
+            TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{
@@ -117,8 +118,11 @@ struct StoryNarratorView: View {
         else {
             isTapGestureEnabled = false
             position = 0
-            nextStory = false
-            matchManager.gameStatus = nextGameStatus
+//            nextStory = false
+            viewModel.startTransition()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                matchManager.gameStatus = nextGameStatus
+            }
         }
     }
 }

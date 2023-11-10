@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DesaStoriesView: View {
     @EnvironmentObject var matchManager: MatchManager
+    
 //    @StateObject var viewModel: StoryViewModel = StoryViewModel()
     @State private var currentIndex = 0
     @State var isStory : Bool = false
@@ -37,28 +38,38 @@ struct DesaStoriesView: View {
             }
             HStack{
                 HStack(spacing : -30){
-                    Image(chosenCharacters[0].fullImage)
-                        .resizable()
-                        .frame(width: 110, height: 226)
-                        .padding(.top, 40)
-                    Image(chosenCharacters[1].fullImage)
-                        .resizable()
-                        .frame(width: 110, height: 226)
-                    Spacer()
-                    Image(characters[4].fullImage)
-                        .resizable()
-                        .opacity(isAnimation1 ? 1 : 0)
-                        .frame(width: 110, height: 226)
-                        .offset(x: isAnimation1 ?  0 : 100)
-                        .animation(.linear(duration: 1.5), value: isAnimation1)
-
+//                    Image(chosenCharacters[0].fullImage)
+//                        .resizable()
+//                        .frame(width: 110, height: 226)
+//                        .padding(.top, 40)
+//                    Image(chosenCharacters[1].fullImage)
+//                        .resizable()
+//                        .frame(width: 110, height: 226)
+//                    Spacer()
+//                    Image(characters[4].fullImage)
+//                        .resizable()
+//                        .opacity(isAnimation1 ? 1 : 0)
+//                        .frame(width: 110, height: 226)
+//                        .offset(x: isAnimation1 ?  0 : 100)
+//                        .animation(.linear(duration: 1.5), value: isAnimation1)
+                    ZStack{
+                        GifImage("AnimationAsep")
+                            .frame(width: 200, height: 200)
+                            .padding(.trailing, 50)
+                        GifImage("AnimationTogar")
+                            .frame(width: 200, height: 200)
+                            .padding(.leading, 50)
+                        Image("FullAsep")
+                            .resizable()
+                            .frame(width: 100, height: 200)
+                        
+                    }
                 }
                 .padding(.top, 200)
-                .offset(x: isAnimation ? 10 : -200)
+                .offset(x: isAnimation ? 10 : -150)
                 .animation(.linear(duration: 2.5), value: isAnimation)
                 .opacity(OpacityCharacter ? 0 : 1)
             }
-            //            .offset(x: isAnimation1 ? 400 : 0)
 
             VStack{
                 Spacer()

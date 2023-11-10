@@ -21,11 +21,11 @@ struct GapuraView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(isGoingToNextView ? 1 : 0)
-                .animation(.easeIn(duration: 1), value: isGoingToNextView)
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+//                .opacity(isGoingToNextView ? 1 : 0)
+//                .animation(.easeIn(duration: 1), value: isGoingToNextView)
             Image("BackgroundImageGapura")
                 .resizable()
                 .ignoresSafeArea()
