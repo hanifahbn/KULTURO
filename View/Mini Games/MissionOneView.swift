@@ -108,7 +108,7 @@ struct MissionOneView: View {
                 }
 
                 Spacer()
-                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
                         if audioViewModel.audio.isRecording == false {
                             audioViewModel.startRecording()
                         }

@@ -40,6 +40,7 @@ struct BalaiDesaView: View {
             .offset(x: isFirstAnimation ? -40 : -300)
             .animation(.linear(duration: 2.5), value: isFirstAnimation)
             .opacity(isthirdAnimation ? 0 : 1)
+            
             HStack{
                 HStack(spacing : -20){
                     Image(chosenCharacters[0].fullImage)
@@ -60,6 +61,7 @@ struct BalaiDesaView: View {
                     .frame(width: 100, height: 200)
                     .offset(y: 70)
             }
+            
             GifImage("AnimationKepalaDesa")
                 .frame(width: 200, height: 230)
                 .padding(.leading, 50)
@@ -104,7 +106,7 @@ struct BalaiDesaView: View {
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition
-            TransitionOpening()
+//            TransitionOpening()
             TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
