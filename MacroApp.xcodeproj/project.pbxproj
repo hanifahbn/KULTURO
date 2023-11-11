@@ -245,6 +245,7 @@
 			children = (
 				E2791F442AFE7B0D00391F1B /* TempStories */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
+				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
 				A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */,
@@ -336,7 +337,6 @@
 				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
 				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
 				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
-				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
 				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
 			);

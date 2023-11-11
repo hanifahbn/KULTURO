@@ -28,29 +28,27 @@ struct StoryNarratorView: View {
                 .blur(radius: 4)
                 .ignoresSafeArea()
             VStack{
-                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .stroke(lineWidth: 1)
+                Image("TextBoxNarasi")
+                    .resizable()
+                    .frame(width: 400, height: 400)
                     .overlay {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 23.0)
-                                .foregroundStyle(.white)
-                                .opacity(0.8)
-                            VStack{
-                                HStack{
-                                    if(!chosenCharacters.isEmpty){
-                                        Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.custom("Chalkboard-Regular", size: 35))
-                                    }
-                                    else{
-                                        Text(nextStory ? narration[currentIndex].text : text)
-                                            .font(.custom("Chalkboard-Regular", size: 35))
-                                    }
-                                    Spacer()
+                        VStack{
+                            HStack{
+                                if(!chosenCharacters.isEmpty){
+                                    Text(nextStory ? narration[currentIndex].text : text)
+                                        .font(.custom("Chalkboard-Regular", size: 35))
+                                }
+                                else{
+                                    Text(nextStory ? narration[currentIndex].text : text)
+                                        .font(.custom("Chalkboard-Regular", size: 35))
                                 }
                                 Spacer()
                             }
-                            .padding()
+                            Spacer()
                         }
+                        .padding(30)
+                        .padding(.top, 50)
+                        
                     }
                     .frame(width: 350, height: 300)
                     .shadow(radius: 10)
@@ -61,12 +59,12 @@ struct StoryNarratorView: View {
                 Button(action: {
                     print("Sound")
                 }, label: {
-                    Image(systemName: "speaker.wave.2.circle.fill")
+                    Image("IconButtonSpeaker")
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 70, height: 50)
                 })
-                .padding(.top, 250)
-                .padding(.trailing, 40)
+                .padding(.top, 200)
+                .padding(.trailing, 10)
             }
             TransitionClosing(viewModel: viewModel)
         }

@@ -45,7 +45,7 @@ struct PerbaikanBalaiDesaView: View {
             .offset(x: isFirstAnimation ? 0 : -200, y: 200)
             .animation(.linear(duration: 3), value: isFirstAnimation)
             .opacity(isAnimationWalking ? 0 : 1)
-            HStack(spacing : -40){
+            HStack(spacing : -20){
                 Image(chosenCharacters[0].fullImage)
                     .resizable()
                     .frame(width: 100, height: 224)
@@ -66,9 +66,9 @@ struct PerbaikanBalaiDesaView: View {
                     Image(stories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 0, y: 5)
+                Image("TextBoxStory")
+                    .resizable()
+                    .frame(width: 360, height: 230)
                     .overlay {
                         VStack{
                             HStack{
@@ -79,8 +79,20 @@ struct PerbaikanBalaiDesaView: View {
                             }
                             Spacer()
                         }
+                        .padding()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                print("Sound")
+                            }, label: {
+                                Image("IconButtonSpeaker")
+                                    .resizable()
+                                    .frame(width: 70, height: 50)
+                            })
+                            .padding(.top, 130)
+                            .padding(.trailing, 15)
+                        }
                     }
-                    .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
 //            TransitionOpening()

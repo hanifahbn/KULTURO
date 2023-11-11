@@ -37,11 +37,11 @@ struct BalaiDesaView: View {
                 .scaleEffect(x: isSecondAnimation ? -1 : 1, y : 1)
             }
             .padding(.top, 200)
-            .offset(x: isFirstAnimation ? 0 : -300)
+            .offset(x: isFirstAnimation ? -40 : -300)
             .animation(.linear(duration: 2.5), value: isFirstAnimation)
             .opacity(isthirdAnimation ? 0 : 1)
             HStack{
-                HStack(spacing : -40){
+                HStack(spacing : -20){
                     Image(chosenCharacters[0].fullImage)
                         .resizable()
                         .frame(width: 110, height: 224)
@@ -52,7 +52,7 @@ struct BalaiDesaView: View {
                         .opacity(isCharacterShown ? 1 : 0)
                 }
                 .opacity(isthirdAnimation ? 1 : 0)
-                .offset(x: 40, y: 100)
+                .offset(x: 20, y: 100)
                 Image(characters[4].fullImage)
                     .resizable()
                     .opacity(isAnimatedKepalaDesa ? 1 : 0)
@@ -73,9 +73,9 @@ struct BalaiDesaView: View {
                     Image(balaiDesaStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 0, y: 5)
+                Image("TextBoxStory")
+                    .resizable()
+                    .frame(width: 360, height: 230)
                     .overlay {
                         VStack{
                             HStack{
@@ -86,8 +86,21 @@ struct BalaiDesaView: View {
                             }
                             Spacer()
                         }
+                        .padding()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                print("Sound")
+                            }, label: {
+                                Image("IconButtonSpeaker")
+                                    .resizable()
+                                    .frame(width: 70, height: 50)
+                            })
+                            .padding(.top, 130)
+                            .padding(.trailing, 15)
+                        }
                     }
-                    .frame(width: 350, height: 200)
+                
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition

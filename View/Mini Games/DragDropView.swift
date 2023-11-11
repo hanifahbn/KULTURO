@@ -14,7 +14,7 @@ struct DragDropView: View {
     @State var askItems2: Bool = false
     @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
     @State var currentIndex = 0
-    @State private var isTutorialShown = true
+    @State private var isTutorialShown = false //nilai awal true
     
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
@@ -46,6 +46,54 @@ struct DragDropView: View {
             }
             ZStack{
                 VStack{
+                    Rectangle()
+                        .opacity(0.3)
+                        .overlay {
+                            ZStack{
+                                Image("HalfDesaBroken")
+                                    .resizable()
+                                    .ignoresSafeArea()
+                                    .opacity(0.8)
+                                    .blur(radius: 2)
+                                VStack{
+                                    Spacer()
+                                    ZStack{
+                                        Image("TextBoxDragDrop")
+                                            .padding(.bottom, 150)
+                                            .padding(.trailing, 140)
+                                            .overlay(content: {
+                                                HStack{
+                                                    VStack {
+                                                        Text("Tolong berikan")
+                                                        HStack{
+                                                            Text("Saya")
+                                                            Text("\(items[currentIndex])")
+                                                                .foregroundStyle(Color.red)
+                                                        }
+                                                        
+                                                        Spacer()
+                                                    }
+                                                    .font(.custom("Chalkboard-Regular", size: 30))
+                                                    .padding(.trailing, 150)
+                                                }
+                                                .padding(5)
+                                                
+                                            })
+                                        Image("KadesHalf")
+                                            .resizable()
+                                            .frame(width: 350, height: 300)
+                                            .padding(.top, 100)
+                                    }
+                                }
+                            }
+                        }
+                        .frame(height: 350)
+                        .ignoresSafeArea()
+                    
+                    
+                    Spacer()
+                }
+                VStack{
                     HStack{
                         Spacer()
                         RoundedRectangle(cornerRadius: 16)
@@ -54,19 +102,21 @@ struct DragDropView: View {
                             .opacity(0.5)
                             .overlay(content: {
                                 HStack{
-                                    Image(systemName: "timer")
-                                        .font(.system(size: 25, weight: .bold))
+                                    Image("IconTimer")
+                                    //                                        .font(.system(size: 25, weight: .bold))
                                     Text(matchManager.timeInString)
                                         .font(.system(size: 17, weight: .bold))
                                 }
                             })
                             .padding(.trailing, 30)
                     }
+                    
                     if(matchManager.isFinishedPlaying == 1 && !isSuccess){
                         ZStack {
                             RoundedRectangle(cornerRadius: 15.0)
                                 .frame(width: 230, height: 54)
                                 .foregroundStyle(.white)
+                                .opacity(0.5)
                                 .shadow(radius: 0, y: 5)
                                 .overlay {
                                     HStack{
@@ -78,6 +128,7 @@ struct DragDropView: View {
                                             .font(.system(size: 15, weight: .bold))
                                     }
                                 }
+                                .padding(.top, 20)
                                 .opacity(matchManager.isFinishedPlaying == 1 ? 1 : 0)
                                 .animation(
                                     .linear.delay(1.0),
@@ -106,42 +157,39 @@ struct DragDropView: View {
                     Text("Item Pindah")
                         .font(.system(size: 50, weight: .semibold))
                 }
+                //                if(items.count != 0){
+                //                    VStack{
+                //                        HStack(spacing: -60) {
+                //                            Image("Office")
+                //                                .resizable()
+                //                                .frame(width: 85, height: 87 )
+                //                                .zIndex(1)
+                //                                .padding(.top, -10)
+                //
+                //                            Rectangle()
+                //                                .foregroundColor(.white)
+                //                                .frame(width: 260, height: 76)
+                //                                .background(.white.opacity(0.6))
+                //                                .cornerRadius(16)
+                //                                .overlay(
+                //                                    ZStack{
+                //                                        RoundedRectangle(cornerRadius: 16)
+                //                                            .inset(by: 0.5)
+                //                                            .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
+                //                                        VStack(alignment: .leading){
+                //                                            Text("Tolong Ambilkan")
+                //                                            Text(items[currentIndex])
+                //                                                .foregroundStyle(.red)
+                //                                        }.font(.system(size: 20, weight: .bold))
+                //
+                //                                            .padding(.leading, 36)
+                //                                    }
+                //                                )
+                //                        }
+                //                        Spacer()
+                //                    }
+                //                }
                 
-                Spacer()
-    
-                if(items.count != 0){
-                    VStack{
-                        Spacer()
-                        HStack(spacing: -60) {
-                            Image("Office")
-                                .resizable()
-                                .frame(width: 85, height: 87 )
-                                .zIndex(1)
-                                .padding(.top, -10)
-                            
-                            Rectangle()
-                                .foregroundColor(.white)
-                                .frame(width: 260, height: 76)
-                                .background(.white.opacity(0.6))
-                                .cornerRadius(16)
-                                .overlay(
-                                    ZStack{
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .inset(by: 0.5)
-                                            .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                        VStack(alignment: .leading){
-                                            Text("Tolong Ambilkan")
-                                            Text(items[currentIndex])
-                                                .foregroundStyle(.red)
-                                        }.font(.system(size: 20, weight: .bold))
-                                        
-                                            .padding(.leading, 36)
-                                    }
-                                )
-                        }
-                    }
-                }
-
             }
         }
         .sheet(isPresented: $isSheetPresented) {
@@ -159,8 +207,8 @@ struct DragDropView: View {
                     ModalView(modalType: "Lose", backTo: .dragAndDrop)
                         .environmentObject(matchManager)
                 case .none:
-//                    ModalView(modalType: "Lose", backTo: .cameraGame)
-//                        .environmentObject(matchManager)
+                    //                    ModalView(modalType: "Lose", backTo: .cameraGame)
+                    //                        .environmentObject(matchManager)
                     VStack {
                         EmptyView()
                     }
@@ -174,6 +222,7 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
+            //TImer
             matchManager.startTimer(time: 30)
         }
         .onTapGesture {
@@ -225,8 +274,8 @@ struct ItemDrag: View {
     
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
-    let minY = -150.0 // Adjust this value for the minimum Y-coordinate
-    let maxY = 150.0  // Adjust this value for the maximum Y-coordinate
+    let minY = 0.0 // Adjust this value for the minimum Y-coordinate
+    let maxY = 300.0  // Adjust this value for the maximum Y-coordinate
     
     
     init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: String, items: Binding<[String]>) {
@@ -241,7 +290,7 @@ struct ItemDrag: View {
     
     var body: some View {
         Image(imageTool)
-            .frame(width: 100, height: 100)
+            .frame(width: 150, height: 150)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -258,7 +307,7 @@ struct ItemDrag: View {
     
     func askItem() {
         
-        if position.height > 300 {
+        if position.height < -80 {
             exceedCount += 1
             if exceedCount >= 5 {
                 print("aw")

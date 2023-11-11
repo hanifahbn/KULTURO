@@ -31,9 +31,9 @@ struct BalaiDesaRenovatedView: View {
                     Image(medanSuccessStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 0, y: 5)
+                Image("TextBoxStory")
+                    .resizable()
+                    .frame(width: 360, height: 230)
                     .overlay {
                         VStack{
                             HStack{
@@ -44,8 +44,20 @@ struct BalaiDesaRenovatedView: View {
                             }
                             Spacer()
                         }
+                        .padding()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                print("Sound")
+                            }, label: {
+                                Image("IconButtonSpeaker")
+                                    .resizable()
+                                    .frame(width: 70, height: 50)
+                            })
+                            .padding(.top, 130)
+                            .padding(.trailing, 15)
+                        }
                     }
-                    .frame(width: 350, height: 200)
             }
         }
         .navigationBarBackButtonHidden(true)
