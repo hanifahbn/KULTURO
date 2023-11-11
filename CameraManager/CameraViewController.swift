@@ -30,13 +30,13 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     weak var cameraDelegate: CameraServiceDelegate?
     
-    var tool: Tool = ToolBrain().getRandomTool(nil)
+    var tool: Tool? = nil
 
     var isDelay: Bool = false
 
     // for haptic
     var timerCounter = 0.3
-    var notificationGenerator = UINotificationFeedbackGenerator()
+    var hapticViewModel = HapticViewModel()
 
     func start(delegate: AVCapturePhotoCaptureDelegate, completion: @escaping (Error?) -> ()) {
         self.delegate = delegate

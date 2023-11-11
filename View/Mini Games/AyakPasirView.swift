@@ -23,6 +23,7 @@ struct AyakPasirView: View {
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
     
+    var hapticViewModel = HapticViewModel()
 //    var timerText: String {
 //        let minutes = Int(elapsedTime) / 60
 //        let seconds = Int(elapsedTime) % 60
@@ -181,15 +182,19 @@ struct AyakPasirView: View {
         if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .shakeSuccess
             isSheetPresented = true
+            hapticViewModel.complexSuccess()
         } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
             currentSheet = .shakeSuccessAll
             isSheetPresented = true
+            hapticViewModel.complexSuccess()
         } else if isSuccess && !matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .lose
             isSheetPresented = true
+            hapticViewModel.simpleError()
         } else if !isSuccess && !matchManager.isTimerRunning {
             currentSheet = .lose
             isSheetPresented = true
+            hapticViewModel.simpleError()
         }
     }
 }

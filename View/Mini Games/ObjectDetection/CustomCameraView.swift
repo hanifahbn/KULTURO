@@ -25,8 +25,6 @@ struct CustomCameraView: View {
 
     var timer = Timer()
 
-
-
     var  body: some View {
         ZStack {
             CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
@@ -41,7 +39,7 @@ struct CustomCameraView: View {
                 case .failure(let err):
                     print(err.localizedDescription)
                 }
-            }
+            }.ignoresSafeArea()
             VStack{
 
                 HStack(){
@@ -56,7 +54,7 @@ struct CustomCameraView: View {
 
                         Rectangle()
                             .foregroundColor(.white)
-                            .frame(width: 217, height: 55)
+                            .frame(width: 177, height: 55)
                             .background(.white.opacity(0.6))
                             .cornerRadius(16)
                             .overlay(
@@ -64,38 +62,20 @@ struct CustomCameraView: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .inset(by: 0.5)
                                         .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                    HStack{
-                                        Button(action: {
-                                            tool = toolBrain.getRandomTool(tool)
-                                        }) {
-                                            Text("Tolong Carikan")
-                                                .font(.system(size: 17, weight: .bold, design: .rounded))
-                                                .foregroundColor(.black)
-                                        }
+                                    VStack(alignment: .leading){
 
+                                        Text("Tolong Carikan")
+                                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                                            .foregroundColor(.black)
 
-                                        Button(action: {
-                                            tool = toolBrain.getRandomTool(tool)
-                                        }) {
-                                            Image(tool.imageName).resizable().frame(width: 42, height: 42)
-                                        }
-
-                                        Button(action: {
-                                            tool = toolBrain.getRandomTool(tool)
-                                        }, label: {
-                                            Image(systemName: "arrow.triangle.2.circlepath")
-                                                .padding(8)
-                                                .background(.black)
-                                                .foregroundColor(.white)
-                                                .clipShape(Circle())
-
-                                        })
+                                        Text(tool.imageName)
+                                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                                            .foregroundColor(.darkRed)
                                     }
-                                    .padding(.leading, 50)
                                 }
                             )
+                            .padding(.leading, 36)
                     }
-                    .padding(.leading, 20)
 
                     Spacer()
                     RoundedRectangle(cornerRadius: 16)
@@ -112,24 +92,51 @@ struct CustomCameraView: View {
                         })
                 }
                 .padding(.trailing, 30)
-                .padding(.top, 60)
 
 
 
                 Spacer()
 
                 HStack{
+
+                    Circle()
+                        .overlay(content: {
+                            VStack{
+                                Image(tool.imageName)
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                            }
+                        })
+                        .foregroundColor(.ungu)
+                        .frame(width: 76, height: 76)
+
+                    Spacer()
+
                     Button(action: {cameraService.capturePhoto()}, label: {
                         Image(isDisabled ? "CameraOff" : "Camera")
                             .padding(.horizontal, 18)
                             .padding(.vertical, 22)
-                            .background(isDisabled ? .abuAbu : .ungu)
+                            .background(isDisabled ? .darkRed : .gkananKuning)
                             .clipShape(Circle())
                     })
                     .disabled(isDisabled)
-                }
-                .padding(.bottom, 60)
 
+                    Spacer()
+
+                    Button(action: {tool = toolBrain.getRandomTool(tool)}, label: {
+                        Image(systemName: "arrow.circlepath")
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 22)
+                            .background(.blueTurtle)
+                            .foregroundColor(.gkananKuning)
+                            .clipShape(Circle())
+                            .font(.system(size: 28))
+                    })
+                }
+                .padding(.top, 22)
+                .padding(.bottom, 48)
+                .padding(.horizontal, 8)
+                .background(Color.gray.opacity(0.2))
 
             }
         }
