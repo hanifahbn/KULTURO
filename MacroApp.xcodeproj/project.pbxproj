@@ -71,7 +71,6 @@
 		E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */; };
 		E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EE82AF8F0A3006E99A1 /* Transition.swift */; };
 		E2D73EEB2AFA3142006E99A1 /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EEA2AFA3142006E99A1 /* GiftView.swift */; };
-		E2D73EF02AFA340B006E99A1 /* AsepAnimationWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */; };
 		E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5B92D2AE1364F003B4F70 /* InGameView.swift */; };
 		E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */; };
 		E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */; };
@@ -149,7 +148,6 @@
 		E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButtonMic.swift; sourceTree = "<group>"; };
 		E2D73EE82AF8F0A3006E99A1 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		E2D73EEA2AFA3142006E99A1 /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
-		E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsepAnimationWalk.swift; sourceTree = "<group>"; };
 		E2E5B92D2AE1364F003B4F70 /* InGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameView.swift; sourceTree = "<group>"; };
 		E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationTogar.gif; sourceTree = "<group>"; };
 		E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationAsep.gif; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				E2D73EEA2AFA3142006E99A1 /* GiftView.swift */,
-				E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */,
 			);
 			path = GiftAnimation;
 			sourceTree = "<group>";
@@ -481,7 +478,6 @@
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */,
 				A3B13C162AFA7AF30060535C /* GapuraView.swift in Sources */,
-				E2D73EF02AFA340B006E99A1 /* AsepAnimationWalk.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				E20C88142AE8D80F0054AD47 /* BantuDesaView.swift in Sources */,
 				32E401642AEB80C3007A15AA /* CameraView.swift in Sources */,
