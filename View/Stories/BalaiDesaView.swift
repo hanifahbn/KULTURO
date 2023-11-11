@@ -106,7 +106,7 @@ struct BalaiDesaView: View {
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition
-//            TransitionOpening()
+            TransitionOpening()
             TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)

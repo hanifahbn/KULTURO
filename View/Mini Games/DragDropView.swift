@@ -49,40 +49,42 @@ struct DragDropView: View {
                     Rectangle()
                         .opacity(0.3)
                         .overlay {
-                            ZStack{
-                                Image("HalfDesaBroken")
-                                    .resizable()
-                                    .ignoresSafeArea()
-                                    .opacity(0.8)
-                                    .blur(radius: 2)
-                                VStack{
-                                    Spacer()
-                                    ZStack{
-                                        Image("TextBoxDragDrop")
-                                            .padding(.bottom, 150)
-                                            .padding(.trailing, 140)
-                                            .overlay(content: {
-                                                HStack{
-                                                    VStack {
-                                                        Text("Tolong berikan")
-                                                        HStack{
-                                                            Text("Saya")
-                                                            Text("\(items[currentIndex])")
-                                                                .foregroundStyle(Color.red)
+                            if(items.count != 0){
+                                ZStack{
+                                    Image("HalfDesaBroken")
+                                        .resizable()
+                                        .ignoresSafeArea()
+                                        .opacity(0.8)
+                                        .blur(radius: 2)
+                                    VStack{
+                                        Spacer()
+                                        ZStack{
+                                            Image("TextBoxDragDrop")
+                                                .padding(.bottom, 150)
+                                                .padding(.trailing, 140)
+                                                .overlay(content: {
+                                                    HStack{
+                                                        VStack {
+                                                            Text("Tolong berikan")
+                                                            HStack{
+                                                                Text("Saya")
+                                                                Text("\(items[currentIndex])")
+                                                                    .foregroundStyle(Color.red)
+                                                            }
+                                                            
+                                                            Spacer()
                                                         }
-                                                        
-                                                        Spacer()
+                                                        .font(.custom("Chalkboard-Regular", size: 30))
+                                                        .padding(.trailing, 150)
                                                     }
-                                                    .font(.custom("Chalkboard-Regular", size: 30))
-                                                    .padding(.trailing, 150)
-                                                }
-                                                .padding(5)
-                                                
-                                            })
-                                        Image("KadesHalf")
-                                            .resizable()
-                                            .frame(width: 350, height: 300)
-                                            .padding(.top, 100)
+                                                    .padding(5)
+                                                    
+                                                })
+                                            Image("KadesHalf")
+                                                .resizable()
+                                                .frame(width: 350, height: 300)
+                                                .padding(.top, 100)
+                                        }
                                     }
                                 }
                             }
