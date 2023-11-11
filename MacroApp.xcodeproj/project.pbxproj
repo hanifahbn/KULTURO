@@ -19,13 +19,13 @@
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
 		A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B6A782AFC845B002C0116 /* DummyView.swift */; };
-		A36182232AFB884A0067FC2F /* Tel.wav in Resources */ = {isa = PBXBuildFile; fileRef = A36182222AFB884A0067FC2F /* Tel.wav */; };
-		A36182252AFB886B0067FC2F /* IngananSampah.wav in Resources */ = {isa = PBXBuildFile; fileRef = A36182242AFB886B0067FC2F /* IngananSampah.wav */; };
-		A36182272AFB887D0067FC2F /* JomDinding.wav in Resources */ = {isa = PBXBuildFile; fileRef = A36182262AFB887D0067FC2F /* JomDinding.wav */; };
-		A36182292AFB888E0067FC2F /* Sipadot.wav in Resources */ = {isa = PBXBuildFile; fileRef = A36182282AFB888E0067FC2F /* Sipadot.wav */; };
-		A361822B2AFB88A90067FC2F /* ApusapusNiPat.wav in Resources */ = {isa = PBXBuildFile; fileRef = A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */; };
-		A38699BF2AF1E3FA00C7D458 /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38699BE2AF1E3FA00C7D458 /* backsound.wav */; };
-		A38699C12AF1E40800C7D458 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38699C02AF1E40800C7D458 /* Correct.wav */; };
+		A37A9CAC2AFFD68E002DFA95 /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CAB2AFFD68E002DFA95 /* backsound.wav */; };
+		A37A9CAE2AFFD6C1002DFA95 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CAD2AFFD6C1002DFA95 /* Correct.wav */; };
+		A37A9CB02AFFD6E3002DFA95 /* ApusapusNiPat.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CAF2AFFD6E3002DFA95 /* ApusapusNiPat.wav */; };
+		A37A9CB22AFFD6F7002DFA95 /* IngananSampah.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CB12AFFD6F7002DFA95 /* IngananSampah.wav */; };
+		A37A9CB42AFFD703002DFA95 /* JomDinding.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CB32AFFD703002DFA95 /* JomDinding.wav */; };
+		A37A9CB62AFFD71D002DFA95 /* Sipadot.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CB52AFFD71D002DFA95 /* Sipadot.wav */; };
+		A37A9CB82AFFD732002DFA95 /* Tel.wav in Resources */ = {isa = PBXBuildFile; fileRef = A37A9CB72AFFD732002DFA95 /* Tel.wav */; };
 		A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A2E772AF5F15000E3F52A /* TextSound.swift */; };
 		A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
@@ -33,7 +33,6 @@
 		A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E9B2AEFAC470075E5B8 /* ServerViewModel.swift */; };
 		A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */; };
 		A3AF9EA22AEFAF2B0075E5B8 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */; };
-		A3B13C162AFA7AF30060535C /* GapuraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C152AFA7AF30060535C /* GapuraView.swift */; };
 		A3B13C182AFAB3900060535C /* BalaiDesaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C172AFAB3900060535C /* BalaiDesaView.swift */; };
 		A3B13C1A2AFAB4460060535C /* TokoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C192AFAB4460060535C /* TokoView.swift */; };
 		A3B13C1C2AFAB5940060535C /* GudangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C1B2AFAB5940060535C /* GudangView.swift */; };
@@ -88,13 +87,13 @@
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		A35B6A782AFC845B002C0116 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
-		A36182222AFB884A0067FC2F /* Tel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tel.wav; sourceTree = "<group>"; };
-		A36182242AFB886B0067FC2F /* IngananSampah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IngananSampah.wav; sourceTree = "<group>"; };
-		A36182262AFB887D0067FC2F /* JomDinding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = JomDinding.wav; sourceTree = "<group>"; };
-		A36182282AFB888E0067FC2F /* Sipadot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sipadot.wav; sourceTree = "<group>"; };
-		A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ApusapusNiPat.wav; sourceTree = "<group>"; };
-		A38699BE2AF1E3FA00C7D458 /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
-		A38699C02AF1E40800C7D458 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
+		A37A9CAB2AFFD68E002DFA95 /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = backsound.wav; path = ../../../../../Downloads/backsound.wav; sourceTree = "<group>"; };
+		A37A9CAD2AFFD6C1002DFA95 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Correct.wav; path = ../../../../../Downloads/Correct.wav; sourceTree = "<group>"; };
+		A37A9CAF2AFFD6E3002DFA95 /* ApusapusNiPat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ApusapusNiPat.wav; sourceTree = "<group>"; };
+		A37A9CB12AFFD6F7002DFA95 /* IngananSampah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IngananSampah.wav; sourceTree = "<group>"; };
+		A37A9CB32AFFD703002DFA95 /* JomDinding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = JomDinding.wav; sourceTree = "<group>"; };
+		A37A9CB52AFFD71D002DFA95 /* Sipadot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sipadot.wav; sourceTree = "<group>"; };
+		A37A9CB72AFFD732002DFA95 /* Tel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tel.wav; sourceTree = "<group>"; };
 		A39A2E772AF5F15000E3F52A /* TextSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSound.swift; sourceTree = "<group>"; };
 		A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKata.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 		A3AF9E9B2AEFAC470075E5B8 /* ServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModel.swift; sourceTree = "<group>"; };
 		A3AF9E9F2AEFACAA0075E5B8 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
-		A3B13C152AFA7AF30060535C /* GapuraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapuraView.swift; sourceTree = "<group>"; };
 		A3B13C172AFAB3900060535C /* BalaiDesaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalaiDesaView.swift; sourceTree = "<group>"; };
 		A3B13C192AFAB4460060535C /* TokoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokoView.swift; sourceTree = "<group>"; };
 		A3B13C1B2AFAB5940060535C /* GudangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GudangView.swift; sourceTree = "<group>"; };
@@ -180,11 +178,6 @@
 		A320CD842AFCD29D00067815 /* Batak Example Audios */ = {
 			isa = PBXGroup;
 			children = (
-				A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */,
-				A36182282AFB888E0067FC2F /* Sipadot.wav */,
-				A36182262AFB887D0067FC2F /* JomDinding.wav */,
-				A36182242AFB886B0067FC2F /* IngananSampah.wav */,
-				A36182222AFB884A0067FC2F /* Tel.wav */,
 			);
 			path = "Batak Example Audios";
 			sourceTree = "<group>";
@@ -193,13 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				A3ED9E682AFCCE050041E7D1 /* Audio */,
-				A38699BE2AF1E3FA00C7D458 /* backsound.wav */,
-				A38699C02AF1E40800C7D458 /* Correct.wav */,
-				A36182222AFB884A0067FC2F /* Tel.wav */,
-				A36182242AFB886B0067FC2F /* IngananSampah.wav */,
-				A36182262AFB887D0067FC2F /* JomDinding.wav */,
-				A36182282AFB888E0067FC2F /* Sipadot.wav */,
-				A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */,
 				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
 				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
 				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
@@ -245,7 +231,6 @@
 		A3D5E89F2AF3B568002F5888 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
 				E2791F442AFE7B0D00391F1B /* TempStories */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
@@ -271,8 +256,13 @@
 		A3ED9E682AFCCE050041E7D1 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				A38699C02AF1E40800C7D458 /* Correct.wav */,
-				A38699BE2AF1E3FA00C7D458 /* backsound.wav */,
+				A37A9CAD2AFFD6C1002DFA95 /* Correct.wav */,
+				A37A9CAB2AFFD68E002DFA95 /* backsound.wav */,
+				A37A9CAF2AFFD6E3002DFA95 /* ApusapusNiPat.wav */,
+				A37A9CB12AFFD6F7002DFA95 /* IngananSampah.wav */,
+				A37A9CB32AFFD703002DFA95 /* JomDinding.wav */,
+				A37A9CB52AFFD71D002DFA95 /* Sipadot.wav */,
+				A37A9CB72AFFD732002DFA95 /* Tel.wav */,
 				A320CD842AFCD29D00067815 /* Batak Example Audios */,
 			);
 			path = Audio;
@@ -344,13 +334,6 @@
 		E2791F442AFE7B0D00391F1B /* TempStories */ = {
 			isa = PBXGroup;
 			children = (
-				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
-				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
-				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
-				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
-				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
-				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
-				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
 			);
 			path = TempStories;
 			sourceTree = "<group>";
@@ -447,18 +430,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
-				A36182232AFB884A0067FC2F /* Tel.wav in Resources */,
+				A37A9CAE2AFFD6C1002DFA95 /* Correct.wav in Resources */,
 				E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */,
+				A37A9CB82AFFD732002DFA95 /* Tel.wav in Resources */,
+				A37A9CAC2AFFD68E002DFA95 /* backsound.wav in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
 				E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */,
-				A38699C12AF1E40800C7D458 /* Correct.wav in Resources */,
-				A36182292AFB888E0067FC2F /* Sipadot.wav in Resources */,
+				A37A9CB02AFFD6E3002DFA95 /* ApusapusNiPat.wav in Resources */,
 				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
+				A37A9CB62AFFD71D002DFA95 /* Sipadot.wav in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
-				A36182272AFB887D0067FC2F /* JomDinding.wav in Resources */,
-				A361822B2AFB88A90067FC2F /* ApusapusNiPat.wav in Resources */,
-				A38699BF2AF1E3FA00C7D458 /* backsound.wav in Resources */,
-				A36182252AFB886B0067FC2F /* IngananSampah.wav in Resources */,
+				A37A9CB22AFFD6F7002DFA95 /* IngananSampah.wav in Resources */,
+				A37A9CB42AFFD703002DFA95 /* JomDinding.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +470,6 @@
 				A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */,
-				A3B13C162AFA7AF30060535C /* GapuraView.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				32E401642AEB80C3007A15AA /* CameraView.swift in Sources */,
 				A3B13C202AFABBDE0060535C /* BalaiDesaRenovatedView.swift in Sources */,

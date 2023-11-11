@@ -21,7 +21,7 @@ struct ModalView: View {
             if(modalType == "SoundSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil membeli semua peralatan!")
-                        .font(.custom("Chalkboard-Regular", size: 23))
+                        .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
@@ -38,7 +38,7 @@ struct ModalView: View {
             if(modalType == "CameraSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil menemukan semua peralatan!")
-                        .font(.custom("Chalkboard-Regular", size: 23))
+                        .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
@@ -54,7 +54,7 @@ struct ModalView: View {
             if(modalType == "DragAndDropSuccess"){
                 VStack{
                     Text("Yeay, kamu berhasil menemukan semua peralatan!")
-                        .font(.custom("Chalkboard-Regular", size: 23))
+                        .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
@@ -70,7 +70,7 @@ struct ModalView: View {
             if(modalType == "AyakPasirSuccess"){
                 VStack{
                     Text("Yeay, kita berhasil membuat pasir menjadi lebih halus!")
-                        .font(.custom("Chalkboard-Regular", size: 23))
+                        .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
@@ -86,7 +86,7 @@ struct ModalView: View {
             else if(modalType == "Lose"){
                 VStack{
                     Text("Waktu habis, kamu dan temanmu belum berhasil.")
-                        .font(.custom("Chalkboard-Regular", size: 23))
+                        .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Color.red)
                         .padding(.horizontal, 35)

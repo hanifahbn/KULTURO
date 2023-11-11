@@ -61,13 +61,6 @@ struct ContentView: View {
                             .onAppear{
                                 backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
                             }
-                        
-                    case .storyGapura:
-                        GapuraView()
-                            .environmentObject(matchManager)
-                            .onAppear{
-                                backsoundPlayer.playAudioLoop(fileName: "backsound")
-                            }
                     case .storyBalaiDesa:
                         BalaiDesaView()
                             .environmentObject(matchManager)

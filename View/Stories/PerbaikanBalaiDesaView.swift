@@ -17,7 +17,7 @@ struct PerbaikanBalaiDesaView: View {
     @State var isTapGestureEnabled = false
 //    @State var isCharacterShown = true
     @State var currentIndex = 0
-    @State var stories = perbaikanStoriesFirst
+    @State var stories = perbaikanStoriesSecond
     @State var nextGameStatus: GameStatus = .dragAndDrop
 
     var body: some View {
