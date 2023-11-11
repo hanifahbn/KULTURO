@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MissionOneView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+    @StateObject var viewModel = TransitionViewModel()
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
     @State private var jumlahBenar = 0
@@ -85,8 +85,7 @@ struct MissionOneView: View {
                             .opacity(0.5)
                             .overlay(content: {
                                 HStack{
-                                    Image(systemName: "timer")
-                                        .font(.system(size: 25, weight: .bold))
+                                    Image("IconTimer")                                    
                                     Text(matchManager.timeInString)
                                         .font(.system(size: 17, weight: .bold))
                                 }
@@ -145,6 +144,7 @@ struct MissionOneView: View {
                     updateSheets()
                 }
             }
+            
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)

@@ -58,15 +58,20 @@
 		E251D0BF2AE1304C0024FDD1 /* MatchManager+GKMatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */; };
 		E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */; };
 		E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0C62AE132620024FDD1 /* OnBoardView.swift */; };
+		E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */; };
 		E2A729512AE187120093DD1F /* StoryNarratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729502AE187120093DD1F /* StoryNarratorView.swift */; };
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
 		E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */; };
 		E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EE82AF8F0A3006E99A1 /* Transition.swift */; };
 		E2D73EEB2AFA3142006E99A1 /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EEA2AFA3142006E99A1 /* GiftView.swift */; };
-		E2D73EF02AFA340B006E99A1 /* AsepAnimationWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */; };
-		E2D73EF22AFA3AC7006E99A1 /* AsepAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2D73EF12AFA3AC7006E99A1 /* AsepAnimation.gif */; };
 		E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5B92D2AE1364F003B4F70 /* InGameView.swift */; };
+		E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */; };
+		E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */; };
+		E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */; };
+		E2ED5C342AFCEDB8005D4B22 /* ViewModelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C332AFCEDB8005D4B22 /* ViewModelTransition.swift */; };
+		E2ED5C362AFD1BDA005D4B22 /* TesTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C352AFD1BDA005D4B22 /* TesTransition.swift */; };
+		E2ED5C382AFD1BE6005D4B22 /* TesTransition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C372AFD1BE6005D4B22 /* TesTransition2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,15 +129,20 @@
 		E251D0BE2AE1304B0024FDD1 /* MatchManager+GKMatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C02AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKGameCenterControllerDelegate.swift"; sourceTree = "<group>"; };
 		E251D0C62AE132620024FDD1 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
+		E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Regular.ttf"; sourceTree = "<group>"; };
 		E2A729502AE187120093DD1F /* StoryNarratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNarratorView.swift; sourceTree = "<group>"; };
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
 		E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButtonMic.swift; sourceTree = "<group>"; };
 		E2D73EE82AF8F0A3006E99A1 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		E2D73EEA2AFA3142006E99A1 /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
-		E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsepAnimationWalk.swift; sourceTree = "<group>"; };
-		E2D73EF12AFA3AC7006E99A1 /* AsepAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AsepAnimation.gif; sourceTree = "<group>"; };
 		E2E5B92D2AE1364F003B4F70 /* InGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameView.swift; sourceTree = "<group>"; };
+		E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationTogar.gif; sourceTree = "<group>"; };
+		E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationAsep.gif; sourceTree = "<group>"; };
+		E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationKepalaDesa.gif; sourceTree = "<group>"; };
+		E2ED5C332AFCEDB8005D4B22 /* ViewModelTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTransition.swift; sourceTree = "<group>"; };
+		E2ED5C352AFD1BDA005D4B22 /* TesTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesTransition.swift; sourceTree = "<group>"; };
+		E2ED5C372AFD1BE6005D4B22 /* TesTransition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesTransition2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +193,17 @@
 			isa = PBXGroup;
 			children = (
 				A3ED9E682AFCCE050041E7D1 /* Audio */,
-				E2D73EF12AFA3AC7006E99A1 /* AsepAnimation.gif */,
+				A38699BE2AF1E3FA00C7D458 /* backsound.wav */,
+				A38699C02AF1E40800C7D458 /* Correct.wav */,
+				A36182222AFB884A0067FC2F /* Tel.wav */,
+				A36182242AFB886B0067FC2F /* IngananSampah.wav */,
+				A36182262AFB887D0067FC2F /* JomDinding.wav */,
+				A36182282AFB888E0067FC2F /* Sipadot.wav */,
+				A361822A2AFB88A90067FC2F /* ApusapusNiPat.wav */,
+				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
+				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
+				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
+				E2791F412AFE260400391F1B /* Font */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,
 				E20C87CC2AE412E60054AD47 /* ViewModel */,
@@ -225,9 +245,10 @@
 		A3D5E89F2AF3B568002F5888 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
+				E2791F442AFE7B0D00391F1B /* TempStories */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
+				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
 				A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */,
@@ -279,6 +300,7 @@
 			children = (
 				E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */,
 				E238328F2AEA272B001DB289 /* NavigationViewModel.swift */,
+				E2ED5C332AFCEDB8005D4B22 /* ViewModelTransition.swift */,
 				A3AF9E992AEFAC0D0075E5B8 /* AudioViewModel.swift */,
 				A3AF9E9B2AEFAC470075E5B8 /* ServerViewModel.swift */,
 				A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */,
@@ -311,6 +333,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E2791F412AFE260400391F1B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		E2791F442AFE7B0D00391F1B /* TempStories */ = {
+			isa = PBXGroup;
+			children = (
+				A3B13C152AFA7AF30060535C /* GapuraView.swift */,
+				E20C88112AE8BC440054AD47 /* GudangStoriesView.swift */,
+				E20C88132AE8D80F0054AD47 /* BantuDesaView.swift */,
+				E20C88152AE90FE20054AD47 /* PasirStoriesView.swift */,
+				E20C88172AE914D40054AD47 /* EndStoriesView.swift */,
+				E20C87CF2AE435EB0054AD47 /* DesaStoriesView.swift */,
+				E20C87D12AE58FD20054AD47 /* BeliStoriesView.swift */,
+			);
+			path = TempStories;
+			sourceTree = "<group>";
+		};
 		E2A729522AE215D10093DD1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				E2D73EE82AF8F0A3006E99A1 /* Transition.swift */,
+				E2ED5C352AFD1BDA005D4B22 /* TesTransition.swift */,
+				E2ED5C372AFD1BE6005D4B22 /* TesTransition2.swift */,
 			);
 			path = Transition;
 			sourceTree = "<group>";
@@ -338,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				E2D73EEA2AFA3142006E99A1 /* GiftView.swift */,
-				E2D73EEF2AFA340B006E99A1 /* AsepAnimationWalk.swift */,
 			);
 			path = GiftAnimation;
 			sourceTree = "<group>";
@@ -401,11 +446,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
 				A36182232AFB884A0067FC2F /* Tel.wav in Resources */,
-				E2D73EF22AFA3AC7006E99A1 /* AsepAnimation.gif in Resources */,
+				E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
+				E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */,
 				A38699C12AF1E40800C7D458 /* Correct.wav in Resources */,
 				A36182292AFB888E0067FC2F /* Sipadot.wav in Resources */,
+				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
 				A36182272AFB887D0067FC2F /* JomDinding.wav in Resources */,
 				A361822B2AFB88A90067FC2F /* ApusapusNiPat.wav in Resources */,
@@ -431,6 +479,7 @@
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
 				A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
+				E2ED5C362AFD1BDA005D4B22 /* TesTransition.swift in Sources */,
 				E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */,
 				E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */,
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
@@ -439,7 +488,6 @@
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */,
 				A3B13C162AFA7AF30060535C /* GapuraView.swift in Sources */,
-				E2D73EF02AFA340B006E99A1 /* AsepAnimationWalk.swift in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				32E401642AEB80C3007A15AA /* CameraView.swift in Sources */,
 				A3B13C202AFABBDE0060535C /* BalaiDesaRenovatedView.swift in Sources */,
@@ -447,8 +495,10 @@
 				E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */,
 				32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */,
 				E2A729512AE187120093DD1F /* StoryNarratorView.swift in Sources */,
+				E2ED5C382AFD1BE6005D4B22 /* TesTransition2.swift in Sources */,
 				E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */,
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
+				E2ED5C342AFCEDB8005D4B22 /* ViewModelTransition.swift in Sources */,
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
 				A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
