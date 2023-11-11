@@ -60,6 +60,7 @@ struct MissionOneView: View {
                         RoundedRectangle(cornerRadius: 15.0)
                             .frame(width: 220, height: 54)
                             .foregroundStyle(.white)
+                            .opacity(0.5)
                             .shadow(radius: 0, y: 5)
                             .overlay {
                                 HStack{
@@ -108,7 +109,7 @@ struct MissionOneView: View {
                 }
 
                 Spacer()
-                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
                         if audioViewModel.audio.isRecording == false {
                             audioViewModel.startRecording()
                         }
