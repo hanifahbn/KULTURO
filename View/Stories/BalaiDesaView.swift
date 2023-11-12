@@ -69,6 +69,8 @@ struct BalaiDesaView: View {
                 .animation(.linear(duration: 1.5), value: isSecondAnimation)
                 .opacity(isAnimatedKepalaDesa ? 0 : 1)
                 .scaleEffect(x: -1, y : 1)
+            TransitionOpening()
+            TransitionClosing(viewModel: viewModel)
             VStack{
                 Spacer()
                 HStack{
@@ -106,8 +108,7 @@ struct BalaiDesaView: View {
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition
-            TransitionOpening()
-            TransitionClosing(viewModel: viewModel)
+           
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {

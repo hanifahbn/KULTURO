@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var matchManager = MatchManager()
-    @ObservedObject var router = RouterViewModel()
+//    @ObservedObject var router = RouterViewModel()
     @ObservedObject var backsoundPlayer = PlayerViewModel()
     
     var body: some View {
@@ -55,10 +55,10 @@ struct ContentView: View {
                         OnBoardView()
                             .environmentObject(matchManager)
                             .onAppear {
-                                router.clear()
+//                                router.clear()
                                 matchManager.reset()
                                 backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
-                                router.navigate(to: matchManager.gameStatus)
+//                                router.navigate(to: matchManager.gameStatus)
                             }
                     case .inGame:
                         InGameView()

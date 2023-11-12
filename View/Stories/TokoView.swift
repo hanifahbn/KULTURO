@@ -72,6 +72,7 @@ struct TokoView: View {
                 .frame(width: 100, height: 200)
                 .offset(x : 120, y: 150)
                 .opacity(isConversation ? 0 : 1)
+            TransitionOpening()
             VStack{
                 Spacer()
                 HStack{
@@ -108,7 +109,7 @@ struct TokoView: View {
 //                    .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
-            TransitionOpening()
+               
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
