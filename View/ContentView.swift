@@ -47,10 +47,10 @@ struct ContentView: View {
                         OnBoardView()
                             .environmentObject(matchManager)
                             .onAppear {
-//                                router.clear()
+                                router.clear()
                                 matchManager.reset()
                                 backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
-//                                router.navigate(to: matchManager.gameStatus)
+                                router.navigate(to: matchManager.gameStatus)
                             }
                     case .inGame:
                         InGameView()

@@ -41,9 +41,9 @@
 		A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narration.swift */; };
 		A3E8E6B42B00F1F0006D221E /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */; };
 		A3E8E6B82B00F5E1006D221E /* Batak Example Audios in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6B72B00F5E0006D221E /* Batak Example Audios */; };
-		A3E8E6BC2B00F619006D221E /* Wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6BB2B00F619006D221E /* Wrong.wav */; };
 		A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6BD2B00F656006D221E /* backsound.wav */; };
 		A3E8E6C22B00F6AA006D221E /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6C12B00F6AA006D221E /* Correct.wav */; };
+		A3E8E6C42B00F7E6006D221E /* Wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6C32B00F7E6006D221E /* Wrong.wav */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryTemp.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
@@ -109,9 +109,9 @@
 		A3D5E89D2AF3AC1F002F5888 /* Narration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narration.swift; sourceTree = "<group>"; };
 		A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
 		A3E8E6B72B00F5E0006D221E /* Batak Example Audios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Batak Example Audios"; sourceTree = "<group>"; };
-		A3E8E6BB2B00F619006D221E /* Wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Wrong.wav; path = ../../../../../Downloads/Wrong.wav; sourceTree = "<group>"; };
 		A3E8E6BD2B00F656006D221E /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
 		A3E8E6C12B00F6AA006D221E /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
+		A3E8E6C32B00F7E6006D221E /* Wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Wrong.wav; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* StoryTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTemp.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
@@ -247,9 +247,9 @@
 		A3ED9E682AFCCE050041E7D1 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				A3E8E6C32B00F7E6006D221E /* Wrong.wav */,
 				A3E8E6C12B00F6AA006D221E /* Correct.wav */,
 				A3E8E6BD2B00F656006D221E /* backsound.wav */,
-				A3E8E6BB2B00F619006D221E /* Wrong.wav */,
 				A3E8E6B72B00F5E0006D221E /* Batak Example Audios */,
 			);
 			path = Audio;
@@ -420,13 +420,13 @@
 			files = (
 				A3E8E6B82B00F5E1006D221E /* Batak Example Audios in Resources */,
 				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
-				A3E8E6BC2B00F619006D221E /* Wrong.wav in Resources */,
 				A3E8E6C22B00F6AA006D221E /* Correct.wav in Resources */,
 				E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
 				E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */,
 				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
+				A3E8E6C42B00F7E6006D221E /* Wrong.wav in Resources */,
 				A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
