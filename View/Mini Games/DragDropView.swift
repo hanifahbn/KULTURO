@@ -14,9 +14,7 @@ struct DragDropView: View {
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
     
-    @State var items = toolList.compactMap { tool in
-        tool.image != nil ? tool: nil
-    }
+    @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
     
     @State var currentIndex = 0
     @State private var isTutorialShown = false //nilai awal true
@@ -73,7 +71,7 @@ struct DragDropView: View {
                                                             Text("Tolong berikan")
                                                             HStack{
                                                                 Text("saya")
-                                                                Text("\(items[currentIndex].bahasaName)")
+                                                                Text("\(items[currentIndex])")
                                                                     .foregroundStyle(Color.red)
                                                             }
                                                             
@@ -147,8 +145,8 @@ struct DragDropView: View {
                     Spacer()
                 }
                 if(items.count != 0){
-                    ForEach(items.indices, id: \.self) { item in
-                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
+                    ForEach(items, id: \.self) { item in
+                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
                     }
                 }
                 if askItems {
@@ -230,7 +228,7 @@ struct DragDropView: View {
         }
         .onAppear{
             //TImer
-            matchManager.startTimer(time: 30)
+//            matchManager.startTimer(time: 30)
         }
         .onTapGesture {
             isTutorialShown = false
@@ -277,8 +275,10 @@ struct ItemDrag: View {
     @Binding var askItems: Bool
     @Binding var askItems2: Bool
     @Binding var currentIndex: Int
-    @Binding var items: [ToolBahasa]
-    @Binding var imageTool: ToolBahasa
+//    @Binding var items: [ToolBahasa]
+//    @Binding var imageTool: ToolBahasa
+    @Binding var items: [String]
+    @State var imageTool: String
     
     @State var exceedCount = 0
 
@@ -290,20 +290,21 @@ struct ItemDrag: View {
     let maxY = 300.0  // Adjust this value for the maximum Y-coordinate
     
     
-    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
+    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: String, items: Binding<[String]>) {
         
         self._position = State(initialValue: CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY)))
         self._askItems = askItems
         self._askItems2 = askItems2
         self._currentIndex = currentIndex
-        self._imageTool = imageTool
+        self.imageTool = imageTool
         self._items = items
     }
     
     var body: some View {
-        Image(imageTool.image!)
+        Image(imageTool)
             .resizable()
-            .frame(width: imageTool.width!, height: imageTool.height!)
+//            .frame(width: imageTool.width!, height: imageTool.height!)
+            .frame(width: 100, height: 100)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -328,9 +329,12 @@ struct ItemDrag: View {
             if exceedCount >= 5 {
                 print("aw")
             }
-            if imageTool.bahasaName == items[currentIndex].image  {
+            if imageTool == items[currentIndex]  {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0){
+                    playerViewModel.playAudio(fileName: "Correct")
+                }
                 items = items.filter { tool in
-                    return tool.image != imageTool.bahasaName
+                    return tool != imageTool
                 }
 
                 playerViewModel.playAudio(fileName: "Correct")
