@@ -9,10 +9,15 @@ import SwiftUI
 
 struct DragDropView: View {
     @EnvironmentObject var matchManager: MatchManager
+    
     @State var isModalPresented : Bool = false
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
-    @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
+    
+    @State var items = toolList.compactMap { tool in
+        tool.image != nil ? tool: nil
+    }
+    
     @State var currentIndex = 0
     @State private var isTutorialShown = false //nilai awal true
     
@@ -67,14 +72,14 @@ struct DragDropView: View {
                                                         VStack {
                                                             Text("Tolong berikan")
                                                             HStack{
-                                                                Text("Saya")
-                                                                Text("\(items[currentIndex])")
+                                                                Text("saya")
+                                                                Text("\(items[currentIndex].bahasaName)")
                                                                     .foregroundStyle(Color.red)
                                                             }
                                                             
                                                             Spacer()
                                                         }
-                                                        .font(.custom("Chalkboard-Regular", size: 30))
+                                                        .font(.custom("Chalkboard-Regular", size: 25))
                                                         .padding(.trailing, 150)
                                                     }
                                                     .padding(5)
@@ -142,8 +147,8 @@ struct DragDropView: View {
                     Spacer()
                 }
                 if(items.count != 0){
-                    ForEach(items, id: \.self) { item in
-                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
+                    ForEach(items.indices, id: \.self) { item in
+                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
                     }
                 }
                 if askItems {
@@ -265,13 +270,16 @@ struct DragDropView: View {
 }
 
 struct ItemDrag: View {
+    @State var playerViewModel = PlayerViewModel()
+    
     @State var dragOffset: CGSize = .zero
     @State var position: CGSize
     @Binding var askItems: Bool
     @Binding var askItems2: Bool
     @Binding var currentIndex: Int
-    @Binding var items: [String]
-    @State var imageTool: String
+    @Binding var items: [ToolBahasa]
+    @Binding var imageTool: ToolBahasa
+    
     @State var exceedCount = 0
     
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
@@ -280,19 +288,20 @@ struct ItemDrag: View {
     let maxY = 300.0  // Adjust this value for the maximum Y-coordinate
     
     
-    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: String, items: Binding<[String]>) {
+    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
         
         self._position = State(initialValue: CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY)))
         self._askItems = askItems
         self._askItems2 = askItems2
         self._currentIndex = currentIndex
-        self.imageTool = imageTool
+        self._imageTool = imageTool
         self._items = items
     }
     
     var body: some View {
-        Image(imageTool)
-            .frame(width: 150, height: 150)
+        Image(imageTool.image!)
+            .resizable()
+            .frame(width: imageTool.width!, height: imageTool.height!)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -305,6 +314,9 @@ struct ItemDrag: View {
                         askItem()
                     })
             )
+            .onAppear{
+//                print("Image : \(imageTool.image!) = \(position.width) - \(position.height)")
+            }
     }
     
     func askItem() {
@@ -314,8 +326,10 @@ struct ItemDrag: View {
             if exceedCount >= 5 {
                 print("aw")
             }
-            if imageTool == items[currentIndex]  {
-                items = items.filter{$0 != imageTool}
+            if imageTool.bahasaName == items[currentIndex].image  {
+                items = items.filter { tool in
+                    return tool.image != imageTool.bahasaName
+                }
                 
                 if items.count == 0 {
                     askItems = true
@@ -324,6 +338,8 @@ struct ItemDrag: View {
                 }
             } else {
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
+                
+                playerViewModel.playAudio(fileName: "Wrong")
             }
             
         } else if position.width > 170 || position.width < -170 {

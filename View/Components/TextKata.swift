@@ -12,7 +12,7 @@ struct TextKata: View {
     @State var textURL : String
     @StateObject var playerViewModel = PlayerViewModel()
     var body: some View {
-        HStack(spacing: 20){
+        HStack(spacing: 5){
             Button(action: {
                 playerViewModel.playAudio(fileName: textURL)
             }, label: {
@@ -27,7 +27,12 @@ struct TextKata: View {
                         .font(.system(size: 15, weight: .semibold))
                         .font(.title)
 
-                    Text(" = \(splitText[1])")
+                    Text("=")
+                        .foregroundStyle(.black )
+                        .font(.system(size: 15, weight: .semibold))
+                        .font(.title)
+                    
+                    Text(splitText[1])
                         .foregroundStyle(Color.darkRed)
                         .font(.system(size: 15, weight: .semibold))
                         .font(.title)
@@ -41,5 +46,6 @@ struct TextKata: View {
             Spacer()
         }
         .padding(.leading, 70)
+        .padding(.trailing, 50)
     }
 }

@@ -48,10 +48,10 @@ struct PerbaikanBalaiDesaView: View {
             }
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.leading, 50)
                 }

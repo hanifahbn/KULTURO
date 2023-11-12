@@ -30,26 +30,26 @@ struct TokoView: View {
             Image("BackgroundPanglong")
                 .resizable()
                 .ignoresSafeArea()
-            if currentIndex >= 3{
-                VStack{
-                    Rectangle()
-                        .frame(height: 50)
-                        .foregroundStyle(Color.kuning)
-                        .overlay {
-                            Text("Mission 1 >>")
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundStyle(Color.blueTurtle)
-                                .shadow(color: .white ,radius: 0, y: 1)
-                        }
-                    Spacer()
-                }
-            }
+//            if currentIndex >= 3{
+//                VStack{
+//                    Rectangle()
+//                        .frame(height: 50)
+//                        .foregroundStyle(Color.kuning)
+//                        .overlay {
+//                            Text("Mission 1 >>")
+//                                .font(.system(size: 28, weight: .semibold))
+//                                .foregroundStyle(Color.blueTurtle)
+//                                .shadow(color: .white ,radius: 0, y: 1)
+//                        }
+//                    Spacer()
+//                }
+//            }
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.leading, 50)
                 }

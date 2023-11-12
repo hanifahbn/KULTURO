@@ -27,10 +27,10 @@ struct BalaiDesaView: View {
             //MARK: Animation
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 200)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 200)
                         .padding(.leading, 50)
                 }
@@ -62,7 +62,7 @@ struct BalaiDesaView: View {
                     .offset(y: 70)
             }
             
-            GifImage("AnimationKepalaDesa")
+            GifImage(characters[4].gifImage!)
                 .frame(width: 200, height: 230)
                 .padding(.leading, 50)
                 .offset(x:  isSecondAnimation ? -120 : -300, y: 100)

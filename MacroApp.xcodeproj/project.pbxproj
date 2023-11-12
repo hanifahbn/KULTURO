@@ -45,6 +45,7 @@
 		A3C85B622AEF7337001669A6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C85B612AEF7337001669A6 /* Tool.swift */; };
 		A3D5E89A2AF3957F002F5888 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E8992AF3957F002F5888 /* Story.swift */; };
 		A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narration.swift */; };
+		A3E968512B001A410092C0B7 /* Wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E968502B001A410092C0B7 /* Wrong.wav */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
 		E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87C92AE4129F0054AD47 /* StoryTemp.swift */; };
 		E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */; };
@@ -114,6 +115,7 @@
 		A3C85B612AEF7337001669A6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		A3D5E8992AF3957F002F5888 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		A3D5E89D2AF3AC1F002F5888 /* Narration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narration.swift; sourceTree = "<group>"; };
+		A3E968502B001A410092C0B7 /* Wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Wrong.wav; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
 		E20C87C92AE4129F0054AD47 /* StoryTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTemp.swift; sourceTree = "<group>"; };
 		E20C87CD2AE412FF0054AD47 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				A37A9CB32AFFD703002DFA95 /* JomDinding.wav */,
 				A37A9CB52AFFD71D002DFA95 /* Sipadot.wav */,
 				A37A9CB72AFFD732002DFA95 /* Tel.wav */,
+				A3E968502B001A410092C0B7 /* Wrong.wav */,
 				A320CD842AFCD29D00067815 /* Batak Example Audios */,
 			);
 			path = Audio;
@@ -435,6 +438,7 @@
 				A37A9CB82AFFD732002DFA95 /* Tel.wav in Resources */,
 				A37A9CAC2AFFD68E002DFA95 /* backsound.wav in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
+				A3E968512B001A410092C0B7 /* Wrong.wav in Resources */,
 				E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */,
 				A37A9CB02AFFD6E3002DFA95 /* ApusapusNiPat.wav in Resources */,
 				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
