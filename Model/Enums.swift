@@ -30,6 +30,5 @@ enum GameStatus {
     case shakeGame
     case storyBalaiDesaRenovated
     case ending
-    case empty
     case dummy
 }

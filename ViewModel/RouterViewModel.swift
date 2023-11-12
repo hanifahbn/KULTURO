@@ -17,7 +17,9 @@ class RouterViewModel: ObservableObject {
     }
     
     func clear() {
-        navPath.removeLast()
+        if navPath.count > 0 {
+            navPath.removeLast()
+        }
     }
     
     func navigateToRoot() {
