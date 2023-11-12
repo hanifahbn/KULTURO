@@ -54,6 +54,7 @@ struct StoryNarratorView: View {
                     .shadow(radius: 10)
             }
             .padding(.top, 20)
+            TransitionClosing(viewModel: viewModel)
             HStack{
                 Spacer()
                 Button(action: {
@@ -65,8 +66,8 @@ struct StoryNarratorView: View {
                 })
                 .padding(.top, 200)
                 .padding(.trailing, 10)
+                .opacity(viewModel.transition ? 0 : 1)
             }
-            TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{
