@@ -10,11 +10,10 @@ import Foundation
 struct ToolBrain {
 
     var tools = [
-        Tool(i: "Clock", o: "notebook, notebook computer"),
-        Tool(i: "Broom", o: "broom"),
-        Tool(i: "Bucket", o: "bucket, pail"),
-        Tool(i: "Dustbin", o: "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"),
-        Tool(i: "Doormat", o: "doormat, welcome mat")
+        Tool(i: "Jam Analog", o: "analog clock"),
+        Tool(i: "Sapu", o: "broom"),
+        Tool(i: "Ember", o: "bucket, pail"),
+        Tool(i: "Keset", o: "doormat, welcome mat")
     ]
 
     func getRandomTool(_ tool : Tool?) -> Tool {

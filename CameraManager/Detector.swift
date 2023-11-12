@@ -23,17 +23,17 @@ extension CameraViewController {
             guard let results  = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObservation = results.first else { return }
 
-            if firstObservation.identifier == self.tool.objectIdentifier {
+            if firstObservation.identifier == self.tool?.objectIdentifier {
 
                 if (!isDelay) {
                     self.isDelay = true
                     self.cameraDelegate?.changeButton(isDisabled: false)
 
                     // haptic setiap kelipatan 0.3
-                    self.notificationGenerator.notificationOccurred(.success)
+                    self.hapticViewModel.simpleSuccess()
                     for _ in 1...9 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + timerCounter) {
-                            self.notificationGenerator.notificationOccurred(.success)
+                            self.hapticViewModel.simpleSuccess()
                         }
                         self.timerCounter += 0.3
                     }

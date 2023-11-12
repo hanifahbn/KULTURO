@@ -281,7 +281,9 @@ struct ItemDrag: View {
     @Binding var imageTool: ToolBahasa
     
     @State var exceedCount = 0
-    
+
+    let hapticViewModel = HapticViewModel()
+
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
     let minY = 0.0 // Adjust this value for the minimum Y-coordinate
@@ -330,13 +332,20 @@ struct ItemDrag: View {
                 items = items.filter { tool in
                     return tool.image != imageTool.bahasaName
                 }
-                
-                if items.count == 0 {
-                    askItems = true
-                } else {
-                    currentIndex = Int.random(in: 0...items.count - 1)
-                }
+
+                playerViewModel.playAudio(fileName: "Correct")
+                hapticViewModel.simpleSuccess()
+
+
+                    if items.count == 0 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                            askItems = true
+                        }
+                    } else {
+                        currentIndex = Int.random(in: 0...items.count - 1)
+                    }
             } else {
+                hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
                 
                 playerViewModel.playAudio(fileName: "Wrong")

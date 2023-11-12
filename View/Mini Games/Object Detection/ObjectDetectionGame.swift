@@ -74,7 +74,7 @@ struct ObjectDetectionGame: View {
                         .zIndex(3)
                     }
                     ZStack{
-                        CustomCameraView(capturedImage: $capturedImage, tool: $tool).ignoresSafeArea()
+                        CustomCameraView(capturedImage: $capturedImage, tool: $tool)
                     }
                 }
             }
