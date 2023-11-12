@@ -51,8 +51,8 @@ struct AyakPasirView: View {
                         .opacity(0.5)
                         .overlay(content: {
                             HStack{
-                                Image(systemName: "timer")
-                                    .font(.system(size: 25, weight: .bold))
+                                Image("IconTimer")
+//                                    .font(.system(size: 25, weight: .bold))
                                 Text(matchManager.timeInString)
                                     .font(.system(size: 17, weight: .bold))
                             }

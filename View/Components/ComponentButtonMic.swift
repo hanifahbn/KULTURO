@@ -32,7 +32,7 @@ struct ComponentButtonMic: View {
                         .foregroundStyle(.black)
                 }
                 Text(textButton)
-                    .font(.title3)
+                    .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundStyle(.black)
             }

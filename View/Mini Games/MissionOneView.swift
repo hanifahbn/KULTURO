@@ -10,6 +10,8 @@ import SwiftUI
 struct MissionOneView: View {
     @EnvironmentObject var matchManager: MatchManager
 
+    @StateObject var viewModel = TransitionViewModel()
+
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
     @State private var jumlahBenar = 0
@@ -62,6 +64,7 @@ struct MissionOneView: View {
                         RoundedRectangle(cornerRadius: 15.0)
                             .frame(width: 220, height: 54)
                             .foregroundStyle(.white)
+                            .opacity(0.5)
                             .shadow(radius: 0, y: 5)
                             .overlay {
                                 HStack{
@@ -87,8 +90,7 @@ struct MissionOneView: View {
                             .opacity(0.5)
                             .overlay(content: {
                                 HStack{
-                                    Image(systemName: "timer")
-                                        .font(.system(size: 25, weight: .bold))
+                                    Image("IconTimer")
                                     Text(matchManager.timeInString)
                                         .font(.system(size: 17, weight: .bold))
                                 }
@@ -108,45 +110,51 @@ struct MissionOneView: View {
                         .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
                     TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL)
                         .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
-                }
 
-                Spacer()
-                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
-                    if audioViewModel.audio.isRecording == false {
-                        audioViewModel.startRecording()
-                    }
-                    else {
-                        audioViewModel.stopRecording()
-                        //                            print("Label di view: \(audioViewModel.audio.label)")
-                        //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                        textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
-                        playerViewModel.playAudio(fileName: "Correct")
-                        hapticViewModel.simpleSuccess()
-                        spoken[currentStep] = true
-                        currentStep = currentStep + 1
-                        jumlahBenar = jumlahBenar + 1
-                        if(jumlahBenar == 3){
-                            matchManager.isFinishedPlaying += 1
-                            matchManager.synchronizeGameState("SoundMission")
-                            isSuccess = true
+
+                    Spacer()
+
+                    RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "mic.fill") {
+                        if audioViewModel.audio.isRecording == false {
+                            audioViewModel.startRecording()
                         }
-
+                    }
+                    RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
+                        if audioViewModel.audio.isRecording == false {
+                            audioViewModel.startRecording()
+                        }
+                        else {
+                            audioViewModel.stopRecording()
+                            //                            print("Label di view: \(audioViewModel.audio.label)")
+                            //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+                            textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
+                            playerViewModel.playAudio(fileName: "Correct")
+                            hapticViewModel.simpleSuccess()
+                            spoken[currentStep] = true
+                            currentStep = currentStep + 1
+                            jumlahBenar = jumlahBenar + 1
+                            if(jumlahBenar == 3){
+                                matchManager.isFinishedPlaying += 1
+                                matchManager.synchronizeGameState("SoundMission")
+                                isSuccess = true
+                            }
+                        }
                     }
                 }
-                //                }
-                .disabled(jumlahBenar == 3)
-                .padding(.bottom, 40)
-                .onAppear{
-                }
-                .onChange(of: isSuccess) { _ in
-                    updateSheets()
-                }
-                .onChange(of: matchManager.isTimerRunning) { _ in
-                    updateSheets()
-                }
-                .onChange(of: matchManager.isFinishedPlaying) { _ in
-                    updateSheets()
-                }
+
+            }
+            .disabled(jumlahBenar == 3)
+            .padding(.bottom, 40)
+            .onAppear{
+            }
+            .onChange(of: isSuccess) { _ in
+                updateSheets()
+            }
+            .onChange(of: matchManager.isTimerRunning) { _ in
+                updateSheets()
+            }
+            .onChange(of: matchManager.isFinishedPlaying) { _ in
+                updateSheets()
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -188,7 +196,7 @@ struct MissionOneView: View {
             matchManager.startTimer(time: 46)
         }
     }
-    
+
     private func updateSheets() {
         if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .soundSuccess

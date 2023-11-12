@@ -28,9 +28,9 @@ struct RecordButton: View {
                 .padding(.top, ButtonTap ? 15 : 0 )
             HStack{
                 if(isWithIcon == true){
-                    Image(systemName: iconButton)
-                        .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(.black)
+                    Image("\(iconButton)")
+//                        .font(.system(size: 30, weight: .bold))
+//                        .foregroundStyle(.black)
                 }
                 Text(ButtonTap ? "Tekan Jika Selesai" : "Tekan Untuk Bicara")
                     .font(.title2)

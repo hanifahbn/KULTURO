@@ -16,9 +16,9 @@ struct TextKata: View {
             Button(action: {
                 playerViewModel.playAudio(fileName: textURL)
             }, label: {
-                Image(systemName: "speaker.wave.3.fill")
-                    .resizable()
-                    .frame(width: 30, height: 26)
+                Image("IconButtonSpeaker")
+//                    .resizable()
+//                    .frame(width: 30, height: 26)
             })
             if let splitText = textBahasa.components(separatedBy: " = ") as? [String], splitText.count == 2 {
                 HStack {

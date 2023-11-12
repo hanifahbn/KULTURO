@@ -17,11 +17,11 @@ struct BalaiDesaRenovatedView: View {
     var body: some View {
         ZStack{
             // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-            Rectangle()
-                .ignoresSafeArea()
-                .zIndex(1)
-                .opacity(isGoingToNextView ? 1 : 0)
-                .animation(.easeIn(duration: 1), value: isGoingToNextView)
+//            Rectangle()
+//                .ignoresSafeArea()
+//                .zIndex(1)
+//                .opacity(isGoingToNextView ? 1 : 0)
+//                .animation(.easeIn(duration: 1), value: isGoingToNextView)
             Image("BalaiDesaRenovated")
                 .resizable()
                 .ignoresSafeArea()
@@ -31,21 +31,33 @@ struct BalaiDesaRenovatedView: View {
                     Image(medanSuccessStories[currentIndex].isTalking.halfImage)
                 }
                 .padding(.bottom, -300)
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(.white)
-                    .shadow(radius: 0, y: 5)
+                Image("TextBoxStory")
+                    .resizable()
+                    .frame(width: 360, height: 230)
                     .overlay {
                         VStack{
                             HStack{
                                 Text(medanSuccessStories[currentIndex].text)
-                                    .font(.system(size: 25, weight: .medium, design: .rounded))
+                                    .font(.custom("Chalkboard-Regular", size: 30))
                                     .padding(15)
                                 Spacer()
                             }
                             Spacer()
                         }
+                        .padding()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                print("Sound")
+                            }, label: {
+                                Image("IconButtonSpeaker")
+                                    .resizable()
+                                    .frame(width: 70, height: 50)
+                            })
+                            .padding(.top, 130)
+                            .padding(.trailing, 15)
+                        }
                     }
-                    .frame(width: 350, height: 200)
             }
         }
         .navigationBarBackButtonHidden(true)
