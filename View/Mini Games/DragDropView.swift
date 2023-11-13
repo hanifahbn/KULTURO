@@ -349,13 +349,11 @@ struct ItemDrag: View {
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     if items.count == 0 {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                            askItems = true
-                        }
+                        askItems = true
                     } else {
-                        currentIndex = Int.random(in: 0...items.count - 1)
+                        //                        currentIndex = Int.random(in: 0...items.count - 1)
                     }
                 }
             } else {
