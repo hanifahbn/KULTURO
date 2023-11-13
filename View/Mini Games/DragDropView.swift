@@ -17,7 +17,7 @@ struct DragDropView: View {
     @State var items = ["Ember", "Sapu", "Keranjang","Kapak","Palu"]
     
     @State var currentIndex = 0
-    @State private var isTutorialShown = false //nilai awal true
+    @State private var isTutorialShown = true //nilai awal true
     
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
@@ -237,8 +237,10 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-            //TImer
-//            matchManager.startTimer(time: 30)
+            //Timer
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                matchManager.startTimer(time: 31)
+//            }
         }
         .onTapGesture {
             isTutorialShown = false

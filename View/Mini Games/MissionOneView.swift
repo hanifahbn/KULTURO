@@ -187,7 +187,9 @@ struct MissionOneView: View {
         .onAppear{
             tools = tools.shuffled()
             textNamaTool = tools.prefix(3).map { $0.localName! }
-            matchManager.startTimer(time: 46)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                matchManager.startTimer(time: 46)
+//            }
         }
     }
     
