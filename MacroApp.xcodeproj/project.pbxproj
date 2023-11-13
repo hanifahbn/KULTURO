@@ -17,6 +17,7 @@
 		32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401702AEB987E007A15AA /* CameraViewController.swift */; };
 		32E401732AEB9897007A15AA /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401722AEB9897007A15AA /* Detector.swift */; };
 		A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31CD01C2AEFB69D00B91325 /* RecordButton.swift */; };
+		A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A34F9D102B0203110028E45E /* Dayu 2.m4a */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
 		A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B6A782AFC845B002C0116 /* DummyView.swift */; };
@@ -87,7 +88,7 @@
 		A3B4F8FB2B01E225006CF328 /* Ajeng 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EC2B01E225006CF328 /* Ajeng 5.m4a */; };
 		A3B4F8FC2B01E225006CF328 /* Ajeng 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8ED2B01E225006CF328 /* Ajeng 7.m4a */; };
 		A3B4F8FD2B01E225006CF328 /* Ajeng 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */; };
-		A3B4F8FE2B01E225006CF328 /* Ajengn 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */; };
+		A3B4F8FE2B01E225006CF328 /* Ajeng 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EF2B01E225006CF328 /* Ajeng 6.m4a */; };
 		A3B4F8FF2B01E225006CF328 /* Ajeng 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F02B01E225006CF328 /* Ajeng 10.m4a */; };
 		A3B4F9002B01E225006CF328 /* Ajeng 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F12B01E225006CF328 /* Ajeng 3.m4a */; };
 		A3B4F9012B01E225006CF328 /* Ajeng 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F22B01E225006CF328 /* Ajeng 11.m4a */; };
@@ -160,6 +161,7 @@
 		32E401722AEB9897007A15AA /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		A31CD01C2AEFB69D00B91325 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		A32FAC342AF0BE57009307B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A34F9D102B0203110028E45E /* Dayu 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 2.m4a"; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		A35B6A782AFC845B002C0116 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
@@ -230,7 +232,7 @@
 		A3B4F8EC2B01E225006CF328 /* Ajeng 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 5.m4a"; sourceTree = "<group>"; };
 		A3B4F8ED2B01E225006CF328 /* Ajeng 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 7.m4a"; sourceTree = "<group>"; };
 		A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 13.m4a"; sourceTree = "<group>"; };
-		A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajengn 6.m4a"; sourceTree = "<group>"; };
+		A3B4F8EF2B01E225006CF328 /* Ajeng 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 6.m4a"; sourceTree = "<group>"; };
 		A3B4F8F02B01E225006CF328 /* Ajeng 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 10.m4a"; sourceTree = "<group>"; };
 		A3B4F8F12B01E225006CF328 /* Ajeng 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 3.m4a"; sourceTree = "<group>"; };
 		A3B4F8F22B01E225006CF328 /* Ajeng 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 11.m4a"; sourceTree = "<group>"; };
@@ -396,7 +398,7 @@
 				A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */,
 				A3B4F8E52B01E224006CF328 /* Ajeng 14.m4a */,
 				A3B4F8F32B01E225006CF328 /* Ajeng 15.m4a */,
-				A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */,
+				A3B4F8EF2B01E225006CF328 /* Ajeng 6.m4a */,
 			);
 			path = Ajeng;
 			sourceTree = "<group>";
@@ -405,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */,
+				A34F9D102B0203110028E45E /* Dayu 2.m4a */,
 				A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */,
 				A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */,
 				A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */,
@@ -713,6 +716,7 @@
 				A3B4F9172B01E259006CF328 /* Pak kades 11.m4a in Resources */,
 				A3B4F8E12B01E206006CF328 /* Togar 14.m4a in Resources */,
 				A3B4F89C2B01E09C006CF328 /* Asep 12.m4a in Resources */,
+				A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */,
 				A3B4F8DD2B01E206006CF328 /* Togar 3.m4a in Resources */,
 				A3B4F8982B01E09C006CF328 /* Asep 11.m4a in Resources */,
 				A3B4F8FA2B01E225006CF328 /* Ajeng 4.m4a in Resources */,
@@ -773,7 +777,7 @@
 				A3B4F8CF2B01E1FC006CF328 /* Dayu 1.m4a in Resources */,
 				A3B4F8F72B01E225006CF328 /* Ajeng 8.m4a in Resources */,
 				A3B4F8A02B01E09C006CF328 /* Asep 15.m4a in Resources */,
-				A3B4F8FE2B01E225006CF328 /* Ajengn 6.m4a in Resources */,
+				A3B4F8FE2B01E225006CF328 /* Ajeng 6.m4a in Resources */,
 				A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */,
 				A3B4F8DF2B01E206006CF328 /* Togar 10.m4a in Resources */,
 				A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */,
