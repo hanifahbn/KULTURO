@@ -10,6 +10,7 @@ import SwiftUI
 struct PerbaikanBalaiDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isAnimationWalking : Bool = false
@@ -97,7 +98,7 @@ struct PerbaikanBalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -105,6 +106,7 @@ struct PerbaikanBalaiDesaView: View {
                             })
                             .padding(.top, 130)
                             .padding(.trailing, 15)
+                            .opacity(currentIndex == stories.count - 1 ? 0 : 1)
                         }
                     }
             }
@@ -114,6 +116,7 @@ struct PerbaikanBalaiDesaView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             if isTapGestureEnabled {
                 if currentIndex < stories.count - 2 {
                     currentIndex += 1

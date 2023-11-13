@@ -17,7 +17,7 @@ class RouterViewModel: ObservableObject {
     }
     
     func clear() {
-        if navPath.count > 0 {
+        if !navPath.isEmpty {
             navPath.removeLast()
         }
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct TokoView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isAnimationWalking : Bool = false
@@ -96,7 +97,7 @@ struct TokoView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -104,6 +105,7 @@ struct TokoView: View {
                             })
                             .padding(.top, 130)
                             .padding(.trailing, 15)
+                            .opacity(currentIndex == tokoStories.count - 1 ? 0 : 1)
                         }
                     }
 //                    .frame(width: 350, height: 200)
@@ -113,6 +115,7 @@ struct TokoView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             if isTapGestureEnabled {
                 if currentIndex < tokoStories.count - 2 {
                     currentIndex += 1

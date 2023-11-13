@@ -33,6 +33,80 @@
 		A3B13C1E2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */; };
 		A3B13C202AFABBDE0060535C /* BalaiDesaRenovatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C1F2AFABBDE0060535C /* BalaiDesaRenovatedView.swift */; };
 		A3B13C272AFB03BD0060535C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B13C262AFB03BD0060535C /* Enums.swift */; };
+		A3B4F8952B01E09C006CF328 /* Asep 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8862B01E09B006CF328 /* Asep 8.m4a */; };
+		A3B4F8962B01E09C006CF328 /* Asep 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8872B01E09B006CF328 /* Asep 5.m4a */; };
+		A3B4F8972B01E09C006CF328 /* Asep 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8882B01E09B006CF328 /* Asep 3.m4a */; };
+		A3B4F8982B01E09C006CF328 /* Asep 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8892B01E09B006CF328 /* Asep 11.m4a */; };
+		A3B4F8992B01E09C006CF328 /* Asep 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88A2B01E09B006CF328 /* Asep 13.m4a */; };
+		A3B4F89A2B01E09C006CF328 /* Asep 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88B2B01E09B006CF328 /* Asep 2.m4a */; };
+		A3B4F89B2B01E09C006CF328 /* Asep 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88C2B01E09B006CF328 /* Asep 14.m4a */; };
+		A3B4F89C2B01E09C006CF328 /* Asep 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88D2B01E09B006CF328 /* Asep 12.m4a */; };
+		A3B4F89D2B01E09C006CF328 /* Asep 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88E2B01E09B006CF328 /* Asep 6.m4a */; };
+		A3B4F89E2B01E09C006CF328 /* Asep 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F88F2B01E09C006CF328 /* Asep 1.m4a */; };
+		A3B4F89F2B01E09C006CF328 /* Asep 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8902B01E09C006CF328 /* Asep 4.m4a */; };
+		A3B4F8A02B01E09C006CF328 /* Asep 15.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8912B01E09C006CF328 /* Asep 15.m4a */; };
+		A3B4F8A12B01E09C006CF328 /* Asep 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8922B01E09C006CF328 /* Asep 7.m4a */; };
+		A3B4F8A22B01E09C006CF328 /* Asep 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8932B01E09C006CF328 /* Asep 9.m4a */; };
+		A3B4F8A32B01E09C006CF328 /* Asep 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8942B01E09C006CF328 /* Asep 10.m4a */; };
+		A3B4F8C82B01E1FC006CF328 /* Dayu 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */; };
+		A3B4F8C92B01E1FC006CF328 /* Dayu 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BF2B01E1F0006CF328 /* Dayu 10.m4a */; };
+		A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C02B01E1F0006CF328 /* Dayu 13.m4a */; };
+		A3B4F8CB2B01E1FC006CF328 /* Dayu 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */; };
+		A3B4F8CC2B01E1FC006CF328 /* Dayu 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BD2B01E1F0006CF328 /* Dayu 9.m4a */; };
+		A3B4F8CD2B01E1FC006CF328 /* Dayu 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BE2B01E1F0006CF328 /* Dayu 11.m4a */; };
+		A3B4F8CE2B01E1FC006CF328 /* Dayu 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BB2B01E1F0006CF328 /* Dayu 12.m4a */; };
+		A3B4F8CF2B01E1FC006CF328 /* Dayu 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */; };
+		A3B4F8D02B01E1FC006CF328 /* Dayu 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */; };
+		A3B4F8D12B01E1FC006CF328 /* Dayu 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BA2B01E1F0006CF328 /* Dayu 8.m4a */; };
+		A3B4F8D22B01E1FC006CF328 /* Dayu 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C22B01E1F0006CF328 /* Dayu 14.m4a */; };
+		A3B4F8D32B01E1FC006CF328 /* Dayu 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */; };
+		A3B4F8D42B01E1FC006CF328 /* Dayu 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BC2B01E1F0006CF328 /* Dayu 7.m4a */; };
+		A3B4F8D52B01E1FC006CF328 /* Dayu 15.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C62B01E1F1006CF328 /* Dayu 15.m4a */; };
+		A3B4F8D62B01E206006CF328 /* Togar 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B52B01E1E1006CF328 /* Togar 8.m4a */; };
+		A3B4F8D72B01E206006CF328 /* Togar 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B12B01E1E1006CF328 /* Togar 4.m4a */; };
+		A3B4F8D82B01E206006CF328 /* Togar 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B02B01E1E1006CF328 /* Togar 2.m4a */; };
+		A3B4F8D92B01E206006CF328 /* Togar 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B72B01E1E1006CF328 /* Togar 5.m4a */; };
+		A3B4F8DA2B01E206006CF328 /* Togar 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8AB2B01E1E0006CF328 /* Togar 6.m4a */; };
+		A3B4F8DB2B01E206006CF328 /* Togar 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B62B01E1E1006CF328 /* Togar 7.m4a */; };
+		A3B4F8DC2B01E206006CF328 /* Togar 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8AD2B01E1E0006CF328 /* Togar 11.m4a */; };
+		A3B4F8DD2B01E206006CF328 /* Togar 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B32B01E1E1006CF328 /* Togar 3.m4a */; };
+		A3B4F8DE2B01E206006CF328 /* Togar 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B22B01E1E1006CF328 /* Togar 13.m4a */; };
+		A3B4F8DF2B01E206006CF328 /* Togar 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B42B01E1E1006CF328 /* Togar 10.m4a */; };
+		A3B4F8E02B01E206006CF328 /* Togar 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B92B01E1E1006CF328 /* Togar 1.m4a */; };
+		A3B4F8E12B01E206006CF328 /* Togar 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8B82B01E1E1006CF328 /* Togar 14.m4a */; };
+		A3B4F8E22B01E206006CF328 /* Togar 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8AE2B01E1E0006CF328 /* Togar 12.m4a */; };
+		A3B4F8E32B01E206006CF328 /* Togar 15.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8AF2B01E1E0006CF328 /* Togar 15.m4a */; };
+		A3B4F8E42B01E206006CF328 /* Togar 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8AC2B01E1E0006CF328 /* Togar 9.m4a */; };
+		A3B4F8F42B01E225006CF328 /* Ajeng 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8E52B01E224006CF328 /* Ajeng 14.m4a */; };
+		A3B4F8F52B01E225006CF328 /* Ajeng 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8E62B01E224006CF328 /* Ajeng 1.m4a */; };
+		A3B4F8F62B01E225006CF328 /* Ajeng 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8E72B01E224006CF328 /* Ajeng 2.m4a */; };
+		A3B4F8F72B01E225006CF328 /* Ajeng 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8E82B01E224006CF328 /* Ajeng 8.m4a */; };
+		A3B4F8F82B01E225006CF328 /* Ajeng 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8E92B01E224006CF328 /* Ajeng 12.m4a */; };
+		A3B4F8F92B01E225006CF328 /* Ajeng 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EA2B01E225006CF328 /* Ajeng 9.m4a */; };
+		A3B4F8FA2B01E225006CF328 /* Ajeng 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EB2B01E225006CF328 /* Ajeng 4.m4a */; };
+		A3B4F8FB2B01E225006CF328 /* Ajeng 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EC2B01E225006CF328 /* Ajeng 5.m4a */; };
+		A3B4F8FC2B01E225006CF328 /* Ajeng 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8ED2B01E225006CF328 /* Ajeng 7.m4a */; };
+		A3B4F8FD2B01E225006CF328 /* Ajeng 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */; };
+		A3B4F8FE2B01E225006CF328 /* Ajengn 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */; };
+		A3B4F8FF2B01E225006CF328 /* Ajeng 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F02B01E225006CF328 /* Ajeng 10.m4a */; };
+		A3B4F9002B01E225006CF328 /* Ajeng 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F12B01E225006CF328 /* Ajeng 3.m4a */; };
+		A3B4F9012B01E225006CF328 /* Ajeng 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F22B01E225006CF328 /* Ajeng 11.m4a */; };
+		A3B4F9022B01E225006CF328 /* Ajeng 15.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8F32B01E225006CF328 /* Ajeng 15.m4a */; };
+		A3B4F9102B01E259006CF328 /* Pak kades 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9042B01E258006CF328 /* Pak kades 12.m4a */; };
+		A3B4F9112B01E259006CF328 /* Pak kades 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9052B01E258006CF328 /* Pak kades 6.m4a */; };
+		A3B4F9122B01E259006CF328 /* Pak kades 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9062B01E258006CF328 /* Pak kades 3.m4a */; };
+		A3B4F9132B01E259006CF328 /* Pak kades 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9072B01E258006CF328 /* Pak kades 8.m4a */; };
+		A3B4F9142B01E259006CF328 /* Pak kades 7.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9082B01E259006CF328 /* Pak kades 7.m4a */; };
+		A3B4F9152B01E259006CF328 /* Pak kades 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F9092B01E259006CF328 /* Pak kades 1.m4a */; };
+		A3B4F9162B01E259006CF328 /* Pak kades 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90A2B01E259006CF328 /* Pak kades 10.m4a */; };
+		A3B4F9172B01E259006CF328 /* Pak kades 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90B2B01E259006CF328 /* Pak kades 11.m4a */; };
+		A3B4F9182B01E259006CF328 /* Pak kades 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90C2B01E259006CF328 /* Pak kades 9.m4a */; };
+		A3B4F9192B01E259006CF328 /* Pak kades 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90D2B01E259006CF328 /* Pak kades 2.m4a */; };
+		A3B4F91A2B01E259006CF328 /* Pak kades 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90E2B01E259006CF328 /* Pak kades 5.m4a */; };
+		A3B4F91B2B01E259006CF328 /* Pak kades 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F90F2B01E259006CF328 /* Pak kades 4.m4a */; };
+		A3B4F91F2B01E26B006CF328 /* Ci mey 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F91C2B01E26B006CF328 /* Ci mey 1.m4a */; };
+		A3B4F9202B01E26B006CF328 /* Ci mey 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F91D2B01E26B006CF328 /* Ci mey 2.m4a */; };
+		A3B4F9212B01E26B006CF328 /* Ci mey 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F91E2B01E26B006CF328 /* Ci mey 3.m4a */; };
 		A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C304752ADE898800E11CCC /* MacroApp.swift */; };
 		A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C304792ADE898A00E11CCC /* Assets.xcassets */; };
 		A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C3047C2ADE898A00E11CCC /* Preview Assets.xcassets */; };
@@ -100,6 +174,80 @@
 		A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerbaikanBalaiDesaView.swift; sourceTree = "<group>"; };
 		A3B13C1F2AFABBDE0060535C /* BalaiDesaRenovatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalaiDesaRenovatedView.swift; sourceTree = "<group>"; };
 		A3B13C262AFB03BD0060535C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A3B4F8862B01E09B006CF328 /* Asep 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 8.m4a"; sourceTree = "<group>"; };
+		A3B4F8872B01E09B006CF328 /* Asep 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 5.m4a"; sourceTree = "<group>"; };
+		A3B4F8882B01E09B006CF328 /* Asep 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 3.m4a"; sourceTree = "<group>"; };
+		A3B4F8892B01E09B006CF328 /* Asep 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 11.m4a"; sourceTree = "<group>"; };
+		A3B4F88A2B01E09B006CF328 /* Asep 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 13.m4a"; sourceTree = "<group>"; };
+		A3B4F88B2B01E09B006CF328 /* Asep 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 2.m4a"; sourceTree = "<group>"; };
+		A3B4F88C2B01E09B006CF328 /* Asep 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 14.m4a"; sourceTree = "<group>"; };
+		A3B4F88D2B01E09B006CF328 /* Asep 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 12.m4a"; sourceTree = "<group>"; };
+		A3B4F88E2B01E09B006CF328 /* Asep 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 6.m4a"; sourceTree = "<group>"; };
+		A3B4F88F2B01E09C006CF328 /* Asep 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 1.m4a"; sourceTree = "<group>"; };
+		A3B4F8902B01E09C006CF328 /* Asep 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 4.m4a"; sourceTree = "<group>"; };
+		A3B4F8912B01E09C006CF328 /* Asep 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 15.m4a"; sourceTree = "<group>"; };
+		A3B4F8922B01E09C006CF328 /* Asep 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 7.m4a"; sourceTree = "<group>"; };
+		A3B4F8932B01E09C006CF328 /* Asep 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 9.m4a"; sourceTree = "<group>"; };
+		A3B4F8942B01E09C006CF328 /* Asep 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Asep 10.m4a"; sourceTree = "<group>"; };
+		A3B4F8AB2B01E1E0006CF328 /* Togar 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 6.m4a"; sourceTree = "<group>"; };
+		A3B4F8AC2B01E1E0006CF328 /* Togar 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 9.m4a"; sourceTree = "<group>"; };
+		A3B4F8AD2B01E1E0006CF328 /* Togar 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 11.m4a"; sourceTree = "<group>"; };
+		A3B4F8AE2B01E1E0006CF328 /* Togar 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 12.m4a"; sourceTree = "<group>"; };
+		A3B4F8AF2B01E1E0006CF328 /* Togar 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 15.m4a"; sourceTree = "<group>"; };
+		A3B4F8B02B01E1E1006CF328 /* Togar 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 2.m4a"; sourceTree = "<group>"; };
+		A3B4F8B12B01E1E1006CF328 /* Togar 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 4.m4a"; sourceTree = "<group>"; };
+		A3B4F8B22B01E1E1006CF328 /* Togar 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 13.m4a"; sourceTree = "<group>"; };
+		A3B4F8B32B01E1E1006CF328 /* Togar 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 3.m4a"; sourceTree = "<group>"; };
+		A3B4F8B42B01E1E1006CF328 /* Togar 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 10.m4a"; sourceTree = "<group>"; };
+		A3B4F8B52B01E1E1006CF328 /* Togar 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 8.m4a"; sourceTree = "<group>"; };
+		A3B4F8B62B01E1E1006CF328 /* Togar 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 7.m4a"; sourceTree = "<group>"; };
+		A3B4F8B72B01E1E1006CF328 /* Togar 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 5.m4a"; sourceTree = "<group>"; };
+		A3B4F8B82B01E1E1006CF328 /* Togar 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 14.m4a"; sourceTree = "<group>"; };
+		A3B4F8B92B01E1E1006CF328 /* Togar 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Togar 1.m4a"; sourceTree = "<group>"; };
+		A3B4F8BA2B01E1F0006CF328 /* Dayu 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 8.m4a"; sourceTree = "<group>"; };
+		A3B4F8BB2B01E1F0006CF328 /* Dayu 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 12.m4a"; sourceTree = "<group>"; };
+		A3B4F8BC2B01E1F0006CF328 /* Dayu 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 7.m4a"; sourceTree = "<group>"; };
+		A3B4F8BD2B01E1F0006CF328 /* Dayu 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 9.m4a"; sourceTree = "<group>"; };
+		A3B4F8BE2B01E1F0006CF328 /* Dayu 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 11.m4a"; sourceTree = "<group>"; };
+		A3B4F8BF2B01E1F0006CF328 /* Dayu 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 10.m4a"; sourceTree = "<group>"; };
+		A3B4F8C02B01E1F0006CF328 /* Dayu 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 13.m4a"; sourceTree = "<group>"; };
+		A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 4.m4a"; sourceTree = "<group>"; };
+		A3B4F8C22B01E1F0006CF328 /* Dayu 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 14.m4a"; sourceTree = "<group>"; };
+		A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 5.m4a"; sourceTree = "<group>"; };
+		A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 1.m4a"; sourceTree = "<group>"; };
+		A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 6.m4a"; sourceTree = "<group>"; };
+		A3B4F8C62B01E1F1006CF328 /* Dayu 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 15.m4a"; sourceTree = "<group>"; };
+		A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 3.m4a"; sourceTree = "<group>"; };
+		A3B4F8E52B01E224006CF328 /* Ajeng 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 14.m4a"; sourceTree = "<group>"; };
+		A3B4F8E62B01E224006CF328 /* Ajeng 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 1.m4a"; sourceTree = "<group>"; };
+		A3B4F8E72B01E224006CF328 /* Ajeng 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 2.m4a"; sourceTree = "<group>"; };
+		A3B4F8E82B01E224006CF328 /* Ajeng 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 8.m4a"; sourceTree = "<group>"; };
+		A3B4F8E92B01E224006CF328 /* Ajeng 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 12.m4a"; sourceTree = "<group>"; };
+		A3B4F8EA2B01E225006CF328 /* Ajeng 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 9.m4a"; sourceTree = "<group>"; };
+		A3B4F8EB2B01E225006CF328 /* Ajeng 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 4.m4a"; sourceTree = "<group>"; };
+		A3B4F8EC2B01E225006CF328 /* Ajeng 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 5.m4a"; sourceTree = "<group>"; };
+		A3B4F8ED2B01E225006CF328 /* Ajeng 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 7.m4a"; sourceTree = "<group>"; };
+		A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 13.m4a"; sourceTree = "<group>"; };
+		A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajengn 6.m4a"; sourceTree = "<group>"; };
+		A3B4F8F02B01E225006CF328 /* Ajeng 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 10.m4a"; sourceTree = "<group>"; };
+		A3B4F8F12B01E225006CF328 /* Ajeng 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 3.m4a"; sourceTree = "<group>"; };
+		A3B4F8F22B01E225006CF328 /* Ajeng 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 11.m4a"; sourceTree = "<group>"; };
+		A3B4F8F32B01E225006CF328 /* Ajeng 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ajeng 15.m4a"; sourceTree = "<group>"; };
+		A3B4F9042B01E258006CF328 /* Pak kades 12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 12.m4a"; sourceTree = "<group>"; };
+		A3B4F9052B01E258006CF328 /* Pak kades 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 6.m4a"; sourceTree = "<group>"; };
+		A3B4F9062B01E258006CF328 /* Pak kades 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 3.m4a"; sourceTree = "<group>"; };
+		A3B4F9072B01E258006CF328 /* Pak kades 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 8.m4a"; sourceTree = "<group>"; };
+		A3B4F9082B01E259006CF328 /* Pak kades 7.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 7.m4a"; sourceTree = "<group>"; };
+		A3B4F9092B01E259006CF328 /* Pak kades 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 1.m4a"; sourceTree = "<group>"; };
+		A3B4F90A2B01E259006CF328 /* Pak kades 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 10.m4a"; sourceTree = "<group>"; };
+		A3B4F90B2B01E259006CF328 /* Pak kades 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 11.m4a"; sourceTree = "<group>"; };
+		A3B4F90C2B01E259006CF328 /* Pak kades 9.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 9.m4a"; sourceTree = "<group>"; };
+		A3B4F90D2B01E259006CF328 /* Pak kades 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 2.m4a"; sourceTree = "<group>"; };
+		A3B4F90E2B01E259006CF328 /* Pak kades 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 5.m4a"; sourceTree = "<group>"; };
+		A3B4F90F2B01E259006CF328 /* Pak kades 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pak kades 4.m4a"; sourceTree = "<group>"; };
+		A3B4F91C2B01E26B006CF328 /* Ci mey 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ci mey 1.m4a"; sourceTree = "<group>"; };
+		A3B4F91D2B01E26B006CF328 /* Ci mey 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ci mey 2.m4a"; sourceTree = "<group>"; };
+		A3B4F91E2B01E26B006CF328 /* Ci mey 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ci mey 3.m4a"; sourceTree = "<group>"; };
 		A3C304722ADE898800E11CCC /* MacroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C304752ADE898800E11CCC /* MacroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroApp.swift; sourceTree = "<group>"; };
 		A3C304792ADE898A00E11CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +321,122 @@
 			path = CameraManager;
 			sourceTree = "<group>";
 		};
+		A3B4F8852B01E07E006CF328 /* Asep */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F88F2B01E09C006CF328 /* Asep 1.m4a */,
+				A3B4F88B2B01E09B006CF328 /* Asep 2.m4a */,
+				A3B4F8882B01E09B006CF328 /* Asep 3.m4a */,
+				A3B4F88D2B01E09B006CF328 /* Asep 12.m4a */,
+				A3B4F88A2B01E09B006CF328 /* Asep 13.m4a */,
+				A3B4F8902B01E09C006CF328 /* Asep 4.m4a */,
+				A3B4F8872B01E09B006CF328 /* Asep 5.m4a */,
+				A3B4F88E2B01E09B006CF328 /* Asep 6.m4a */,
+				A3B4F8922B01E09C006CF328 /* Asep 7.m4a */,
+				A3B4F8862B01E09B006CF328 /* Asep 8.m4a */,
+				A3B4F8932B01E09C006CF328 /* Asep 9.m4a */,
+				A3B4F8942B01E09C006CF328 /* Asep 10.m4a */,
+				A3B4F8892B01E09B006CF328 /* Asep 11.m4a */,
+				A3B4F88C2B01E09B006CF328 /* Asep 14.m4a */,
+				A3B4F8912B01E09C006CF328 /* Asep 15.m4a */,
+			);
+			path = Asep;
+			sourceTree = "<group>";
+		};
+		A3B4F8A72B01E1B3006CF328 /* Togar */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F8B92B01E1E1006CF328 /* Togar 1.m4a */,
+				A3B4F8B02B01E1E1006CF328 /* Togar 2.m4a */,
+				A3B4F8B32B01E1E1006CF328 /* Togar 3.m4a */,
+				A3B4F8B12B01E1E1006CF328 /* Togar 4.m4a */,
+				A3B4F8B72B01E1E1006CF328 /* Togar 5.m4a */,
+				A3B4F8AB2B01E1E0006CF328 /* Togar 6.m4a */,
+				A3B4F8B62B01E1E1006CF328 /* Togar 7.m4a */,
+				A3B4F8B52B01E1E1006CF328 /* Togar 8.m4a */,
+				A3B4F8AC2B01E1E0006CF328 /* Togar 9.m4a */,
+				A3B4F8B42B01E1E1006CF328 /* Togar 10.m4a */,
+				A3B4F8AD2B01E1E0006CF328 /* Togar 11.m4a */,
+				A3B4F8AE2B01E1E0006CF328 /* Togar 12.m4a */,
+				A3B4F8B22B01E1E1006CF328 /* Togar 13.m4a */,
+				A3B4F8B82B01E1E1006CF328 /* Togar 14.m4a */,
+				A3B4F8AF2B01E1E0006CF328 /* Togar 15.m4a */,
+			);
+			path = Togar;
+			sourceTree = "<group>";
+		};
+		A3B4F8A82B01E1C1006CF328 /* Ci Mey */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F91C2B01E26B006CF328 /* Ci mey 1.m4a */,
+				A3B4F91D2B01E26B006CF328 /* Ci mey 2.m4a */,
+				A3B4F91E2B01E26B006CF328 /* Ci mey 3.m4a */,
+			);
+			path = "Ci Mey";
+			sourceTree = "<group>";
+		};
+		A3B4F8A92B01E1C6006CF328 /* Ajeng */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F8E62B01E224006CF328 /* Ajeng 1.m4a */,
+				A3B4F8E72B01E224006CF328 /* Ajeng 2.m4a */,
+				A3B4F8F12B01E225006CF328 /* Ajeng 3.m4a */,
+				A3B4F8EB2B01E225006CF328 /* Ajeng 4.m4a */,
+				A3B4F8EC2B01E225006CF328 /* Ajeng 5.m4a */,
+				A3B4F8ED2B01E225006CF328 /* Ajeng 7.m4a */,
+				A3B4F8E82B01E224006CF328 /* Ajeng 8.m4a */,
+				A3B4F8EA2B01E225006CF328 /* Ajeng 9.m4a */,
+				A3B4F8F02B01E225006CF328 /* Ajeng 10.m4a */,
+				A3B4F8F22B01E225006CF328 /* Ajeng 11.m4a */,
+				A3B4F8E92B01E224006CF328 /* Ajeng 12.m4a */,
+				A3B4F8EE2B01E225006CF328 /* Ajeng 13.m4a */,
+				A3B4F8E52B01E224006CF328 /* Ajeng 14.m4a */,
+				A3B4F8F32B01E225006CF328 /* Ajeng 15.m4a */,
+				A3B4F8EF2B01E225006CF328 /* Ajengn 6.m4a */,
+			);
+			path = Ajeng;
+			sourceTree = "<group>";
+		};
+		A3B4F8AA2B01E1CC006CF328 /* Dayu */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */,
+				A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */,
+				A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */,
+				A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */,
+				A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */,
+				A3B4F8BC2B01E1F0006CF328 /* Dayu 7.m4a */,
+				A3B4F8BA2B01E1F0006CF328 /* Dayu 8.m4a */,
+				A3B4F8BD2B01E1F0006CF328 /* Dayu 9.m4a */,
+				A3B4F8BF2B01E1F0006CF328 /* Dayu 10.m4a */,
+				A3B4F8BE2B01E1F0006CF328 /* Dayu 11.m4a */,
+				A3B4F8BB2B01E1F0006CF328 /* Dayu 12.m4a */,
+				A3B4F8C02B01E1F0006CF328 /* Dayu 13.m4a */,
+				A3B4F8C22B01E1F0006CF328 /* Dayu 14.m4a */,
+				A3B4F8C62B01E1F1006CF328 /* Dayu 15.m4a */,
+			);
+			path = Dayu;
+			sourceTree = "<group>";
+		};
+		A3B4F9032B01E241006CF328 /* Kades */ = {
+			isa = PBXGroup;
+			children = (
+				A3B4F9092B01E259006CF328 /* Pak kades 1.m4a */,
+				A3B4F90D2B01E259006CF328 /* Pak kades 2.m4a */,
+				A3B4F9062B01E258006CF328 /* Pak kades 3.m4a */,
+				A3B4F90F2B01E259006CF328 /* Pak kades 4.m4a */,
+				A3B4F90E2B01E259006CF328 /* Pak kades 5.m4a */,
+				A3B4F9052B01E258006CF328 /* Pak kades 6.m4a */,
+				A3B4F9082B01E259006CF328 /* Pak kades 7.m4a */,
+				A3B4F9072B01E258006CF328 /* Pak kades 8.m4a */,
+				A3B4F90C2B01E259006CF328 /* Pak kades 9.m4a */,
+				A3B4F90A2B01E259006CF328 /* Pak kades 10.m4a */,
+				A3B4F90B2B01E259006CF328 /* Pak kades 11.m4a */,
+				A3B4F9042B01E258006CF328 /* Pak kades 12.m4a */,
+			);
+			path = Kades;
+			sourceTree = "<group>";
+		};
 		A3C304692ADE898800E11CCC = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +487,8 @@
 			isa = PBXGroup;
 			children = (
 				E2791F442AFE7B0D00391F1B /* TempStories */,
-				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
+				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
 				A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */,
@@ -251,6 +515,12 @@
 				A3E8E6C12B00F6AA006D221E /* Correct.wav */,
 				A3E8E6BD2B00F656006D221E /* backsound.wav */,
 				A3E8E6B72B00F5E0006D221E /* Batak Example Audios */,
+				A3B4F8852B01E07E006CF328 /* Asep */,
+				A3B4F9032B01E241006CF328 /* Kades */,
+				A3B4F8A72B01E1B3006CF328 /* Togar */,
+				A3B4F8AA2B01E1CC006CF328 /* Dayu */,
+				A3B4F8A92B01E1C6006CF328 /* Ajeng */,
+				A3B4F8A82B01E1C1006CF328 /* Ci Mey */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -418,16 +688,90 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B4F8972B01E09C006CF328 /* Asep 3.m4a in Resources */,
+				A3B4F89A2B01E09C006CF328 /* Asep 2.m4a in Resources */,
+				A3B4F8DA2B01E206006CF328 /* Togar 6.m4a in Resources */,
+				A3B4F8DC2B01E206006CF328 /* Togar 11.m4a in Resources */,
+				A3B4F8D62B01E206006CF328 /* Togar 8.m4a in Resources */,
+				A3B4F8E32B01E206006CF328 /* Togar 15.m4a in Resources */,
+				A3B4F9112B01E259006CF328 /* Pak kades 6.m4a in Resources */,
+				A3B4F8F42B01E225006CF328 /* Ajeng 14.m4a in Resources */,
+				A3B4F9002B01E225006CF328 /* Ajeng 3.m4a in Resources */,
 				A3E8E6B82B00F5E1006D221E /* Batak Example Audios in Resources */,
+				A3B4F9102B01E259006CF328 /* Pak kades 12.m4a in Resources */,
 				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
+				A3B4F8D52B01E1FC006CF328 /* Dayu 15.m4a in Resources */,
+				A3B4F8CC2B01E1FC006CF328 /* Dayu 9.m4a in Resources */,
 				A3E8E6C22B00F6AA006D221E /* Correct.wav in Resources */,
+				A3B4F9172B01E259006CF328 /* Pak kades 11.m4a in Resources */,
+				A3B4F8E12B01E206006CF328 /* Togar 14.m4a in Resources */,
+				A3B4F89C2B01E09C006CF328 /* Asep 12.m4a in Resources */,
+				A3B4F8DD2B01E206006CF328 /* Togar 3.m4a in Resources */,
+				A3B4F8982B01E09C006CF328 /* Asep 11.m4a in Resources */,
+				A3B4F8FA2B01E225006CF328 /* Ajeng 4.m4a in Resources */,
+				A3B4F8FD2B01E225006CF328 /* Ajeng 13.m4a in Resources */,
 				E2ED5C302AFCCD31005D4B22 /* AnimationTogar.gif in Resources */,
+				A3B4F9122B01E259006CF328 /* Pak kades 3.m4a in Resources */,
+				A3B4F8E02B01E206006CF328 /* Togar 1.m4a in Resources */,
+				A3B4F8CE2B01E1FC006CF328 /* Dayu 12.m4a in Resources */,
+				A3B4F89D2B01E09C006CF328 /* Asep 6.m4a in Resources */,
+				A3B4F8DE2B01E206006CF328 /* Togar 13.m4a in Resources */,
+				A3B4F91F2B01E26B006CF328 /* Ci mey 1.m4a in Resources */,
+				A3B4F8D02B01E1FC006CF328 /* Dayu 4.m4a in Resources */,
+				A3B4F9012B01E225006CF328 /* Ajeng 11.m4a in Resources */,
+				A3B4F8F92B01E225006CF328 /* Ajeng 9.m4a in Resources */,
+				A3B4F8D32B01E1FC006CF328 /* Dayu 3.m4a in Resources */,
+				A3B4F8F52B01E225006CF328 /* Ajeng 1.m4a in Resources */,
+				A3B4F9142B01E259006CF328 /* Pak kades 7.m4a in Resources */,
+				A3B4F9162B01E259006CF328 /* Pak kades 10.m4a in Resources */,
+				A3B4F9202B01E26B006CF328 /* Ci mey 2.m4a in Resources */,
+				A3B4F8D22B01E1FC006CF328 /* Dayu 14.m4a in Resources */,
+				A3B4F9152B01E259006CF328 /* Pak kades 1.m4a in Resources */,
+				A3B4F8A32B01E09C006CF328 /* Asep 10.m4a in Resources */,
+				A3B4F8962B01E09C006CF328 /* Asep 5.m4a in Resources */,
+				A3B4F8992B01E09C006CF328 /* Asep 13.m4a in Resources */,
+				A3B4F91A2B01E259006CF328 /* Pak kades 5.m4a in Resources */,
 				A3C3047D2ADE898A00E11CCC /* Preview Assets.xcassets in Resources */,
+				A3B4F8E22B01E206006CF328 /* Togar 12.m4a in Resources */,
 				E2ED5C312AFCCD31005D4B22 /* AnimationAsep.gif in Resources */,
+				A3B4F9022B01E225006CF328 /* Ajeng 15.m4a in Resources */,
+				A3B4F8D42B01E1FC006CF328 /* Dayu 7.m4a in Resources */,
+				A3B4F8CD2B01E1FC006CF328 /* Dayu 11.m4a in Resources */,
+				A3B4F9132B01E259006CF328 /* Pak kades 8.m4a in Resources */,
 				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
+				A3B4F8CB2B01E1FC006CF328 /* Dayu 5.m4a in Resources */,
+				A3B4F89B2B01E09C006CF328 /* Asep 14.m4a in Resources */,
+				A3B4F8952B01E09C006CF328 /* Asep 8.m4a in Resources */,
+				A3B4F8F62B01E225006CF328 /* Ajeng 2.m4a in Resources */,
+				A3B4F8FF2B01E225006CF328 /* Ajeng 10.m4a in Resources */,
+				A3B4F9192B01E259006CF328 /* Pak kades 2.m4a in Resources */,
+				A3B4F8A22B01E09C006CF328 /* Asep 9.m4a in Resources */,
+				A3B4F8D92B01E206006CF328 /* Togar 5.m4a in Resources */,
+				A3B4F8C92B01E1FC006CF328 /* Dayu 10.m4a in Resources */,
+				A3B4F91B2B01E259006CF328 /* Pak kades 4.m4a in Resources */,
+				A3B4F8FB2B01E225006CF328 /* Ajeng 5.m4a in Resources */,
+				A3B4F8D12B01E1FC006CF328 /* Dayu 8.m4a in Resources */,
+				A3B4F8DB2B01E206006CF328 /* Togar 7.m4a in Resources */,
+				A3B4F89F2B01E09C006CF328 /* Asep 4.m4a in Resources */,
+				A3B4F8D72B01E206006CF328 /* Togar 4.m4a in Resources */,
+				A3B4F89E2B01E09C006CF328 /* Asep 1.m4a in Resources */,
+				A3B4F8A12B01E09C006CF328 /* Asep 7.m4a in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
 				A3E8E6C42B00F7E6006D221E /* Wrong.wav in Resources */,
+				A3B4F8D82B01E206006CF328 /* Togar 2.m4a in Resources */,
+				A3B4F8C82B01E1FC006CF328 /* Dayu 6.m4a in Resources */,
+				A3B4F8FC2B01E225006CF328 /* Ajeng 7.m4a in Resources */,
+				A3B4F8F82B01E225006CF328 /* Ajeng 12.m4a in Resources */,
+				A3B4F8CF2B01E1FC006CF328 /* Dayu 1.m4a in Resources */,
+				A3B4F8F72B01E225006CF328 /* Ajeng 8.m4a in Resources */,
+				A3B4F8A02B01E09C006CF328 /* Asep 15.m4a in Resources */,
+				A3B4F8FE2B01E225006CF328 /* Ajengn 6.m4a in Resources */,
 				A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */,
+				A3B4F8DF2B01E206006CF328 /* Togar 10.m4a in Resources */,
+				A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */,
+				A3B4F9182B01E259006CF328 /* Pak kades 9.m4a in Resources */,
+				A3B4F9212B01E26B006CF328 /* Ci mey 3.m4a in Resources */,
+				A3B4F8E42B01E206006CF328 /* Togar 9.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

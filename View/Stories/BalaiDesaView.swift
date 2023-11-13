@@ -10,6 +10,7 @@ import SwiftUI
 struct BalaiDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
@@ -94,7 +95,7 @@ struct BalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -112,6 +113,7 @@ struct BalaiDesaView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {

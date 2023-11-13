@@ -66,7 +66,7 @@ struct StoryNarratorView: View {
                 })
                 .padding(.top, 200)
                 .padding(.trailing, 10)
-                .opacity(viewModel.transition ? 0 : 1)
+                .opacity(0)
             }
         }
         .navigationBarBackButtonHidden(true)
