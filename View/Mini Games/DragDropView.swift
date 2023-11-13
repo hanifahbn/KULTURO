@@ -342,9 +342,6 @@ struct ItemDrag: View {
 //                print("aw")
 //            }
             if imageTool == items[currentIndex]  {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0){
-                    playerViewModel.playAudio(fileName: "Correct")
-                }
                 items = items.filter { tool in
                     return tool != imageTool
                 }
@@ -352,7 +349,7 @@ struct ItemDrag: View {
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
 
-
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
                     if items.count == 0 {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                             askItems = true
@@ -360,6 +357,7 @@ struct ItemDrag: View {
                     } else {
                         currentIndex = Int.random(in: 0...items.count - 1)
                     }
+                }
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
