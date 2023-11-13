@@ -139,8 +139,7 @@ struct BalaiDesaView: View {
                 else {
                     isConversation = false
                     isTapGestureEnabled = false
-                    
-                    
+                    isSecondAnimation = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         isConversation = false
                         isthirdAnimation = false
