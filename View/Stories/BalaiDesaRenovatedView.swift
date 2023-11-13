@@ -57,7 +57,7 @@ struct BalaiDesaRenovatedView: View {
                             })
                             .padding(.top, 130)
                             .padding(.trailing, 15)
-                            .opacity(currentIndex == medanSuccessStories.count - 1 ? 0 : 1)
+//                            .opacity(currentIndex == medanSuccessStories.count - 1 ? 0 : 1)
                         }
                     }
             }
