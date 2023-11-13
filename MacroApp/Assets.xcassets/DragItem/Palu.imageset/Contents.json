@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 204.png",
+      "filename" : "Hammer.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 204@2x.png",
+      "filename" : "Hammer@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 204@3x.png",
+      "filename" : "Hammer@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -14,7 +14,7 @@ struct DragDropView: View {
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
     
-    @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
+    @State var items = ["Ember", "Sapu", "Keranjang","Kapak","Palu"]
     
     @State var currentIndex = 0
     @State private var isTutorialShown = false //nilai awal true
