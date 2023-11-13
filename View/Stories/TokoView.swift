@@ -82,7 +82,7 @@ struct TokoView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 230)
+                    .frame(width: 360, height: 250)
                     .overlay {
                         VStack{
                             HStack{

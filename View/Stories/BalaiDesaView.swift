@@ -80,7 +80,7 @@ struct BalaiDesaView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 230)
+                    .frame(width: 360, height: 250)
                     .overlay {
                         VStack{
                             HStack{
@@ -139,8 +139,7 @@ struct BalaiDesaView: View {
                 else {
                     isConversation = false
                     isTapGestureEnabled = false
-                    
-                    
+                    isSecondAnimation = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         isConversation = false
                         isthirdAnimation = false
