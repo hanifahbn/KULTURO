@@ -90,12 +90,22 @@ struct DragDropView: View {
                                         }
                                     }
                                 }
+                            } else {
+                                ZStack{
+                                    Image("HalfDesaBroken")
+                                        .resizable()
+                                        .ignoresSafeArea()
+                                        .opacity(0.8)
+                                        .blur(radius: 2)
+                                    Image("KadesHalf")
+                                        .resizable()
+                                        .frame(width: 350, height: 300)
+                                        .padding(.top, 50)
+                                }
                             }
                         }
                         .frame(height: 350)
                         .ignoresSafeArea()
-                    
-                    
                     Spacer()
                 }
                 VStack{
@@ -325,10 +335,10 @@ struct ItemDrag: View {
     func askItem() {
         
         if position.height < -80 {
-            exceedCount += 1
-            if exceedCount >= 5 {
-                print("aw")
-            }
+//            exceedCount += 1
+//            if exceedCount >= 5 {
+//                print("aw")
+//            }
             if imageTool == items[currentIndex]  {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0){
                     playerViewModel.playAudio(fileName: "Correct")
