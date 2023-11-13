@@ -135,6 +135,8 @@
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
 		E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */; };
+		E2C8F21E2B0112AE00BC075F /* AnimationAjeng.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */; };
+		E2C8F21F2B0112AE00BC075F /* AnimationDayu.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */; };
 		E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EE82AF8F0A3006E99A1 /* Transition.swift */; };
 		E2D73EEB2AFA3142006E99A1 /* GiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EEA2AFA3142006E99A1 /* GiftView.swift */; };
 		E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5B92D2AE1364F003B4F70 /* InGameView.swift */; };
@@ -278,6 +280,8 @@
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
 		E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButtonMic.swift; sourceTree = "<group>"; };
+		E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationAjeng.gif; sourceTree = "<group>"; };
+		E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationDayu.gif; sourceTree = "<group>"; };
 		E2D73EE82AF8F0A3006E99A1 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		E2D73EEA2AFA3142006E99A1 /* GiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftView.swift; sourceTree = "<group>"; };
 		E2E5B92D2AE1364F003B4F70 /* InGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameView.swift; sourceTree = "<group>"; };
@@ -442,6 +446,8 @@
 			children = (
 				A3ED9E682AFCCE050041E7D1 /* Audio */,
 				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
+				E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */,
+				E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */,
 				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
 				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
 				E2791F412AFE260400391F1B /* Font */,
@@ -697,6 +703,7 @@
 				A3B4F9112B01E259006CF328 /* Pak kades 6.m4a in Resources */,
 				A3B4F8F42B01E225006CF328 /* Ajeng 14.m4a in Resources */,
 				A3B4F9002B01E225006CF328 /* Ajeng 3.m4a in Resources */,
+				E2C8F21E2B0112AE00BC075F /* AnimationAjeng.gif in Resources */,
 				A3E8E6B82B00F5E1006D221E /* Batak Example Audios in Resources */,
 				A3B4F9102B01E259006CF328 /* Pak kades 12.m4a in Resources */,
 				E2791F432AFE268E00391F1B /* Chalkboard-Regular.ttf in Resources */,
@@ -756,6 +763,7 @@
 				A3B4F8D72B01E206006CF328 /* Togar 4.m4a in Resources */,
 				A3B4F89E2B01E09C006CF328 /* Asep 1.m4a in Resources */,
 				A3B4F8A12B01E09C006CF328 /* Asep 7.m4a in Resources */,
+				E2C8F21F2B0112AE00BC075F /* AnimationDayu.gif in Resources */,
 				A3C3047A2ADE898A00E11CCC /* Assets.xcassets in Resources */,
 				A3E8E6C42B00F7E6006D221E /* Wrong.wav in Resources */,
 				A3B4F8D82B01E206006CF328 /* Togar 2.m4a in Resources */,
