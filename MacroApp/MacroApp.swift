@@ -9,15 +9,29 @@ import SwiftUI
 
 @main
 struct MacroApp: App {
-    @ObservedObject var matchManager = MatchManager()
+    
+    init(){
+        UINavigationBar.appearance().backItem?.hidesBackButton = true
+    }
+    
+    @ObservedObject var router = RouterViewModel()
+    
     var body: some Scene {
         WindowGroup {
+//            NavigationStack(path: $router.navPath) {
+//                ContentView()
+//                    .environmentObject(router)
+//            }
+                ContentView()
+        }
+    }
+}
+
+//        WindowGroup {
 //            ObjectDetectionGame()
-            ContentView()
+//            ContentView()
 //            DesaStoriesView(viewModel: StoryViewModel())
 //            GameStartView()
 //            AyakPasirView()
 //                .environmentObject(matchManager)
-        }
-    }
-}
+//        }

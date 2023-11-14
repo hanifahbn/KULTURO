@@ -84,7 +84,7 @@ struct CustomCameraView: View {
                         .opacity(0.5)
                         .overlay(content: {
                             HStack{
-                                Image(systemName: "timer")
+                                Image("IconTimer")
                                     .font(.system(size: 25, weight: .bold))
                                 Text(matchManager.timeInString)
                                     .font(.system(size: 17, weight: .bold))

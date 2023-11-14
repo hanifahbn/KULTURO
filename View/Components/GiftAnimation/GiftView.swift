@@ -37,10 +37,10 @@ struct GifImage: UIViewRepresentable {
     }
 }
 
-//struct GifImage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GifImage("IMG_0230")
-////            .background(.red)
-//            .frame(width: 200, height: 200)
-//    }
-//}
+struct GifImage_Previews: PreviewProvider {
+    static var previews: some View {
+        GifImage("AnimationAjeng")
+//            .background(.red)
+            .frame(width: 200, height: 200)
+    }
+}

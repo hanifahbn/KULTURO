@@ -23,113 +23,48 @@ var gapuraStories = [
 ]
 
 var balaiDesaStories = [
-    Story(text: "Hey, \(chosenCharacters[1].name), kita lomba, yuk. Siapa yang paling banyak membantu dalam kegiatan perbaikan balai desa.", isTalking: chosenCharacters[0]),
-    Story(text: "Ya jelas aku, lah!", isTalking: chosenCharacters[1]),
-    Story(text: "", isTalking: characters[4]),
-    Story(text: "Wah \(chosenCharacters[0].name) dan \(chosenCharacters[1].name) sudah datang, ya. Kalian sudah liat kondisi balai desa ini, kan?", isTalking: characters[4]),
-    Story(text: "Kerusakannya lumayan parah, ya, Pak.", isTalking: chosenCharacters[0]),
-    Story(text: "Iya, seperti inilah keadaan balai yang akan kita renovasi bersama.", isTalking: characters[4]),
-    Story(text: "Sekarang, saya minta tolong kalian beli bahan bangunan di warung ujung sana, ya.", isTalking: characters[4]),
-    Story(text: "Oke, pak, kami jalan sekarang.", isTalking: chosenCharacters[0]),
+    Story(text: "Selamat datang di Desa Laguboti. Ini adalah balai desa yang akan kita renovasi.", isTalking: characters[4], audioURL: String(characters[4].name) + " 1"),
+    Story(text: "Oh, iya, Pak. Kami akan membantu semampu kami.", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 1"),
+    Story(text: "Baik, sekarang kalian beli bahan bangunannya, ya, di warung depan sana. Ini daftar barang yang harus dibeli.", isTalking: characters[4], audioURL: String(characters[4].name) + " 2"),
+    Story(text: "Oke, pak, kami jalan sekarang.", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 2"),
 ]
 
 var tokoStories = [
-    Story(text: "Beli... beli...", isTalking: chosenCharacters[0]),
-    Story(text: "Oh, iya, mau beli apa?", isTalking: characters[5]),
-    Story(text: "Mau beli barang bangunan untuk renovasi balai desa, Bu.", isTalking: chosenCharacters[1]),
-    Story(text: "Oh, mari sini. Apa saja yang kalian perlukan?", isTalking: characters[5]),
+    Story(text: "Beli... beli...", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 3"),
+    Story(text: "Oh, iya, mau beli apa?", isTalking: characters[5], audioURL: String(characters[5].name) + " 1"),
+    Story(text: "Mau beli barang bangunan untuk renovasi balai desa, Kak.", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 4"),
+    Story(text: "Oh, baik. Mau beli apa saja kalian?", isTalking: characters[5], audioURL: String(characters[5].name) + " 2"),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]
 
 var gudangStories = [
-    Story(text: "Ini pak barang-barangnya, silakan dicek.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, lengkap semua. Terima kasih, nak.", isTalking: characters[4]),
-    Story(text: "Sekarang bantu saya cari peralatan di gudang ini, ya.", isTalking: characters[4]),
+    Story(text: "Ini, Pak, barang-barangnya. Silakan dicek.", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 6"),
+    Story(text: "Wah, lengkap semua. Terima kasih, nak.", isTalking: characters[4], audioURL: String(characters[4].name) + " 3"),
+    Story(text: "Sekarang kalian bantu saya untuk cari peralatan di gudang sana, ya.", isTalking: characters[4], audioURL: String(characters[4].name) + " 4"),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]
 
 var perbaikanStoriesFirst = [
-    Story(text: "Ini, pak, perlengkapannya sudah ketemu.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, bagus sekali. Sekarang ayo bantu berikan barang-barangnya ke warga yang lain, ya.", isTalking: characters[4]),
-    Story(text: "Baik, pak.", isTalking: chosenCharacters[0]),
+    Story(text: "Ini, pak, perlengkapannya sudah ketemu.", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 7"),
+    Story(text: "Baik, sekarang kalian berdua bantu berikan barang-barang ini kepada warga, ya.", isTalking: characters[4], audioURL: String(characters[4].name) + " 7"),
+    Story(text: "Baik, Pak. Kami akan lakukan dengan baik.", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 9"),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]
 
 var perbaikanStoriesSecond = [
-    Story(text: "Sudah, pak, sudah kami bagikan semua.", isTalking: chosenCharacters[0]),
-    Story(text: "Ada lagi yang bisa kami bantu?", isTalking: chosenCharacters[1]),
-    Story(text: "Renovasinya akan kita mulai.", isTalking: characters[4]),
-    Story(text: "Kalian berdua bisa coba ayak pasir di sini, ya.", isTalking: characters[4]),
-    Story(text: "Baik, pak.", isTalking: chosenCharacters[0]),
+    Story(text: "Sudah, Pak. Sudah kami bagikan barang-barangnya.", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 10"),
+    Story(text: "Ada lagi yang bisa kami bantu?", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 11"),
+    Story(text: "Yasudah, sekarang kalian bantu warga merenovasi, ya.", isTalking: characters[4], audioURL: String(characters[4].name) + " 8"),
+    Story(text: "Kalian berdua bisa ayak pasir, ya. Hati-hati, jangan sampai terluka.", isTalking: characters[4], audioURL: String(characters[4].name) + " 9"),
+    Story(text: "Baik, pak.", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 12"),
     Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
 ]
 
 var medanSuccessStories = [
-    Story(text: "Akhirnya selesai juga renovasinya. Terima kasih, ya, \(chosenCharacters[0].name) dan \(chosenCharacters[1].name).", isTalking: characters[4]),
-    Story(text: "Iya, pak, sama-sama. Ternyata gotong royong dengan warga asik juga, ya. Aku merasa berperan penting.", isTalking: chosenCharacters[0]),
-    Story(text: "Seru sekali bisa saling bantu kayak begini. Akhirnya liburku produktif juga, hehehe.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, wah. Saya juga senang melihat kalian mau bekerja sama dan saling membantu.", isTalking: characters[4]),
-    Story(text: "Yuk, sekarang kalian ikut acara makan-makan di rumah saya.", isTalking: characters[4]),
-    Story(text: "Ayo!", isTalking: chosenCharacters[0]),
-]
-
-// OLD VERSION
-
-var desaStories = [
-    Story(text: "Hey, \(chosenCharacters[1].name), kita lomba, yuk. Siapa yang paling banyak membantu nanti dalam kegiatan perbaikan balai desa.", isTalking: chosenCharacters[0]),
-    Story(text: "Aku yakin aku pasti lebih banyak membantu. Liat aja, ya, aku pasti lebih oke!", isTalking: chosenCharacters[1]),
-    Story(text: "Kamu pikir aku bakal tinggal diam? Aku akan berusaha sebisa mungkin!", isTalking: chosenCharacters[0]),
-    Story(text: "Wah \(chosenCharacters[0].name) dan \(chosenCharacters[1].name) sudah datang, ya, mari kita ke balai desa.", isTalking: characters[4]),
-    Story(text: "Oh, iya, mari, pak.", isTalking: chosenCharacters[0]),
-    Story(text: "", isTalking: chosenCharacters[0]),
-    Story(text: "Ini dia balai desa yang akan kita renovasi. Rusaknya lumayan parah, ya?", isTalking: characters[4]),
-    Story(text: "Sekarang, saya minta tolong kalian berdua berdua beli bahan bangunan, ya, di warung ujung sana. Ini uang dan daftar yang harus dibeli.", isTalking: characters[4]),
-    Story(text: "Oke, pak, kami jalan sekarang.", isTalking: chosenCharacters[0]),
-]
-
-var beliStories = [
-    Story(text: "Beli... beli...", isTalking: chosenCharacters[0]),
-    Story(text: "Oh, iya, mau beli apa?", isTalking: characters[5]),
-    Story(text: "Mau beli barang bangunan untuk renovasi balai desa, Bu.", isTalking: chosenCharacters[1]),
-    Story(text: "Oh, mari sini. Mau beli apa saja kalian?", isTalking: characters[5]),
-    Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
-]
-
-var gudangStoriesLama = [
-    Story(text: "Sudah semua, Bu, terimakasih. Kami pamit dulu.", isTalking: chosenCharacters[0]),
-    Story(text: "Yasudah, hati-hati kalian.", isTalking: characters[5]),
-    Story(text: "", isTalking: chosenCharacters[0]),
-    Story(text: "Ini pak barang-barangnya, silakan dicek.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, lengkap semua, terimakasih, nak.", isTalking: characters[4]),
-    Story(text: "Sekarang kalian bantu saya ke gudang sana untuk cari perlatan, ya.", isTalking: characters[4]),
-    Story(text: "Oke, kita cari disini, ya.", isTalking: characters[4]),
-    Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
-]
-
-var bantuDesaStories = [
-    Story(text: "Ini, pak, perlengkapannya sudah ketemu.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, bagus sekali. Yuk, sekarang kita kembali ke balai desa. Tolong bantu bapak bawa barang-barang ini, ya.", isTalking: characters[4]),
-    Story(text: "", isTalking: chosenCharacters[0]),
-    Story(text: "Wah, sudah ramai. Sudah mau mulai kayaknya.", isTalking: chosenCharacters[0]),
-    Story(text: "Iya, sekarang ayo bantu berikan barang-barang ini ke warga yang lain, ya", isTalking: characters[4]),
-    Story(text: "Baik, pak.", isTalking: chosenCharacters[0]),
-    Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
-]
-
-var pasirStories = [
-    Story(text: "Sudah, pak, sudah kami bagikan semua.", isTalking: chosenCharacters[0]),
-    Story(text: "Ada lagi yang bisa kami bantu?", isTalking: chosenCharacters[1]),
-    Story(text: "Renovasinya akan kita mulai.", isTalking: characters[4]),
-    Story(text: "Kalian berdua bisa coba ayak pasir di sini, ya.", isTalking: characters[4]),
-    Story(text: "Baik, pak.", isTalking: chosenCharacters[0]),
-    Story(text: "Tunggu sebentar, aku tidak mau buru-buru.", isTalking: chosenCharacters[1]),
-]
-
-var endStories = [
-    Story(text: "Akhirnya selesai juga renovasinya. Terima kasih, ya, \(chosenCharacters[0].name) dan \(chosenCharacters[1].name).", isTalking: characters[4]),
-    Story(text: "Iya, pak, sama-sama. Ternyata gotong royong dengan warga asik juga, ya. Aku merasa berperan penting.", isTalking: chosenCharacters[0]),
-    Story(text: "Seru sekali bisa saling bantu kayak begini. Akhirnya liburku produktif juga, hehehe.", isTalking: chosenCharacters[1]),
-    Story(text: "Wah, wah. Saya juga senang melihat kalian mau bekerja sama dan saling membantu.", isTalking: characters[4]),
-    Story(text: "Yuk, sekarang kalian ikut acara makan-makan di rumah saya.", isTalking: characters[4]),
-    Story(text: "Ayo!", isTalking: chosenCharacters[0]),
+    Story(text: "Akhirnya selesai juga renovasinya. Terima kasih, ya, adik-adik sekalian.", isTalking: characters[4], audioURL: String(characters[4].name) + " 10"),
+    Story(text: "Iya, pak, sama-sama. Senang sekali bisa bergotong-royong dengan warga sekitar.", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 13"),
+    Story(text: "Semuanya bekerjasama dan harmonis sekali rasanya. Kami bangga bisa berkontribusi.", isTalking: chosenCharacters[1], audioURL: String(chosenCharacters[1].name) + " 14"),
+    Story(text: "Wah, wah, jadi dewasa sekali, ya, kalian berdua. Senang sekali saya melihatnya.", isTalking: characters[4], audioURL: String(characters[4].name) + " 11"),
+    Story(text: "Yuk, sekarang kalian ikut acara makan-makan di rumah saya sekalian bersih-bersih.", isTalking: characters[4], audioURL: String(characters[4].name) + " 12"),
+    Story(text: "Ayo!", isTalking: chosenCharacters[0], audioURL: String(chosenCharacters[0].name) + " 15"),
 ]

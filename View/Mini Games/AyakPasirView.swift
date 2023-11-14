@@ -131,10 +131,10 @@ struct AyakPasirView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 startMotionUpdates()
-                matchManager.startTimer(time: 11)
-            }
+                matchManager.startTimer(time: 21)
+//            }
         }
         .onTapGesture {
             isTutorial = false

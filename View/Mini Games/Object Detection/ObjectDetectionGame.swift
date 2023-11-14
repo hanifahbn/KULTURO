@@ -80,7 +80,9 @@ struct ObjectDetectionGame: View {
             }
         }
         .onAppear{
-            matchManager.startTimer(time: 121)
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                matchManager.startTimer(time: 121)
+//            }
         }
         .onTapGesture{
             isTutorialShown = false

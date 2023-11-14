@@ -10,6 +10,7 @@ import SwiftUI
 struct TokoView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isAnimationWalking : Bool = false
@@ -30,26 +31,26 @@ struct TokoView: View {
             Image("BackgroundPanglong")
                 .resizable()
                 .ignoresSafeArea()
-            if currentIndex >= 3{
-                VStack{
-                    Rectangle()
-                        .frame(height: 50)
-                        .foregroundStyle(Color.kuning)
-                        .overlay {
-                            Text("Mission 1 >>")
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundStyle(Color.blueTurtle)
-                                .shadow(color: .white ,radius: 0, y: 1)
-                        }
-                    Spacer()
-                }
-            }
+//            if currentIndex >= 3{
+//                VStack{
+//                    Rectangle()
+//                        .frame(height: 50)
+//                        .foregroundStyle(Color.kuning)
+//                        .overlay {
+//                            Text("Mission 1 >>")
+//                                .font(.system(size: 28, weight: .semibold))
+//                                .foregroundStyle(Color.blueTurtle)
+//                                .shadow(color: .white ,radius: 0, y: 1)
+//                        }
+//                    Spacer()
+//                }
+//            }
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.leading, 50)
                 }
@@ -72,6 +73,7 @@ struct TokoView: View {
                 .frame(width: 100, height: 200)
                 .offset(x : 120, y: 150)
                 .opacity(isConversation ? 0 : 1)
+            TransitionOpening()
             VStack{
                 Spacer()
                 HStack{
@@ -80,7 +82,7 @@ struct TokoView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 230)
+                    .frame(width: 360, height: 250)
                     .overlay {
                         VStack{
                             HStack{
@@ -95,7 +97,7 @@ struct TokoView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -103,15 +105,17 @@ struct TokoView: View {
                             })
                             .padding(.top, 130)
                             .padding(.trailing, 15)
+                            .opacity(currentIndex == tokoStories.count - 1 ? 0 : 1)
                         }
                     }
 //                    .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
-            TransitionOpening()
+               
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             if isTapGestureEnabled {
                 if currentIndex < tokoStories.count - 2 {
                     currentIndex += 1

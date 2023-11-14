@@ -9,12 +9,15 @@ import SwiftUI
 
 struct DragDropView: View {
     @EnvironmentObject var matchManager: MatchManager
+    
     @State var isModalPresented : Bool = false
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
-    @State var items = ["Ember", "Sapu", "Tisu","Kapak","Palu"]
+    
+    @State var items = ["Ember", "Sapu", "Keranjang","Kapak","Palu"]
+    
     @State var currentIndex = 0
-    @State private var isTutorialShown = false //nilai awal true
+    @State private var isTutorialShown = true //nilai awal true
     
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
@@ -67,14 +70,14 @@ struct DragDropView: View {
                                                         VStack {
                                                             Text("Tolong berikan")
                                                             HStack{
-                                                                Text("Saya")
+                                                                Text("saya")
                                                                 Text("\(items[currentIndex])")
                                                                     .foregroundStyle(Color.red)
                                                             }
                                                             
                                                             Spacer()
                                                         }
-                                                        .font(.custom("Chalkboard-Regular", size: 30))
+                                                        .font(.custom("Chalkboard-Regular", size: 25))
                                                         .padding(.trailing, 150)
                                                     }
                                                     .padding(5)
@@ -87,12 +90,22 @@ struct DragDropView: View {
                                         }
                                     }
                                 }
+                            } else {
+                                ZStack{
+                                    Image("HalfDesaBroken")
+                                        .resizable()
+                                        .ignoresSafeArea()
+                                        .opacity(0.8)
+                                        .blur(radius: 2)
+                                    Image("KadesHalf")
+                                        .resizable()
+                                        .frame(width: 350, height: 300)
+                                        .padding(.top, 50)
+                                }
                             }
                         }
                         .frame(height: 350)
                         .ignoresSafeArea()
-                    
-                    
                     Spacer()
                 }
                 VStack{
@@ -224,8 +237,10 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-            //TImer
-            matchManager.startTimer(time: 30)
+            //Timer
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                matchManager.startTimer(time: 31)
+//            }
         }
         .onTapGesture {
             isTutorialShown = false
@@ -265,17 +280,21 @@ struct DragDropView: View {
 }
 
 struct ItemDrag: View {
+    @State var playerViewModel = PlayerViewModel()
+    
     @State var dragOffset: CGSize = .zero
     @State var position: CGSize
     @Binding var askItems: Bool
     @Binding var askItems2: Bool
     @Binding var currentIndex: Int
+//    @Binding var items: [ToolBahasa]
+//    @Binding var imageTool: ToolBahasa
     @Binding var items: [String]
     @State var imageTool: String
+    
     @State var exceedCount = 0
 
     let hapticViewModel = HapticViewModel()
-    let playerViewModel = PlayerViewModel()
 
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
@@ -295,7 +314,9 @@ struct ItemDrag: View {
     
     var body: some View {
         Image(imageTool)
-            .frame(width: 150, height: 150)
+            .resizable()
+//            .frame(width: imageTool.width!, height: imageTool.height!)
+            .frame(width: 100, height: 100)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -308,33 +329,38 @@ struct ItemDrag: View {
                         askItem()
                     })
             )
+            .onAppear{
+//                print("Image : \(imageTool.image!) = \(position.width) - \(position.height)")
+            }
     }
     
     func askItem() {
         
         if position.height < -80 {
-            exceedCount += 1
-            if exceedCount >= 5 {
-                print("aw")
-            }
+//            exceedCount += 1
+//            if exceedCount >= 5 {
+//                print("aw")
+//            }
             if imageTool == items[currentIndex]  {
-                items = items.filter{$0 != imageTool}
+                items = items.filter { tool in
+                    return tool != imageTool
+                }
 
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
 
-
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     if items.count == 0 {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                            askItems = true
-                        }
+                        askItems = true
                     } else {
-                        currentIndex = Int.random(in: 0...items.count - 1)
+                        //                        currentIndex = Int.random(in: 0...items.count - 1)
                     }
-
+                }
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
+                
+                playerViewModel.playAudio(fileName: "Wrong")
             }
             
         } else if position.width > 170 || position.width < -170 {

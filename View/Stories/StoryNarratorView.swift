@@ -36,11 +36,11 @@ struct StoryNarratorView: View {
                             HStack{
                                 if(!chosenCharacters.isEmpty){
                                     Text(nextStory ? narration[currentIndex].text : text)
-                                        .font(.custom("Chalkboard-Regular", size: 35))
+                                        .font(.custom("Chalkboard-Regular", size: 30))
                                 }
                                 else{
                                     Text(nextStory ? narration[currentIndex].text : text)
-                                        .font(.custom("Chalkboard-Regular", size: 35))
+                                        .font(.custom("Chalkboard-Regular", size: 30))
                                 }
                                 Spacer()
                             }
@@ -54,6 +54,7 @@ struct StoryNarratorView: View {
                     .shadow(radius: 10)
             }
             .padding(.top, 20)
+            TransitionClosing(viewModel: viewModel)
             HStack{
                 Spacer()
                 Button(action: {
@@ -65,8 +66,8 @@ struct StoryNarratorView: View {
                 })
                 .padding(.top, 200)
                 .padding(.trailing, 10)
+                .opacity(0)
             }
-            TransitionClosing(viewModel: viewModel)
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{

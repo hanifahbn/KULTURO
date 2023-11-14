@@ -10,6 +10,7 @@ import SwiftUI
 struct GudangView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isAnimationWalking : Bool = false
@@ -30,26 +31,26 @@ struct GudangView: View {
             Image("BackgroundGudang")
                 .resizable()
                 .ignoresSafeArea()
-            if currentIndex >= 2{
-                VStack{
-                    Rectangle()
-                        .frame(height: 50)
-                        .foregroundStyle(Color.kuning)
-                        .overlay {
-                            Text("Mission 2  >>")
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundStyle(Color.blueTurtle)
-                                .shadow(color: .white ,radius: 0, y: 1)
-                        }
-                    Spacer()
-                }
-            }
+//            if currentIndex >= 2{
+//                VStack{
+//                    Rectangle()
+//                        .frame(height: 50)
+//                        .foregroundStyle(Color.kuning)
+//                        .overlay {
+//                            Text("Mission 2  >>")
+//                                .font(.system(size: 28, weight: .semibold))
+//                                .foregroundStyle(Color.blueTurtle)
+//                                .shadow(color: .white ,radius: 0, y: 1)
+//                        }
+//                    Spacer()
+//                }
+//            }
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 220)
                         .padding(.leading, 50)
                 }
@@ -80,7 +81,7 @@ struct GudangView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 230)
+                    .frame(width: 360, height: 250)
                     .overlay {
                         VStack{
                             HStack{
@@ -95,7 +96,7 @@ struct GudangView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -103,6 +104,7 @@ struct GudangView: View {
                             })
                             .padding(.top, 130)
                             .padding(.trailing, 15)
+                            .opacity(currentIndex == gudangStories.count - 1 ? 0 : 1)
                         }
                     }
             }
@@ -111,6 +113,7 @@ struct GudangView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             if isTapGestureEnabled {
                 if currentIndex < gudangStories.count - 2 {
                     currentIndex += 1

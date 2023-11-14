@@ -10,6 +10,7 @@ import SwiftUI
 struct BalaiDesaView: View {
     @EnvironmentObject var matchManager: MatchManager
     @StateObject var viewModel = TransitionViewModel()
+    @State var player = PlayerViewModel()
     @State var isConversation : Bool = false
     @State var isFirstAnimation : Bool = false
     @State var isSecondAnimation : Bool = false
@@ -27,10 +28,10 @@ struct BalaiDesaView: View {
             //MARK: Animation
             HStack(spacing : -30){
                 ZStack{
-                    GifImage("AnimationAsep")
+                    GifImage(chosenCharacters[0].gifImage!)
                         .frame(width: 200, height: 200)
                         .padding(.trailing, 50)
-                    GifImage("AnimationTogar")
+                    GifImage(chosenCharacters[1].gifImage!)
                         .frame(width: 200, height: 200)
                         .padding(.leading, 50)
                 }
@@ -62,13 +63,15 @@ struct BalaiDesaView: View {
                     .offset(y: 70)
             }
             
-            GifImage("AnimationKepalaDesa")
+            GifImage(characters[4].gifImage!)
                 .frame(width: 200, height: 230)
                 .padding(.leading, 50)
                 .offset(x:  isSecondAnimation ? -120 : -300, y: 100)
                 .animation(.linear(duration: 1.5), value: isSecondAnimation)
                 .opacity(isAnimatedKepalaDesa ? 0 : 1)
                 .scaleEffect(x: -1, y : 1)
+            TransitionOpening()
+            TransitionClosing(viewModel: viewModel)
             VStack{
                 Spacer()
                 HStack{
@@ -77,7 +80,7 @@ struct BalaiDesaView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 230)
+                    .frame(width: 360, height: 250)
                     .overlay {
                         VStack{
                             HStack{
@@ -92,7 +95,7 @@ struct BalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("Sound")
+                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()
@@ -106,11 +109,11 @@ struct BalaiDesaView: View {
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition
-            TransitionOpening()
-            TransitionClosing(viewModel: viewModel)
+           
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {
@@ -136,8 +139,7 @@ struct BalaiDesaView: View {
                 else {
                     isConversation = false
                     isTapGestureEnabled = false
-                    
-                    
+                    isSecondAnimation = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         isConversation = false
                         isthirdAnimation = false

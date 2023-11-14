@@ -26,14 +26,6 @@ class MatchManager: NSObject, ObservableObject{
     var isFinishedPlaying: Int = 0
     var localTools: [String]?
     var otherTools: [String]?
-    
-    @Published var tools: [ToolBahasa] = [
-        ToolBahasa(localName: "Apusapus Ni Pat", bahasaName: "Keset", labelName:"ApusapusNiPat", exampleAudioURL: "ApusapusNiPat"),
-        ToolBahasa(localName: "Sipadot", bahasaName: "Sapu", labelName:"Sipadot", exampleAudioURL: "Sipadot"),
-        ToolBahasa(localName: "Tel", bahasaName: "Ember", labelName:"Tel", exampleAudioURL: "Tel"),
-        ToolBahasa(localName: "Inganan Sampah", bahasaName: "Tempat Sampah", labelName:"IngananSampah", exampleAudioURL: "IngananSampah"),
-        ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: "JomDinding"),
-    ]
         
     let gameDuration = 15
     var otherPlayerScore: Int = 0
