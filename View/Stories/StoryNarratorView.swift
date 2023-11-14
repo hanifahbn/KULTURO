@@ -37,10 +37,12 @@ struct StoryNarratorView: View {
                                 if(!chosenCharacters.isEmpty){
                                     Text(nextStory ? narration[currentIndex].text : text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
+                                        .foregroundStyle(.black)
                                 }
                                 else{
                                     Text(nextStory ? narration[currentIndex].text : text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
+                                        .foregroundStyle(.black)
                                 }
                                 Spacer()
                             }

@@ -89,6 +89,7 @@ struct PerbaikanBalaiDesaView: View {
                             HStack{
                                 Text(stories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(.black)
                                     .padding(15)
                                 Spacer()
                             }
