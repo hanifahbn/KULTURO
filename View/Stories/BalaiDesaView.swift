@@ -86,6 +86,7 @@ struct BalaiDesaView: View {
                             HStack{
                                 Text(balaiDesaStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(.black)
                                     .padding(15)
                                 Spacer()
                             }

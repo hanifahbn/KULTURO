@@ -40,6 +40,7 @@ struct BalaiDesaRenovatedView: View {
                             HStack{
                                 Text(medanSuccessStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(.black)
                                     .padding(15)
                                 Spacer()
                             }

@@ -88,6 +88,7 @@ struct TokoView: View {
                             HStack{
                                 Text(tokoStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(.black)
                                     .padding(15)
                                 Spacer()
                             }
