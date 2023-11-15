@@ -19,6 +19,7 @@ struct BalaiDesaView: View {
     @State var isTapGestureEnabled = false
     @State var isCharacterShown = true
     @State var currentIndex = 0
+    @EnvironmentObject var router : RouterViewStack
     
     var body: some View {
         ZStack{
@@ -152,7 +153,8 @@ struct BalaiDesaView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                             viewModel.startTransition()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                matchManager.gameStatus = .storyToko
+//                                matchManager.gameStatus = .storyToko
+                                router.path.append(.storyToko)
                             }
                         }
                     }

@@ -36,7 +36,8 @@ extension MatchManager: GKMatchDelegate{
                 if localCharacter != nil {
                     chosenCharacters[1] = otherCharacter!
 //                    synchronizeGameCharacters(chosenCharacters)
-                    gameStatus = .beginning
+                    gameStatus = .inMap
+//                    router.path.append(.inMap)
                 }
             }
         } else {

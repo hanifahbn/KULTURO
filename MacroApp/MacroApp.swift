@@ -23,6 +23,8 @@ struct MacroApp: App {
 //                    .environmentObject(router)
 //            }
                 ContentView()
+//            OnBoardView()
+//            StoryNarratorView()
         }
     }
 }

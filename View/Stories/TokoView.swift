@@ -19,7 +19,7 @@ struct TokoView: View {
     //MARK: Ini tidak ada fungsimya
     //    @State var isCharacterShown = true
     //    @State var isGoingToNextView : Bool = false
-    
+    @EnvironmentObject var router : RouterViewStack
     var body: some View {
         ZStack{
             //MARK: Ini tidak ada fungsimya
@@ -139,7 +139,9 @@ struct TokoView: View {
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("Reading")
                     if matchManager.isFinishedReading == 2 {
-                        matchManager.gameStatus = .soundGame
+                        print("we")
+//                        matchManager.gameStatus = .soundGame
+                        router.path.append(.soundGame)
                     } else {
                         currentIndex += 1
                     }

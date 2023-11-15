@@ -18,6 +18,7 @@ enum UserAuthenticationState: String {
 enum GameStatus {
     case setup
     case inGame
+    case inMap
     case beginning
     case storyBalaiDesa
     case storyToko

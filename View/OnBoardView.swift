@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OnBoardView: View {
     @EnvironmentObject var matchManager : MatchManager
-    
     var body: some View {
         ZStack{
             Image("BackgroundImageBoard")

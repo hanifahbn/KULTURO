@@ -74,7 +74,7 @@ struct BalaiDesaRenovatedView: View {
                     isTapGestureEnabled = false
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         isGoingToNextView = true
-                        matchManager.gameStatus = .ending
+//                        matchManager.gameStatus = .ending
 //                    }
                 }
             }

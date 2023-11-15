@@ -19,7 +19,8 @@ struct GudangView: View {
     //MARK: Ini tidak ada fungsimya
     //    @State var isCharacterShown = true
     //    @State var isGoingToNextView : Bool = false
-
+    @EnvironmentObject var router : RouterViewStack
+    
     var body: some View {
         ZStack{
             //MARK: Ini tidak ada fungsimya
@@ -137,7 +138,8 @@ struct GudangView: View {
                     matchManager.isFinishedReading += 1
                     matchManager.synchronizeGameState("ReadingSecond")
                     if matchManager.isFinishedReading == 2 {
-                        matchManager.gameStatus = .cameraGame
+//                        matchManager.gameStatus = .cameraGame
+                        router.path.append(.cameraGame)
                     } else {
                         currentIndex += 1
                     }

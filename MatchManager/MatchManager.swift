@@ -20,6 +20,7 @@ class MatchManager: NSObject, ObservableObject{
     @Published var timer: Timer?
     @Published var timeInString: String = ""
     @Published var isRetrying: Bool = false
+    @StateObject var router = RouterViewStack ()
     
     var match : GKMatch?
     var isFinishedReading: Int = 0
@@ -113,6 +114,8 @@ class MatchManager: NSObject, ObservableObject{
         match?.delegate = self
         
         gameStatus = .inGame
+//        router.path.append(.inGame)
+        
     }
     
     func chooseCharacter(_ karakter: Karakter) {
@@ -131,7 +134,10 @@ class MatchManager: NSObject, ObservableObject{
             if otherCharacter != nil {
                 chosenCharacters[1] = otherCharacter!
 //                synchronizeGameCharacters(chosenCharacters)
-                gameStatus = .beginning
+                gameStatus = .inMap
+                
+//                router.path.append(.inMap)
+                
             }
         }
     }

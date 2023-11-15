@@ -20,6 +20,7 @@ struct PerbaikanBalaiDesaView: View {
     @State var currentIndex = 0
     @State var stories = perbaikanStoriesSecond
     @State var nextGameStatus: GameStatus = .dragAndDrop
+    @EnvironmentObject var router : RouterViewStack
 
     var body: some View {
         ZStack{
@@ -143,7 +144,8 @@ struct PerbaikanBalaiDesaView: View {
                         if matchManager.isFinishedReading == 2 {
                             viewModel.startTransition()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                matchManager.gameStatus = nextGameStatus
+//                                matchManager.gameStatus = nextGameStatus
+                                router.path.append(.dragAndDrop)
                             }
                         } else {
                             currentIndex += 1
@@ -154,7 +156,8 @@ struct PerbaikanBalaiDesaView: View {
                         if matchManager.isFinishedReading == 2 {
                             viewModel.startTransition()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                matchManager.gameStatus = nextGameStatus
+//                                matchManager.gameStatus = nextGameStatus
+                                router.path.append(.dragAndDrop)
                             }
                         } else {
                             currentIndex += 1

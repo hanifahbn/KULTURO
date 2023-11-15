@@ -20,57 +20,61 @@ struct StoryNarratorView: View {
     @State var isTapGestureEnabled = true
     @State var narration = beginningNarration
     @State var nextGameStatus: GameStatus = .storyBalaiDesa
-    
+    @EnvironmentObject var router : RouterViewStack
     var body: some View {
-        ZStack{
-            Image("BalaiDesaRenovated")
-                .resizable()
-                .blur(radius: 4)
-                .ignoresSafeArea()
-            VStack{
-                Image("TextBoxNarasi")
+            ZStack{
+                Image("BalaiDesaRenovated")
                     .resizable()
-                    .frame(width: 400, height: 400)
-                    .overlay {
-                        VStack{
-                            HStack{
-                                if(!chosenCharacters.isEmpty){
-                                    Text(nextStory ? narration[currentIndex].text : text)
-                                        .font(.custom("Chalkboard-Regular", size: 30))
-                                        .foregroundStyle(.black)
-                                }
-                                else{
-                                    Text(nextStory ? narration[currentIndex].text : text)
-                                        .font(.custom("Chalkboard-Regular", size: 30))
-                                        .foregroundStyle(.black)
+                    .blur(radius: 4)
+                    .ignoresSafeArea()
+                VStack{
+                    Image("TextBoxNarasi")
+                        .resizable()
+                        .frame(width: 400, height: 400)
+                        .overlay {
+                            VStack{
+                                HStack{
+                                    if(!chosenCharacters.isEmpty){
+                                        Text(nextStory ? narration[currentIndex].text : text)
+                                            .font(.custom("Chalkboard-Regular", size: 30))
+                                            .foregroundStyle(.black)
+                                    }
+                                    else{
+                                        Text(nextStory ? narration[currentIndex].text : text)
+                                            .font(.custom("Chalkboard-Regular", size: 30))
+                                            .foregroundStyle(.black)
+                                    }
+                                    Spacer()
                                 }
                                 Spacer()
                             }
-                            Spacer()
+                            .padding(30)
+                            .padding(.top, 50)
+                            
                         }
-                        .padding(30)
-                        .padding(.top, 50)
-                        
-                    }
-                    .frame(width: 350, height: 300)
-                    .shadow(radius: 10)
+                        .frame(width: 350, height: 300)
+                        .shadow(radius: 10)
+                }
+                .padding(.top, 20)
+                TransitionClosing(viewModel: viewModel)
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        print("Sound")
+                    }, label: {
+                        Image("IconButtonSpeaker")
+                            .resizable()
+                            .frame(width: 70, height: 50)
+                    })
+                    .padding(.top, 200)
+                    .padding(.trailing, 10)
+                    .opacity(0)
+                }
             }
-            .padding(.top, 20)
-            TransitionClosing(viewModel: viewModel)
-            HStack{
-                Spacer()
-                Button(action: {
-                    print("Sound")
-                }, label: {
-                    Image("IconButtonSpeaker")
-                        .resizable()
-                        .frame(width: 70, height: 50)
-                })
-                .padding(.top, 200)
-                .padding(.trailing, 10)
-                .opacity(0)
-            }
-        }
+//            .navigationDestination(for: GameStatus.self) {
+//                destination in
+//                ViewFactory.viewForDestination(destination)
+//            }
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
@@ -122,7 +126,9 @@ struct StoryNarratorView: View {
 //            nextStory = false
             viewModel.startTransition()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                matchManager.gameStatus = nextGameStatus
+//                matchManager.gameStatus = nextGameStatus
+                router.path.append(.storyBalaiDesa)
+               
             }
         }
     }

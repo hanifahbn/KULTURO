@@ -13,6 +13,7 @@ struct ModalView: View {
     @State var textButton: String? = ""
     @State var backTo: GameStatus = .setup
     @StateObject var viewModel = TransitionViewModel()
+    @EnvironmentObject var router : RouterViewStack
 
     var body: some View {
         ZStack{
@@ -26,6 +27,7 @@ struct ModalView: View {
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyGudang
+//                        router.path.append(.storyGudang)
                         matchManager.isRetrying = false
                         matchManager.isFinishedPlaying = 0
                         matchManager.isFinishedReading = 0
