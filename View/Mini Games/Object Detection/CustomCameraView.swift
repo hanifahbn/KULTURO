@@ -78,18 +78,8 @@ struct CustomCameraView: View {
                     }
 
                     Spacer()
-                    RoundedRectangle(cornerRadius: 16)
-                        .frame(width: 110, height: 55)
-                        .foregroundStyle(.white)
-                        .opacity(0.5)
-                        .overlay(content: {
-                            HStack{
-                                Image("IconTimer")
-                                    .font(.system(size: 25, weight: .bold))
-                                Text(matchManager.timeInString)
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                        })
+                    TimerView(countTo: 121)
+                        .environmentObject(matchManager)
                 }
                 .padding(.trailing, 30)
 

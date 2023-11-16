@@ -113,17 +113,8 @@ struct DragDropView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 110, height: 55)
-                            .foregroundStyle(.white)
-                            .opacity(0.5)
-                            .overlay(content: {
-                                HStack{
-                                    Image("IconTimer")
-                                    Text(matchManager.timeInString)
-                                        .font(.system(size: 17, weight: .bold))
-                                }
-                            })
+                        TimerView(countTo: 31)
+                            .environmentObject(matchManager)
                             .padding(.trailing, 30)
                     }
                     

@@ -26,6 +26,8 @@
 		A38733172B020BCC00E9494F /* JomDinding.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733162B020BCC00E9494F /* JomDinding.wav */; };
 		A38733192B020BDC00E9494F /* Sipadot.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733182B020BDC00E9494F /* Sipadot.wav */; };
 		A387331B2B020BFC00E9494F /* Tel.wav in Resources */ = {isa = PBXBuildFile; fileRef = A387331A2B020BFC00E9494F /* Tel.wav */; };
+		A38733242B05C2A500E9494F /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38733232B05C2A500E9494F /* ProgressBar.swift */; };
+		A38733262B05C46700E9494F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38733252B05C46700E9494F /* TimerView.swift */; };
 		A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A2E772AF5F15000E3F52A /* TextSound.swift */; };
 		A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
@@ -174,6 +176,8 @@
 		A38733162B020BCC00E9494F /* JomDinding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = JomDinding.wav; sourceTree = "<group>"; };
 		A38733182B020BDC00E9494F /* Sipadot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sipadot.wav; sourceTree = "<group>"; };
 		A387331A2B020BFC00E9494F /* Tel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tel.wav; sourceTree = "<group>"; };
+		A38733232B05C2A500E9494F /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		A38733252B05C46700E9494F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		A39A2E772AF5F15000E3F52A /* TextSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSound.swift; sourceTree = "<group>"; };
 		A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKata.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
@@ -637,14 +641,16 @@
 		E2A729522AE215D10093DD1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E2D73EEE2AFA33EA006E99A1 /* GiftAnimation */,
 				E2D73EE72AF8F08B006E99A1 /* Transition */,
+				E2D73EEE2AFA33EA006E99A1 /* GiftAnimation */,
 				A35921552AEF2D7C0063BD8E /* ModalView.swift */,
 				E2A729532AE216230093DD1F /* ComponentButton.swift */,
 				E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */,
 				A31CD01C2AEFB69D00B91325 /* RecordButton.swift */,
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
+				A38733232B05C2A500E9494F /* ProgressBar.swift */,
+				A38733252B05C46700E9494F /* TimerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				32E401642AEB80C3007A15AA /* CameraView.swift in Sources */,
 				A3B13C202AFABBDE0060535C /* BalaiDesaRenovatedView.swift in Sources */,
+				A38733242B05C2A500E9494F /* ProgressBar.swift in Sources */,
 				A3AF9EA22AEFAF2B0075E5B8 /* PlayerViewModel.swift in Sources */,
 				E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */,
 				32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */,
@@ -875,6 +882,7 @@
 				A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */,
 				A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */,
 				A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */,
+				A38733262B05C46700E9494F /* TimerView.swift in Sources */,
 				A3AF9E9A2AEFAC0D0075E5B8 /* AudioViewModel.swift in Sources */,
 				A3B13C1A2AFAB4460060535C /* TokoView.swift in Sources */,
 				E20C87CA2AE4129F0054AD47 /* StoryTemp.swift in Sources */,

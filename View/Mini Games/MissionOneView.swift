@@ -72,7 +72,6 @@ struct MissionOneView: View {
                                         .font(.system(size: 15, weight: .bold))
                                 }
                             }
-                        //                    .opacity(isModalPresented ? 1 : 0)
                             .animation(.linear, value: matchManager.isFinishedPlaying == 1)
                     }
                     .zIndex(3)
@@ -80,17 +79,8 @@ struct MissionOneView: View {
                 ZStack{
                     HStack{
                         Spacer()
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 110, height: 55)
-                            .foregroundStyle(.white)
-                            .opacity(0.5)
-                            .overlay(content: {
-                                HStack{
-                                    Image("IconTimer")
-                                    Text(matchManager.timeInString)
-                                        .font(.system(size: 17, weight: .bold))
-                                }
-                            })
+                        TimerView(countTo: 46)
+                            .environmentObject(matchManager)
                     }
                     .padding(.trailing, 30)
                 }
@@ -140,8 +130,6 @@ struct MissionOneView: View {
                 //                }
                 .disabled(jumlahBenar == 3)
                 .padding(.bottom, 40)
-                .onAppear{
-                }
                 .onChange(of: isSuccess) { _ in
                     updateSheets()
                 }
