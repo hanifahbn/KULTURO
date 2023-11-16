@@ -18,7 +18,7 @@ struct ObjectDetectionGame: View {
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
-    @State private var isTutorialShown = true
+    @State private var isTutorialShown = false
 
     enum SheetType {
         case cameraSuccess
@@ -45,84 +45,84 @@ struct ObjectDetectionGame: View {
             ZStack{
                 if capturedImage != nil {
                     CameraResultView(capturedImage: $capturedImage, isSuccess: $isSuccess)
-                        .environmentObject(matchManager)
-                        .onAppear{
-                            isSuccess = true
-                            matchManager.isFinishedPlaying += 1
-                            matchManager.synchronizeGameState("CameraMission")
-                        }
+//                        .environmentObject(matchManager)
+//                        .onAppear{
+//                            isSuccess = true
+//                            matchManager.isFinishedPlaying += 1
+//                            matchManager.synchronizeGameState("CameraMission")
+//                        }
                 } else {
-                    if(matchManager.isFinishedPlaying == 1 && !isSuccess){
-                        VStack {
-                            RoundedRectangle(cornerRadius: 15.0)
-                                .frame(width: 230, height: 54)
-                                .foregroundStyle(.white)
-                                .shadow(radius: 0, y: 5)
-                                .overlay {
-                                    HStack{
-                                        Image(chosenCharacters[1].headImage)
-                                            .resizable()
-                                            .frame(width: 70, height: 70)
-                                            .padding(.bottom, 15)
-                                        Text("Hei, lekaslah! Aku sudah selesai.")
-                                            .font(.system(size: 15, weight: .bold))
-                                    }
-                                }
-                                .animation(.linear, value: matchManager.isFinishedPlaying == 1)
-                        }
-                        .padding(.bottom, 400)
-                        .zIndex(3)
-                    }
+//                    if(matchManager.isFinishedPlaying == 1 && !isSuccess){
+//                        VStack {
+//                            RoundedRectangle(cornerRadius: 15.0)
+//                                .frame(width: 230, height: 54)
+//                                .foregroundStyle(.white)
+//                                .shadow(radius: 0, y: 5)
+//                                .overlay {
+//                                    HStack{
+//                                        Image(chosenCharacters[1].headImage)
+//                                            .resizable()
+//                                            .frame(width: 70, height: 70)
+//                                            .padding(.bottom, 15)
+//                                        Text("Hei, lekaslah! Aku sudah selesai.")
+//                                            .font(.system(size: 15, weight: .bold))
+//                                    }
+//                                }
+//                                .animation(.linear, value: matchManager.isFinishedPlaying == 1)
+//                        }
+//                        .padding(.bottom, 400)
+//                        .zIndex(3)
+//                    }
                     ZStack{
                         CustomCameraView(capturedImage: $capturedImage, tool: $tool)
                     }
                 }
             }
         }
-        .onAppear{
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                matchManager.startTimer(time: 121)
+//        .onAppear{
+////            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                matchManager.startTimer(time: 121)
+////            }
+//        }
+//        .onTapGesture{
+//            isTutorialShown = false
+//        }
+//        .onChange(of: isSuccess) { _ in
+//            updateSheets()
+//        }
+//        .onChange(of: matchManager.isTimerRunning) { _ in
+//            updateSheets()
+//        }
+//        .onChange(of: matchManager.isFinishedPlaying) { _ in
+//            updateSheets()
+//        }
+//        .sheet(isPresented: $isSheetPresented) {
+//            ZStack {
+//                Color.ungu
+//                    .ignoresSafeArea()
+//                switch currentSheet {
+//                case .cameraSuccess:
+//                    ModalView(modalType: "CameraSuccess", textButton: "Menunggu temanmu selesai...")
+//                        .environmentObject(matchManager)
+//                case .cameraSuccessAll:
+//                    ModalView(modalType: "CameraSuccess", textButton: "Lanjutkan")
+//                        .environmentObject(matchManager)
+//                case .lose:
+//                    ModalView(modalType: "Lose", backTo: .cameraGame)
+//                        .environmentObject(matchManager)
+//                case .none:
+//                    VStack {
+//                        EmptyView()
+//                    }
+//                    .onAppear{
+//                        isSuccess.toggle()
+//                        isSuccess.toggle()
+//                    }
+//                }
 //            }
-        }
-        .onTapGesture{
-            isTutorialShown = false
-        }
-        .onChange(of: isSuccess) { _ in
-            updateSheets()
-        }
-        .onChange(of: matchManager.isTimerRunning) { _ in
-            updateSheets()
-        }
-        .onChange(of: matchManager.isFinishedPlaying) { _ in
-            updateSheets()
-        }
-        .sheet(isPresented: $isSheetPresented) {
-            ZStack {
-                Color.ungu
-                    .ignoresSafeArea()
-                switch currentSheet {
-                case .cameraSuccess:
-                    ModalView(modalType: "CameraSuccess", textButton: "Menunggu temanmu selesai...")
-                        .environmentObject(matchManager)
-                case .cameraSuccessAll:
-                    ModalView(modalType: "CameraSuccess", textButton: "Lanjutkan")
-                        .environmentObject(matchManager)
-                case .lose:
-                    ModalView(modalType: "Lose", backTo: .cameraGame)
-                        .environmentObject(matchManager)
-                case .none:
-                    VStack {
-                        EmptyView()
-                    }
-                    .onAppear{
-                        isSuccess.toggle()
-                        isSuccess.toggle()
-                    }
-                }
-            }
-            .interactiveDismissDisabled()
-            .presentationDetents([.height(190)])
-        }
+//            .interactiveDismissDisabled()
+//            .presentationDetents([.height(190)])
+//        }
 
     }
     

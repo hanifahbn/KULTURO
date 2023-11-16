@@ -17,7 +17,7 @@ struct CustomCameraView: View {
 
     @Environment(\.presentationMode) private var presentationMode
 
-    @State var isDisabled: Bool = true
+    @State var isDisabled: Bool = false
 
     @Binding var tool: Tool
 
@@ -40,43 +40,26 @@ struct CustomCameraView: View {
                     print(err.localizedDescription)
                 }
             }.ignoresSafeArea()
+
+
+                ZStack {
+                    if(isDisabled){
+                        Rectangle().background(.ultraThinMaterial)
+                    }else{
+                        Rectangle().foregroundStyle(Color.skyBlue)
+                    }
+                    RoundedRectangle(cornerRadius: 81)
+                        .frame(width: 350, height: 421)
+                        .padding(.bottom, 160)
+                        .blendMode(.destinationOut)
+                }
+                .compositingGroup()
+                .ignoresSafeArea()
+
+
             VStack{
 
                 HStack(){
-
-                    HStack(spacing: -60) {
-                        Image("Headman")
-                            .resizable()
-                            .frame(width: 70, height: 74)
-                            .zIndex(1)
-                            .padding(.bottom, 15)
-
-
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .frame(width: 177, height: 55)
-                            .background(.white.opacity(0.6))
-                            .cornerRadius(16)
-                            .overlay(
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .inset(by: 0.5)
-                                        .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                    VStack(alignment: .leading){
-
-                                        Text("Tolong Carikan")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(.black)
-
-                                        Text(tool.imageName)
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(.darkRed)
-                                    }
-                                }
-                            )
-                            .padding(.leading, 36)
-                    }
-
                     Spacer()
                     RoundedRectangle(cornerRadius: 16)
                         .frame(width: 110, height: 55)
@@ -86,58 +69,98 @@ struct CustomCameraView: View {
                             HStack{
                                 Image("IconTimer")
                                     .font(.system(size: 25, weight: .bold))
-                                Text(matchManager.timeInString)
-                                    .font(.system(size: 17, weight: .bold))
+//                                Text(matchManager.timeInString)
+//                                    .font(.system(size: 17, weight: .bold))
                             }
                         })
                 }
                 .padding(.trailing, 30)
 
-
+                    RoundedRectangle(cornerRadius: 8)
+                        .frame(width: 112, height: 25)
+                        .foregroundStyle(isDisabled ? .white : .skyBlue)
+                        .opacity(isDisabled ? 0.5 : 1)
+                        .overlay(content: {
+                            HStack{
+                                Text(isDisabled ? "Mencari Barang" :"Ketemu!")
+                                    .font(.custom("Chalkboard-Bold", size: 12))
+                                    .foregroundStyle(.black)
+                            }
+                        }).padding(.top, 28)
 
                 Spacer()
 
-                HStack{
+                VStack{
+                    ZStack(alignment: .center) {
+                        Image("BubbleChat")
+                        HStack{
+                            Text("Tolong Carikan ")
+                                .font(.custom("Chalkboard-Bold", size: 24))
+                                .foregroundStyle(.black)
 
-                    Circle()
-                        .overlay(content: {
-                            VStack{
-                                Image(tool.imageName)
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
+                            Text(tool.imageName)
+                                .font(.custom("Chalkboard-Bold", size: 28))
+                                .foregroundColor(Color("DarkRed"))
+                                .foregroundStyle(.darkRed)
+                        }.padding(.bottom, 32)
+                    } .padding(.bottom, -40)
+
+                    HStack{
+
+                        Spacer()
+
+                        Image("Headman")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 88, height: 88)
+                            .clipShape(Circle())
+
+                        Spacer()
+
+                        Button(action: {cameraService.capturePhoto()}, label: {
+                            Image(isDisabled ? "CameraOff" : "Camera")
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 22)
+                                .background(isDisabled ? .darkRed : .gkananKuning)
+                                .clipShape(Circle())
+                        })
+                        .disabled(isDisabled)
+
+                        Spacer()
+
+                        Button(action: {tool = toolBrain.getRandomTool(tool)}, label: {
+                            ZStack{
+                                Circle()
+                                    .overlay(content: {
+                                        Image(tool.imageName)
+                                            .resizable()
+                                            .padding(12)
+                                    })
+                                    .foregroundStyle(.ungu)
+                                    .frame(width: 76, height: 76)
+
+
+
+                                Circle()
+                                    .overlay(content: {
+                                        Image(systemName: "arrow.clockwise")
+                                            .font(.system(size: 21))
+                                            .foregroundStyle(.gkananKuning)
+
+                                    })
+                                    .foregroundStyle(.blueTurtle)
+                                    .frame(width: 40, height: 40)
+                                    .padding(.top, 60)
+                                    .padding(.leading, 72)
+
                             }
                         })
-                        .foregroundColor(.ungu)
-                        .frame(width: 76, height: 76)
-
-                    Spacer()
-
-                    Button(action: {cameraService.capturePhoto()}, label: {
-                        Image(isDisabled ? "CameraOff" : "Camera")
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 22)
-                            .background(isDisabled ? .darkRed : .gkananKuning)
-                            .clipShape(Circle())
-                    })
-                    .disabled(isDisabled)
-
-                    Spacer()
-
-                    Button(action: {tool = toolBrain.getRandomTool(tool)}, label: {
-                        Image(systemName: "arrow.circlepath")
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 22)
-                            .background(.blueTurtle)
-                            .foregroundColor(.gkananKuning)
-                            .clipShape(Circle())
-                            .font(.system(size: 28))
-                    })
+                        
+                    }
+                    .padding(.top, 22)
+                    .padding(.bottom, 48)
+                    .padding(.horizontal, 20)
                 }
-                .padding(.top, 22)
-                .padding(.bottom, 48)
-                .padding(.horizontal, 8)
-                .background(Color.gray.opacity(0.2))
-
             }
         }
     }

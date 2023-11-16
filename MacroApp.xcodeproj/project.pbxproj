@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */; };
 		32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */; };
 		32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015A2AEA754C007A15AA /* ToolBrain.swift */; };
 		32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */; };
@@ -154,6 +155,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Bold.ttf"; sourceTree = "<group>"; };
 		32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
 		32E4015A2AEA754C007A15AA /* ToolBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBrain.swift; sourceTree = "<group>"; };
 		32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 		E2791F412AFE260400391F1B /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */,
 				E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */,
 			);
 			path = Font;
@@ -753,6 +756,7 @@
 				A3B4F8D02B01E1FC006CF328 /* Dayu 4.m4a in Resources */,
 				A3B4F9012B01E225006CF328 /* Ajeng 11.m4a in Resources */,
 				A3B4F8F92B01E225006CF328 /* Ajeng 9.m4a in Resources */,
+				32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */,
 				A3B4F8D32B01E1FC006CF328 /* Dayu 3.m4a in Resources */,
 				A3B4F8F52B01E225006CF328 /* Ajeng 1.m4a in Resources */,
 				A3B4F9142B01E259006CF328 /* Pak kades 7.m4a in Resources */,

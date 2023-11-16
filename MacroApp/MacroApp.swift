@@ -22,7 +22,7 @@ struct MacroApp: App {
 //                ContentView()
 //                    .environmentObject(router)
 //            }
-                ContentView()
+                ObjectDetectionGame()
         }
     }
 }

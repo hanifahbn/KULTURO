@@ -124,7 +124,7 @@ struct MissionOneView: View {
 
                             //                            print("Label di view: \(audioViewModel.audio.label)")
                             //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                            textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
+//                            textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
                             playerViewModel.playAudio(fileName: "Correct")
                             hapticViewModel.simpleSuccess()
                             spoken[currentStep] = true
@@ -142,20 +142,20 @@ struct MissionOneView: View {
 
                 //                            print("Label di view: \(audioViewModel.audio.label)")
                 //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
-                playerViewModel.playAudio(fileName: "Correct")
-                hapticViewModel.simpleSuccess()
-                spoken[currentStep] = true
-                currentStep = currentStep + 1
-                jumlahBenar = jumlahBenar + 1
-                if(jumlahBenar == 3){
-                    matchManager.isFinishedPlaying += 1
-                    matchManager.synchronizeGameState("SoundMission")
-                    isSuccess = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
-                }
+//                textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
+//                playerViewModel.playAudio(fileName: "Correct")
+//                hapticViewModel.simpleSuccess()
+//                spoken[currentStep] = true
+//                currentStep = currentStep + 1
+//                jumlahBenar = jumlahBenar + 1
+//                if(jumlahBenar == 3){
+//                    matchManager.isFinishedPlaying += 1
+//                    matchManager.synchronizeGameState("SoundMission")
+//                    isSuccess = true
+//                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
+//                }
                 //                            }
             }
         }
