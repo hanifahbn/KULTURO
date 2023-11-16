@@ -179,11 +179,7 @@ struct AyakPasirView: View {
     }
     
     private func updateSheets() {
-        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
-            currentSheet = .shakeSuccess
-            isSheetPresented = true
-            hapticViewModel.complexSuccess()
-        } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
             currentSheet = .shakeSuccessAll
             isSheetPresented = true
             hapticViewModel.complexSuccess()

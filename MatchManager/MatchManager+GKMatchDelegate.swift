@@ -10,16 +10,12 @@ import GameKit
 
 extension MatchManager: GKMatchDelegate{
     func match(_ match: GKMatch, didChange state: GKPlayerConnectionState, for player: GKPlayer) {
-        // Implementasi kode Anda untuk menangani perubahan status koneksi pemain
         switch state {
         case .connected:
-            // Pemain telah terhubung
             print("Player \(player.displayName) is connected.")
         case .disconnected:
-            // Pemain telah terputus
             print("Player \(player.displayName) is disconnected.")
         case .unknown:
-            // Status koneksi tidak diketahui
             print("Player \(player.displayName) connection status is unknown.")
         @unknown default:
             break

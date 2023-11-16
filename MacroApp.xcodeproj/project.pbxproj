@@ -347,6 +347,18 @@
 			path = "Batak Example Audio";
 			sourceTree = "<group>";
 		};
+		A387331C2B037E9500E9494F /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
+				E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */,
+				E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */,
+				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
+				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		A3B4F8852B01E07E006CF328 /* Asep */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,12 +479,8 @@
 		A3C304692ADE898800E11CCC = {
 			isa = PBXGroup;
 			children = (
+				A387331C2B037E9500E9494F /* Animation */,
 				A3ED9E682AFCCE050041E7D1 /* Audio */,
-				E2ED5C2E2AFCCD30005D4B22 /* AnimationAsep.gif */,
-				E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */,
-				E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */,
-				E2ED5C2F2AFCCD31005D4B22 /* AnimationKepalaDesa.gif */,
-				E2ED5C2D2AFCCD30005D4B22 /* AnimationTogar.gif */,
 				E2791F412AFE260400391F1B /* Font */,
 				32E4016F2AEB9864007A15AA /* CameraManager */,
 				E20C87CB2AE412AF0054AD47 /* Model */,

@@ -14,7 +14,9 @@ struct DragDropView: View {
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
     
-    @State var items = ["Ember", "Sapu", "Keranjang","Kapak","Palu"]
+    @State var items = toolList.compactMap { tool in
+         tool.image != nil ? tool: nil
+    }
     
     @State var currentIndex = 0
     @State private var isTutorialShown = true //nilai awal true
@@ -71,7 +73,7 @@ struct DragDropView: View {
                                                             Text("Tolong berikan")
                                                             HStack{
                                                                 Text("saya")
-                                                                Text("\(items[currentIndex])")
+                                                                Text("\(items[currentIndex].bahasaName)")
                                                                     .foregroundStyle(Color.red)
                                                             }
                                                             
@@ -118,7 +120,6 @@ struct DragDropView: View {
                             .overlay(content: {
                                 HStack{
                                     Image("IconTimer")
-                                    //                                        .font(.system(size: 25, weight: .bold))
                                     Text(matchManager.timeInString)
                                         .font(.system(size: 17, weight: .bold))
                                 }
@@ -155,8 +156,8 @@ struct DragDropView: View {
                     Spacer()
                 }
                 if(items.count != 0){
-                    ForEach(items, id: \.self) { item in
-                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: item, items: $items)
+                    ForEach(items.indices, id: \.self) { item in
+                         ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
                     }
                 }
                 if askItems {
@@ -172,38 +173,6 @@ struct DragDropView: View {
                     Text("Item Pindah")
                         .font(.system(size: 50, weight: .semibold))
                 }
-                //                if(items.count != 0){
-                //                    VStack{
-                //                        HStack(spacing: -60) {
-                //                            Image("Office")
-                //                                .resizable()
-                //                                .frame(width: 85, height: 87 )
-                //                                .zIndex(1)
-                //                                .padding(.top, -10)
-                //
-                //                            Rectangle()
-                //                                .foregroundColor(.white)
-                //                                .frame(width: 260, height: 76)
-                //                                .background(.white.opacity(0.6))
-                //                                .cornerRadius(16)
-                //                                .overlay(
-                //                                    ZStack{
-                //                                        RoundedRectangle(cornerRadius: 16)
-                //                                            .inset(by: 0.5)
-                //                                            .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                //                                        VStack(alignment: .leading){
-                //                                            Text("Tolong Ambilkan")
-                //                                            Text(items[currentIndex])
-                //                                                .foregroundStyle(.red)
-                //                                        }.font(.system(size: 20, weight: .bold))
-                //
-                //                                            .padding(.leading, 36)
-                //                                    }
-                //                                )
-                //                        }
-                //                        Spacer()
-                //                    }
-                //                }
                 
             }
         }
@@ -222,8 +191,6 @@ struct DragDropView: View {
                     ModalView(modalType: "Lose", backTo: .dragAndDrop)
                         .environmentObject(matchManager)
                 case .none:
-                    //                    ModalView(modalType: "Lose", backTo: .cameraGame)
-                    //                        .environmentObject(matchManager)
                     VStack {
                         EmptyView()
                     }
@@ -237,10 +204,8 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-            //Timer
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                matchManager.startTimer(time: 31)
-//            }
+            matchManager.startTimer(time: 31)
+            items.shuffle()
         }
         .onTapGesture {
             isTutorialShown = false
@@ -287,10 +252,8 @@ struct ItemDrag: View {
     @Binding var askItems: Bool
     @Binding var askItems2: Bool
     @Binding var currentIndex: Int
-//    @Binding var items: [ToolBahasa]
-//    @Binding var imageTool: ToolBahasa
-    @Binding var items: [String]
-    @State var imageTool: String
+    @Binding var items: [ToolBahasa]
+    @Binding var imageTool: ToolBahasa
     
     @State var exceedCount = 0
 
@@ -302,21 +265,21 @@ struct ItemDrag: View {
     let maxY = 300.0  // Adjust this value for the maximum Y-coordinate
     
     
-    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: String, items: Binding<[String]>) {
+    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
         
         self._position = State(initialValue: CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY)))
         self._askItems = askItems
         self._askItems2 = askItems2
         self._currentIndex = currentIndex
-        self.imageTool = imageTool
+        self._imageTool = imageTool
         self._items = items
     }
     
     var body: some View {
-        Image(imageTool)
+        Image(imageTool.image!)
             .resizable()
-//            .frame(width: imageTool.width!, height: imageTool.height!)
-            .frame(width: 100, height: 100)
+            .frame(width: imageTool.width!, height: imageTool.height!)
+//            .frame(width: 100, height: 100)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -329,33 +292,26 @@ struct ItemDrag: View {
                         askItem()
                     })
             )
-            .onAppear{
-//                print("Image : \(imageTool.image!) = \(position.width) - \(position.height)")
-            }
     }
     
     func askItem() {
         
         if position.height < -80 {
-//            exceedCount += 1
-//            if exceedCount >= 5 {
-//                print("aw")
-//            }
-            if imageTool == items[currentIndex]  {
+            if imageTool.bahasaName == items[currentIndex].bahasaName  {
                 items = items.filter { tool in
-                    return tool != imageTool
+                    return tool.image != imageTool.bahasaName
                 }
 
-                playerViewModel.playAudio(fileName: "Correct")
-                hapticViewModel.simpleSuccess()
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     if items.count == 0 {
                         askItems = true
                     } else {
-                        //                        currentIndex = Int.random(in: 0...items.count - 1)
+                        position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
                     }
-                }
+                
+                playerViewModel.playAudio(fileName: "Correct")
+                hapticViewModel.simpleSuccess()
+//                }
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))

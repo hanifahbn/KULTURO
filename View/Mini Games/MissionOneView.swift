@@ -96,44 +96,47 @@ struct MissionOneView: View {
                 }
                 Spacer()
                 Text("List Belanja")
-                    .font(.system(size: 30, weight: .semibold))
-                    .font(.title)
+                    .font(.custom("Chalkboard-Regular", size: 40))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 40)
-
+                
                 if textNamaTool.count > 2 {
-                    TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
-                    TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
-                        .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
-                    TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
-                        .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
+                    VStack(spacing: 30){
+                        TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
+                        TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
+                            .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
+                        TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
+                            .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
+                    }
                 }
-
+                
                 Spacer()
                 RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
-                        if audioViewModel.audio.isRecording == false {
-                            audioViewModel.startRecording()
-                        }
-                        else {
-                            audioViewModel.stopRecording()
-//                            print("Label di view: \(audioViewModel.audio.label)")
-//                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                                textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
-                                playerViewModel.playAudio(fileName: "Correct")
-                                hapticViewModel.simpleSuccess()
-                                spoken[currentStep] = true
-                                currentStep = currentStep + 1
-                                jumlahBenar = jumlahBenar + 1
-                                if(jumlahBenar == 3){
-                                    matchManager.isFinishedPlaying += 1
-                                    matchManager.synchronizeGameState("SoundMission")
-                                    isSuccess = true
-                                }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
-                                }
-//                            }
-                        }
+                    if audioViewModel.audio.isRecording == false {
+                        audioViewModel.startRecording()
                     }
+                    else {
+                        audioViewModel.stopRecording()
+                        //                            print("Label di view: \(audioViewModel.audio.label)")
+                        //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+                        textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
+                        playerViewModel.playAudio(fileName: "Correct")
+                        hapticViewModel.simpleSuccess()
+                        spoken[currentStep] = true
+                        currentStep = currentStep + 1
+                        jumlahBenar = jumlahBenar + 1
+                        if(jumlahBenar == 3){
+                            matchManager.isFinishedPlaying += 1
+                            matchManager.synchronizeGameState("SoundMission")
+                            isSuccess = true
+                        } else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
+                            }
+                        }
+                        //                            }
+                    }
+                }
                 //                }
                 .disabled(jumlahBenar == 3)
                 .padding(.bottom, 40)
@@ -186,10 +189,11 @@ struct MissionOneView: View {
         }
         .onAppear{
             tools = tools.shuffled()
+            tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                matchManager.startTimer(time: 46)
-//            }
+            //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            matchManager.startTimer(time: 46)
+            //            }
         }
     }
     
