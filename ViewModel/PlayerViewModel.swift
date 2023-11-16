@@ -15,8 +15,7 @@ class PlayerViewModel: ObservableObject {
 
     func playAudio(fileName: String) {
         do {
-            // Set the audio session category to Playback
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.soloAmbient)
         } catch {
             print("Error setting up audio session: \(error.localizedDescription)")
         }
@@ -38,8 +37,7 @@ class PlayerViewModel: ObservableObject {
     
     func playAudioStory(fileName: String) {
         do {
-            // Set the audio session category to Playback
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.soloAmbient)
         } catch {
             print("Error setting up audio session: \(error.localizedDescription)")
         }
@@ -61,8 +59,7 @@ class PlayerViewModel: ObservableObject {
     
     func playAudioLoop(fileName: String, isLooping: Bool = true) {
         do {
-            // Set the audio session category to Playback
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.soloAmbient)
         } catch {
             print("Error setting up audio session: \(error.localizedDescription)")
         }
@@ -73,7 +70,6 @@ class PlayerViewModel: ObservableObject {
         }
 
         do {
-            // Create the AVAudioPlayer instance with the audio file URL
             player = try AVAudioPlayer(contentsOf: audioURL)
             player?.prepareToPlay()
 

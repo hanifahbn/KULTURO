@@ -24,6 +24,7 @@ struct ModalView: View {
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
+                        .foregroundStyle(.blueTurtle)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyGudang
                         matchManager.isRetrying = false
@@ -41,6 +42,7 @@ struct ModalView: View {
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
+                        .foregroundStyle(.blueTurtle)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
                         matchManager.isRetrying = false
@@ -57,6 +59,7 @@ struct ModalView: View {
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
+                        .foregroundStyle(.blueTurtle)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying != 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyPerbaikanBalaiDesaSecond
                         matchManager.isRetrying = false
@@ -73,6 +76,7 @@ struct ModalView: View {
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 35)
+                        .foregroundStyle(.blueTurtle)
                     ComponentButtonMic(textButton: matchManager.isFinishedPlaying < 2 ? "Menunggu temanmu selesai..." : "Lanjutkan", isWithIcon: false) {
                         matchManager.gameStatus = .storyBalaiDesaRenovated
                         matchManager.isRetrying = false
@@ -88,7 +92,7 @@ struct ModalView: View {
                     Text("Waktu habis, kamu dan temanmu belum berhasil.")
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .multilineTextAlignment(.center)
-                        .foregroundStyle(Color.red)
+                        .foregroundStyle(.darkRed)
                         .padding(.horizontal, 35)
                     ComponentButtonMic(textButton: "Ulangi", isWithIcon: false) {
                         matchManager.isRetrying = true

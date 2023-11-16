@@ -24,11 +24,6 @@ struct AyakPasirView: View {
     @State private var isSheetPresented: Bool = false
     
     var hapticViewModel = HapticViewModel()
-//    var timerText: String {
-//        let minutes = Int(elapsedTime) / 60
-//        let seconds = Int(elapsedTime) % 60
-//        return String(format: "%02d.%02d", minutes, seconds)
-//    }
     
     enum SheetType {
         case shakeSuccess
@@ -41,25 +36,17 @@ struct AyakPasirView: View {
             Image("Backgroundpasir")
                 .resizable()
                 .ignoresSafeArea()
-            VStack{
-                HStack{
+            ZStack {
+                VStack{
+                    HStack{
+                        Spacer()
+                        TimerView(countTo: 121)
+                            .environmentObject(matchManager)
+                    }
                     Spacer()
-                    
-                    RoundedRectangle(cornerRadius: 16)
-                        .frame(width: 110, height: 55)
-                        .foregroundStyle(.white)
-                        .opacity(0.5)
-                        .overlay(content: {
-                            HStack{
-                                Image("IconTimer")
-//                                    .font(.system(size: 25, weight: .bold))
-                                Text(matchManager.timeInString)
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                        })
                 }
-                Spacer()
             }
+            .zIndex(1)
             .padding(40)
             ZStack {
                 Image("Ayak")
@@ -74,7 +61,6 @@ struct AyakPasirView: View {
                     .animation(.bouncy(duration: 1), value: isFlying)
                     .padding(.bottom, 50)
             }
-//            .opacity(flyCounter == 10 ? 0 : 1)
             .padding(.top, 50)
             if flyCounter == 15 {
                 ZStack{
@@ -99,6 +85,7 @@ struct AyakPasirView: View {
                     .multilineTextAlignment(.center)
                     .padding(30)
             }
+            .zIndex(3)
             .opacity(isTutorial ? 1 : 0)
         }
         .navigationBarBackButtonHidden(true)
@@ -179,11 +166,7 @@ struct AyakPasirView: View {
     }
     
     private func updateSheets() {
-        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
-            currentSheet = .shakeSuccess
-            isSheetPresented = true
-            hapticViewModel.complexSuccess()
-        } else if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
+        if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying == 2 {
             currentSheet = .shakeSuccessAll
             isSheetPresented = true
             hapticViewModel.complexSuccess()

@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MissionOneView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
     @StateObject var viewModel = TransitionViewModel()
-
     @State private var isModalPresented = false
     @State private var isTutorialShown = true
     @State private var jumlahBenar = 0
@@ -74,7 +72,6 @@ struct MissionOneView: View {
                                         .font(.system(size: 15, weight: .bold))
                                 }
                             }
-                        //                    .opacity(isModalPresented ? 1 : 0)
                             .animation(.linear, value: matchManager.isFinishedPlaying == 1)
                     }
                     .zIndex(3)
@@ -82,98 +79,69 @@ struct MissionOneView: View {
                 ZStack{
                     HStack{
                         Spacer()
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 110, height: 55)
-                            .foregroundStyle(.white)
-                            .opacity(0.5)
-                            .overlay(content: {
-                                HStack{
-                                    Image("IconTimer")
-                                    Text(matchManager.timeInString)
-                                        .font(.system(size: 17, weight: .bold))
-                                }
-                            })
+                        TimerView(countTo: 46)
+                            .environmentObject(matchManager)
                     }
                     .padding(.trailing, 30)
                 }
                 Spacer()
                 Text("List Belanja")
-                    .font(.system(size: 30, weight: .semibold))
-                    .font(.title)
+                    .font(.custom("Chalkboard-Regular", size: 40))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 40)
 
                 if textNamaTool.count > 2 {
-                    TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
-                    TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
-                        .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
-                    TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
-                        .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
-
-
-                    Spacer()
-
-
-                    Spacer()
-                    RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
-
-                        if audioViewModel.audio.isRecording == false {
-                            audioViewModel.startRecording()
-                        }
-                        else {
-                            audioViewModel.stopRecording()
-
-                            //                            print("Label di view: \(audioViewModel.audio.label)")
-                            //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-//                            textNamaTool[currentStep] = tools[currentStep].localName.appending(" = ").appending(tools[currentStep].bahasaName)
-                            playerViewModel.playAudio(fileName: "Correct")
-                            hapticViewModel.simpleSuccess()
-                            spoken[currentStep] = true
-                            currentStep = currentStep + 1
-                            jumlahBenar = jumlahBenar + 1
-                            if(jumlahBenar == 3){
-                                matchManager.isFinishedPlaying += 1
-                                matchManager.synchronizeGameState("SoundMission")
-                                isSuccess = true
-                            }
-                        }
+                    VStack(spacing: 30){
+                        TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
+                        TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
+                            .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
+                        TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
+                            .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
                     }
                 }
 
-
-                //                            print("Label di view: \(audioViewModel.audio.label)")
-                //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-//                textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
-//                playerViewModel.playAudio(fileName: "Correct")
-//                hapticViewModel.simpleSuccess()
-//                spoken[currentStep] = true
-//                currentStep = currentStep + 1
-//                jumlahBenar = jumlahBenar + 1
-//                if(jumlahBenar == 3){
-//                    matchManager.isFinishedPlaying += 1
-//                    matchManager.synchronizeGameState("SoundMission")
-//                    isSuccess = true
-//                }
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
-//                }
-                //                            }
+                Spacer()
+                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
+                    if audioViewModel.audio.isRecording == false {
+                        audioViewModel.startRecording()
+                    }
+                    else {
+                        audioViewModel.stopRecording()
+                        //                            print("Label di view: \(audioViewModel.audio.label)")
+                        //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+                        textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
+                        playerViewModel.playAudio(fileName: "Correct")
+                        hapticViewModel.simpleSuccess()
+                        spoken[currentStep] = true
+                        currentStep = currentStep + 1
+                        jumlahBenar = jumlahBenar + 1
+                        if(jumlahBenar == 3){
+                            matchManager.isFinishedPlaying += 1
+                            matchManager.synchronizeGameState("SoundMission")
+                            isSuccess = true
+                        } else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
+                            }
+                        }
+                        //                            }
+                    }
+                }
+                //                }
+                .disabled(jumlahBenar == 3)
+                .padding(.bottom, 40)
+                .onChange(of: isSuccess) { _ in
+                    updateSheets()
+                }
+                .onChange(of: matchManager.isTimerRunning) { _ in
+                    updateSheets()
+                }
+                .onChange(of: matchManager.isFinishedPlaying) { _ in
+                    updateSheets()
+                }
             }
-        }
-        //                }
-        .disabled(jumlahBenar == 3)
-        .padding(.bottom, 40)
-        .onAppear{
-        }
-        .onChange(of: isSuccess) { _ in
-            updateSheets()
-        }
-        .onChange(of: matchManager.isTimerRunning) { _ in
-            updateSheets()
-        }
-        .onChange(of: matchManager.isFinishedPlaying) { _ in
-            updateSheets()
-        }
 
+        }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: $isSheetPresented) {
@@ -209,6 +177,7 @@ struct MissionOneView: View {
         }
         .onAppear{
             tools = tools.shuffled()
+            tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
             //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             matchManager.startTimer(time: 46)
