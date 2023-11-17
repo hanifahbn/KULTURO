@@ -13,18 +13,17 @@ struct DragDropView: View {
     @State var isModalPresented : Bool = false
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
-    
+    @State private var offset: CGFloat = 0.0
     @State var items = toolList.compactMap { tool in
-         tool.image != nil ? tool: nil
+        tool.image != nil ? tool: nil
     }
-    
+    @State var isAnimationDrag = false
     @State var currentIndex = 0
     @State private var isTutorialShown = true //nilai awal true
-    
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
-    
+    @State private var isAnimating : Bool = false
     enum SheetType {
         case dndSuccess
         case dndSuccessAll
@@ -40,11 +39,33 @@ struct DragDropView: View {
                     Color.black
                         .ignoresSafeArea()
                         .opacity(0.8)
-                    Text("Geserlah barang-barang yang dibutuhkan untuk menyerahkannya ke Kepala Desa.")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 38, weight: .bold, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .padding(30)
+                    VStack{
+                        HStack(spacing: -100){
+                            Text("Geserlah barang-barang yang dibutuhkan untuk menyerahkannya ke Kepala Desa.")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 30, weight: .bold, design: .rounded))
+                                .padding(30)
+                            
+                            Image("DropTutorial")
+                        }
+                        Image("DragTutorial")
+                            .padding(.leading, 80)
+                            .offset(y: offset)
+                            .opacity(isAnimating ? 0 : 1)
+                            .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset)
+                            .onAppear {
+                                withAnimation {
+
+                                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                        isAnimating = true
+//                                        offset = 0.0
+                                        offset = -400.0
+                                    }
+                                }
+                            }
+                    }
+                    .padding(.top, 50)
+                    
                 }
                 .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                 .zIndex(2)
@@ -148,7 +169,7 @@ struct DragDropView: View {
                 }
                 if(items.count != 0){
                     ForEach(items.indices, id: \.self) { item in
-                         ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
+                        ItemDrag(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
                     }
                 }
                 if askItems {
@@ -195,7 +216,7 @@ struct DragDropView: View {
             .presentationDetents([.height(190)])
         }
         .onAppear{
-            matchManager.startTimer(time: 31)
+            //            matchManager.startTimer(time: 31)
             items.shuffle()
         }
         .onTapGesture {
@@ -247,9 +268,9 @@ struct ItemDrag: View {
     @Binding var imageTool: ToolBahasa
     
     @State var exceedCount = 0
-
+    
     let hapticViewModel = HapticViewModel()
-
+    
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
     let minY = 0.0 // Adjust this value for the minimum Y-coordinate
@@ -270,7 +291,7 @@ struct ItemDrag: View {
         Image(imageTool.image!)
             .resizable()
             .frame(width: imageTool.width!, height: imageTool.height!)
-//            .frame(width: 100, height: 100)
+        //            .frame(width: 100, height: 100)
             .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
             .gesture(DragGesture()
                 .onChanged({ (value) in
@@ -292,17 +313,17 @@ struct ItemDrag: View {
                 items = items.filter { tool in
                     return tool.image != imageTool.bahasaName
                 }
-
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                    if items.count == 0 {
-                        askItems = true
-                    } else {
-                        position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
-                    }
+                
+                //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                if items.count == 0 {
+                    askItems = true
+                } else {
+                    position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
+                }
                 
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
-//                }
+                //                }
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))

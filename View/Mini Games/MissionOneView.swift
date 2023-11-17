@@ -24,15 +24,16 @@ struct MissionOneView: View {
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
-
+    @State private var isAnimating = false
+    
     let hapticViewModel = HapticViewModel()
-
+    
     enum SheetType {
         case soundSuccess
         case soundSuccessAll
         case lose
     }
-
+    
     var body: some View {
         ZStack{
             if isTutorialShown {
@@ -40,11 +41,50 @@ struct MissionOneView: View {
                     Color.black
                         .ignoresSafeArea()
                         .opacity(0.8)
-                    Text("Ucapkan barang - \n barang yang ada di Daftar Belanja")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 38, weight: .bold, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .padding(30)
+                    VStack{
+                        Text("Ucapkan barang - \n barang yang ada di Daftar Belanja")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 38, weight: .bold, design: .rounded))
+                            .multilineTextAlignment(.center)
+                        HStack{
+                            Image("HeadSound")
+                                .padding(.bottom, 60)
+                            ZStack{
+                                Image("Sound1")
+                                    .padding(.trailing, 80)
+                                    .padding(.top, 10)
+                                    .opacity(isAnimating ? 1 : 0)
+                                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: isAnimating)
+                                
+                                Image("Sound2")
+                                    .padding(.trailing, 65)
+                                    .padding(.top, 20)
+                                    .opacity(isAnimating ? 1 : 0)
+                                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0.5), value: isAnimating)
+                                Image("Sound3")
+                                    .padding(.trailing, 50)
+                                    .padding(.top, 30)
+                                    .opacity(isAnimating ? 1 : 0)
+                                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(1), value: isAnimating)
+                                Image("Iphone")
+                                    .padding(.trailing, -20)
+                                    .padding(.top, 100)
+                                
+                            }
+                            .onAppear {
+                                withAnimation {
+                                    isAnimating = true
+                                }
+                            }
+                            //                            .padding(.top, 120)
+                        }
+                        .padding(.leading, 50)
+                        Text("*Carilah tempat yang tenang")
+                            .foregroundStyle(.yellow)
+                            .font(.custom("Chalkboard-Regular", size: 20))
+                    }
+                    
+                    
                 }
                 .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                 .zIndex(2)
