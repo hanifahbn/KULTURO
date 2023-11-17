@@ -27,107 +27,134 @@ struct CustomCameraView: View {
 
     var  body: some View {
         ZStack {
-            CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
-                switch result{
-                case .success(let photo):
-                    if let data = photo.fileDataRepresentation() {
-                        capturedImage = UIImage(data: data)
-                        presentationMode.wrappedValue.dismiss()
-                    } else{
-                        print("Error: No image found")
+            GeometryReader { geo in
+                CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
+                    switch result{
+                    case .success(let photo):
+                        if let data = photo.fileDataRepresentation() {
+                            capturedImage = UIImage(data: data)
+                            presentationMode.wrappedValue.dismiss()
+                        } else{
+                            print("Error: No image found")
+                        }
+                    case .failure(let err):
+                        print(err.localizedDescription)
                     }
-                case .failure(let err):
-                    print(err.localizedDescription)
+                }.ignoresSafeArea()
+
+
+
+                ZStack {
+                    if(isDisabled){
+                        Rectangle().background(.ultraThinMaterial)
+                    }else{
+                        Rectangle().foregroundStyle(Color.skyBlue)
+                    }
+                    RoundedRectangle(cornerRadius: 81)
+                        .frame(width: 350, height: geo.size.height - 320)
+                        .blendMode(.destinationOut)
+                        .padding(.bottom, 120)
                 }
-            }.ignoresSafeArea()
-            VStack{
 
-                HStack(){
-
-                    HStack(spacing: -60) {
-                        Image("Headman")
-                            .resizable()
-                            .frame(width: 70, height: 74)
-                            .zIndex(1)
-                            .padding(.bottom, 15)
+                .compositingGroup()
+                .ignoresSafeArea()
 
 
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .frame(width: 177, height: 55)
-                            .background(.white.opacity(0.6))
-                            .cornerRadius(16)
-                            .overlay(
-                                ZStack{
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .inset(by: 0.5)
-                                        .stroke(Color(red: 0.15, green: 0.31, blue: 0.24).opacity(0.5), lineWidth: 1)
-                                    VStack(alignment: .leading){
+                VStack{
 
-                                        Text("Tolong Carikan")
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(.black)
+                    HStack(){
+                        Spacer()
+                        TimerView(countTo: 121)
+                        //                            .environmentObject(matchManager)
+                            .padding(.trailing, 20)
 
-                                        Text(tool.imageName)
-                                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                                            .foregroundColor(.darkRed)
-                                    }
-                                }
+                    }
+
+                    Text(isDisabled ? "Mencari Barang" :"Ketemu!")
+                        .font(.custom("Chalkboard-Bold", size: 20))
+                        .padding(8)
+                        .background(
+                            RoundedRectangle(
+                                cornerRadius: 8.0
                             )
-                            .padding(.leading, 36)
+                            .fill(isDisabled ? .white : Color.skyBlue)
+                            .opacity(isDisabled ? 0.5 : 1)
+                        )
+
+                    Spacer()
+
+                    VStack{
+                        ZStack(alignment: .center) {
+                            Image("BubbleChat")
+                            HStack{
+                                Text("Tolong Carikan ")
+                                    .font(.custom("Chalkboard-Bold", size: 24))
+                                    .foregroundStyle(.black)
+
+                                Text(tool.imageName)
+                                    .font(.custom("Chalkboard-Bold", size: 28))
+                                    .foregroundColor(Color("DarkRed"))
+                                    .foregroundStyle(.darkRed)
+                            }.padding(.bottom, 32)
+                        } .padding(.bottom, -48)
+
+                        HStack{
+
+                            Spacer()
+
+                            Image("Headman")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 88, height: 88)
+                                .clipShape(Circle())
+
+                            Spacer()
+
+                            Button(action: {cameraService.capturePhoto()}, label: {
+                                Image(isDisabled ? "CameraOff" : "Camera")
+                                    .padding(.horizontal, 18)
+                                    .padding(.vertical, 22)
+                                    .background(isDisabled ? .darkRed : .gkananKuning)
+                                    .clipShape(Circle())
+                            })
+                            .disabled(isDisabled)
+
+                            Spacer()
+
+                            Button(action: {tool = toolBrain.getRandomTool(tool)}, label: {
+                                ZStack{
+                                    Circle()
+                                        .overlay(content: {
+                                            Image(tool.imageName)
+                                                .resizable()
+                                                .padding(12)
+                                        })
+                                        .foregroundStyle(.ungu)
+                                        .frame(width: 76, height: 76)
+
+
+
+                                    Circle()
+                                        .overlay(content: {
+                                            Image(systemName: "arrow.clockwise")
+                                                .font(.system(size: 21))
+                                                .foregroundStyle(.gkananKuning)
+
+                                        })
+                                        .foregroundStyle(.blueTurtle)
+                                        .frame(width: 40, height: 40)
+                                        .padding(.top, 60)
+                                        .padding(.leading, 72)
+
+                                }
+                            })
+
+                        }
+                        .padding(.top, 22)
+                        .padding(.bottom, 48)
+                        .padding(.horizontal, 20)
                     }
-
-                    Spacer()
-                    TimerView(countTo: 121)
-                        .environmentObject(matchManager)
                 }
-                .padding(.trailing, 30)
-
-
-
-                Spacer()
-
-                HStack{
-
-                    Circle()
-                        .overlay(content: {
-                            VStack{
-                                Image(tool.imageName)
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
-                            }
-                        })
-                        .foregroundColor(.ungu)
-                        .frame(width: 76, height: 76)
-
-                    Spacer()
-
-                    Button(action: {cameraService.capturePhoto()}, label: {
-                        Image(isDisabled ? "CameraOff" : "Camera")
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 22)
-                            .background(isDisabled ? .darkRed : .gkananKuning)
-                            .clipShape(Circle())
-                    })
-                    .disabled(isDisabled)
-
-                    Spacer()
-
-                    Button(action: {tool = toolBrain.getRandomTool(tool)}, label: {
-                        Image(systemName: "arrow.circlepath")
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 22)
-                            .background(.blueTurtle)
-                            .foregroundColor(.gkananKuning)
-                            .clipShape(Circle())
-                            .font(.system(size: 28))
-                    })
-                }
-                .padding(.top, 22)
-                .padding(.bottom, 48)
-                .padding(.horizontal, 8)
-                .background(Color.gray.opacity(0.2))
-
             }
         }
     }

@@ -129,7 +129,6 @@ struct MissionOneView: View {
                     .font(.custom("Chalkboard-Regular", size: 40))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 90)
-                
                 if textNamaTool.count > 2 {
                     VStack(spacing: 30){
                         TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
@@ -139,7 +138,7 @@ struct MissionOneView: View {
                             .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
                     }
                 }
-                
+
                 Spacer()
                 RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
                     if audioViewModel.audio.isRecording == false {
@@ -180,7 +179,7 @@ struct MissionOneView: View {
                     updateSheets()
                 }
             }
-            
+
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
@@ -224,7 +223,7 @@ struct MissionOneView: View {
             //            }
         }
     }
-    
+
     private func updateSheets() {
         if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .soundSuccess

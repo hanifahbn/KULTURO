@@ -72,39 +72,39 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         if let device = AVCaptureDevice.default(for: .video) {
             do{
                 let input = try AVCaptureDeviceInput(device: device)
-                
+
+                if session.canAddInput(input) {
+                    session.addInput(input)
+                }
+
+                if session.canAddOutput(output) {
+                    session.addOutput(output)
+                    session.addOutput(videoOutput)
+                }
+
                 previewLayer.videoGravity = .resizeAspectFill
                 previewLayer.session = session
                 
                 
                 // Detector
                 videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "sampleBufferQueue"))
-                
-                
+
                 sessionQueue.async { [unowned self] in
-                    
                     self.setupDetector()
-                    self.session?.startRunning()
-                    
-                }
-                
-                self.session = session
-                
-                if session.canAddInput(input) {
-                    session.addInput(input)
-                }
-                
-                if session.canAddOutput(output) {
-                    session.addOutput(output)
-                    session.addOutput(videoOutput)
+                    session.startRunning()
+                    self.session = session
                 }
             } catch{
                 completion(error)
             }
         }
     }
-    
+
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
         output.capturePhoto(with: settings, delegate: delegate!)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.session?.stopRunning()
+        }
     }
 }
