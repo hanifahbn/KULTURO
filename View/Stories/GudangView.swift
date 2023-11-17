@@ -89,6 +89,9 @@ struct GudangView: View {
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
                                     .padding(15)
+                                    .onAppear{
+                                        player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                    }
                                 Spacer()
                             }
                             Spacer()
@@ -97,7 +100,11 @@ struct GudangView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                }
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

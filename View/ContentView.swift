@@ -65,7 +65,7 @@ struct ContentView: View {
                             .environmentObject(matchManager)
                             .onAppear{
                                 //                            router.clear()
-                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
+                                backsoundPlayer.stopAudio()
                                 //                           router.navigate(to: matchManager.gameStatus)
                             }
                     case .beginning:

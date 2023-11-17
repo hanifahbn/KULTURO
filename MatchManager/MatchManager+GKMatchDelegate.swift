@@ -29,6 +29,8 @@ extension MatchManager: GKMatchDelegate{
                 characters[index].isChosen!.toggle()
                 otherCharacter = characters[index]
                 
+//                joinVoiceChat()
+                
                 if localCharacter != nil {
                     chosenCharacters[1] = otherCharacter!
 //                    synchronizeGameCharacters(chosenCharacters)

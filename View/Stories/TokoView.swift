@@ -90,6 +90,9 @@ struct TokoView: View {
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
                                     .padding(15)
+                                    .onAppear{
+                                        player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                    }
                                 Spacer()
                             }
                             Spacer()
@@ -98,7 +101,11 @@ struct TokoView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                }
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

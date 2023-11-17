@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import GameKit
+import AVFoundation
 
 class MatchManager: NSObject, ObservableObject{
     @Published var authStatus : UserAuthenticationState = .authenticated
@@ -26,6 +27,7 @@ class MatchManager: NSObject, ObservableObject{
     var isFinishedPlaying: Int = 0
     var localTools: [String]?
     var otherTools: [String]?
+    var voiceChat: GKVoiceChat?
         
     let gameDuration = 15
     var otherPlayerScore: Int = 0
@@ -135,13 +137,61 @@ class MatchManager: NSObject, ObservableObject{
             }
         }
     }
+     
+    func startVoiceChat() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+
+            try audioSession.setCategory(.playAndRecord, mode: AVAudioSession.Mode.gameChat)
+            
+            try audioSession.setActive(true, options: [])
+        }
+        catch {
+            return
+        }
         
-    func endGame(withScore score: Int) {
-        Score = score
+        voiceChat = match?.voiceChat(withName: "DragAndDropChannel")
+        voiceChat?.start()
+        voiceChat?.volume = 1.0
+        voiceChat?.isActive = false
         
-        sendString("playerScore:\(score)")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.voiceChat?.isActive = true
+        }
+        
+        print("\(String(describing: voiceChat?.players))")
     }
     
+    func joinVoiceChat() {
+        voiceChat = match?.voiceChat(withName: "DragAndDropChannel")
+        voiceChat?.start()
+        
+        // SAMPE SINI BERHASIL
+        
+//        voiceChat?.volume = 1.0
+        
+//        voiceChat?.isActive = true
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+//            self.voiceChat?.isActive = false
+//        }
+    }
 
+    func stopVoiceChat(){
+        voiceChat?.stop()
+        voiceChat = nil
+
+
+        // Deactivate the shared audio session.
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+
+
+            try audioSession.setActive(false, options: [])
+        }
+        catch {
+            return
+        }
+    }
     
 }

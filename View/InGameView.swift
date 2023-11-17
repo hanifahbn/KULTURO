@@ -18,21 +18,13 @@ struct InGameView: View {
                 ScrollView(.vertical) {
                     ForEach(characters.filter { $0.isChosen != nil }) { karakter in
                         Button(action: {
+//                            matchManager.startVoiceChat()
                             matchManager.chooseCharacter(karakter)
                         }) {
                             ZStack {
                                 if(!karakter.isNPC){
                                     TextSound(
                                         imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin!, gradienKanan: karakter.colorRight!, gradienKiri: karakter.colorLeft!)
-//                                        .opacity(karakter.name == "Ajeng" || karakter.name == "Dayu" ? 0.3 : 1.0)
-        
-//                                    if karakter.name == "Ajeng" || karakter.name == "Dayu" {
-//                                        Image(systemName: "lock.fill")
-//                                            .font(.system(size: 40))
-//                                            .foregroundColor(Color("Hijau"))
-//                                            .opacity(1.0)
-//                                            .padding(20)
-//                                    }
                                 }
                             }
                         }
@@ -40,6 +32,9 @@ struct InGameView: View {
                         .opacity(karakter.isChosen! ? 0.5 : 1.0)
                     }
                 }
+            }
+            .onAppear{
+                
             }
             .environmentObject(MatchManager())
         }

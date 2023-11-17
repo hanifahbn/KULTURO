@@ -88,6 +88,9 @@ struct BalaiDesaView: View {
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
                                     .padding(15)
+                                    .onAppear{
+                                        player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                    }
                                 Spacer()
                             }
                             Spacer()
@@ -96,7 +99,11 @@ struct BalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                }
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

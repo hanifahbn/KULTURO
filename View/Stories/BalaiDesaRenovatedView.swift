@@ -42,6 +42,9 @@ struct BalaiDesaRenovatedView: View {
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
                                     .padding(15)
+                                    .onAppear{
+                                        player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                    }
                                 Spacer()
                             }
                             Spacer()
@@ -50,7 +53,11 @@ struct BalaiDesaRenovatedView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                }
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

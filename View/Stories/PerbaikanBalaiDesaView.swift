@@ -91,6 +91,9 @@ struct PerbaikanBalaiDesaView: View {
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
                                     .padding(15)
+                                    .onAppear{
+                                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                    }
                                 Spacer()
                             }
                             Spacer()
@@ -99,7 +102,11 @@ struct PerbaikanBalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                }
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

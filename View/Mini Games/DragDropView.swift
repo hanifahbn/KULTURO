@@ -248,7 +248,7 @@ struct ItemDrag: View {
     
     @State var exceedCount = 0
 
-    let hapticViewModel = HapticViewModel()
+//    let hapticViewModel = HapticViewModel()
 
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
@@ -301,16 +301,17 @@ struct ItemDrag: View {
                     }
                 
                 playerViewModel.playAudio(fileName: "Correct")
-                hapticViewModel.simpleSuccess()
+//                hapticViewModel.simpleSuccess()
 //                }
             } else {
-                hapticViewModel.simpleError()
+//                hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
                 
                 playerViewModel.playAudio(fileName: "Wrong")
             }
             
         } else if position.width > 170 || position.width < -170 {
+            print(imageTool.image!)
         }
     }
 }
