@@ -142,6 +142,8 @@
 		E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729532AE216230093DD1F /* ComponentButton.swift */; };
 		E2A729562AE246B40093DD1F /* MissionOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729552AE246B40093DD1F /* MissionOneView.swift */; };
 		E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */; };
+		E2C303442B063E26006408FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C303432B063E26006408FD /* MapView.swift */; };
+		E2C303462B06510F006408FD /* MapTobaAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C303452B06510F006408FD /* MapTobaAnimation.swift */; };
 		E2C8F21E2B0112AE00BC075F /* AnimationAjeng.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */; };
 		E2C8F21F2B0112AE00BC075F /* AnimationDayu.gif in Resources */ = {isa = PBXBuildFile; fileRef = E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */; };
 		E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D73EE82AF8F0A3006E99A1 /* Transition.swift */; };
@@ -294,6 +296,8 @@
 		E2A729532AE216230093DD1F /* ComponentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButton.swift; sourceTree = "<group>"; };
 		E2A729552AE246B40093DD1F /* MissionOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionOneView.swift; sourceTree = "<group>"; };
 		E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentButtonMic.swift; sourceTree = "<group>"; };
+		E2C303432B063E26006408FD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E2C303452B06510F006408FD /* MapTobaAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTobaAnimation.swift; sourceTree = "<group>"; };
 		E2C8F21C2B0112AE00BC075F /* AnimationAjeng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationAjeng.gif; sourceTree = "<group>"; };
 		E2C8F21D2B0112AE00BC075F /* AnimationDayu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationDayu.gif; sourceTree = "<group>"; };
 		E2D73EE82AF8F0A3006E99A1 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 			children = (
 				E2791F442AFE7B0D00391F1B /* TempStories */,
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
+				E2C303432B063E26006408FD /* MapView.swift */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
 				A3B13C192AFAB4460060535C /* TokoView.swift */,
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
@@ -649,6 +654,7 @@
 				A31CD01C2AEFB69D00B91325 /* RecordButton.swift */,
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
+				E2C303452B06510F006408FD /* MapTobaAnimation.swift */,
 				A38733232B05C2A500E9494F /* ProgressBar.swift */,
 				A38733252B05C46700E9494F /* TimerView.swift */,
 			);
@@ -838,6 +844,7 @@
 				32E401622AEB80C3007A15AA /* CameraResultView.swift in Sources */,
 				A3E8E6B42B00F1F0006D221E /* RouterViewModel.swift in Sources */,
 				32E401662AEB80F3007A15AA /* ObjectDetectionGame.swift in Sources */,
+				E2C303462B06510F006408FD /* MapTobaAnimation.swift in Sources */,
 				A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */,
 				32E401732AEB9897007A15AA /* Detector.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
@@ -881,6 +888,7 @@
 				32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */,
 				A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */,
 				A3C304762ADE898800E11CCC /* MacroApp.swift in Sources */,
+				E2C303442B063E26006408FD /* MapView.swift in Sources */,
 				A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */,
 				A38733262B05C46700E9494F /* TimerView.swift in Sources */,
 				A3AF9E9A2AEFAC0D0075E5B8 /* AudioViewModel.swift in Sources */,

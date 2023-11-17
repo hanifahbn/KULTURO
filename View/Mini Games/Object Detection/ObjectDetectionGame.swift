@@ -19,6 +19,7 @@ struct ObjectDetectionGame: View {
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
     @State private var isTutorialShown = true
+    @State private var LightScale: CGFloat = 0.0
 
     enum SheetType {
         case cameraSuccess
@@ -30,14 +31,39 @@ struct ObjectDetectionGame: View {
         ZStack{
             if isTutorialShown {
                 ZStack{
-                    Color.black
+                    Color.gray
                         .ignoresSafeArea()
-                        .opacity(0.8)
-                    Text("Carilah barang yang diminta Pak Kades di sekitarmu, kemudian ambil gambarnya.")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 38, weight: .bold, design: .rounded))
-                        .multilineTextAlignment(.center)
-                        .padding(30)
+                        .opacity(1)
+                    VStack{
+                        Text("Carilah barang yang diminta Pak Kades di sekitarmu, kemudian ambil gambarnya.")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 38, weight: .bold, design: .rounded))
+//                            .multilineTextAlignment(.center)
+                            .padding(30)
+                        HStack(spacing : -90){
+                            Image("CameraTutorial")
+                            Image("LightTutorial")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .padding(.bottom, 80)
+                                .opacity(LightScale)
+                                .animation(Animation.linear(duration: 1.0).repeatForever(), value: LightScale)
+                                .onAppear{
+                                    LightScale = 1
+                                }
+                        }
+                        Circle()
+                            .foregroundStyle(.darkRed)
+                            .frame(width: 90)
+                            .opacity(0.5)
+                            .padding()
+                            .overlay {
+                                Image("CameraOff")
+                                
+                            }
+                        Spacer()
+                    }
+                    
                 }
                 .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                 .zIndex(2)

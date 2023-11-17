@@ -18,7 +18,7 @@ struct AyakPasirView: View {
     @State private var isTimerRunning = false
     let timerInterval = 1.0
     @State private var isTutorial = true
-    
+    @State private var waveAngle: Double = 0.0
     @State var isSuccess: Bool = false
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
@@ -79,11 +79,25 @@ struct AyakPasirView: View {
                 Color.black
                     .ignoresSafeArea()
                     .opacity(0.8)
-                Text("Goyangkan handphone kalian bersamaan untuk memisahkan pasir dan batu.")
-                    .foregroundStyle(.white)
-                    .font(.system(size: 38, weight: .bold, design: .rounded))
-                    .multilineTextAlignment(.center)
-                    .padding(30)
+                VStack{
+                    Text("Goyangkan handphone kalian bersamaan untuk memisahkan pasir dan batu.")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 38, weight: .bold, design: .rounded))
+                        .padding(30)
+                    ZStack{
+                        Image("ShakeTutorial")
+                            .rotationEffect(.degrees(waveAngle))
+                            .animation(Animation.easeInOut(duration: 1.0).repeatForever(),value: waveAngle)
+                            .onAppear {
+                                withAnimation {
+                                    waveAngle = 30.0
+                                }
+                            }
+                        Image("ShakeEffect")
+                    }
+                    .padding(.bottom, 50)
+
+                }          
             }
             .zIndex(3)
             .opacity(isTutorial ? 1 : 0)
