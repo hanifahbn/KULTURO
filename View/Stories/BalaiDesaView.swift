@@ -19,6 +19,7 @@ struct BalaiDesaView: View {
     @State var isTapGestureEnabled = false
     @State var isCharacterShown = true
     @State var currentIndex = 0
+    @State var soundOnOff : Bool = true
     
     var body: some View {
         ZStack{
@@ -104,13 +105,15 @@ struct BalaiDesaView: View {
                                 } else {
                                     player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                                 }
+                                soundOnOff.toggle()
                             }, label: {
-                                Image("IconButtonSpeaker")
-                                    .resizable()
-                                    .frame(width: 70, height: 50)
+                                Image("BackgroundButtonSound")
+                                    .overlay{
+                                        Image(soundOnOff ? "SoundOff" : "SoundOn")
+                                    }
                             })
                             .padding(.top, 130)
-                            .padding(.trailing, 15)
+                            .padding(.trailing, 25)
                         }
                     }
                 
