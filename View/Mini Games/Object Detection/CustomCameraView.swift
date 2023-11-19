@@ -65,8 +65,8 @@ struct CustomCameraView: View {
                     HStack(){
                         Spacer()
                         TimerView(countTo: 121)
-                        //                            .environmentObject(matchManager)
-                            .padding(.trailing, 20)
+                        .environmentObject(matchManager)
+                        .padding(.trailing, 20)
 
                     }
 

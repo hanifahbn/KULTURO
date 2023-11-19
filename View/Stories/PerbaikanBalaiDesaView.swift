@@ -20,6 +20,7 @@ struct PerbaikanBalaiDesaView: View {
     @State var currentIndex = 0
     @State var stories = perbaikanStoriesSecond
     @State var nextGameStatus: GameStatus = .dragAndDrop
+    @State var soundOnOff : Bool = false
 
     var body: some View {
         ZStack{
@@ -92,7 +93,14 @@ struct PerbaikanBalaiDesaView: View {
                                     .foregroundStyle(.black)
                                     .padding(15)
                                     .onAppear{
-                                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
+                                            player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                        }
                                     }
                                 Spacer()
                             }
@@ -107,6 +115,7 @@ struct PerbaikanBalaiDesaView: View {
                                 } else {
                                     player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                 }
+                                soundOnOff.toggle()
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

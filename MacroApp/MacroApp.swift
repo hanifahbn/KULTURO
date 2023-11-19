@@ -19,10 +19,10 @@ struct MacroApp: App {
     var body: some Scene {
         WindowGroup {
 //            NavigationStack(path: $router.navPath) {
-//                ContentView()
+                ContentView()
 //                    .environmentObject(router)
 //            }
-                ObjectDetectionGame()
+//                ObjectDetectionGame()
         }
     }
 }

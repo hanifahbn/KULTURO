@@ -16,6 +16,7 @@ struct TokoView: View {
     @State var isAnimationWalking : Bool = false
     @State var isTapGestureEnabled = false
     @State var currentIndex = 0
+    @State var soundOnOff : Bool = false
     //MARK: Ini tidak ada fungsimya
     //    @State var isCharacterShown = true
     //    @State var isGoingToNextView : Bool = false
@@ -91,7 +92,14 @@ struct TokoView: View {
                                     .foregroundStyle(.black)
                                     .padding(15)
                                     .onAppear{
-                                        player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
+                                            player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
+                                        }
                                     }
                                 Spacer()
                             }
@@ -106,6 +114,7 @@ struct TokoView: View {
                                 } else {
                                     player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
                                 }
+                                soundOnOff.toggle()
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

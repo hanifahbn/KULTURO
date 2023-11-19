@@ -14,6 +14,7 @@ struct BalaiDesaRenovatedView: View {
     @State var isGoingToNextView : Bool = false
     @State var isTapGestureEnabled = true
     @State var currentIndex = 0
+    @State var soundOnOff : Bool = false
 
     var body: some View {
         ZStack{
@@ -43,7 +44,14 @@ struct BalaiDesaRenovatedView: View {
                                     .foregroundStyle(.black)
                                     .padding(15)
                                     .onAppear{
-                                        player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
+                                            player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                        }
                                     }
                                 Spacer()
                             }
@@ -58,6 +66,7 @@ struct BalaiDesaRenovatedView: View {
                                 } else {
                                     player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
                                 }
+                                soundOnOff.toggle()
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

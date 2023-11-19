@@ -19,7 +19,7 @@ struct BalaiDesaView: View {
     @State var isTapGestureEnabled = false
     @State var isCharacterShown = true
     @State var currentIndex = 0
-    @State var soundOnOff : Bool = true
+    @State var soundOnOff : Bool = false
     
     var body: some View {
         ZStack{
@@ -90,7 +90,14 @@ struct BalaiDesaView: View {
                                     .foregroundStyle(.black)
                                     .padding(15)
                                     .onAppear{
-                                        player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
+                                            player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                        }
                                     }
                                 Spacer()
                             }

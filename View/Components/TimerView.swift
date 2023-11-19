@@ -19,17 +19,17 @@ struct TimerView: View {
                     .foregroundColor(.kuning)
                     .frame(width: 90, height: 90)
                 ProgressBar(counter: counter, countTo: countTo)
-//                Text(matchManager.timeInString)
-//                    .font(.custom("Chalkboard-Regular", size: 25))
-//                    .foregroundStyle(counter == countTo ? .darkRed : .blueTurtle)
-//                    .fontWeight(.bold)
+                Text(matchManager.timeInString)
+                    .font(.custom("Chalkboard-Regular", size: 25))
+                    .foregroundStyle(counter == countTo ? .darkRed : .blueTurtle)
+                    .fontWeight(.bold)
             }
         }
-//        .onChange(of: matchManager.timeInString) { time in
-//            if (self.counter < self.countTo) {
-//                self.counter += 1
-//            }
-//        }
+        .onChange(of: matchManager.timeInString) { time in
+            if (self.counter < self.countTo) {
+                self.counter += 1
+            }
+        }
 //        .onAppear{
 //            matchManager.startTimer(time: 5)
 //        }
