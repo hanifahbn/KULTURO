@@ -11,7 +11,7 @@ struct InGameView: View {
     @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
-        NavigationStack (){
+        GeometryReader{ geomety in
             ZStack{
                 Color(red: 0.97, green: 0.96, blue: 0.96)
                     .ignoresSafeArea()
@@ -27,16 +27,13 @@ struct InGameView: View {
                                         imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin!, gradienKanan: karakter.colorRight!, gradienKiri: karakter.colorLeft!)
                                 }
                             }
+                            
                         }
                         .disabled(karakter.isChosen!)
                         .opacity(karakter.isChosen! ? 0.5 : 1.0)
                     }
                 }
             }
-            .onAppear{
-                
-            }
-            .environmentObject(MatchManager())
         }
     }
 }

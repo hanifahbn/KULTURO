@@ -132,6 +132,7 @@
 		E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238328F2AEA272B001DB289 /* NavigationViewModel.swift */; };
 		E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832912AEA4E29001DB289 /* DragDropView.swift */; };
 		E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832932AEA4E45001DB289 /* AyakPasirView.swift */; };
+		E2479ACA2B0A11F900BFA729 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */; };
 		E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0AA2ADFDE620024FDD1 /* ContentView.swift */; };
 		E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */; };
 		E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
@@ -286,6 +287,7 @@
 		E238328F2AEA272B001DB289 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		E23832912AEA4E29001DB289 /* DragDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropView.swift; sourceTree = "<group>"; };
 		E23832932AEA4E45001DB289 /* AyakPasirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyakPasirView.swift; sourceTree = "<group>"; };
+		E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		E251D0A92ADFDB630024FDD1 /* MacroApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroApp.entitlements; sourceTree = "<group>"; };
 		E251D0AA2ADFDE620024FDD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				E2A729532AE216230093DD1F /* ComponentButton.swift */,
 				E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */,
 				A31CD01C2AEFB69D00B91325 /* RecordButton.swift */,
+				E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */,
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
 				E2C303452B06510F006408FD /* MapTobaAnimation.swift */,
@@ -875,6 +878,7 @@
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
 				E2ED5C342AFCEDB8005D4B22 /* ViewModelTransition.swift in Sources */,
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
+				E2479ACA2B0A11F900BFA729 /* ErrorHandling.swift in Sources */,
 				A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
 				E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */,
