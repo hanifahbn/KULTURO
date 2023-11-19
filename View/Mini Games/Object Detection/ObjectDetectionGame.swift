@@ -92,6 +92,7 @@ struct ObjectDetectionGame: View {
                                             .padding(.bottom, 15)
                                         Text("Hei, lekaslah! Aku sudah selesai.")
                                             .font(.system(size: 15, weight: .bold))
+                                            .foregroundStyle(.black)
                                     }
                                 }
                                 .animation(.linear, value: matchManager.isFinishedPlaying == 1)

@@ -80,6 +80,7 @@ struct CustomCameraView: View {
                             .fill(isDisabled ? .white : Color.skyBlue)
                             .opacity(isDisabled ? 0.5 : 1)
                         )
+                        .foregroundStyle(.black)
 
                     Spacer()
 

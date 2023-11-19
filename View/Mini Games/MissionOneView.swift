@@ -110,6 +110,7 @@ struct MissionOneView: View {
                                         .padding(.bottom, 15)
                                     Text("Hei, lekaslah! Aku sudah selesai.")
                                         .font(.system(size: 15, weight: .bold))
+                                        .foregroundStyle(.black)
                                 }
                             }
                             .animation(.linear, value: matchManager.isFinishedPlaying == 1)
@@ -129,6 +130,7 @@ struct MissionOneView: View {
                     .font(.custom("Chalkboard-Regular", size: 40))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 90)
+                    .foregroundStyle(.black)
                 if textNamaTool.count > 2 {
                     VStack(spacing: 30){
                         TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)

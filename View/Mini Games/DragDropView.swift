@@ -92,8 +92,9 @@ struct DragDropView: View {
                                                     HStack{
                                                         VStack {
                                                             Text("Tolong berikan")
+                                                                .foregroundStyle(.black)
                                                             HStack{
-                                                                Text("saya")
+                                                                Text("saya").foregroundStyle(.black)
                                                                 Text("\(items[currentIndex].bahasaName)")
                                                                     .foregroundStyle(Color.red)
                                                             }
@@ -154,6 +155,7 @@ struct DragDropView: View {
                                             .padding(.bottom, 15)
                                         Text("Hei, lekaslah! Aku sudah selesai.")
                                             .font(.system(size: 15, weight: .bold))
+                                            .foregroundStyle(.black)
                                     }
                                 }
                                 .padding(.top, 20)
@@ -180,10 +182,12 @@ struct DragDropView: View {
                             matchManager.synchronizeGameState("DragAndDropMission")
                             isSuccess = true
                         }
+                        .foregroundStyle(.black)
                         .hidden()
                 } else if askItems2 {
                     Text("Item Pindah")
                         .font(.system(size: 50, weight: .semibold))
+                        .foregroundStyle(.black)
                 }
                 
             }

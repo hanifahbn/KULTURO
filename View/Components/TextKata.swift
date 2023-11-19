@@ -29,7 +29,7 @@ struct TextKata: View {
                         .font(.title)
 
                     Text("=")
-                        .foregroundStyle(.black )
+                        .foregroundStyle(.black)
                         .font(.custom("Chalkboard-Regular", size: 27))
                         .fontWeight(.semibold)
                         .font(.title)
