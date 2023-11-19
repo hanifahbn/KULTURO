@@ -9,7 +9,8 @@ import Foundation
 import GameKit
 
 extension MatchManager: GKMatchDelegate{
-    func match(_ match: GKMatch, didChange state: GKPlayerConnectionState, for player: GKPlayer) {
+    func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
+        print("Player \(player.displayName) changed state: \(state.rawValue)") // Debug print
         switch state {
         case .connected:
             print("Player \(player.displayName) is connected.")
