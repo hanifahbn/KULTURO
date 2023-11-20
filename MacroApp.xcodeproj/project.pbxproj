@@ -535,7 +535,6 @@
 		A3D5E89F2AF3B568002F5888 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				E2791F442AFE7B0D00391F1B /* TempStories */,
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				E2C303432B063E26006408FD /* MapView.swift */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
@@ -639,13 +638,6 @@
 				E2791F422AFE268E00391F1B /* Chalkboard-Regular.ttf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		E2791F442AFE7B0D00391F1B /* TempStories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TempStories;
 			sourceTree = "<group>";
 		};
 		E2A729522AE215D10093DD1F /* Components */ = {

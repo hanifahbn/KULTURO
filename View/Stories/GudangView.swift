@@ -21,30 +21,25 @@ struct GudangView: View {
     //    @State var isGoingToNextView : Bool = false
 
     var body: some View {
+        GeometryReader{ geometry in
         ZStack{
-            //MARK: Ini tidak ada fungsimya
-//            Rectangle()
-//                .ignoresSafeArea()
-//                .zIndex(1)
-//                .opacity(isGoingToNextView ? 1 : 0)
-//                .animation(.easeIn(duration: 1), value: isGoingToNextView)
             Image("BackgroundGudang")
                 .resizable()
                 .ignoresSafeArea()
-//            if currentIndex >= 2{
-//                VStack{
-//                    Rectangle()
-//                        .frame(height: 50)
-//                        .foregroundStyle(Color.kuning)
-//                        .overlay {
-//                            Text("Mission 2  >>")
-//                                .font(.system(size: 28, weight: .semibold))
-//                                .foregroundStyle(Color.blueTurtle)
-//                                .shadow(color: .white ,radius: 0, y: 1)
-//                        }
-//                    Spacer()
-//                }
-//            }
+            //            if currentIndex >= 2{
+            //                VStack{
+            //                    Rectangle()
+            //                        .frame(height: 50)
+            //                        .foregroundStyle(Color.kuning)
+            //                        .overlay {
+            //                            Text("Mission 2  >>")
+            //                                .font(.system(size: 28, weight: .semibold))
+            //                                .foregroundStyle(Color.blueTurtle)
+            //                                .shadow(color: .white ,radius: 0, y: 1)
+            //                        }
+            //                    Spacer()
+            //                }
+            //            }
             HStack(spacing : -30){
                 ZStack{
                     GifImage(chosenCharacters[0].gifImage!)
@@ -81,14 +76,16 @@ struct GudangView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 250)
+//                    .frame(width: 360, height: 250)
+                    .frame(width: geometry.size.width * 1, height: geometry.size.height / 3)
                     .overlay {
                         VStack{
                             HStack{
                                 Text(gudangStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
-                                    .padding(15)
+//                                    .padding(15)
+                                    .padding(geometry.size.width * 0.066)
                                     .onAppear{
                                         player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
                                     }
@@ -111,13 +108,14 @@ struct GudangView: View {
                                     .frame(width: 70, height: 50)
                             })
                             .padding(.top, 130)
-                            .padding(.trailing, 15)
+                            .padding(geometry.size.width * 0.066)
+//                            .padding(.trailing, 15)
                             .opacity(currentIndex == gudangStories.count - 1 ? 0 : 1)
                         }
                     }
             }
             .opacity(isConversation ? 1 : 0)
-//            TransitionOpening()
+            //            TransitionOpening()
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -126,18 +124,18 @@ struct GudangView: View {
                 if currentIndex < gudangStories.count - 2 {
                     currentIndex += 1
                     //MARK: Ini tidak ada fungsimya
-//                    if gudangStories[currentIndex].text == "" {
-//                        isCharacterShown = true
-//                        isConversation = false
-//                        isAnimationWalking = true
-//                        isTapGestureEnabled = false
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                            currentIndex += 1
-//                            isCharacterShown = false
-//                            isConversation = true
-//                            isTapGestureEnabled = true
-//                        }
-//                    }
+                    //                    if gudangStories[currentIndex].text == "" {
+                    //                        isCharacterShown = true
+                    //                        isConversation = false
+                    //                        isAnimationWalking = true
+                    //                        isTapGestureEnabled = false
+                    //                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    //                            currentIndex += 1
+                    //                            isCharacterShown = false
+                    //                            isConversation = true
+                    //                            isTapGestureEnabled = true
+                    //                        }
+                    //                    }
                 }
                 else {
                     isTapGestureEnabled = false
@@ -162,7 +160,7 @@ struct GudangView: View {
                 }
             }
         }
-
+    }
     }
 }
 

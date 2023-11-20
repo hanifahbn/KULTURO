@@ -11,14 +11,12 @@ struct InGameView: View {
     @EnvironmentObject var matchManager : MatchManager
     
     var body: some View {
-        GeometryReader{ geomety in
-            ZStack{
-                Color(red: 0.97, green: 0.96, blue: 0.96)
-                    .ignoresSafeArea()
+        GeometryReader{ geometry in
+            VStack {
                 ScrollView(.vertical) {
                     ForEach(characters.filter { $0.isChosen != nil }) { karakter in
                         Button(action: {
-//                            matchManager.startVoiceChat()
+            //                            matchManager.startVoiceChat()
                             matchManager.chooseCharacter(karakter)
                         }) {
                             ZStack {
@@ -27,13 +25,17 @@ struct InGameView: View {
                                         imageHalfBody: karakter.headImage, namaChar: karakter.name, asalChar: karakter.origin!, gradienKanan: karakter.colorRight!, gradienKiri: karakter.colorLeft!)
                                 }
                             }
-                            
+
                         }
                         .disabled(karakter.isChosen!)
                         .opacity(karakter.isChosen! ? 0.5 : 1.0)
                     }
                 }
+               
+                // Other content can go here
+                
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
