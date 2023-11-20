@@ -44,14 +44,14 @@ struct BalaiDesaRenovatedView: View {
                                     .foregroundStyle(.black)
                                     .padding(15)
                                     .onAppear{
-                                        if currentIndex == 0 {
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+//                                        if currentIndex == 0 {
+//                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                                                 player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
-                                            }
-                                        }
-                                        else {
+//                                            }
+//                                        }
+//                                        else {
                                             player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
-                                        }
+//                                        }
                                     }
                                 Spacer()
                             }
