@@ -11,6 +11,7 @@ struct ErrorHandlingView: View {
     @EnvironmentObject var matchManager: MatchManager
     
     @State var pesanError: String = "Kosong"
+    @State private var gambarError: String = "jaringanPutus"
     
     var body: some View {
         ZStack{
@@ -22,8 +23,11 @@ struct ErrorHandlingView: View {
                 Spacer()
                 ZStack{
                     Image("BoxError")
-                    Image(matchManager.errorType == .noConnection ? "jaringanPutus" : "SinyalTemanHilang")
+                    Image(gambarError)
                         .padding(.leading, 40)
+                        .onAppear {
+                            gambarError = matchManager.errorType == .noConnection ? "jaringanPutus" : "SinyalTemanHilang"
+                        }
                 }
                 .frame(width: 100, height: 100)
                 .offset(x: 100, y: 50)

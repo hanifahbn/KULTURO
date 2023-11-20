@@ -74,6 +74,7 @@ struct ContentView: View {
                             .environmentObject(matchManager)
                             .onAppear{
     //                            router.clear()
+                                matchManager.startMonitoringConnection()
                                 backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
     //                           router.navigate(to: matchManager.gameStatus)
                             }
@@ -81,7 +82,6 @@ struct ContentView: View {
                         BalaiDesaView()
                             .environmentObject(matchManager)
                             .onAppear{
-                                matchManager.startMonitoringConnection()
     //                            router.clear()
                                 backsoundPlayer.stopAudio()
     //                           router.navigate(to: matchManager.gameStatus)

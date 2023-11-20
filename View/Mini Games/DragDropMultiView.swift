@@ -22,6 +22,7 @@ struct DragDropMultiView: View {
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
     @State private var isAnimating : Bool = false
+    
     enum SheetType {
         case dndSuccess
         case dndSuccessAll
@@ -217,7 +218,6 @@ struct DragDropMultiView: View {
         .onAppear{
             items = matchManager.itemsToDrag
             matchManager.startTimer(time: 31)
-            items.shuffle()
         }
         .onTapGesture {
             isTutorialShown = false
@@ -230,6 +230,9 @@ struct DragDropMultiView: View {
         }
         .onChange(of: matchManager.isFinishedPlaying) { _ in
             updateSheets()
+        }
+        .onChange(of: matchManager.itemsToDrag) { _ in
+            items.append(matchManager.itemsToDrag.last!)
         }
     }
     
@@ -315,9 +318,16 @@ struct ItemDragMulti: View {
                     return tool.image != imageTool.bahasaName
                 }
                 
-                matchManager.itemsToCollect = matchManager.itemsToCollect.filter { $0 == imageTool.bahasaName }
+                matchManager.itemsToCollect.remove(at: 0)
+//                matchManager.itemsToDrag = matchManager.itemsToDrag.filter { tool in
+//                    return tool.image != imageTool.bahasaName
+//                }
+//                
+//                matchManager.itemsToCollect = matchManager.itemsToCollect.filter { $0 != imageTool.bahasaName }
                 
-                if items.count == 0 {
+//                print(matchManager.itemsToCollect)
+                
+                if matchManager.itemsToCollect  .count == 0 {
                     askItems = true
                 } else {
                     position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
@@ -326,7 +336,7 @@ struct ItemDragMulti: View {
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
 
-                currentIndex =  Int.random(in: 0..<matchManager.itemsToCollect.count)
+//                currentIndex =  Int.random(in: 0..<matchManager.itemsToCollect.count)
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
@@ -336,6 +346,14 @@ struct ItemDragMulti: View {
             
         } else if position.width > 170 || position.width < -170 {
             matchManager.sendTool(imageTool)
+            
+            items = items.filter { tool in
+                return tool.image != imageTool.bahasaName
+            }
+            
+//            matchManager.itemsToDrag = matchManager.itemsToDrag.filter { tool in
+//                return tool.image != imageTool.bahasaName
+//            }
         }
     }
 }

@@ -16,7 +16,8 @@ extension MatchManager: GKMatchDelegate{
             print("Player \(player.displayName) is connected.")
         case .disconnected:
             print("Player \(player.displayName) is disconnected.")
-            self.errorType = .friendDisconnected
+            gameStatus = .error
+            errorType = .friendDisconnected
         case .unknown:
             print("Player \(player.displayName) connection status is unknown.")
         @unknown default:

@@ -27,5 +27,7 @@ var toolList: [ToolBahasa] = [
     ToolBahasa(localName: "Jom Dinding", bahasaName: "Jam Dinding", labelName:"JomDinding", exampleAudioURL: "JomDinding"),
     ToolBahasa(bahasaName: "Palu", image: "Palu", width: 90, height: 90),
     ToolBahasa(bahasaName: "Kapak", image: "Kapak", width: 110, height: 110),
-    ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)
+    ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60),
+    ToolBahasa(bahasaName: "Paku", image: "Paku", width: 40, height: 40),
+    ToolBahasa(bahasaName: "Penggaris", image: "Penggaris", width: 80, height: 80)
 ]
