@@ -16,6 +16,7 @@ struct GudangView: View {
     @State var isAnimationWalking : Bool = false
     @State var isTapGestureEnabled = false
     @State var currentIndex = 0
+    @State var soundOnOff : Bool = false
     //MARK: Ini tidak ada fungsimya
     //    @State var isCharacterShown = true
     //    @State var isGoingToNextView : Bool = false
@@ -87,7 +88,14 @@ struct GudangView: View {
 //                                    .padding(15)
                                     .padding(geometry.size.width * 0.066)
                                     .onAppear{
-                                        player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
+                                            player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
+                                        }
                                     }
                                 Spacer()
                             }
@@ -102,6 +110,7 @@ struct GudangView: View {
                                 } else {
                                     player.playAudioStory(fileName: gudangStories[currentIndex].audioURL!)
                                 }
+                                soundOnOff.toggle()
                             }, label: {
                                 Image("IconButtonSpeaker")
                                     .resizable()

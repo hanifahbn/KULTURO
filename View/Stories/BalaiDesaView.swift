@@ -19,7 +19,7 @@ struct BalaiDesaView: View {
     @State var isTapGestureEnabled = false
     @State var isCharacterShown = true
     @State var currentIndex = 0
-    @State var soundOnOff : Bool = true
+    @State var soundOnOff : Bool = false
     
     var body: some View {
         GeometryReader{ geometry in
@@ -82,104 +82,110 @@ struct BalaiDesaView: View {
                     .padding(.bottom, -300)
                     Image("TextBoxStory")
                         .resizable()
-                        .frame(width: geometry.size.width * 1, height: geometry.size.height / 3)
+                        .frame(width: 360, height: 250)
                         .overlay {
                             VStack{
                                 HStack{
                                     Text(balaiDesaStories[currentIndex].text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(.black)
-                                        .padding(geometry.size.width * 0.066)
+                                        .padding(15)
                                         .onAppear{
-                                            player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                            if currentIndex == 0 {
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                                }
+                                            }
+                                            else {
+                                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                            }
                                         }
                                     Spacer()
                                 }
-                                Spacer()
-                            }
-                            .padding()
-                            HStack{
-                                Spacer()
-                                Button(action: {
-                                    if player.player!.isPlaying {
-                                        player.stopAudio()
-                                    } else {
-                                        player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
-                                    }
-                                    soundOnOff.toggle()
-                                }, label: {
-                                    Image("BackgroundButtonSound")
-                                        .overlay{
-                                            Image(soundOnOff ? "SoundOff" : "SoundOn")
+                                .padding()
+                                HStack{
+                                    Spacer()
+                                    Button(action: {
+                                        if player.player!.isPlaying {
+                                            player.stopAudio()
+                                        } else {
+                                            player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                                         }
-                                })
-                                .padding(.top, 130)
-                                .padding(geometry.size.width * 0.066)
+                                        soundOnOff.toggle()
+                                    }, label: {
+                                        Image("BackgroundButtonSound")
+                                            .overlay{
+                                                Image(soundOnOff ? "SoundOff" : "SoundOn")
+                                            }
+                                    })
+                                    .padding(.top, 130)
+                                    .padding(geometry.size.width * 0.066)
+                                }
                             }
+                            
                         }
+                        .opacity(isConversation ? 1 : 0)
+                    //MARK: Transition
                     
                 }
-                .opacity(isConversation ? 1 : 0)
-                //MARK: Transition
-                
-            }
-            .navigationBarBackButtonHidden(true)
-            .onTapGesture {
-                player.stopAudio()
-                //MARK: Nanti pindah ke view model
-                if isTapGestureEnabled {
-                    if currentIndex < balaiDesaStories.count - 1 {
-                        currentIndex += 1
-                        if balaiDesaStories[currentIndex].text == "" {
-                            isCharacterShown = true
-                            isAnimatedKepalaDesa = false
-                            isConversation = false
-                            isSecondAnimation = true
-                            isTapGestureEnabled = false
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                currentIndex += 1
-                                isAnimatedKepalaDesa = true
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                    isConversation = true
-                                    isTapGestureEnabled = true
-                                    isCharacterShown = false
+                .navigationBarBackButtonHidden(true)
+                .onTapGesture {
+                    player.stopAudio()
+                    //MARK: Nanti pindah ke view model
+                    if isTapGestureEnabled {
+                        if currentIndex < balaiDesaStories.count - 1 {
+                            currentIndex += 1
+                            if balaiDesaStories[currentIndex].text == "" {
+                                isCharacterShown = true
+                                isAnimatedKepalaDesa = false
+                                isConversation = false
+                                isSecondAnimation = true
+                                isTapGestureEnabled = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    currentIndex += 1
+                                    isAnimatedKepalaDesa = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                        isConversation = true
+                                        isTapGestureEnabled = true
+                                        isCharacterShown = false
+                                    }
+                                    
                                 }
-                                
                             }
                         }
-                    }
-                    else {
-                        isConversation = false
-                        isTapGestureEnabled = false
-                        isSecondAnimation = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        else {
                             isConversation = false
-                            isthirdAnimation = false
-                            isCharacterShown = false
-                            isAnimatedKepalaDesa = false
-                            isAnimatedKepalaDesa = true
-                            isFirstAnimation = false
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                viewModel.startTransition()
+                            isTapGestureEnabled = false
+                            isSecondAnimation = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                isConversation = false
+                                isthirdAnimation = false
+                                isCharacterShown = false
+                                isAnimatedKepalaDesa = false
+                                isAnimatedKepalaDesa = true
+                                isFirstAnimation = false
+                                
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                    matchManager.gameStatus = .storyToko
+                                    viewModel.startTransition()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                        matchManager.gameStatus = .storyToko
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            .onAppear{
-                isFirstAnimation = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                    isthirdAnimation = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isConversation = true
-                        isTapGestureEnabled = true
-                        isConversation = true
-                        isCharacterShown = false
-                        
+                .onAppear{
+                    isFirstAnimation = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        isthirdAnimation = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            isConversation = true
+                            isTapGestureEnabled = true
+                            isConversation = true
+                            isCharacterShown = false
+                            
+                        }
                     }
                 }
             }

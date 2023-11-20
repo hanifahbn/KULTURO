@@ -31,4 +31,11 @@ enum GameStatus {
     case storyBalaiDesaRenovated
     case ending
     case dummy
+    case error
+}
+
+enum ErrorTypes{
+    case noConnection
+    case friendDisconnected
+    case none
 }

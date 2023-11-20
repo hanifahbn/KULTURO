@@ -20,6 +20,7 @@ struct PerbaikanBalaiDesaView: View {
     @State var currentIndex = 0
     @State var stories = perbaikanStoriesSecond
     @State var nextGameStatus: GameStatus = .dragAndDrop
+    @State var soundOnOff : Bool = false
     
     var body: some View {
         GeometryReader{ geometry in
@@ -66,57 +67,48 @@ struct PerbaikanBalaiDesaView: View {
                 .offset(y: 200)
                 Image(characters[4].fullImage)
                     .resizable()
-                    .frame(width: 100, height: 200)
-                    .offset(x : 120, y: 150)
-                    .opacity(isConversation ? 0 : 1)
-                VStack{
-                    Spacer()
-                    HStack{
-                        Image(stories[currentIndex].isTalking.halfImage)
-                    }
-                    .padding(.bottom, -300)
-                    Image("TextBoxStory")
-                        .resizable()
-//                        .frame(width: 360, height: 250)
-                        .frame(width: geometry.size.width * 1, height: geometry.size.height / 3)
-                        .overlay {
-                            VStack{
-                                HStack{
-                                    Text(stories[currentIndex].text)
-                                        .font(.custom("Chalkboard-Regular", size: 30))
-                                        .foregroundStyle(.black)
-//                                        .padding(15)
-                                        .padding(geometry.size.width * 0.066)
-                                        .onAppear{
+                    .frame(width: 360, height: 250)
+                    .overlay {
+                        VStack{
+                            HStack{
+                                Text(stories[currentIndex].text)
+                                    .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(.black)
+                                    .padding(15)
+                                    .onAppear{
+                                        if currentIndex == 0 {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                            }
+                                        }
+                                        else {
                                             player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                         }
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                            .padding()
-                            HStack{
-                                Spacer()
-                                Button(action: {
-                                    if player.player!.isPlaying {
-                                        player.stopAudio()
-                                    } else {
-                                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                     }
-                                }, label: {
-                                    Image("IconButtonSpeaker")
-                                        .resizable()
-                                        .frame(width: 70, height: 50)
-                                })
-                                .padding(geometry.size.width * 0.066)
-                                .padding(.top, 130)
-                                .opacity(currentIndex == stories.count - 1 ? 0 : 1)
+                                Spacer()
                             }
+                            Spacer()
                         }
-                }
-                .opacity(isConversation ? 1 : 0)
-                //            TransitionOpening()
-                //            TransitionClosing(viewModel: viewModel)
+                        .padding()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                if player.player!.isPlaying {
+                                    player.stopAudio()
+                                } else {
+                                    player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                }
+                                soundOnOff.toggle()
+                            }, label: {
+                                Image("IconButtonSpeaker")
+                                    .resizable()
+                                    .frame(width: 70, height: 50)
+                            })
+                            .padding(.top, 130)
+                            .padding(.trailing, 15)
+                            .opacity(currentIndex == stories.count - 1 ? 0 : 1)
+                        }
+                    }
             }
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
@@ -150,32 +142,14 @@ struct PerbaikanBalaiDesaView: View {
                                 }
                             } else {
                                 currentIndex += 1
+                                matchManager.distributeItems()
                             }
                         }
-                        else {
-                            matchManager.synchronizeGameState("ReadingFourth")
-                            if matchManager.isFinishedReading == 2 {
-                                viewModel.startTransition()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                    matchManager.gameStatus = nextGameStatus
-                                }
-                            } else {
-                                currentIndex += 1
-                            }
-                        }
+                        //                            .opacity(isConversation ? 1 : 0)
+                        //            TransitionOpening()
+                        //            TransitionClosing(viewModel: viewModel)
                     }
-                }
-            }
-            .onAppear{
-                isFirstAnimation = true
-                matchManager.stopTimer()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    isAnimationWalking = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        isConversation = true
-                        isTapGestureEnabled = true
-                        //                    isCharacterShown = false
-                    }
+                    
                 }
             }
         }
@@ -186,3 +160,5 @@ struct PerbaikanBalaiDesaView: View {
     PerbaikanBalaiDesaView()
         .environmentObject(MatchManager())
 }
+
+
