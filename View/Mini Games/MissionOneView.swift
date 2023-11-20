@@ -35,6 +35,7 @@ struct MissionOneView: View {
     }
     
     var body: some View {
+        GeometryReader{ geometry in
         ZStack{
             if isTutorialShown {
                 ZStack{
@@ -93,7 +94,8 @@ struct MissionOneView: View {
                 .resizable()
                 .ignoresSafeArea()
             Image("Paper")
-                .padding(.leading, 30)
+                .resizable()
+                .frame(width: geometry.size.width - 20, height: geometry.size.height * 0.8)
             VStack{
                 if(matchManager.isFinishedPlaying == 1 && !isSuccess){
                     ZStack {
@@ -124,21 +126,22 @@ struct MissionOneView: View {
                     }
                     .padding(.trailing, 30)
                 }
-                Spacer()
+//                Spacer()
                 Text("List Belanja")
                     .font(.custom("Chalkboard-Regular", size: 40))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 90)
                 if textNamaTool.count > 2 {
-                    VStack(spacing: 30){
+                    VStack(spacing: 10){
                         TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
                         TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
                             .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
                         TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
                             .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
                     }
+                    
                 }
-
+                
                 Spacer()
                 RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
                     if audioViewModel.audio.isRecording == false {
@@ -179,7 +182,7 @@ struct MissionOneView: View {
                     updateSheets()
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
@@ -219,9 +222,10 @@ struct MissionOneView: View {
             tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
             //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            matchManager.startTimer(time: 46)
+            //            matchManager.startTimer(time: 46)
             //            }
         }
+    }
     }
 
     private func updateSheets() {

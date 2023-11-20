@@ -51,9 +51,9 @@ struct CustomCameraView: View {
                         Rectangle().foregroundStyle(Color.skyBlue)
                     }
                     RoundedRectangle(cornerRadius: 81)
-                        .frame(width: 350, height: geo.size.height - 320)
+                        .frame(width: geo.size.width / 1.3, height: geo.size.height * 0.5)
                         .blendMode(.destinationOut)
-                        .padding(.bottom, 120)
+//                        .padding(.bottom, 120)
                 }
 
                 .compositingGroup()

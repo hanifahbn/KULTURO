@@ -22,6 +22,7 @@ struct BalaiDesaView: View {
     @State var soundOnOff : Bool = false
     
     var body: some View {
+        GeometryReader{ geometry in
         ZStack{
             Image("BrokenBalaiDesa")
                 .resizable()
@@ -67,7 +68,7 @@ struct BalaiDesaView: View {
             GifImage(characters[4].gifImage!)
                 .frame(width: 200, height: 230)
                 .padding(.leading, 50)
-                .offset(x:  isSecondAnimation ? -120 : -300, y: 100)
+                .offset(x:  isSecondAnimation ? geometry.size.width - 10 : geometry.size.width - 30, y: 100)
                 .animation(.linear(duration: 1.5), value: isSecondAnimation)
                 .opacity(isAnimatedKepalaDesa ? 0 : 1)
                 .scaleEffect(x: -1, y : 1)
@@ -81,14 +82,14 @@ struct BalaiDesaView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 250)
+                    .frame(width: geometry.size.width / 1, height: geometry.size.height / 3)
                     .overlay {
                         VStack{
                             HStack{
                                 Text(balaiDesaStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
-                                    .padding(15)
+                                    .padding(geometry.size.width * 0.06)
                                     .onAppear{
                                         if currentIndex == 0 {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
@@ -120,14 +121,14 @@ struct BalaiDesaView: View {
                                     }
                             })
                             .padding(.top, 130)
-                            .padding(.trailing, 25)
+                            .padding(geometry.size.width * 0.06)
                         }
                     }
                 
             }
             .opacity(isConversation ? 1 : 0)
             //MARK: Transition
-           
+            
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -189,7 +190,7 @@ struct BalaiDesaView: View {
                 }
             }
         }
-        
+    }
     }
 }
 
