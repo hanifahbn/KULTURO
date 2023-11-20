@@ -74,7 +74,7 @@ struct StoryNarratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-//            matchManager.gameStatus = .cameraGame
+            matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
         }
         .onTapGesture {
             if isTapGestureEnabled {

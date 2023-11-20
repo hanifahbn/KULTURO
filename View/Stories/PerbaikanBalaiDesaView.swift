@@ -163,6 +163,7 @@ struct PerbaikanBalaiDesaView: View {
                             }
                         } else {
                             currentIndex += 1
+                            matchManager.distributeItems()
                         }
                     }
                     else {

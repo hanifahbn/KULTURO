@@ -16,6 +16,7 @@ extension MatchManager: GKMatchDelegate{
             print("Player \(player.displayName) is connected.")
         case .disconnected:
             print("Player \(player.displayName) is disconnected.")
+            self.errorType = .friendDisconnected
         case .unknown:
             print("Player \(player.displayName) connection status is unknown.")
         @unknown default:
@@ -53,6 +54,24 @@ extension MatchManager: GKMatchDelegate{
             handleReceivedState(receivedState)
         } else {
             print("Failed to decode received data as a String.")
+        }
+        
+        if let receivedItems = try? JSONDecoder().decode([ToolBahasa].self, from: data) {
+            itemsToDrag = receivedItems
+        } else {
+            print("Failed to decode received data as Tools.")
+        }
+        
+        if let receivedTool = try? JSONDecoder().decode(ToolBahasa.self, from: data) {
+            itemsToDrag.append(receivedTool)
+        } else {
+            print("Failed to decode received data as Karakter.")
+        }
+        
+        if let receivedItemsToCollect = try? JSONDecoder().decode([String].self, from: data) {
+            itemsToCollect = receivedItemsToCollect
+        } else {
+            print("Gagal mendecode data yang diterima menjadi array of string.")
         }
     }
     

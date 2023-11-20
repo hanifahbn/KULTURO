@@ -20,7 +20,7 @@ struct TimerView: View {
                     .frame(width: 90, height: 90)
                 ProgressBar(counter: counter, countTo: countTo)
                 Text(matchManager.timeInString)
-                    .font(.custom("Chalkboard-Regular", size: 25))
+                    .font(.custom("Chalkboard-Regular", size: 20))
                     .foregroundStyle(counter == countTo ? .darkRed : .blueTurtle)
                     .fontWeight(.bold)
             }

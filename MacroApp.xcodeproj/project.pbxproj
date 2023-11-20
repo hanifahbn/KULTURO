@@ -18,6 +18,7 @@
 		32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401702AEB987E007A15AA /* CameraViewController.swift */; };
 		32E401732AEB9897007A15AA /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401722AEB9897007A15AA /* Detector.swift */; };
 		A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31CD01C2AEFB69D00B91325 /* RecordButton.swift */; };
+		A31E711B2B0B19A8004359C2 /* DummyyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E711A2B0B19A8004359C2 /* DummyyView.swift */; };
 		A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A34F9D102B0203110028E45E /* Dayu 2.m4a */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
@@ -29,6 +30,7 @@
 		A387331B2B020BFC00E9494F /* Tel.wav in Resources */ = {isa = PBXBuildFile; fileRef = A387331A2B020BFC00E9494F /* Tel.wav */; };
 		A38733242B05C2A500E9494F /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38733232B05C2A500E9494F /* ProgressBar.swift */; };
 		A38733262B05C46700E9494F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38733252B05C46700E9494F /* TimerView.swift */; };
+		A38E8C672B0B1E3600CB9A7D /* DragDropMultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E8C662B0B1E3500CB9A7D /* DragDropMultiView.swift */; };
 		A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A2E772AF5F15000E3F52A /* TextSound.swift */; };
 		A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */; };
 		A3A8FE772AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */; };
@@ -132,7 +134,7 @@
 		E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238328F2AEA272B001DB289 /* NavigationViewModel.swift */; };
 		E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832912AEA4E29001DB289 /* DragDropView.swift */; };
 		E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23832932AEA4E45001DB289 /* AyakPasirView.swift */; };
-		E2479ACA2B0A11F900BFA729 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */; };
+		E2479ACA2B0A11F900BFA729 /* ErrorHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2479AC92B0A11F900BFA729 /* ErrorHandlingView.swift */; };
 		E251D0AB2ADFDE620024FDD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0AA2ADFDE620024FDD1 /* ContentView.swift */; };
 		E251D0BB2AE12B9F0024FDD1 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */; };
 		E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251D0BC2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
@@ -171,6 +173,7 @@
 		32E401702AEB987E007A15AA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		32E401722AEB9897007A15AA /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		A31CD01C2AEFB69D00B91325 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		A31E711A2B0B19A8004359C2 /* DummyyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyyView.swift; sourceTree = "<group>"; };
 		A32FAC342AF0BE57009307B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A34F9D102B0203110028E45E /* Dayu 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 2.m4a"; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 		A387331A2B020BFC00E9494F /* Tel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tel.wav; sourceTree = "<group>"; };
 		A38733232B05C2A500E9494F /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		A38733252B05C46700E9494F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A38E8C662B0B1E3500CB9A7D /* DragDropMultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropMultiView.swift; sourceTree = "<group>"; };
 		A39A2E772AF5F15000E3F52A /* TextSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSound.swift; sourceTree = "<group>"; };
 		A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKata.swift; sourceTree = "<group>"; };
 		A3A8FE762AEB0EEF00980FB9 /* MatchManager+Synchronizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Synchronizations.swift"; sourceTree = "<group>"; };
@@ -287,7 +291,7 @@
 		E238328F2AEA272B001DB289 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		E23832912AEA4E29001DB289 /* DragDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropView.swift; sourceTree = "<group>"; };
 		E23832932AEA4E45001DB289 /* AyakPasirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyakPasirView.swift; sourceTree = "<group>"; };
-		E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		E2479AC92B0A11F900BFA729 /* ErrorHandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingView.swift; sourceTree = "<group>"; };
 		E251D0A92ADFDB630024FDD1 /* MacroApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacroApp.entitlements; sourceTree = "<group>"; };
 		E251D0AA2ADFDE620024FDD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E251D0BA2AE12B9F0024FDD1 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
@@ -535,7 +539,6 @@
 		A3D5E89F2AF3B568002F5888 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				E2791F442AFE7B0D00391F1B /* TempStories */,
 				E2A729502AE187120093DD1F /* StoryNarratorView.swift */,
 				E2C303432B063E26006408FD /* MapView.swift */,
 				A3B13C172AFAB3900060535C /* BalaiDesaView.swift */,
@@ -543,6 +546,7 @@
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
 				A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */,
 				A3B13C1F2AFABBDE0060535C /* BalaiDesaRenovatedView.swift */,
+				A31E711A2B0B19A8004359C2 /* DummyyView.swift */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -552,6 +556,7 @@
 			children = (
 				E2A729552AE246B40093DD1F /* MissionOneView.swift */,
 				E23832912AEA4E29001DB289 /* DragDropView.swift */,
+				A38E8C662B0B1E3500CB9A7D /* DragDropMultiView.swift */,
 				E23832932AEA4E45001DB289 /* AyakPasirView.swift */,
 				32E4015E2AEB8089007A15AA /* Object Detection */,
 			);
@@ -625,6 +630,7 @@
 				E251D0C62AE132620024FDD1 /* OnBoardView.swift */,
 				E2E5B92D2AE1364F003B4F70 /* InGameView.swift */,
 				E251D0AA2ADFDE620024FDD1 /* ContentView.swift */,
+				E2479AC92B0A11F900BFA729 /* ErrorHandlingView.swift */,
 				E2A729522AE215D10093DD1F /* Components */,
 				A3D5E8A02AF3B59F002F5888 /* Mini Games */,
 				A3D5E89F2AF3B568002F5888 /* Stories */,
@@ -641,13 +647,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		E2791F442AFE7B0D00391F1B /* TempStories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TempStories;
-			sourceTree = "<group>";
-		};
 		E2A729522AE215D10093DD1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,7 +656,6 @@
 				E2A729532AE216230093DD1F /* ComponentButton.swift */,
 				E2A729572AE26C670093DD1F /* ComponentButtonMic.swift */,
 				A31CD01C2AEFB69D00B91325 /* RecordButton.swift */,
-				E2479AC92B0A11F900BFA729 /* ErrorHandling.swift */,
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
 				E2C303452B06510F006408FD /* MapTobaAnimation.swift */,
@@ -852,6 +850,7 @@
 				A3E8E6B42B00F1F0006D221E /* RouterViewModel.swift in Sources */,
 				32E401662AEB80F3007A15AA /* ObjectDetectionGame.swift in Sources */,
 				E2C303462B06510F006408FD /* MapTobaAnimation.swift in Sources */,
+				A38E8C672B0B1E3600CB9A7D /* DragDropMultiView.swift in Sources */,
 				A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */,
 				32E401732AEB9897007A15AA /* Detector.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
@@ -863,6 +862,7 @@
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
 				A3B13C182AFAB3900060535C /* BalaiDesaView.swift in Sources */,
 				A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */,
+				A31E711B2B0B19A8004359C2 /* DummyyView.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
@@ -878,7 +878,7 @@
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
 				E2ED5C342AFCEDB8005D4B22 /* ViewModelTransition.swift in Sources */,
 				E23832942AEA4E45001DB289 /* AyakPasirView.swift in Sources */,
-				E2479ACA2B0A11F900BFA729 /* ErrorHandling.swift in Sources */,
+				E2479ACA2B0A11F900BFA729 /* ErrorHandlingView.swift in Sources */,
 				A39AEC002AF9DDEA006A0FB6 /* TextKata.swift in Sources */,
 				A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */,
 				E23832902AEA272B001DB289 /* NavigationViewModel.swift in Sources */,
