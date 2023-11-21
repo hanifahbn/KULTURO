@@ -49,7 +49,7 @@ struct TextKata: View {
             }
             Spacer()
         }
-        .padding(.leading, 70)
-        .padding(.trailing, 50)
+        .padding(.leading, 20)
+        .padding(.trailing, 30)
     }
 }

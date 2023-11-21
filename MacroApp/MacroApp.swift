@@ -26,12 +26,3 @@ struct MacroApp: App {
         }
     }
 }
-
-//        WindowGroup {
-//            ObjectDetectionGame()
-//            ContentView()
-//            DesaStoriesView(viewModel: StoryViewModel())
-//            GameStartView()
-//            AyakPasirView()
-//                .environmentObject(matchManager)
-//        }

@@ -22,6 +22,7 @@ struct StoryNarratorView: View {
     @State var nextGameStatus: GameStatus = .storyBalaiDesa
     
     var body: some View {
+        GeometryReader{ geometry in
         ZStack{
             Image("BalaiDesaRenovated")
                 .resizable()
@@ -30,7 +31,7 @@ struct StoryNarratorView: View {
             VStack{
                 Image("TextBoxNarasi")
                     .resizable()
-                    .frame(width: 400, height: 400)
+                    .frame(width: geometry.size.width / 1, height: geometry.size.height / 2)
                     .overlay {
                         VStack{
                             HStack{
@@ -48,11 +49,10 @@ struct StoryNarratorView: View {
                             }
                             Spacer()
                         }
-                        .padding(30)
+                        .padding(geometry.size.width * 0.06)
                         .padding(.top, 50)
                         
                     }
-                    .frame(width: 350, height: 300)
                     .shadow(radius: 10)
             }
             .padding(.top, 20)
@@ -74,7 +74,7 @@ struct StoryNarratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-//            matchManager.gameStatus = .cameraGame
+//            matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
         }
         .onTapGesture {
             if isTapGestureEnabled {
@@ -89,6 +89,7 @@ struct StoryNarratorView: View {
                 }
             }
         }
+    }
     }
     
     // nanti di pindah ke View model

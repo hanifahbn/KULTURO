@@ -26,4 +26,31 @@ extension MatchManager{
             sendData(encodedData, mode: .unreliable)
         }
     }
+    
+    func distributeItems() {
+        let shuffledMatchToolList = matchToolList.shuffled()
+        itemsToDrag =  Array(shuffledMatchToolList[0..<4])
+        itemsToCollect = Array(shuffledMatchToolList[0..<3]).map { $0.bahasaName }
+        
+        let itemsToDragOther = Array(shuffledMatchToolList[4..<8])
+        var itemsToCollectOther = Array(shuffledMatchToolList[4..<7]).map { $0.bahasaName }
+        
+        itemsToCollect.insert(shuffledMatchToolList[7].bahasaName, at: 2)
+        
+        itemsToCollectOther.insert(shuffledMatchToolList[3].bahasaName, at: 2)
+        
+        if let encodedData = try? JSONEncoder().encode(itemsToDragOther) {
+            sendData(encodedData, mode: .unreliable)
+        }
+        
+        if let encodedDataString = try? JSONEncoder().encode(itemsToCollectOther) {
+            sendData(encodedDataString, mode: .unreliable)
+        }
+    }
+    
+    func sendTool(_ tool: ToolBahasa) {
+        if let encodedData = try? JSONEncoder().encode(tool) {
+            sendData(encodedData, mode: .unreliable)
+        }
+    }
 }

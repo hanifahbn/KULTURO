@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 import GameKit
 import AVFoundation
+import Network
 
 class MatchManager: NSObject, ObservableObject{
     @Published var authStatus : UserAuthenticationState = .authenticated
     @Published var gameStatus : GameStatus = .setup
+    @Published var errorType : ErrorTypes = .none
     @Published var isTimerRunning = false
     @Published var localPlayer = GKLocalPlayer.local
     @Published var otherPlayer: GKPlayer?
@@ -28,10 +30,21 @@ class MatchManager: NSObject, ObservableObject{
     var localTools: [String]?
     var otherTools: [String]?
     var voiceChat: GKVoiceChat?
-        
-    let gameDuration = 15
-    var otherPlayerScore: Int = 0
-    var Score : Int = 0
+    
+    private let monitor = NWPathMonitor()
+    private var isMonitoringConnection = false
+    
+    var matchToolList = toolList.compactMap { tool in
+        tool.image != nil ? tool: nil
+    }
+    
+    @Published var itemsToDrag: [ToolBahasa] = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
+    
+    @Published var itemsToCollect: [String] = [""]
+    
+    override init() {
+        super.init()
+    }
     
     var rootViewController: UIViewController?{
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -78,6 +91,10 @@ class MatchManager: NSObject, ObservableObject{
         localTools = nil
         otherTools = nil
         
+        itemsToDrag = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
+        
+        itemsToCollect = [""]
+
         for (index, _) in characters.enumerated() {
             characters[index].isChosen = false
         }
@@ -194,4 +211,26 @@ class MatchManager: NSObject, ObservableObject{
         }
     }
     
+    func startMonitoringConnection() {
+        guard !isMonitoringConnection else { return }
+        monitor.pathUpdateHandler = { [weak self] path in
+            DispatchQueue.main.async {
+                if path.status != .satisfied {
+                    self?.gameStatus = .error
+                    self?.errorType = .noConnection
+                }
+            }
+        }
+
+        let queue = DispatchQueue(label: "NetworkMonitor")
+        monitor.start(queue: queue)
+        isMonitoringConnection = true
+    }
+
+    func stopMonitoringConnection() {
+        if isMonitoringConnection {
+            monitor.cancel()
+            isMonitoringConnection = false
+        }
+    }
 }
