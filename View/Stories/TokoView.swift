@@ -22,6 +22,7 @@ struct TokoView: View {
     //    @State var isGoingToNextView : Bool = false
     
     var body: some View {
+        GeometryReader{ geometry in
         ZStack{
             //MARK: Ini tidak ada fungsimya
             //            Rectangle()
@@ -32,20 +33,20 @@ struct TokoView: View {
             Image("BackgroundPanglong")
                 .resizable()
                 .ignoresSafeArea()
-//            if currentIndex >= 3{
-//                VStack{
-//                    Rectangle()
-//                        .frame(height: 50)
-//                        .foregroundStyle(Color.kuning)
-//                        .overlay {
-//                            Text("Mission 1 >>")
-//                                .font(.system(size: 28, weight: .semibold))
-//                                .foregroundStyle(Color.blueTurtle)
-//                                .shadow(color: .white ,radius: 0, y: 1)
-//                        }
-//                    Spacer()
-//                }
-//            }
+            //            if currentIndex >= 3{
+            //                VStack{
+            //                    Rectangle()
+            //                        .frame(height: 50)
+            //                        .foregroundStyle(Color.kuning)
+            //                        .overlay {
+            //                            Text("Mission 1 >>")
+            //                                .font(.system(size: 28, weight: .semibold))
+            //                                .foregroundStyle(Color.blueTurtle)
+            //                                .shadow(color: .white ,radius: 0, y: 1)
+            //                        }
+            //                    Spacer()
+            //                }
+            //            }
             HStack(spacing : -30){
                 ZStack{
                     GifImage(chosenCharacters[0].gifImage!)
@@ -83,14 +84,14 @@ struct TokoView: View {
                 .padding(.bottom, -300)
                 Image("TextBoxStory")
                     .resizable()
-                    .frame(width: 360, height: 250)
+                    .frame(width: geometry.size.width / 1, height: geometry.size.height / 3)
                     .overlay {
                         VStack{
                             HStack{
                                 Text(tokoStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
-                                    .padding(15)
+                                    .padding(geometry.size.width * 0.06)
                                     .onAppear{
                                         if currentIndex == 0 {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
@@ -121,14 +122,14 @@ struct TokoView: View {
                                     .frame(width: 70, height: 50)
                             })
                             .padding(.top, 130)
-                            .padding(.trailing, 15)
+                            .padding(geometry.size.width * 0.06)
                             .opacity(currentIndex == tokoStories.count - 1 ? 0 : 1)
                         }
                     }
-//                    .frame(width: 350, height: 200)
+                //                    .frame(width: 350, height: 200)
             }
             .opacity(isConversation ? 1 : 0)
-               
+            
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
@@ -172,7 +173,7 @@ struct TokoView: View {
                 }
             }
         }
-        
+    }
     }
 }
 

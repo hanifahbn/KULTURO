@@ -1,38 +1,42 @@
 //
-//  MapAnimation.swift
+//  MapBaliAnimation.swift
 //  MacroApp
 //
-//  Created by Irvan P. Saragi on 16/11/23.
+//  Created by Irvan P. Saragi on 20/11/23.
 //
 
 import SwiftUI
 
-struct MapAnimation: View {
+struct MapBaliAnimation: View {
+    @State private var offsetTitle = -150
+    @State private var offsetxAwan: CGFloat = 0
     @State private var isAnimating : Bool = false
-    @State private var offsety: CGFloat = 0.0
-    @State private var offsetx: CGFloat = 0.0
     @State private var scale: CGFloat = 1.0
-    @State private var offsetxAwan: CGFloat = 0.5
     var body: some View {
         Button {
-            print("Toba Story")
+            print("Story Bali")
         } label: {
             ZStack{
-                Image("Awan2")
-                Image("Awan")
-                Image("Awan")
-                    .resizable()
-                    .offset(x: offsetxAwan)
-                    .scaleEffect(scale)
-                    .animation(Animation.linear(duration: 10).repeatForever(), value: isAnimating)
-                
-                Image("Kapal")
+                Image("Sunrise")
                     .resizable()
                     .ignoresSafeArea()
-                Image("Air")
+                Image("Pura")
+                    .resizable()
+                    .ignoresSafeArea()
+                
+                Image("AwanBali1")
+                    .offset(x: offsetxAwan)
+                    .animation(Animation.linear(duration: 5).repeatForever(), value: isAnimating)
+              
+                Image("AwanBali2")
+                    .scaleEffect(scale)
+                    .animation(Animation.linear(duration: 20).repeatForever(), value: isAnimating)
+                Image("BaliTitle")
+                    .offset(y: CGFloat(offsetTitle))
+                    .animation(.easeInOut(duration: 1), value: offsetTitle)
+                Image("AirBali")
                     .opacity(isAnimating ? 1 : 0)
-                    .offset(x:offsetx ,y: offsety)
-                    .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true).delay(1), value: isAnimating)
+                    .animation(.easeInOut(duration: 2).repeatForever(), value: isAnimating)
                 VStack{
                     Spacer()
                     LinearGradient(
@@ -54,7 +58,7 @@ struct MapAnimation: View {
                             .frame(width: 300, height: 150)
                             .foregroundStyle(.clear)
                             .overlay{
-                                Text("Marsiadapari/mar.si.a.da.pa.ri/ a gotong royong yang dilakukan beberapa orang secara serentak (rimpa atau rumpa), agar pekerjaan yang berat dipikul bersama hingga meringankan beban kumpulan.")
+                                Text("Ngayah/ Nga.yah \n merupakan kearifan lokal yang tumbuh dan berkembang di masyarakat Bali di mana suatu kelompok akan bekerja sama dengan tulus untuk mencapai tujuan tertentu.")
                                     .font(.system(size: 16,weight: .regular, design: .serif))
                                     .foregroundStyle(.white)
                                     .multilineTextAlignment(.trailing)
@@ -65,33 +69,21 @@ struct MapAnimation: View {
                     }
                     //
                     .padding(.bottom, 50)
-                
-                    
-                }
-                VStack{
-                    Image("Toba")
-                        .resizable()
-                        .frame(width: 350, height: 200)
-                        .padding(.top, 50)
-                    Spacer()
                 }
             }
-            .ignoresSafeArea()
             .onAppear{
                 withAnimation {
-                    offsetxAwan = 30
+                    offsetTitle = 40
                     scale = 1.2
-                    offsety = 10
-                    offsetx = 10
+                    offsetxAwan = 30
                     isAnimating = true
                 }
             }
-
         }
 
     }
 }
 
 #Preview {
-    MapAnimation()
+    MapBaliAnimation()
 }

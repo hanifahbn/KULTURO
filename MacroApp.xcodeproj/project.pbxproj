@@ -159,6 +159,7 @@
 		E2ED5C342AFCEDB8005D4B22 /* ViewModelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C332AFCEDB8005D4B22 /* ViewModelTransition.swift */; };
 		E2ED5C362AFD1BDA005D4B22 /* TesTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C352AFD1BDA005D4B22 /* TesTransition.swift */; };
 		E2ED5C382AFD1BE6005D4B22 /* TesTransition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ED5C372AFD1BE6005D4B22 /* TesTransition2.swift */; };
+		E2F0940D2B0B64AC006F4318 /* MapBaliAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F0940C2B0B64AC006F4318 /* MapBaliAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -317,6 +318,7 @@
 		E2ED5C332AFCEDB8005D4B22 /* ViewModelTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTransition.swift; sourceTree = "<group>"; };
 		E2ED5C352AFD1BDA005D4B22 /* TesTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesTransition.swift; sourceTree = "<group>"; };
 		E2ED5C372AFD1BE6005D4B22 /* TesTransition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesTransition2.swift; sourceTree = "<group>"; };
+		E2F0940C2B0B64AC006F4318 /* MapBaliAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBaliAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,6 +661,7 @@
 				A39A2E772AF5F15000E3F52A /* TextSound.swift */,
 				A39AEBFF2AF9DDEA006A0FB6 /* TextKata.swift */,
 				E2C303452B06510F006408FD /* MapTobaAnimation.swift */,
+				E2F0940C2B0B64AC006F4318 /* MapBaliAnimation.swift */,
 				A38733232B05C2A500E9494F /* ProgressBar.swift */,
 				A38733252B05C46700E9494F /* TimerView.swift */,
 			);
@@ -845,6 +848,7 @@
 			files = (
 				E2A729542AE216230093DD1F /* ComponentButton.swift in Sources */,
 				A3B13C1E2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift in Sources */,
+				E2F0940D2B0B64AC006F4318 /* MapBaliAnimation.swift in Sources */,
 				A3B13C1C2AFAB5940060535C /* GudangView.swift in Sources */,
 				32E401622AEB80C3007A15AA /* CameraResultView.swift in Sources */,
 				A3E8E6B42B00F1F0006D221E /* RouterViewModel.swift in Sources */,

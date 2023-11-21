@@ -30,9 +30,9 @@ struct ErrorHandlingView: View {
                         }
                 }
                 .frame(width: 100, height: 100)
-                .offset(x: 100, y: 50)
-                Image("HalfKepalaDesa")
-                    .padding(.bottom, -300)
+                .offset(x: 110, y: 150)
+                Image("KepalaDesaFrown")
+                    .padding(.bottom, -245)
                 Image("TextBoxStory")
                     .resizable()
                     .frame(width: 360, height: 200)
