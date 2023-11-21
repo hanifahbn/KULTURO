@@ -180,6 +180,7 @@ struct PerbaikanBalaiDesaView: View {
             }
         }
         .onAppear{
+            player.playAudioLoop(fileName: "backsound-crowd")
             isFirstAnimation = true
             matchManager.stopTimer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

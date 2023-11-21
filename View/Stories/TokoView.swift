@@ -163,6 +163,7 @@ struct TokoView: View {
             }
         }
         .onAppear{
+            player.playAudioLoop(fileName: "backsound-village")
             isFirstAnimation = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 isAnimationWalking = true

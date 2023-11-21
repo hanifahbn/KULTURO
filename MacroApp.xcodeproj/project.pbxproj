@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */; };
+		3265E1472B0B6BDF004F399D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265E1462B0B6BDF004F399D /* DummyView.swift */; };
+		32C5292F2B0CF7C1007C8858 /* GSAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */; };
+		32C529322B0CFC3C007C8858 /* backsound-village.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32C529312B0CFC3C007C8858 /* backsound-village.wav */; };
+		32C529362B0D29CE007C8858 /* backsound-crowd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32C529352B0D29CE007C8858 /* backsound-crowd.wav */; };
 		32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */; };
 		32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015A2AEA754C007A15AA /* ToolBrain.swift */; };
 		32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */; };
@@ -21,7 +25,6 @@
 		A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A34F9D102B0203110028E45E /* Dayu 2.m4a */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
-		A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B6A782AFC845B002C0116 /* DummyView.swift */; };
 		A38733132B020B9F00E9494F /* ApusapusNiPat.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733122B020B9F00E9494F /* ApusapusNiPat.wav */; };
 		A38733152B020BB800E9494F /* IngananSampah.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733142B020BB800E9494F /* IngananSampah.wav */; };
 		A38733172B020BCC00E9494F /* JomDinding.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733162B020BCC00E9494F /* JomDinding.wav */; };
@@ -160,6 +163,10 @@
 
 /* Begin PBXFileReference section */
 		32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Bold.ttf"; sourceTree = "<group>"; };
+		3265E1462B0B6BDF004F399D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSAudioViewModel.swift; sourceTree = "<group>"; };
+		32C529312B0CFC3C007C8858 /* backsound-village.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-village.wav"; sourceTree = "<group>"; };
+		32C529352B0D29CE007C8858 /* backsound-crowd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-crowd.wav"; sourceTree = "<group>"; };
 		32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
 		32E4015A2AEA754C007A15AA /* ToolBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBrain.swift; sourceTree = "<group>"; };
 		32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -174,7 +181,6 @@
 		A34F9D102B0203110028E45E /* Dayu 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 2.m4a"; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		A35B6A782AFC845B002C0116 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		A38733122B020B9F00E9494F /* ApusapusNiPat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ApusapusNiPat.wav; sourceTree = "<group>"; };
 		A38733142B020BB800E9494F /* IngananSampah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IngananSampah.wav; sourceTree = "<group>"; };
 		A38733162B020BCC00E9494F /* JomDinding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = JomDinding.wav; sourceTree = "<group>"; };
@@ -327,11 +333,11 @@
 		32E4015E2AEB8089007A15AA /* Object Detection */ = {
 			isa = PBXGroup;
 			children = (
-				A35B6A782AFC845B002C0116 /* DummyView.swift */,
 				32E4015F2AEB80C3007A15AA /* CameraResultView.swift */,
 				32E401612AEB80C3007A15AA /* CameraView.swift */,
 				32E401602AEB80C3007A15AA /* CustomCameraView.swift */,
 				32E401652AEB80F3007A15AA /* ObjectDetectionGame.swift */,
+				3265E1462B0B6BDF004F399D /* DummyView.swift */,
 			);
 			path = "Object Detection";
 			sourceTree = "<group>";
@@ -560,6 +566,8 @@
 			isa = PBXGroup;
 			children = (
 				A3E8E6C32B00F7E6006D221E /* Wrong.wav */,
+				32C529352B0D29CE007C8858 /* backsound-crowd.wav */,
+				32C529312B0CFC3C007C8858 /* backsound-village.wav */,
 				A3E8E6C12B00F6AA006D221E /* Correct.wav */,
 				A3E8E6BD2B00F656006D221E /* backsound.wav */,
 				A38733112B020B6B00E9494F /* Batak Example Audio */,
@@ -601,6 +609,7 @@
 				A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */,
 				32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */,
 				A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */,
+				32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -804,6 +813,7 @@
 				A3B4F8F62B01E225006CF328 /* Ajeng 2.m4a in Resources */,
 				A3B4F8FF2B01E225006CF328 /* Ajeng 10.m4a in Resources */,
 				A3B4F9192B01E259006CF328 /* Pak kades 2.m4a in Resources */,
+				32C529322B0CFC3C007C8858 /* backsound-village.wav in Resources */,
 				A3B4F8A22B01E09C006CF328 /* Asep 9.m4a in Resources */,
 				A3B4F8D92B01E206006CF328 /* Togar 5.m4a in Resources */,
 				A3B4F8C92B01E1FC006CF328 /* Dayu 10.m4a in Resources */,
@@ -830,6 +840,7 @@
 				A3B4F8DF2B01E206006CF328 /* Togar 10.m4a in Resources */,
 				A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */,
 				A3B4F9182B01E259006CF328 /* Pak kades 9.m4a in Resources */,
+				32C529362B0D29CE007C8858 /* backsound-crowd.wav in Resources */,
 				A3B4F9212B01E26B006CF328 /* Ci mey 3.m4a in Resources */,
 				A3B4F8E42B01E206006CF328 /* Togar 9.m4a in Resources */,
 			);
@@ -852,7 +863,7 @@
 				A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */,
 				32E401732AEB9897007A15AA /* Detector.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
-				A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */,
+				3265E1472B0B6BDF004F399D /* DummyView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
 				E2ED5C362AFD1BDA005D4B22 /* TesTransition.swift in Sources */,
 				E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */,
@@ -885,6 +896,7 @@
 				E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */,
 				32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */,
 				A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */,
+				32C5292F2B0CF7C1007C8858 /* GSAudioViewModel.swift in Sources */,
 				A3B13C272AFB03BD0060535C /* Enums.swift in Sources */,
 				A3C85B622AEF7337001669A6 /* Tool.swift in Sources */,
 				A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */,

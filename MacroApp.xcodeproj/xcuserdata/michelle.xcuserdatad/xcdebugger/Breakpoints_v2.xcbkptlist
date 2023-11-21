@@ -46,9 +46,9 @@
             filePath = "ViewModel/PlayerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "stopAudio()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "playAudioLoop(fileName:isLooping:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -128,6 +128,22 @@
             endingLineNumber = "12"
             landmarkName = "MissionOneView"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16F2E5B5-9B07-4814-BCB3-256A5D0673D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ViewModel/GSAudioViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

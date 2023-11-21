@@ -38,6 +38,9 @@ struct BalaiDesaView: View {
                 }
                 .scaleEffect(x: isSecondAnimation ? -1 : 1, y : 1)
             }
+            .onAppear{
+                player.playAudio(fileName: "backsound-village")
+            }
             .padding(.top, 200)
             .offset(x: isFirstAnimation ? -40 : -300)
             .animation(.linear(duration: 2.5), value: isFirstAnimation)
@@ -158,7 +161,9 @@ struct BalaiDesaView: View {
                     isConversation = false
                     isTapGestureEnabled = false
                     isSecondAnimation = true
+                    player.playAudioLoop(fileName: "backsound-village")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+
                         isConversation = false
                         isthirdAnimation = false
                         isCharacterShown = false
@@ -177,6 +182,7 @@ struct BalaiDesaView: View {
             }
         }
         .onAppear{
+            player.playAudioLoop(fileName: "backsound-village")
             isFirstAnimation = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isthirdAnimation = true

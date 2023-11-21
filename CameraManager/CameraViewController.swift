@@ -11,7 +11,7 @@ import Vision
 import UIKit
 
 protocol CameraServiceDelegate: AnyObject {
-    func changeButton(isDisabled: Bool)
+    func changeButton(isToolDetected: Bool)
 }
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, ObservableObject {

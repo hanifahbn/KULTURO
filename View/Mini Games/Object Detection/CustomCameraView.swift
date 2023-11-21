@@ -17,7 +17,8 @@ struct CustomCameraView: View {
 
     @Environment(\.presentationMode) private var presentationMode
 
-    @State var isDisabled: Bool = true
+    @State var isToolDetected: Bool = false
+    @State var isViewWarning: Bool = false
 
     @Binding var tool: Tool
 
@@ -25,10 +26,21 @@ struct CustomCameraView: View {
 
     var timer = Timer()
 
+    func handleCamerAction() {
+        if isToolDetected {
+            cameraService.capturePhoto()
+        } else{
+            isViewWarning = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                isViewWarning  = false
+            }
+        }
+    }
+
     var  body: some View {
         ZStack {
             GeometryReader { geo in
-                CameraView(isDisabled: $isDisabled, tool: $tool, cameraService: cameraService){result in
+                CameraView(isToolDetected: $isToolDetected, tool: $tool, cameraService: cameraService){result in
                     switch result{
                     case .success(let photo):
                         if let data = photo.fileDataRepresentation() {
@@ -45,42 +57,51 @@ struct CustomCameraView: View {
 
 
                 ZStack {
-                    if(isDisabled){
-                        Rectangle().background(.ultraThinMaterial)
+                    if(isToolDetected){
+                        Rectangle().foregroundStyle(.skyBlue)
                     }else{
-                        Rectangle().foregroundStyle(Color.skyBlue)
+                        Rectangle().background(.ultraThinMaterial)
                     }
                     RoundedRectangle(cornerRadius: 81)
-                        .frame(width: 350, height: geo.size.height - 320)
+                        .frame(width: geo.size.height * 1/2, height: geo.size.height * 1/2)
                         .blendMode(.destinationOut)
-                        .padding(.bottom, 120)
+                        .padding(.bottom, 116)
                 }
-
                 .compositingGroup()
                 .ignoresSafeArea()
 
 
                 VStack{
 
-                    HStack(){
-                        Spacer()
-                        TimerView(countTo: 121)
-                        .environmentObject(matchManager)
-                        .padding(.trailing, 20)
-
-                    }
-
-                    Text(isDisabled ? "Mencari Barang" :"Ketemu!")
+                    Text(isToolDetected ? "Ketemu" : "Mencari Barang")
                         .font(.custom("Chalkboard-Bold", size: 20))
-                        .padding(8)
+                        .padding(12)
                         .background(
                             RoundedRectangle(
                                 cornerRadius: 8.0
                             )
-                            .fill(isDisabled ? .white : Color.skyBlue)
-                            .opacity(isDisabled ? 0.5 : 1)
+                            .fill(isToolDetected ? .skyBlue : .black )
+                            .opacity(isToolDetected ? 1 : 0.5)
+                            .frame(height: 28)
                         )
-                        .foregroundStyle(.black)
+                        .foregroundStyle(isToolDetected ? .black : .white)
+                        .padding(.top, geo.size.height / 5)
+
+                    Spacer()
+                    if(isViewWarning){
+                        Text("Sesuaikan angle kamera terhadap objek")
+                            .font(.custom("Chalkboard-Bold", size: 20))
+                            .multilineTextAlignment(.center)
+                            .padding(8)
+                            .background(
+                                RoundedRectangle(
+                                    cornerRadius: 8.0
+                                )
+                                .fill(.black)
+                                .opacity(0.5)
+                            )
+                            .foregroundStyle(.white)
+                    }
 
                     Spacer()
 
@@ -94,7 +115,6 @@ struct CustomCameraView: View {
 
                                 Text(tool.imageName)
                                     .font(.custom("Chalkboard-Bold", size: 28))
-                                    .foregroundColor(Color("DarkRed"))
                                     .foregroundStyle(.darkRed)
                             }.padding(.bottom, 32)
                         } .padding(.bottom, -48)
@@ -111,14 +131,13 @@ struct CustomCameraView: View {
 
                             Spacer()
 
-                            Button(action: {cameraService.capturePhoto()}, label: {
-                                Image(isDisabled ? "CameraOff" : "Camera")
+                            Button(action: handleCamerAction, label: {
+                                Image("Camera")
                                     .padding(.horizontal, 18)
                                     .padding(.vertical, 22)
-                                    .background(isDisabled ? .darkRed : .gkananKuning)
+                                    .background(isToolDetected ? .gkananKuning : .abuAbu)
                                     .clipShape(Circle())
                             })
-                            .disabled(isDisabled)
 
                             Spacer()
 
@@ -150,10 +169,11 @@ struct CustomCameraView: View {
                                 }
                             })
 
+                            Spacer()
+
                         }
                         .padding(.top, 22)
                         .padding(.bottom, 48)
-                        .padding(.horizontal, 20)
                     }
                 }
             }

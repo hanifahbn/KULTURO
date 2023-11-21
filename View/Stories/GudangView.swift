@@ -161,6 +161,7 @@ struct GudangView: View {
             }
         }
         .onAppear{
+            player.playAudioLoop(fileName: "backsound-village")
             isFirstAnimation = true
             matchManager.stopTimer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

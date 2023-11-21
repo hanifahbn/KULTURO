@@ -11,7 +11,7 @@ import AVFoundation
 struct CameraView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UIViewController
 
-    let isDisabled: Binding<Bool>
+    let isToolDetected: Binding<Bool>
 
     var tool: Binding<Tool>
 
@@ -41,7 +41,7 @@ struct CameraView: UIViewControllerRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self, didFinishProcessingPhoto: didFinishProcessingPhoto, isDisabledBinding: isDisabled)
+        return Coordinator(self, didFinishProcessingPhoto: didFinishProcessingPhoto, isToolDetectedBinding: isToolDetected)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context)  {
@@ -50,20 +50,19 @@ struct CameraView: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, AVCapturePhotoCaptureDelegate, CameraServiceDelegate {
 
-        func changeButton(isDisabled: Bool) {
-            isDisabledBinding.wrappedValue = isDisabled
-        }
-
-        var isDisabledBinding: Binding<Bool>
-
+        var isToolDetectedBinding: Binding<Bool>
 
         let parent: CameraView
         private var didFinishProcessingPhoto: (Result<AVCapturePhoto, Error>) -> ()
 
-        init(_ parent: CameraView, didFinishProcessingPhoto: @escaping (Result<AVCapturePhoto, Error>) -> (), isDisabledBinding: Binding<Bool>) {
+        init(_ parent: CameraView, didFinishProcessingPhoto: @escaping (Result<AVCapturePhoto, Error>) -> (), isToolDetectedBinding: Binding<Bool>) {
             self.parent = parent
             self.didFinishProcessingPhoto = didFinishProcessingPhoto
-            self.isDisabledBinding = isDisabledBinding
+            self.isToolDetectedBinding = isToolDetectedBinding
+        }
+
+        func changeButton(isToolDetected: Bool) {
+            isToolDetectedBinding.wrappedValue = isToolDetected
         }
 
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
