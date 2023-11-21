@@ -45,6 +45,7 @@ struct DragDropMultiView: View {
                                 .padding(30)
                             
                             Image("DropTutorial")
+                            
                         }
                         Image("DragTutorial")
                             .padding(.leading, 80)
@@ -90,8 +91,10 @@ struct DragDropMultiView: View {
                                                     HStack{
                                                         VStack {
                                                             Text("Tolong berikan")
+                                                                .foregroundStyle(.black)
                                                             HStack{
                                                                 Text("saya")
+                                                                    .foregroundStyle(.black)
                                                                 Text("\(matchManager.itemsToCollect[currentIndex])")
                                                                     .foregroundStyle(Color.red)
                                                             }

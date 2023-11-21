@@ -37,7 +37,7 @@ struct ProgressBar: View {
                             (countTo == 3 ? .darkRed : .blueTurtle)
                         )
                         .animation(
-                            .easeInOut(duration: 0.2)
+                            .easeInOut(duration: 0.2), value: counter
                         )
                         .rotationEffect(.degrees(-90))
                 )

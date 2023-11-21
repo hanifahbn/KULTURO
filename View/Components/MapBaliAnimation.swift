@@ -25,16 +25,20 @@ struct MapBaliAnimation: View {
                     .ignoresSafeArea()
                 
                 Image("AwanBali1")
+                    .resizable()
                     .offset(x: offsetxAwan)
                     .animation(Animation.linear(duration: 5).repeatForever(), value: isAnimating)
               
                 Image("AwanBali2")
+                    .resizable()
                     .scaleEffect(scale)
                     .animation(Animation.linear(duration: 20).repeatForever(), value: isAnimating)
                 Image("BaliTitle")
+                    .resizable()
                     .offset(y: CGFloat(offsetTitle))
                     .animation(.easeInOut(duration: 1), value: offsetTitle)
                 Image("AirBali")
+                    .resizable()
                     .opacity(isAnimating ? 1 : 0)
                     .animation(.easeInOut(duration: 2).repeatForever(), value: isAnimating)
                 VStack{

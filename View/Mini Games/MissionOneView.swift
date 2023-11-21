@@ -130,6 +130,7 @@ struct MissionOneView: View {
                 Text("List Belanja")
                     .font(.custom("Chalkboard-Regular", size: 40))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundStyle(.black)
                     .padding(.bottom, 90)
                 if textNamaTool.count > 2 {
                     VStack(spacing: 10){

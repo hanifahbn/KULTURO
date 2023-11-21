@@ -19,12 +19,6 @@ struct BalaiDesaRenovatedView: View {
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
-                // MARK: INI NANTI DIBUAT ANIMASI CHARACTER JALAN
-                //            Rectangle()
-                //                .ignoresSafeArea()
-                //                .zIndex(1)
-                //                .opacity(isGoingToNextView ? 1 : 0)
-                //                .animation(.easeIn(duration: 1), value: isGoingToNextView)
                 Image("BalaiDesaRenovated")
                     .resizable()
                     .ignoresSafeArea()
@@ -36,47 +30,45 @@ struct BalaiDesaRenovatedView: View {
                     .padding(.bottom, -300)
                     Image("TextBoxStory")
                         .resizable()
-//                        .frame(width: 360, height: 250)
                         .frame(width: geometry.size.width / 1, height: geometry.size.height / 3)
                         .overlay {
-                            VStack{
+                            VStack(spacing : -15){
+                                HStack{
+                                    Text("\(medanSuccessStories[currentIndex].isTalking.name)")
+                                        .font(.custom("Chalkboard-Regular", size: 30))
+                                        .foregroundStyle(Color.darkRed)
+                                    
+                                        .padding(geometry.size.width * 0.037)
+                                    Spacer()
+                                }
                                 HStack{
                                     Text(medanSuccessStories[currentIndex].text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(.black)
-                                        .padding(geometry.size.width * 0.06)
+                                        .padding(geometry.size.width * 0.025)
                                         .onAppear{
-                                            //                                        if currentIndex == 0 {
-                                            //                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                                             player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
-                                            //                                            }
-                                            //                                        }
-                                            //                                        else {
-                                            player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
-                                            //                                        }
                                         }
                                     Spacer()
                                 }
+//                                .background(Color.red)
                                 Spacer()
                             }
                             .padding()
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    if player.player!.isPlaying {
-                                        player.stopAudio()
-                                    } else {
-                                        player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
-                                    }
-                                    soundOnOff.toggle()
+                                    
+                                    player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                    
                                 }, label: {
-                                    Image("IconButtonSpeaker")
-                                        .resizable()
-                                        .frame(width: 70, height: 50)
+                                    Image("BackgroundButtonSound")
+                                        .overlay{
+                                            Image("SoundOn")
+                                        }
                                 })
                                 .padding(.top, 130)
                                 .padding(geometry.size.width * 0.06)
-                                //                            .opacity(currentIndex == medanSuccessStories.count - 1 ? 0 : 1)
                             }
                         }
                 }
@@ -87,13 +79,12 @@ struct BalaiDesaRenovatedView: View {
                 if isTapGestureEnabled {
                     if currentIndex < medanSuccessStories.count - 1 {
                         currentIndex += 1
+                        player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
                     }
                     else {
                         isTapGestureEnabled = false
-                        //                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         isGoingToNextView = true
                         matchManager.gameStatus = .ending
-                        //                    }
                     }
                 }
             }

@@ -59,19 +59,19 @@ struct BalaiDesaView: View {
                 .offset(x: 20, y: 100)
                 Image(characters[4].fullImage)
                     .resizable()
-                    .opacity(isAnimatedKepalaDesa ? 1 : 0)
-                    .opacity(isConversation ? 0 : 1)
+                    .opacity(isAnimatedKepalaDesa ? 0 : 1)
+//                    .opacity(isConversation ? 0 : 1)
                     .frame(width: 100, height: 200)
                     .offset(y: 70)
             }
             
-            GifImage(characters[4].gifImage!)
-                .frame(width: 200, height: 230)
-                .padding(.leading, 50)
-                .offset(x:  isSecondAnimation ? geometry.size.width - 10 : geometry.size.width - 30, y: 100)
-                .animation(.linear(duration: 1.5), value: isSecondAnimation)
-                .opacity(isAnimatedKepalaDesa ? 0 : 1)
-                .scaleEffect(x: -1, y : 1)
+//            GifImage(characters[4].gifImage!)
+//                .frame(width: 200, height: 230)
+//                .padding(.leading, 50)
+//                .offset(x:  isSecondAnimation ? geometry.size.width - 10 : geometry.size.width - 30, y: 100)
+//                .animation(.linear(duration: 1.5), value: isSecondAnimation)
+//                .opacity(isAnimatedKepalaDesa ? 0 : 1)
+//                .scaleEffect(x: -1, y : 1)
             TransitionOpening()
             TransitionClosing(viewModel: viewModel)
             VStack{
@@ -84,12 +84,20 @@ struct BalaiDesaView: View {
                     .resizable()
                     .frame(width: geometry.size.width / 1, height: geometry.size.height / 3)
                     .overlay {
-                        VStack{
+                        VStack(spacing : -15){
+                            HStack{
+                                Text("\(medanSuccessStories[currentIndex].isTalking.name)")
+                                    .font(.custom("Chalkboard-Regular", size: 30))
+                                    .foregroundStyle(Color.darkRed)
+                                
+                                    .padding(geometry.size.width * 0.037)
+                                Spacer()
+                            }
                             HStack{
                                 Text(balaiDesaStories[currentIndex].text)
                                     .font(.custom("Chalkboard-Regular", size: 30))
                                     .foregroundStyle(.black)
-                                    .padding(geometry.size.width * 0.06)
+                                    .padding(geometry.size.width * 0.025)
                                     .onAppear{
                                         if currentIndex == 0 {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
@@ -108,12 +116,9 @@ struct BalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                if player.player!.isPlaying {
-                                    player.stopAudio()
-                                } else {
                                     player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
-                                }
-                                soundOnOff.toggle()
+//                                }
+//                                soundOnOff.toggle()
                             }, label: {
                                 Image("BackgroundButtonSound")
                                     .overlay{
@@ -137,23 +142,26 @@ struct BalaiDesaView: View {
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {
                     currentIndex += 1
-                    if balaiDesaStories[currentIndex].text == "" {
-                        isCharacterShown = true
-                        isAnimatedKepalaDesa = false
-                        isConversation = false
-                        isSecondAnimation = true
-                        isTapGestureEnabled = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            currentIndex += 1
-                            isAnimatedKepalaDesa = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                isConversation = true
-                                isTapGestureEnabled = true
-                                isCharacterShown = false
-                            }
-                            
-                        }
-                    }
+                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                    //MARK: tidak perlu lagi
+//                    if balaiDesaStories[currentIndex].text == "" {
+//                        isCharacterShown = true
+//                        isAnimatedKepalaDesa = false
+//                        isConversation = false
+//                        isSecondAnimation = true
+//                        isTapGestureEnabled = false
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                            currentIndex += 1
+//                            isAnimatedKepalaDesa = true
+//                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+//                                isConversation = true
+//                                isTapGestureEnabled = true
+//                                isCharacterShown = false
+//                            }
+//                            
+//                        }
+//                    }
+                    //MARK: =========
                 }
                 else {
                     isConversation = false
@@ -164,7 +172,6 @@ struct BalaiDesaView: View {
                         isthirdAnimation = false
                         isCharacterShown = false
                         isAnimatedKepalaDesa = false
-                        isAnimatedKepalaDesa = true
                         isFirstAnimation = false
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
@@ -186,6 +193,7 @@ struct BalaiDesaView: View {
                     isTapGestureEnabled = true
                     isConversation = true
                     isCharacterShown = false
+                    isAnimatedKepalaDesa = true
                     
                 }
             }

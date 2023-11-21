@@ -32,6 +32,7 @@ struct AyakPasirView: View {
     }
     
     var body: some View {
+        GeometryReader{ geometry in
         ZStack {
             Image("Backgroundpasir")
                 .resizable()
@@ -47,11 +48,13 @@ struct AyakPasirView: View {
                 }
             }
             .zIndex(1)
-            .padding(40)
+            .padding(.trailing,geometry.size.height * 0.05)
+            //            .padding(40)
             ZStack {
                 Image("Ayak")
                     .resizable()
-                    .frame(width: 420, height: 800)
+//                    .frame(width: 420, height: 800)
+                    .frame(width: geometry.size.width / 1, height: geometry.size.height * 1)
                     .offset(x: isFlying ? -10 : 10)
                     .animation(.bouncy, value: isFlying)
                 Image("Pasir")
@@ -61,13 +64,14 @@ struct AyakPasirView: View {
                     .animation(.bouncy(duration: 1), value: isFlying)
                     .padding(.bottom, 50)
             }
-            .padding(.top, 50)
+            .padding(.top, 40)
+            
             if flyCounter == 15 {
                 ZStack{
                     Image("PasirAkhir")
                         .resizable()
-                        .frame(width: 400, height: 900)
-//                        .animation(.easeOut(duration: 1), value: flyCounter)
+                        .frame(width: geometry.size.width / 1, height: geometry.size.height * 1)
+                    //                        .animation(.easeOut(duration: 1), value: flyCounter)
                         .onAppear {
                             matchManager.isFinishedPlaying += 1
                             matchManager.synchronizeGameState("AyakPasirMission")
@@ -96,12 +100,13 @@ struct AyakPasirView: View {
                         Image("ShakeEffect")
                     }
                     .padding(.bottom, 50)
-
-                }          
+                    
+                }
             }
             .zIndex(3)
             .opacity(isTutorial ? 1 : 0)
         }
+    }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)
         .sheet(isPresented: $isSheetPresented) {
@@ -150,13 +155,6 @@ struct AyakPasirView: View {
             updateSheets()
         }
     }
-    
-//    func startTimer() {
-//        isTimerRunning = true
-//        Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { timer in
-//            elapsedTime += timerInterval
-//        }
-//    }
     
     func startMotionUpdates() {
         motionManager.accelerometerUpdateInterval = 0.1

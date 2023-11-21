@@ -150,7 +150,7 @@ class MatchManager: NSObject, ObservableObject{
             if otherCharacter != nil {
                 chosenCharacters[1] = otherCharacter!
 //                synchronizeGameCharacters(chosenCharacters)
-                gameStatus = .beginning
+                gameStatus = .inMap
             }
         }
     }
