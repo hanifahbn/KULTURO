@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */; };
 		3265E1472B0B6BDF004F399D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265E1462B0B6BDF004F399D /* DummyView.swift */; };
-		32C5292F2B0CF7C1007C8858 /* GSAudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */; };
 		32C529322B0CFC3C007C8858 /* backsound-village.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32C529312B0CFC3C007C8858 /* backsound-village.wav */; };
 		32C529362B0D29CE007C8858 /* backsound-crowd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32C529352B0D29CE007C8858 /* backsound-crowd.wav */; };
 		32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */; };
@@ -168,7 +167,6 @@
 /* Begin PBXFileReference section */
 		32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Bold.ttf"; sourceTree = "<group>"; };
 		3265E1462B0B6BDF004F399D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
-		32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSAudioViewModel.swift; sourceTree = "<group>"; };
 		32C529312B0CFC3C007C8858 /* backsound-village.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-village.wav"; sourceTree = "<group>"; };
 		32C529352B0D29CE007C8858 /* backsound-crowd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-crowd.wav"; sourceTree = "<group>"; };
 		32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
@@ -618,7 +616,6 @@
 				A3AF9EA12AEFAF2B0075E5B8 /* PlayerViewModel.swift */,
 				32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */,
 				A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */,
-				32C5292E2B0CF7C1007C8858 /* GSAudioViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -904,7 +901,6 @@
 				E20C87CE2AE412FF0054AD47 /* StoryViewModel.swift in Sources */,
 				32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */,
 				A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */,
-				32C5292F2B0CF7C1007C8858 /* GSAudioViewModel.swift in Sources */,
 				A3B13C272AFB03BD0060535C /* Enums.swift in Sources */,
 				A3C85B622AEF7337001669A6 /* Tool.swift in Sources */,
 				A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */,
