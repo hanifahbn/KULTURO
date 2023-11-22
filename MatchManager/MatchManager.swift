@@ -181,7 +181,7 @@ class MatchManager: NSObject, ObservableObject{
         voiceChat = match?.voiceChat(withName: "DragAndDropChannel")
         voiceChat?.start()
         voiceChat?.volume = 1.0
-//        voiceChat?.isActive = true
+        voiceChat?.isActive = true
         
         print("\(String(describing: voiceChat?.players))")
     }

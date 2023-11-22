@@ -17,6 +17,7 @@ struct MapAnimation: View {
     var body: some View {
         Button {
             matchManager.gameStatus = .beginning
+            matchManager.synchronizeGameState("BEGIN GAME TOBA")
         } label: {
             ZStack{
                 Image("Awan2")
@@ -58,6 +59,7 @@ struct MapAnimation: View {
                                 Text("Marsiadapari/mar.si.a.da.pa.ri/ a gotong royong yang dilakukan beberapa orang secara serentak (rimpa atau rumpa), agar pekerjaan yang berat dipikul bersama hingga meringankan beban kumpulan.")
                                     .font(.system(size: 16,weight: .regular, design: .serif))
                                     .foregroundStyle(.white)
+//                                    .modifier(CustomBoldModifier(text: "Ngayah"))
                                     .multilineTextAlignment(.trailing)
                             }
                             .padding(.trailing, 50)
@@ -92,6 +94,22 @@ struct MapAnimation: View {
 
     }
 }
+
+//struct CustomBoldModifier: ViewModifier {
+//    let text: String
+//
+//    func body(content: Content) -> some View {
+//        let attributedString = NSMutableAttributedString(string: content.description as NSString)
+//        let range = (attributedString.string as NSString).range(of: text)
+//        
+//        if range.location != NSNotFound {
+//            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: range)
+//        }
+//
+//        return Text(attributedString)
+//    }
+//}
+
 
 #Preview {
     MapAnimation()

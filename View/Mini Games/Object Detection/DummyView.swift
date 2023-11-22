@@ -24,7 +24,7 @@ struct DummyView: View {
                 matchManager.informVoiceChatActivation("ACTIVATE")
             }
             else{
-                matchManager.startVoiceChat()
+                matchManager.stopVoiceChat()
                 matchManager.informVoiceChatActivation("DEACTIVATE")
             }
             isClicked.toggle()

@@ -1049,8 +1049,8 @@
 				INFOPLIST_FILE = MacroApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kulturo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Kulturo wants to access camera to help you find things/objects around you\".";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Kulturo wants to access your microphone to play this game.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1091,8 +1091,8 @@
 				INFOPLIST_FILE = MacroApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kulturo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Kulturo wants to access camera to help you find things/objects around you\".";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Kulturo wants to access your microphone to play this game.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
