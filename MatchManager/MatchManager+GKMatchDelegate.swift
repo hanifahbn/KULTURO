@@ -84,6 +84,9 @@ extension MatchManager: GKMatchDelegate{
     }
     
     func handleReceivedState(_ state: String){
+        if state == "BEGIN GAME TOBA" {
+            gameStatus = .beginning
+        }
         if state == "Reading" {
             isFinishedReading += 1
             if(isFinishedReading == 2){

@@ -96,7 +96,7 @@ struct DragDropMultiView: View {
                                                             HStack{
                                                                 Text("saya")
                                                                     .foregroundStyle(.black)
-                                                                Text("\(matchManager.itemsToCollect[currentIndex])")
+                                                                Text("\(items[currentIndex].bahasaName)")
                                                                     .foregroundStyle(Color.red)
                                                             }
                                                             

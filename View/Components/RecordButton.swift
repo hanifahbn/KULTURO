@@ -30,6 +30,7 @@ struct RecordButton: View {
             HStack{
                 if(isWithIcon == true){
                     Image(systemName: "mic.fill")
+                        .foregroundStyle(Color(textColor))
                     Text(textButton)
                         .font(.title2)
                         .fontWeight(.bold)

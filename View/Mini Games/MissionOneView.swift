@@ -241,6 +241,8 @@ struct MissionOneView: View {
             playerViewModel.playAudio(fileName: tools[0].exampleAudioURL!)
         }
         .onAppear{
+            audioViewModel.startRecording()
+            audioViewModel.stopRecording()
             tools = tools.shuffled()
             tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }

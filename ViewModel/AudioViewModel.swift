@@ -29,7 +29,8 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
         let settings: [String: Any] = [
             AVFormatIDKey: Int(kAudioFormatLinearPCM),
             AVSampleRateKey: 48000.0,
-            AVNumberOfChannelsKey: 2,
+            AVNumberOfChannelsKey: 1,
+            AVLinearPCMBitDepthKey: 16,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
 

@@ -12,11 +12,6 @@ struct DummyView: View {
     @State private var isClicked = false
     
     var body: some View {
-        SoundWaveView(waveColor: .blue,
-                  numberOfWaves: 5,
-                  waveWidth: 10,
-                  waveSpacing: 8)
-        .padding()
         Button(action: {
 //            matchManager.toggleSpeaking()
             if !isClicked {
@@ -24,7 +19,7 @@ struct DummyView: View {
                 matchManager.informVoiceChatActivation("ACTIVATE")
             }
             else{
-                matchManager.startVoiceChat()
+                matchManager.stopVoiceChat()
                 matchManager.informVoiceChatActivation("DEACTIVATE")
             }
             isClicked.toggle()
