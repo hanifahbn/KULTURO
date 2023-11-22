@@ -103,7 +103,7 @@ struct PerbaikanBalaiDesaView: View {
                                         .padding(geometry.size.width * 0.025)
                                         .onAppear{
                                             if currentIndex == 0 {
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                                                     player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                                 }
                                             }

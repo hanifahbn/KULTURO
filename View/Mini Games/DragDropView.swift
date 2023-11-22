@@ -14,6 +14,7 @@ struct DragDropView: View {
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
     @State private var offset: CGFloat = 0.0
+    @State private var offset2: CGFloat = 0.0
     @State var items = toolList.compactMap { tool in
         tool.image != nil ? tool: nil
     }
@@ -26,6 +27,8 @@ struct DragDropView: View {
     @State private var isSheetPresented: Bool = false
     @State private var isAnimating : Bool = false
     private let colors: [Color] = [.blue, .black, .indigo, .red]
+    @State private var tutorialIndex = 0
+    
     enum SheetType {
         case dndSuccess
         case dndSuccessAll
@@ -43,29 +46,59 @@ struct DragDropView: View {
                             .ignoresSafeArea()
                             .opacity(0.8)
                         VStack{
-                            HStack(spacing: -100){
-                                Text("Geserlah barang-barang yang dibutuhkan untuk menyerahkannya ke Kepala Desa.")
-                                    .foregroundStyle(.white)
-                                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                                    .padding(30)
-                                
-                                Image("DropTutorial")
-                            }
-                            Image("DragTutorial")
-                                .padding(.leading, 80)
-                                .offset(y: offset)
-                                .opacity(isAnimating ? 0 : 1)
-                                .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset)
-                                .onAppear {
-                                    withAnimation {
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now()) {
-                                            isAnimating = true
-                                            //                                        offset = 0.0
-                                            offset = -400.0
+                            if tutorialIndex == 0 {
+                                HStack(spacing: -100){
+                                    Text("Geserlah barang-barang yang dibutuhkan untuk menyerahkannya ke Kepala Desa.")
+                                        .foregroundStyle(.white)
+                                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                                        .padding(30)
+                                    
+                                    Image("DropTutorial")
+                                }
+                                Image("DragTutorial")
+                                    .padding(.leading, 80)
+                                    .offset(y: offset)
+                                    .opacity(isAnimating ? 0 : 1)
+                                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset)
+                                    .onAppear {
+                                        withAnimation {
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                                isAnimating = true
+                                                //                                        offset = 0.0
+                                                offset = -400.0
+                                            }
                                         }
                                     }
+                            } else if tutorialIndex == 1{
+                                ZStack{
+                                    VStack{
+                                        Text("Berikan barang yang temanmu butuhkan.")
+                                            .foregroundStyle(.white)
+                                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                                            .padding(30)
+                                        Image("DropTutorial")
+                                            .rotationEffect(Angle(degrees: 140))
+                                            .scaleEffect(x: -1, y : -1)
+                                        
+                                    }
+                                    Image("DragTutorial")
+                                        .padding(.leading, 80)
+                                        .offset(x: offset2)
+                                        .opacity(isAnimating ? 1 : 0)
+                                        .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset2)
+                                        .onAppear {
+                                            withAnimation {
+                                                
+                                                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                                    isAnimating = true
+                                                    //                                        offset = 0.0
+                                                    offset2 = -400.0
+                                                }
+                                            }
+                                        }
                                 }
+                            }
                         }
                         
                     }
@@ -251,7 +284,8 @@ struct DragDropView: View {
             items.shuffle()
         }
         .onTapGesture {
-            isTutorialShown = false
+            tutorialIndex = (tutorialIndex + 1) % 2
+            isTutorialShown = tutorialIndex == 1
         }
         .onChange(of: isSuccess) { _ in
             updateSheets()
