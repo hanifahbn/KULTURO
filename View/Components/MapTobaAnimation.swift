@@ -61,7 +61,7 @@ struct MapAnimation: View {
                                     .multilineTextAlignment(.trailing)
                             }
                             .padding(.trailing, 50)
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 70)
                         
                     }
                     //
@@ -73,9 +73,10 @@ struct MapAnimation: View {
                     Image("Toba")
                         .resizable()
                         .frame(width: 350, height: 200)
-                        .padding(.top, 50)
+                        .padding(.top, 80)
                     Spacer()
                 }
+                
             }
             .ignoresSafeArea()
             .onAppear{
