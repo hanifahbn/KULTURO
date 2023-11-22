@@ -24,6 +24,7 @@ class MatchManager: NSObject, ObservableObject{
     @Published var timeInString: String = ""
     @Published var isRetrying: Bool = false
     
+    var isPlayerSpeaking = false
     var match : GKMatch?
     var isFinishedReading: Int = 0
     var isFinishedPlaying: Int = 0
@@ -156,11 +157,21 @@ class MatchManager: NSObject, ObservableObject{
     }
      
     func startVoiceChat() {
+//        do {
+//            let audioSession = AVAudioSession.sharedInstance()
+//
+//            try audioSession.setCategory(.playAndRecord, mode: AVAudioSession.Mode.gameChat, options: .interruptSpokenAudioAndMixWithOthers)
+//            
+//            try audioSession.setActive(true, options: [])
+//        }
+//        catch {
+//            return
+//        }
+        
         do {
             let audioSession = AVAudioSession.sharedInstance()
 
-            try audioSession.setCategory(.playAndRecord, mode: AVAudioSession.Mode.gameChat)
-            
+
             try audioSession.setActive(true, options: [])
         }
         catch {
@@ -170,25 +181,31 @@ class MatchManager: NSObject, ObservableObject{
         voiceChat = match?.voiceChat(withName: "DragAndDropChannel")
         voiceChat?.start()
         voiceChat?.volume = 1.0
-        voiceChat?.isActive = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.voiceChat?.isActive = true
-        }
+//        voiceChat?.isActive = true
         
         print("\(String(describing: voiceChat?.players))")
     }
     
     func joinVoiceChat() {
+//        do {
+//            let audioSession = AVAudioSession.sharedInstance()
+//
+//
+//            try audioSession.setActive(true, options: [])
+//        }
+//        catch {
+//            return
+//        }
+//        
         voiceChat = match?.voiceChat(withName: "DragAndDropChannel")
         voiceChat?.start()
-        
+//        voiceChat?.isActive = true
         // SAMPE SINI BERHASIL
         
 //        voiceChat?.volume = 1.0
         
 //        voiceChat?.isActive = true
-//        
+//
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
 //            self.voiceChat?.isActive = false
 //        }
@@ -197,9 +214,7 @@ class MatchManager: NSObject, ObservableObject{
     func stopVoiceChat(){
         voiceChat?.stop()
         voiceChat = nil
-
-
-        // Deactivate the shared audio session.
+        
         do {
             let audioSession = AVAudioSession.sharedInstance()
 

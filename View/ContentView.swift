@@ -75,7 +75,7 @@ struct ContentView: View {
                             .onAppear{
     //                            router.clear()
                                 matchManager.startMonitoringConnection()
-                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
+//                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
     //                           router.navigate(to: matchManager.gameStatus)
                             }
                     case .storyBalaiDesa:

@@ -66,7 +66,7 @@ struct StoryNarratorView: View {
                         .resizable()
                         .frame(width: 70, height: 50)
                 })
-                .padding(.top, 200)
+                .padding(.top, 200 )
                 .padding(.trailing, 10)
                 .opacity(0)
             }
@@ -74,7 +74,7 @@ struct StoryNarratorView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear{
             typeWriter()
-//            matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
+            matchManager.gameStatus = .dummy
         }
         .onTapGesture {
             if isTapGestureEnabled {

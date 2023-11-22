@@ -52,7 +52,14 @@ extension MatchManager: GKMatchDelegate{
         }
         
         if let receivedState = try? String(decoding: data, as: UTF8.self) {
-            handleReceivedState(receivedState)
+            if receivedState == "ACTIVATE" {
+                joinVoiceChat()
+            } else if receivedState == "DEACTIVATE" {
+                stopVoiceChat()
+            }
+            else {
+                handleReceivedState(receivedState)
+            }
         } else {
             print("Failed to decode received data as a String.")
         }

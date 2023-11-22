@@ -26,6 +26,12 @@ struct MissionOneView: View {
     @State private var isSheetPresented: Bool = false
     @State private var isAnimating = false
     
+    @State var textButton : String = "Tekan Untuk Bicara"
+    @State var iconButton : String = "IconButtonSpeaker"
+    @State var isWithIcon : Bool = true
+    @State var buttonColor : String = "Kuning"
+    @State var textColor : String = "Hitam"
+    
     let hapticViewModel = HapticViewModel()
     
     enum SheetType {
@@ -128,9 +134,10 @@ struct MissionOneView: View {
                 }
 //                Spacer()
                 Text("List Belanja")
-                    .font(.custom("Chalkboard-Regular", size: 40))
+                    .font(.custom("Chalkboard-Regular", size: 35))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 90)
+                    .padding(.top, 35)
                 if textNamaTool.count > 2 {
                     VStack(spacing: 10){
                         TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
@@ -143,30 +150,45 @@ struct MissionOneView: View {
                 }
                 
                 Spacer()
-                RecordButton(textButton: "Tekan Untuk Bicara", iconButton: "IconButtonSpeaker") {
+                RecordButton(textButton: $textButton, isWithIcon: $isWithIcon, buttonColor: $buttonColor, textColor: $textColor) {
                     if audioViewModel.audio.isRecording == false {
                         audioViewModel.startRecording()
+                        isWithIcon = false
+                        buttonColor = "Kuning"
+                        textColor = "Hitam"
                     }
                     else {
                         audioViewModel.stopRecording()
-                        //                            print("Label di view: \(audioViewModel.audio.label)")
-                        //                            if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
-                        textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
-                        playerViewModel.playAudio(fileName: "Correct")
-                        hapticViewModel.simpleSuccess()
-                        spoken[currentStep] = true
-                        currentStep = currentStep + 1
-                        jumlahBenar = jumlahBenar + 1
-                        if(jumlahBenar == 3){
+                        print("Label di view: \(audioViewModel.audio.label)")
+                        if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
+                            textNamaTool[currentStep] = tools[currentStep].localName!.appending(" = ").appending(tools[currentStep].bahasaName)
+                            playerViewModel.playAudio(fileName: "Correct")
+                            hapticViewModel.simpleSuccess()
+                            spoken[currentStep] = true
+                            currentStep = currentStep + 1
+                            jumlahBenar = jumlahBenar + 1
+                            if(jumlahBenar == 3){
                             matchManager.isFinishedPlaying += 1
                             matchManager.synchronizeGameState("SoundMission")
                             isSuccess = true
-                        } else {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
+                            } else {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    hapticViewModel.simpleSuccess()
+                                    playerViewModel.playAudio(fileName: tools[currentStep].exampleAudioURL!)
+                                }
+                                textButton = "Tekan Untuk Bicara"
+                                isWithIcon = true
+                                buttonColor = "Kuning"
+                                textColor = "Hitam"
                             }
+                        } else {
+                            hapticViewModel.simpleError()
+                            playerViewModel.playAudio(fileName: "Wrong")
+                            textButton = "Tekan Untuk Mengulang"
+                            isWithIcon = true
+                            buttonColor = "DarkRed"
+                            textColor = "AbuAbu"
                         }
-                        //                            }
                     }
                 }
                 //                }
@@ -221,9 +243,9 @@ struct MissionOneView: View {
             tools = tools.shuffled()
             tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
-            //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            //            matchManager.startTimer(time: 46)
-            //            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            matchManager.startTimer(time: 46)
+            }
         }
     }
     }

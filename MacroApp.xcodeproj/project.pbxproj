@@ -18,7 +18,7 @@
 		32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401702AEB987E007A15AA /* CameraViewController.swift */; };
 		32E401732AEB9897007A15AA /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401722AEB9897007A15AA /* Detector.swift */; };
 		A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31CD01C2AEFB69D00B91325 /* RecordButton.swift */; };
-		A31E711B2B0B19A8004359C2 /* DummyyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31E711A2B0B19A8004359C2 /* DummyyView.swift */; };
+		A33DC1B82B0DCB1E0074522C /* SoundWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DC1B72B0DCB1E0074522C /* SoundWave.swift */; };
 		A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A34F9D102B0203110028E45E /* Dayu 2.m4a */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
@@ -174,8 +174,8 @@
 		32E401702AEB987E007A15AA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		32E401722AEB9897007A15AA /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		A31CD01C2AEFB69D00B91325 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		A31E711A2B0B19A8004359C2 /* DummyyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyyView.swift; sourceTree = "<group>"; };
 		A32FAC342AF0BE57009307B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A33DC1B72B0DCB1E0074522C /* SoundWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWave.swift; sourceTree = "<group>"; };
 		A34F9D102B0203110028E45E /* Dayu 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 2.m4a"; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
@@ -548,7 +548,6 @@
 				A3B13C1B2AFAB5940060535C /* GudangView.swift */,
 				A3B13C1D2AFAB8EA0060535C /* PerbaikanBalaiDesaView.swift */,
 				A3B13C1F2AFABBDE0060535C /* BalaiDesaRenovatedView.swift */,
-				A31E711A2B0B19A8004359C2 /* DummyyView.swift */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -664,6 +663,7 @@
 				E2F0940C2B0B64AC006F4318 /* MapBaliAnimation.swift */,
 				A38733232B05C2A500E9494F /* ProgressBar.swift */,
 				A38733252B05C46700E9494F /* TimerView.swift */,
+				A33DC1B72B0DCB1E0074522C /* SoundWave.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -866,7 +866,6 @@
 				E23832922AEA4E29001DB289 /* DragDropView.swift in Sources */,
 				A3B13C182AFAB3900060535C /* BalaiDesaView.swift in Sources */,
 				A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */,
-				A31E711B2B0B19A8004359C2 /* DummyyView.swift in Sources */,
 				E2A729582AE26C670093DD1F /* ComponentButtonMic.swift in Sources */,
 				32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */,
 				E251D0BD2AE12F040024FDD1 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
@@ -877,6 +876,7 @@
 				E2E5B92E2AE1364F003B4F70 /* InGameView.swift in Sources */,
 				32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */,
 				E2A729512AE187120093DD1F /* StoryNarratorView.swift in Sources */,
+				A33DC1B82B0DCB1E0074522C /* SoundWave.swift in Sources */,
 				E2ED5C382AFD1BE6005D4B22 /* TesTransition2.swift in Sources */,
 				E251D0C12AE130D80024FDD1 /* MatchManager+GKGameCenterControllerDelegate.swift in Sources */,
 				A39A2E782AF5F15000E3F52A /* TextSound.swift in Sources */,
