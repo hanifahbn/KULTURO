@@ -136,6 +136,7 @@ struct MissionOneView: View {
                 Text("List Belanja")
                     .font(.custom("Chalkboard-Regular", size: 35))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundStyle(.black)
                     .padding(.bottom, 90)
                     .padding(.top, 35)
                 if textNamaTool.count > 2 {

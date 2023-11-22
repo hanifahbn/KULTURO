@@ -69,6 +69,14 @@ struct ContentView: View {
                                 backsoundPlayer.stopAudio()
     //                           router.navigate(to: matchManager.gameStatus)
                             }
+                    case .inMap:
+                        MapView()
+                            .environmentObject(matchManager)
+                            .onAppear{
+    //                            router.clear()
+                                backsoundPlayer.stopAudio()
+    //                           router.navigate(to: matchManager.gameStatus)
+                            }
                     case .beginning:
                         StoryNarratorView(narration: beginningNarration, nextGameStatus: .storyBalaiDesa)
                             .environmentObject(matchManager)

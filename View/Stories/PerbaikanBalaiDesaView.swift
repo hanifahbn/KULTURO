@@ -87,15 +87,23 @@ struct PerbaikanBalaiDesaView: View {
                         .resizable()
                         .frame(width: geometry.size.width / 1, height: geometry.size.height / 3)
                         .overlay {
-                            VStack{
+                            VStack(spacing : -15){
+                                HStack{
+                                    Text("\(medanSuccessStories[currentIndex].isTalking.name)")
+                                        .font(.custom("Chalkboard-Regular", size: 30))
+                                        .foregroundStyle(Color.darkRed)
+                                    
+                                        .padding(geometry.size.width * 0.037)
+                                    Spacer()
+                                }
                                 HStack{
                                     Text(stories[currentIndex].text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(.black)
-                                        .padding(geometry.size.width * 0.06)
+                                        .padding(geometry.size.width * 0.025)
                                         .onAppear{
                                             if currentIndex == 0 {
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                                                     player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                                 }
                                             }
@@ -111,16 +119,14 @@ struct PerbaikanBalaiDesaView: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    if player.player!.isPlaying {
-                                        player.stopAudio()
-                                    } else {
-                                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
-                                    }
-                                    soundOnOff.toggle()
+                                    
+                                    player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                    
                                 }, label: {
-                                    Image("IconButtonSpeaker")
-                                        .resizable()
-                                        .frame(width: 70, height: 50)
+                                    Image("BackgroundButtonSound")
+                                        .overlay{
+                                            Image("SoundOn")
+                                        }
                                 })
                                 .padding(.top, 130)
                                 .padding(geometry.size.width * 0.06)
@@ -138,19 +144,7 @@ struct PerbaikanBalaiDesaView: View {
                 if isTapGestureEnabled {
                     if currentIndex < stories.count - 2 {
                         currentIndex += 1
-                        //MARK: Ini tidak ada fungsimya
-                        //                    if stories[currentIndex].text == "" {
-                        //                        isCharacterShown = true
-                        //                        isConversation = false
-                        //                        isSecondAnimation = true
-                        //                        isTapGestureEnabled = false
-                        //                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        //                            currentIndex += 1
-                        //                            isCharacterShown = false
-                        //                            isConversation = true
-                        //                            isTapGestureEnabled = true
-                        //                        }
-                        //                    }
+                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                     }
                     else {
                         isTapGestureEnabled = false
