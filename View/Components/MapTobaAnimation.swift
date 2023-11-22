@@ -13,9 +13,10 @@ struct MapAnimation: View {
     @State private var offsetx: CGFloat = 0.0
     @State private var scale: CGFloat = 1.0
     @State private var offsetxAwan: CGFloat = 0.5
+    @EnvironmentObject var matchManager: MatchManager
     var body: some View {
         Button {
-            print("Toba Story")
+            matchManager.gameStatus = .beginning
         } label: {
             ZStack{
                 Image("Awan2")

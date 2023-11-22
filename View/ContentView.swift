@@ -58,7 +58,7 @@ struct ContentView: View {
     //                            router.clear()
                                 matchManager.stopMonitoringConnection()
                                 matchManager.reset()
-                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
+                                backsoundPlayer.playAudioLoop(fileName: "backsound")
     //                           router.navigate(to: matchManager.gameStatus)
                             }
                     case .inGame:
@@ -66,7 +66,13 @@ struct ContentView: View {
                             .environmentObject(matchManager)
                             .onAppear{
     //                            router.clear()
-                                backsoundPlayer.stopAudio()
+    //                           router.navigate(to: matchManager.gameStatus)
+                            }
+                    case .inMap:
+                        MapView()
+                            .environmentObject(matchManager)
+                            .onAppear{
+    //                            router.clear()
     //                           router.navigate(to: matchManager.gameStatus)
                             }
                     case .beginning:
@@ -75,7 +81,7 @@ struct ContentView: View {
                             .onAppear{
     //                            router.clear()
                                 matchManager.startMonitoringConnection()
-                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
+//                                backsoundPlayer.playAudioLoop(fileName: "backsound", isLooping: true)
     //                           router.navigate(to: matchManager.gameStatus)
                             }
                     case .storyBalaiDesa:

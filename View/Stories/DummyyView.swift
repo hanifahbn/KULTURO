@@ -20,7 +20,7 @@ struct DummyyView: View {
         .overlay(
             ModalBView(isPresented: $isModalPresented)
                 .opacity(isModalPresented ? 1 : 0)
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.3),value: isModalPresented)
         )
     }
 }

@@ -17,9 +17,11 @@ struct MapView: View {
                     .ignoresSafeArea()
                 VStack{
                     Text("Pilih Cerita")
-                        .font(.custom("Chalkboard-Regular", size: 30))
+                        .font(.custom("Chalkboard-Regular", size: 40))
+                        .foregroundStyle(.black)
                     Spacer()
                 }
+                
                 ScrollView(.horizontal) {
                     
                     HStack(spacing: -10) {
@@ -41,7 +43,7 @@ struct MapView: View {
                         }
                     }
                     .padding(20)
-                    .padding(.top, 10)
+                    .padding(.top, geometry.size.width * 0.015)
                 }
             }
         }

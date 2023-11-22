@@ -24,32 +24,32 @@ struct TextKata: View {
                 HStack {
                     Text(splitText[0])
                         .foregroundStyle(.black)
-                        .font(.custom("Chalkboard-Regular", size: 27))
+                        .font(.custom("Chalkboard-Regular", size: 24))
                         .fontWeight(.semibold)
                         .font(.title)
 
                     Text("=")
-                        .foregroundStyle(.black)
-                        .font(.custom("Chalkboard-Regular", size: 27))
+                        .foregroundStyle(.black )
+                        .font(.custom("Chalkboard-Regular", size: 24))
                         .fontWeight(.semibold)
                         .font(.title)
-                    
+
                     Text(splitText[1])
                         .foregroundStyle(Color.darkRed)
-                        .font(.custom("Chalkboard-Regular", size: 27))
+                        .font(.custom("Chalkboard-Regular", size: 24))
                         .fontWeight(.semibold)
                         .font(.title)
                 }
             } else {
                 Text(textBahasa)
                     .foregroundStyle(.black)
-                    .font(.custom("Chalkboard-Regular", size: 27))
+                    .font(.custom("Chalkboard-Regular", size: 24))
                     .fontWeight(.semibold)
                     .font(.title)
             }
             Spacer()
         }
-        .padding(.leading, 20)
+        .padding(.leading, 30)
         .padding(.trailing, 30)
     }
 }

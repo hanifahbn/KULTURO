@@ -53,4 +53,10 @@ extension MatchManager{
             sendData(encodedData, mode: .unreliable)
         }
     }
+    
+    func informVoiceChatActivation(_ updatedState: String) {
+        if let encodedData = updatedState.data(using: .utf8) {
+            sendData(encodedData, mode: .unreliable)
+        }
+    }
 }

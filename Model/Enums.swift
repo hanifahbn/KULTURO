@@ -19,6 +19,7 @@ enum GameStatus {
     case setup
     case inGame
     case beginning
+    case inMap
     case storyBalaiDesa
     case storyToko
     case soundGame
