@@ -171,6 +171,7 @@ class MatchManager: NSObject, ObservableObject{
         do {
             let audioSession = AVAudioSession.sharedInstance()
 
+            try audioSession.setCategory(.playAndRecord)
 
             try audioSession.setActive(true, options: [])
         }
