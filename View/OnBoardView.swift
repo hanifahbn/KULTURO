@@ -58,7 +58,7 @@ struct OnBoardView: View {
                 }
                 Image("AppName")
                     .resizable()
-                
+                    .scaledToFit()
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 7)
                     .padding(.bottom, geometry.size.width * 1.4)
             }
@@ -86,6 +86,7 @@ struct OnBoardView: View {
                 }
                 Image("AppName")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 7)
                     .opacity(isOpacity ? 1 : 0)
                     .animation(.easeIn(duration: 5), value: isOpacity)
