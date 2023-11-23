@@ -47,7 +47,7 @@ struct BalaiDesaRenovatedView: View {
                                         .foregroundStyle(.black)
                                         .padding(geometry.size.width * 0.025)
                                         .onAppear{
-                                            player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                            player.playMultipleSound(fileName: medanSuccessStories[currentIndex].audioURL!)
                                         }
                                     Spacer()
                                 }
@@ -58,8 +58,7 @@ struct BalaiDesaRenovatedView: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    
-                                    player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                                    player.playMultipleSound(fileName: medanSuccessStories[currentIndex].audioURL!)
                                     
                                 }, label: {
                                     Image("BackgroundButtonSound")
@@ -75,11 +74,10 @@ struct BalaiDesaRenovatedView: View {
             }
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
-                player.stopAudio()
                 if isTapGestureEnabled {
                     if currentIndex < medanSuccessStories.count - 1 {
                         currentIndex += 1
-                        player.playAudioStory(fileName: medanSuccessStories[currentIndex].audioURL!)
+                        player.playMultipleSound(fileName: medanSuccessStories[currentIndex].audioURL!)
                     }
                     else {
                         isTapGestureEnabled = false
@@ -90,6 +88,7 @@ struct BalaiDesaRenovatedView: View {
             }
             .onAppear{
                 matchManager.stopTimer()
+                player.playAudioLoop(fileName: "backsound-village", volume: 0.06)
             }
         }
     }

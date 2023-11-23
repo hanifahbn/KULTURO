@@ -20,7 +20,8 @@ struct StoryNarratorView: View {
     @State var isTapGestureEnabled = true
     @State var narration = beginningNarration
     @State var nextGameStatus: GameStatus = .storyBalaiDesa
-    
+    @State var player = PlayerViewModel()
+
     var body: some View {
         GeometryReader{ geometry in
         ZStack{
@@ -39,11 +40,17 @@ struct StoryNarratorView: View {
                                     Text(nextStory ? narration[currentIndex].text : text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(.black)
+                                        .onAppear{
+                                            player.playMultipleSound(fileName: "Narasi 2")
+                                        }
                                 }
                                 else{
                                     Text(nextStory ? narration[currentIndex].text : text)
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(.black)
+                                        .onAppear{
+                                            player.playMultipleSound(fileName: "backsound")
+                                        }
                                 }
                                 Spacer()
                             }
@@ -73,6 +80,8 @@ struct StoryNarratorView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear{
+//            player.playAudioLoop(fileName: "backsound", volume: 0.06)
+
             typeWriter()
 //            matchManager.gameStatus = .dummy
         }

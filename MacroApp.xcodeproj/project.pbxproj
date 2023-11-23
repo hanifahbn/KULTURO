@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */; };
+		3265E1472B0B6BDF004F399D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265E1462B0B6BDF004F399D /* DummyView.swift */; };
 		32CBFAB32AFCDA2800976F4D /* HapticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */; };
 		32E4015B2AEA754C007A15AA /* ToolBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015A2AEA754C007A15AA /* ToolBrain.swift */; };
 		32E4015D2AEB8039007A15AA /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */; };
@@ -17,12 +18,15 @@
 		32E401662AEB80F3007A15AA /* ObjectDetectionGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401652AEB80F3007A15AA /* ObjectDetectionGame.swift */; };
 		32E401712AEB987E007A15AA /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401702AEB987E007A15AA /* CameraViewController.swift */; };
 		32E401732AEB9897007A15AA /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E401722AEB9897007A15AA /* Detector.swift */; };
+		32EA3ACF2B0E2D0C00400F03 /* backsound-village.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32EA3ACB2B0E2D0C00400F03 /* backsound-village.wav */; };
+		32EA3AD02B0E2D0C00400F03 /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32EA3ACC2B0E2D0C00400F03 /* backsound.wav */; };
+		32EA3AD12B0E2D0C00400F03 /* backsound-store.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32EA3ACD2B0E2D0C00400F03 /* backsound-store.wav */; };
+		32EA3AD22B0E2D0C00400F03 /* backsound-crowd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32EA3ACE2B0E2D0C00400F03 /* backsound-crowd.wav */; };
 		A31CD01D2AEFB69D00B91325 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31CD01C2AEFB69D00B91325 /* RecordButton.swift */; };
 		A33DC1B82B0DCB1E0074522C /* SoundWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DC1B72B0DCB1E0074522C /* SoundWave.swift */; };
 		A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A34F9D102B0203110028E45E /* Dayu 2.m4a */; };
 		A3519E6E2AEB6E5B00C66C4A /* ToolBahasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */; };
 		A35921562AEF2D7C0063BD8E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35921552AEF2D7C0063BD8E /* ModalView.swift */; };
-		A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B6A782AFC845B002C0116 /* DummyView.swift */; };
 		A38733132B020B9F00E9494F /* ApusapusNiPat.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733122B020B9F00E9494F /* ApusapusNiPat.wav */; };
 		A38733152B020BB800E9494F /* IngananSampah.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733142B020BB800E9494F /* IngananSampah.wav */; };
 		A38733172B020BCC00E9494F /* JomDinding.wav in Resources */ = {isa = PBXBuildFile; fileRef = A38733162B020BCC00E9494F /* JomDinding.wav */; };
@@ -62,12 +66,12 @@
 		A3B4F8C82B01E1FC006CF328 /* Dayu 6.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */; };
 		A3B4F8C92B01E1FC006CF328 /* Dayu 10.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BF2B01E1F0006CF328 /* Dayu 10.m4a */; };
 		A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C02B01E1F0006CF328 /* Dayu 13.m4a */; };
-		A3B4F8CB2B01E1FC006CF328 /* Dayu 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */; };
+		A3B4F8CB2B01E1FC006CF328 /* Dayu 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C32B01E1F0006CF328 /* Dayu 4.m4a */; };
 		A3B4F8CC2B01E1FC006CF328 /* Dayu 9.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BD2B01E1F0006CF328 /* Dayu 9.m4a */; };
 		A3B4F8CD2B01E1FC006CF328 /* Dayu 11.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BE2B01E1F0006CF328 /* Dayu 11.m4a */; };
 		A3B4F8CE2B01E1FC006CF328 /* Dayu 12.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BB2B01E1F0006CF328 /* Dayu 12.m4a */; };
 		A3B4F8CF2B01E1FC006CF328 /* Dayu 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */; };
-		A3B4F8D02B01E1FC006CF328 /* Dayu 4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */; };
+		A3B4F8D02B01E1FC006CF328 /* Dayu 5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C12B01E1F0006CF328 /* Dayu 5.m4a */; };
 		A3B4F8D12B01E1FC006CF328 /* Dayu 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8BA2B01E1F0006CF328 /* Dayu 8.m4a */; };
 		A3B4F8D22B01E1FC006CF328 /* Dayu 14.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C22B01E1F0006CF328 /* Dayu 14.m4a */; };
 		A3B4F8D32B01E1FC006CF328 /* Dayu 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */; };
@@ -125,7 +129,6 @@
 		A3D5E89A2AF3957F002F5888 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E8992AF3957F002F5888 /* Story.swift */; };
 		A3D5E89E2AF3AC1F002F5888 /* Narration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D5E89D2AF3AC1F002F5888 /* Narration.swift */; };
 		A3E8E6B42B00F1F0006D221E /* RouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */; };
-		A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6BD2B00F656006D221E /* backsound.wav */; };
 		A3E8E6C22B00F6AA006D221E /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6C12B00F6AA006D221E /* Correct.wav */; };
 		A3E8E6C42B00F7E6006D221E /* Wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3E8E6C32B00F7E6006D221E /* Wrong.wav */; };
 		A3E99C912AEA1698002FDE6C /* Karakter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E99C902AEA1698002FDE6C /* Karakter.swift */; };
@@ -164,6 +167,7 @@
 
 /* Begin PBXFileReference section */
 		32115DA02B062F37005BF92B /* Chalkboard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chalkboard-Bold.ttf"; sourceTree = "<group>"; };
+		3265E1462B0B6BDF004F399D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		32CBFAB22AFCDA2800976F4D /* HapticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModel.swift; sourceTree = "<group>"; };
 		32E4015A2AEA754C007A15AA /* ToolBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBrain.swift; sourceTree = "<group>"; };
 		32E4015C2AEB8039007A15AA /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
@@ -173,13 +177,16 @@
 		32E401652AEB80F3007A15AA /* ObjectDetectionGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionGame.swift; sourceTree = "<group>"; };
 		32E401702AEB987E007A15AA /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		32E401722AEB9897007A15AA /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
+		32EA3ACB2B0E2D0C00400F03 /* backsound-village.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-village.wav"; sourceTree = "<group>"; };
+		32EA3ACC2B0E2D0C00400F03 /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
+		32EA3ACD2B0E2D0C00400F03 /* backsound-store.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-store.wav"; sourceTree = "<group>"; };
+		32EA3ACE2B0E2D0C00400F03 /* backsound-crowd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "backsound-crowd.wav"; sourceTree = "<group>"; };
 		A31CD01C2AEFB69D00B91325 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		A32FAC342AF0BE57009307B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A33DC1B72B0DCB1E0074522C /* SoundWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundWave.swift; sourceTree = "<group>"; };
 		A34F9D102B0203110028E45E /* Dayu 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 2.m4a"; sourceTree = "<group>"; };
 		A3519E6D2AEB6E5B00C66C4A /* ToolBahasa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBahasa.swift; sourceTree = "<group>"; };
 		A35921552AEF2D7C0063BD8E /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		A35B6A782AFC845B002C0116 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		A38733122B020B9F00E9494F /* ApusapusNiPat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ApusapusNiPat.wav; sourceTree = "<group>"; };
 		A38733142B020BB800E9494F /* IngananSampah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IngananSampah.wav; sourceTree = "<group>"; };
 		A38733162B020BCC00E9494F /* JomDinding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = JomDinding.wav; sourceTree = "<group>"; };
@@ -238,9 +245,9 @@
 		A3B4F8BE2B01E1F0006CF328 /* Dayu 11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 11.m4a"; sourceTree = "<group>"; };
 		A3B4F8BF2B01E1F0006CF328 /* Dayu 10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 10.m4a"; sourceTree = "<group>"; };
 		A3B4F8C02B01E1F0006CF328 /* Dayu 13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 13.m4a"; sourceTree = "<group>"; };
-		A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 4.m4a"; sourceTree = "<group>"; };
+		A3B4F8C12B01E1F0006CF328 /* Dayu 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 5.m4a"; sourceTree = "<group>"; };
 		A3B4F8C22B01E1F0006CF328 /* Dayu 14.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 14.m4a"; sourceTree = "<group>"; };
-		A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 5.m4a"; sourceTree = "<group>"; };
+		A3B4F8C32B01E1F0006CF328 /* Dayu 4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 4.m4a"; sourceTree = "<group>"; };
 		A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 1.m4a"; sourceTree = "<group>"; };
 		A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 6.m4a"; sourceTree = "<group>"; };
 		A3B4F8C62B01E1F1006CF328 /* Dayu 15.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dayu 15.m4a"; sourceTree = "<group>"; };
@@ -283,7 +290,6 @@
 		A3D5E8992AF3957F002F5888 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		A3D5E89D2AF3AC1F002F5888 /* Narration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Narration.swift; sourceTree = "<group>"; };
 		A3E8E6B32B00F1F0006D221E /* RouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewModel.swift; sourceTree = "<group>"; };
-		A3E8E6BD2B00F656006D221E /* backsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = backsound.wav; sourceTree = "<group>"; };
 		A3E8E6C12B00F6AA006D221E /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
 		A3E8E6C32B00F7E6006D221E /* Wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Wrong.wav; sourceTree = "<group>"; };
 		A3E99C902AEA1698002FDE6C /* Karakter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karakter.swift; sourceTree = "<group>"; };
@@ -335,11 +341,11 @@
 		32E4015E2AEB8089007A15AA /* Object Detection */ = {
 			isa = PBXGroup;
 			children = (
-				A35B6A782AFC845B002C0116 /* DummyView.swift */,
 				32E4015F2AEB80C3007A15AA /* CameraResultView.swift */,
 				32E401612AEB80C3007A15AA /* CameraView.swift */,
 				32E401602AEB80C3007A15AA /* CustomCameraView.swift */,
 				32E401652AEB80F3007A15AA /* ObjectDetectionGame.swift */,
+				3265E1462B0B6BDF004F399D /* DummyView.swift */,
 			);
 			path = "Object Detection";
 			sourceTree = "<group>";
@@ -351,6 +357,17 @@
 				32E401722AEB9897007A15AA /* Detector.swift */,
 			);
 			path = CameraManager;
+			sourceTree = "<group>";
+		};
+		32EA3ACA2B0E2D0C00400F03 /* Backsound */ = {
+			isa = PBXGroup;
+			children = (
+				32EA3ACB2B0E2D0C00400F03 /* backsound-village.wav */,
+				32EA3ACC2B0E2D0C00400F03 /* backsound.wav */,
+				32EA3ACD2B0E2D0C00400F03 /* backsound-store.wav */,
+				32EA3ACE2B0E2D0C00400F03 /* backsound-crowd.wav */,
+			);
+			path = Backsound;
 			sourceTree = "<group>";
 		};
 		A38733112B020B6B00E9494F /* Batak Example Audio */ = {
@@ -459,8 +476,8 @@
 				A3B4F8C42B01E1F1006CF328 /* Dayu 1.m4a */,
 				A34F9D102B0203110028E45E /* Dayu 2.m4a */,
 				A3B4F8C72B01E1F1006CF328 /* Dayu 3.m4a */,
-				A3B4F8C12B01E1F0006CF328 /* Dayu 4.m4a */,
-				A3B4F8C32B01E1F0006CF328 /* Dayu 5.m4a */,
+				A3B4F8C12B01E1F0006CF328 /* Dayu 5.m4a */,
+				A3B4F8C32B01E1F0006CF328 /* Dayu 4.m4a */,
 				A3B4F8C52B01E1F1006CF328 /* Dayu 6.m4a */,
 				A3B4F8BC2B01E1F0006CF328 /* Dayu 7.m4a */,
 				A3B4F8BA2B01E1F0006CF328 /* Dayu 8.m4a */,
@@ -569,7 +586,7 @@
 			children = (
 				A3E8E6C32B00F7E6006D221E /* Wrong.wav */,
 				A3E8E6C12B00F6AA006D221E /* Correct.wav */,
-				A3E8E6BD2B00F656006D221E /* backsound.wav */,
+				32EA3ACA2B0E2D0C00400F03 /* Backsound */,
 				A38733112B020B6B00E9494F /* Batak Example Audio */,
 				A3B4F8852B01E07E006CF328 /* Asep */,
 				A3B4F9032B01E241006CF328 /* Kades */,
@@ -765,6 +782,7 @@
 				A3B4F8E12B01E206006CF328 /* Togar 14.m4a in Resources */,
 				A3B4F89C2B01E09C006CF328 /* Asep 12.m4a in Resources */,
 				A34F9D112B0203110028E45E /* Dayu 2.m4a in Resources */,
+				32EA3AD12B0E2D0C00400F03 /* backsound-store.wav in Resources */,
 				A3B4F8DD2B01E206006CF328 /* Togar 3.m4a in Resources */,
 				A3B4F8982B01E09C006CF328 /* Asep 11.m4a in Resources */,
 				A3B4F8FA2B01E225006CF328 /* Ajeng 4.m4a in Resources */,
@@ -776,8 +794,9 @@
 				A3B4F89D2B01E09C006CF328 /* Asep 6.m4a in Resources */,
 				A38733192B020BDC00E9494F /* Sipadot.wav in Resources */,
 				A3B4F8DE2B01E206006CF328 /* Togar 13.m4a in Resources */,
+				32EA3ACF2B0E2D0C00400F03 /* backsound-village.wav in Resources */,
 				A3B4F91F2B01E26B006CF328 /* Ci mey 1.m4a in Resources */,
-				A3B4F8D02B01E1FC006CF328 /* Dayu 4.m4a in Resources */,
+				A3B4F8D02B01E1FC006CF328 /* Dayu 5.m4a in Resources */,
 				A3B4F9012B01E225006CF328 /* Ajeng 11.m4a in Resources */,
 				A3B4F8F92B01E225006CF328 /* Ajeng 9.m4a in Resources */,
 				32115DA12B063051005BF92B /* Chalkboard-Bold.ttf in Resources */,
@@ -802,7 +821,7 @@
 				A3B4F8CD2B01E1FC006CF328 /* Dayu 11.m4a in Resources */,
 				A3B4F9132B01E259006CF328 /* Pak kades 8.m4a in Resources */,
 				E2ED5C322AFCCD31005D4B22 /* AnimationKepalaDesa.gif in Resources */,
-				A3B4F8CB2B01E1FC006CF328 /* Dayu 5.m4a in Resources */,
+				A3B4F8CB2B01E1FC006CF328 /* Dayu 4.m4a in Resources */,
 				A3B4F89B2B01E09C006CF328 /* Asep 14.m4a in Resources */,
 				A3B4F8952B01E09C006CF328 /* Asep 8.m4a in Resources */,
 				A3B4F8F62B01E225006CF328 /* Ajeng 2.m4a in Resources */,
@@ -811,6 +830,7 @@
 				A3B4F8A22B01E09C006CF328 /* Asep 9.m4a in Resources */,
 				A3B4F8D92B01E206006CF328 /* Togar 5.m4a in Resources */,
 				A3B4F8C92B01E1FC006CF328 /* Dayu 10.m4a in Resources */,
+				32EA3AD02B0E2D0C00400F03 /* backsound.wav in Resources */,
 				A3B4F91B2B01E259006CF328 /* Pak kades 4.m4a in Resources */,
 				A3B4F8FB2B01E225006CF328 /* Ajeng 5.m4a in Resources */,
 				A3B4F8D12B01E1FC006CF328 /* Dayu 8.m4a in Resources */,
@@ -826,11 +846,11 @@
 				A3B4F8C82B01E1FC006CF328 /* Dayu 6.m4a in Resources */,
 				A3B4F8FC2B01E225006CF328 /* Ajeng 7.m4a in Resources */,
 				A3B4F8F82B01E225006CF328 /* Ajeng 12.m4a in Resources */,
+				32EA3AD22B0E2D0C00400F03 /* backsound-crowd.wav in Resources */,
 				A3B4F8CF2B01E1FC006CF328 /* Dayu 1.m4a in Resources */,
 				A3B4F8F72B01E225006CF328 /* Ajeng 8.m4a in Resources */,
 				A3B4F8A02B01E09C006CF328 /* Asep 15.m4a in Resources */,
 				A3B4F8FE2B01E225006CF328 /* Ajeng 6.m4a in Resources */,
-				A3E8E6BE2B00F656006D221E /* backsound.wav in Resources */,
 				A3B4F8DF2B01E206006CF328 /* Togar 10.m4a in Resources */,
 				A3B4F8CA2B01E1FC006CF328 /* Dayu 13.m4a in Resources */,
 				A3B4F9182B01E259006CF328 /* Pak kades 9.m4a in Resources */,
@@ -858,7 +878,7 @@
 				A3AF9E9C2AEFAC470075E5B8 /* ServerViewModel.swift in Sources */,
 				32E401732AEB9897007A15AA /* Detector.swift in Sources */,
 				A3AF9EA02AEFACAA0075E5B8 /* Audio.swift in Sources */,
-				A35B6A792AFC845B002C0116 /* DummyView.swift in Sources */,
+				3265E1472B0B6BDF004F399D /* DummyView.swift in Sources */,
 				E251D0C72AE132620024FDD1 /* OnBoardView.swift in Sources */,
 				E2ED5C362AFD1BDA005D4B22 /* TesTransition.swift in Sources */,
 				E2D73EE92AF8F0A3006E99A1 /* Transition.swift in Sources */,

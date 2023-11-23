@@ -33,7 +33,7 @@ struct TextKata: View {
                         .font(.custom("Chalkboard-Regular", size: 24))
                         .fontWeight(.semibold)
                         .font(.title)
-                    
+
                     Text(splitText[1])
                         .foregroundStyle(Color.darkRed)
                         .font(.custom("Chalkboard-Regular", size: 24))

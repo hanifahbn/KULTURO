@@ -104,11 +104,9 @@ struct PerbaikanBalaiDesaView: View {
                                         .onAppear{
                                             if currentIndex == 0 {
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 4){
-                                                    player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                                    player.playMultipleSound(fileName: stories[currentIndex].audioURL!)
+
                                                 }
-                                            }
-                                            else {
-                                                player.playAudioStory(fileName: stories[currentIndex].audioURL!)
                                             }
                                         }
                                     Spacer()
@@ -119,8 +117,7 @@ struct PerbaikanBalaiDesaView: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-                                    
-                                    player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                                    player.playMultipleSound(fileName: stories[currentIndex].audioURL!)
                                     
                                 }, label: {
                                     Image("BackgroundButtonSound")
@@ -140,11 +137,10 @@ struct PerbaikanBalaiDesaView: View {
             }
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
-                player.stopAudio()
                 if isTapGestureEnabled {
                     if currentIndex < stories.count - 2 {
                         currentIndex += 1
-                        player.playAudioStory(fileName: stories[currentIndex].audioURL!)
+                        player.playMultipleSound(fileName: stories[currentIndex].audioURL!)
                     }
                     else {
                         isTapGestureEnabled = false
@@ -170,12 +166,17 @@ struct PerbaikanBalaiDesaView: View {
                                 }
                             } else {
                                 currentIndex += 1
+                                player.playBacksoundOnly()
                             }
                         }
                     }
                 }
             }
             .onAppear{
+                player.playAudioLoop(fileName: "backsound-crowd")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+                    player.playAudioLoop(fileName: "backsound-crowd", volume: 0.5)
+                }
                 isFirstAnimation = true
                 matchManager.stopTimer()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -185,6 +186,7 @@ struct PerbaikanBalaiDesaView: View {
                         isTapGestureEnabled = true
                         //                    isCharacterShown = false
                     }
+
                 }
             }
         }

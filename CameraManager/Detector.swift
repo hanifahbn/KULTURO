@@ -27,7 +27,7 @@ extension CameraViewController {
 
                 if (!isDelay) {
                     self.isDelay = true
-                    self.cameraDelegate?.changeButton(isDisabled: false)
+                    self.cameraDelegate?.changeButton(isToolDetected: true)
 
                     // haptic setiap kelipatan 0.3
                     self.hapticViewModel.simpleSuccess()
@@ -46,7 +46,7 @@ extension CameraViewController {
 
             } else {
                 if !isDelay {
-                    self.cameraDelegate?.changeButton(isDisabled: true)
+                    self.cameraDelegate?.changeButton(isToolDetected: false)
                     self.isDelay = false
                 }
             }

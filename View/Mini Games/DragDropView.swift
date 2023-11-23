@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DragDropView: View {
     @EnvironmentObject var matchManager: MatchManager
-    
+
     @State var isModalPresented : Bool = false
     @State var askItems: Bool = false
     @State var askItems2: Bool = false
@@ -28,13 +28,13 @@ struct DragDropView: View {
     @State private var isAnimating : Bool = false
     private let colors: [Color] = [.blue, .black, .indigo, .red]
     @State private var tutorialIndex = 0
-    
+
     enum SheetType {
         case dndSuccess
         case dndSuccessAll
         case lose
     }
-    
+
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
@@ -52,7 +52,7 @@ struct DragDropView: View {
                                         .foregroundStyle(.white)
                                         .font(.system(size: 30, weight: .bold, design: .rounded))
                                         .padding(30)
-                                    
+
                                     Image("DropTutorial")
                                 }
                                 Image("DragTutorial")
@@ -62,7 +62,7 @@ struct DragDropView: View {
                                     .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset)
                                     .onAppear {
                                         withAnimation {
-                                            
+
                                             DispatchQueue.main.asyncAfter(deadline: .now()) {
                                                 isAnimating = true
                                                 //                                        offset = 0.0
@@ -80,7 +80,7 @@ struct DragDropView: View {
                                         Image("DropTutorial")
                                             .rotationEffect(Angle(degrees: 140))
                                             .scaleEffect(x: -1, y : -1)
-                                        
+
                                     }
                                     Image("DragTutorial")
                                         .padding(.leading, 80)
@@ -89,7 +89,7 @@ struct DragDropView: View {
                                         .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: offset2)
                                         .onAppear {
                                             withAnimation {
-                                                
+
                                                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                                                     isAnimating = true
                                                     //                                        offset = 0.0
@@ -100,7 +100,7 @@ struct DragDropView: View {
                                 }
                             }
                         }
-                        
+
                     }
                     .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                     .zIndex(2)
@@ -134,14 +134,14 @@ struct DragDropView: View {
                                                                     Text("\(items[currentIndex].bahasaName)")
                                                                         .foregroundStyle(Color.red)
                                                                 }
-                                                                
+
                                                                 Spacer()
                                                             }
                                                             .font(.custom("Chalkboard-Regular", size: 25))
                                                             .padding(.trailing, 150)
                                                         }
                                                         .padding(5)
-                                                        
+
                                                     })
                                                 Image("KadesHalf")
                                                     .resizable()
@@ -174,9 +174,9 @@ struct DragDropView: View {
                             TimerView(countTo: 31)
                                 .environmentObject(matchManager)
                                 .padding(.trailing, 30)
-                            
+
                         }
-                        
+
                         if(matchManager.isFinishedPlaying == 1 && !isSuccess){
                             ZStack {
                                 RoundedRectangle(cornerRadius: 15.0)
@@ -228,7 +228,7 @@ struct DragDropView: View {
                             }
                         }
                         Spacer()
-                        
+
                     }
                     if(items.count != 0){
                         ForEach(items.indices, id: \.self) { item in
@@ -248,7 +248,7 @@ struct DragDropView: View {
                         Text("Item Pindah")
                             .font(.system(size: 50, weight: .semibold))
                     }
-                    
+
                 }
             }
         }
@@ -297,7 +297,7 @@ struct DragDropView: View {
             updateSheets()
         }
     }
-    
+
     private func updateSheets() {
         if isSuccess && matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
             currentSheet = .dndSuccess
@@ -313,7 +313,7 @@ struct DragDropView: View {
             isSheetPresented = true
         }
     }
-    
+
 }
 
 #Preview {
@@ -323,7 +323,7 @@ struct DragDropView: View {
 
 struct ItemDrag: View {
     @State var playerViewModel = PlayerViewModel()
-    
+
     @State var dragOffset: CGSize = .zero
     @State var position: CGSize
     @Binding var askItems: Bool
@@ -331,19 +331,19 @@ struct ItemDrag: View {
     @Binding var currentIndex: Int
     @Binding var items: [ToolBahasa]
     @Binding var imageTool: ToolBahasa
-    
+
     @State var exceedCount = 0
-    
+
     let hapticViewModel = HapticViewModel()
-    
+
     let minX = -150.0 // Adjust this value for the minimum X-coordinate
     let maxX = 150.0  // Adjust this value for the maximum X-coordinate
     let minY = 100.0 // Adjust this value for the minimum Y-coordinate
     let maxY = 200.0  // Adjust this value for the maximum Y-coordinate
-    
-    
+
+
     init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
-        
+
         self._position = State(initialValue: CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY)))
         self._askItems = askItems
         self._askItems2 = askItems2
@@ -351,7 +351,7 @@ struct ItemDrag: View {
         self._imageTool = imageTool
         self._items = items
     }
-    
+
     var body: some View {
         Image(imageTool.image!)
             .resizable()
@@ -370,31 +370,31 @@ struct ItemDrag: View {
                     })
             )
     }
-    
+
     func askItem() {
-        
+
         if position.height < -80 {
             if imageTool.bahasaName == items[currentIndex].bahasaName  {
                 items = items.filter { tool in
                     return tool.image != imageTool.bahasaName
                 }
-                
+
                 if items.count == 0 {
                     askItems = true
                 } else {
                     position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
                 }
-                
+
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
-                
+
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
-                
+
                 playerViewModel.playAudio(fileName: "Wrong")
             }
-            
+
         } else if position.width > 170 || position.width < -170 {
             print(imageTool.image!)
         }

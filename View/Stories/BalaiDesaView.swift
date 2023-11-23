@@ -101,11 +101,11 @@ struct BalaiDesaView: View {
                                     .onAppear{
                                         if currentIndex == 0 {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                                player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
                                             }
                                         }
                                         else {
-                                            player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                            player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
                                         }
                                     }
                                 Spacer()
@@ -116,7 +116,8 @@ struct BalaiDesaView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+//                                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
 //                                }
 //                                soundOnOff.toggle()
                             }, label: {
@@ -137,12 +138,12 @@ struct BalaiDesaView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
-            player.stopAudio()
             //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {
                     currentIndex += 1
-                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
+                    player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
+//                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                     //MARK: tidak perlu lagi
 //                    if balaiDesaStories[currentIndex].text == "" {
 //                        isCharacterShown = true
@@ -167,7 +168,9 @@ struct BalaiDesaView: View {
                     isConversation = false
                     isTapGestureEnabled = false
                     isSecondAnimation = true
+                    player.playAudioLoop(fileName: "backsound-village")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+
                         isConversation = false
                         isthirdAnimation = false
                         isCharacterShown = false
@@ -185,6 +188,11 @@ struct BalaiDesaView: View {
             }
         }
         .onAppear{
+            player.playAudioLoop(fileName: "backsound-village")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                player.playAudioLoop(fileName: "backsound-village", volume: 0.06)
+            }
+
             isFirstAnimation = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 isthirdAnimation = true

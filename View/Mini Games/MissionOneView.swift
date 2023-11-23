@@ -25,21 +25,21 @@ struct MissionOneView: View {
     @State private var currentSheet: SheetType? = nil
     @State private var isSheetPresented: Bool = false
     @State private var isAnimating = false
-    
+
     @State var textButton : String = "Tekan Untuk Bicara"
     @State var iconButton : String = "IconButtonSpeaker"
     @State var isWithIcon : Bool = true
     @State var buttonColor : String = "Kuning"
     @State var textColor : String = "Hitam"
-    
+
     let hapticViewModel = HapticViewModel()
-    
+
     enum SheetType {
         case soundSuccess
         case soundSuccessAll
         case lose
     }
-    
+
     var body: some View {
         GeometryReader{ geometry in
         ZStack{
@@ -62,7 +62,7 @@ struct MissionOneView: View {
                                     .padding(.top, 10)
                                     .opacity(isAnimating ? 1 : 0)
                                     .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).delay(0), value: isAnimating)
-                                
+
                                 Image("Sound2")
                                     .padding(.trailing, 65)
                                     .padding(.top, 20)
@@ -76,7 +76,7 @@ struct MissionOneView: View {
                                 Image("Iphone")
                                     .padding(.trailing, -20)
                                     .padding(.top, 100)
-                                
+
                             }
                             .onAppear {
                                 withAnimation {
@@ -90,8 +90,8 @@ struct MissionOneView: View {
                             .foregroundStyle(.yellow)
                             .font(.custom("Chalkboard-Regular", size: 20))
                     }
-                    
-                    
+
+
                 }
                 .animation(.easeIn(duration: 0.5), value: isTutorialShown)
                 .zIndex(2)
@@ -147,9 +147,9 @@ struct MissionOneView: View {
                         TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
                             .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
                     }
-                    
+
                 }
-                
+
                 Spacer()
                 RecordButton(textButton: $textButton, isWithIcon: $isWithIcon, buttonColor: $buttonColor, textColor: $textColor) {
                     if audioViewModel.audio.isRecording == false {
@@ -205,7 +205,7 @@ struct MissionOneView: View {
                     updateSheets()
                 }
             }
-            
+
         }
         .navigationBarBackButtonHidden(true)
         .blur(radius: isModalPresented ? 1 : 0)

@@ -11,7 +11,7 @@ import Vision
 import UIKit
 
 protocol CameraServiceDelegate: AnyObject {
-    func changeButton(isDisabled: Bool)
+    func changeButton(isToolDetected: Bool)
 }
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, ObservableObject {
@@ -103,8 +103,8 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     func capturePhoto(with settings: AVCapturePhotoSettings = AVCapturePhotoSettings()) {
         output.capturePhoto(with: settings, delegate: delegate!)
 
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.session?.stopRunning()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.session?.stopRunning()
+        }
     }
 }
