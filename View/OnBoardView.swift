@@ -60,8 +60,9 @@ struct OnBoardView: View {
                     Image("AppName")
                         .resizable()
                     
-                        .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 7)
+                        .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 5)
                         .padding(.bottom, geometry.size.width * 1.4)
+                        .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 2)
                 }
                 .offset(y : -geometry.size.width * offseYSky)
                 .animation(.easeInOut(duration: 2), value: offseYSky)
@@ -87,10 +88,11 @@ struct OnBoardView: View {
                     
                     Image("AppName")
                         .resizable()
-                        .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 7)
+                        .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 5)
                         .padding(.bottom, geometry.size.width * 1.5)
                         .opacity(isOpacity ? 1 : 0)
                         .animation(.easeIn(duration: 5), value: isOpacity)
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 5, y: 2)
                     
                     Image("HomeOnBoard")
                         .resizable()
@@ -99,11 +101,16 @@ struct OnBoardView: View {
                         .animation(.easeInOut(duration: 2), value: HomeAnimation)
                     
                     ZStack{
-                        ComponentButton(textButton: "Start Game") {
+                        ComponentButton(textButton: "Mulai Permainan") {
                             matchManager.initiateMatch()
                         }
-                        
-                        .offset(y: -geometry.size.width * 0.3)
+                        .offset(y: {
+                            if UIDevice.current.userInterfaceIdiom == .phone {
+                                return geometry.size.height * 0.05
+                            } else {
+                                return geometry.size.height * -0.1
+                            }
+                        }())                        
                         .padding(.trailing, 20)
                         HStack{
                             Image(characters[1].fullImage)
@@ -122,7 +129,13 @@ struct OnBoardView: View {
                                 .resizable()
                                 .scaledToFit()
                         }
-                        .offset(y: geometry.size.width * 0.2)
+                        .offset(y: {
+                            if UIDevice.current.userInterfaceIdiom == .phone {
+                                return geometry.size.height * 0.4
+                            } else {
+                                return geometry.size.height * 0.1
+                            }
+                        }())
                         .padding(.trailing, 20)
                     }
                     .opacity(isOpacity ? 1 : 0)
