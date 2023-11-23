@@ -17,6 +17,7 @@ struct TokoView: View {
     @State var isTapGestureEnabled = false
     @State var currentIndex = 0
     @State var soundOnOff : Bool = false
+    @StateObject var audioViewModel = AudioViewModel()
     //MARK: Ini tidak ada fungsimya
     //    @State var isCharacterShown = true
     //    @State var isGoingToNextView : Bool = false
@@ -147,9 +148,12 @@ struct TokoView: View {
                         matchManager.synchronizeGameState("Reading")
                         if matchManager.isFinishedReading == 2 {
                             matchManager.gameStatus = .soundGame
+                            player.stopAudio()
                         } else {
                             currentIndex += 1
-                            player.playBacksoundOnly()
+//                            player.playBacksoundOnly()
+//                            audioViewModel.startRecording()
+//                            audioViewModel.stopRecording()
                         }
                     }
                 }

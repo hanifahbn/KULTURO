@@ -148,10 +148,7 @@ struct PerbaikanBalaiDesaView: View {
                         if nextGameStatus == .dragAndDrop {
                             matchManager.synchronizeGameState("ReadingThird")
                             if matchManager.isFinishedReading == 2 {
-                                viewModel.startTransition()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                    matchManager.gameStatus = nextGameStatus
-                                }
+                                matchManager.gameStatus = nextGameStatus
                             } else {
                                 currentIndex += 1
                                 matchManager.distributeItems()
@@ -160,10 +157,7 @@ struct PerbaikanBalaiDesaView: View {
                         else {
                             matchManager.synchronizeGameState("ReadingFourth")
                             if matchManager.isFinishedReading == 2 {
-                                viewModel.startTransition()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                    matchManager.gameStatus = nextGameStatus
-                                }
+                                matchManager.gameStatus = nextGameStatus
                             } else {
                                 currentIndex += 1
                                 player.playBacksoundOnly()

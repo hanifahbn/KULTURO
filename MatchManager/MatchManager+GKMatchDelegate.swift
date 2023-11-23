@@ -65,6 +65,7 @@ extension MatchManager: GKMatchDelegate{
         }
         
         if let receivedItems = try? JSONDecoder().decode([ToolBahasa].self, from: data) {
+            itemsToDrag = []
             itemsToDrag = receivedItems
         } else {
             print("Failed to decode received data as Tools.")

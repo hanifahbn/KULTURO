@@ -118,6 +118,7 @@ struct MissionOneView: View {
                                         .padding(.bottom, 15)
                                     Text("Hei, lekaslah! Aku sudah selesai.")
                                         .font(.system(size: 15, weight: .bold))
+                                        .foregroundStyle(.black)
                                 }
                             }
                             .animation(.linear, value: matchManager.isFinishedPlaying == 1)
@@ -246,8 +247,6 @@ struct MissionOneView: View {
             textNamaTool = tools.prefix(3).map { $0.localName! }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 matchManager.startTimer(time: 46)
-                audioViewModel.startRecording()
-                audioViewModel.stopRecording()
             }
         }
     }

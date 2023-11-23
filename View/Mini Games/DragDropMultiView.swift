@@ -15,6 +15,7 @@ struct DragDropMultiView: View {
     @State var askItems2: Bool = false
     @State private var offset: CGFloat = 0.0
     @State var items: [ToolBahasa] = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
+    @State var itemsName: [String] = []
     @State var isAnimationDrag = false
     @State var currentIndex = 0
     @State private var isTutorialShown = true //nilai awal true
@@ -91,13 +92,18 @@ struct DragDropMultiView: View {
                                                 .overlay(content: {
                                                     HStack{
                                                         VStack {
-                                                            Text("Tolong berikan")
-                                                                .foregroundStyle(.black)
-                                                            HStack{
-                                                                Text("saya")
+                                                            if itemsName.isEmpty {
+                                                                Text("Berikan barang\nke temanmu")
                                                                     .foregroundStyle(.black)
-                                                                Text("\(items[currentIndex].bahasaName)")
-                                                                    .foregroundStyle(Color.red)
+                                                            } else {
+                                                                Text("Tolong berikan")
+                                                                    .foregroundStyle(.black)
+                                                                HStack{
+                                                                    Text("saya")
+                                                                        .foregroundStyle(.black)
+                                                                    Text("\(itemsName[currentIndex])")
+                                                                        .foregroundStyle(Color.red)
+                                                                }
                                                             }
                                                             
                                                             Spacer()
@@ -156,6 +162,7 @@ struct DragDropMultiView: View {
                                             .padding(.bottom, 15)
                                         Text("Hei, lekaslah! Aku sudah selesai.")
                                             .font(.system(size: 15, weight: .bold))
+                                            .foregroundStyle(.black)
                                     }
                                 }
                                 .padding(.top, 20)
@@ -171,7 +178,7 @@ struct DragDropMultiView: View {
                 }
                 if(items.count != 0){
                     ForEach(items.indices, id: \.self) { item in
-                        ItemDragMulti(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, imageTool: $items[item], items: $items)
+                        ItemDragMulti(askItems: $askItems, askItems2: $askItems2, currentIndex: $currentIndex, itemsName: $itemsName, imageTool: $items[item], items: $items)
                             .environmentObject(matchManager)
                     }
                 }
@@ -220,6 +227,7 @@ struct DragDropMultiView: View {
         }
         .onAppear{
             items = matchManager.itemsToDrag
+            itemsName = matchManager.itemsToCollect
             matchManager.startTimer(time: 31)
         }
         .onTapGesture {
@@ -247,9 +255,15 @@ struct DragDropMultiView: View {
             currentSheet = .dndSuccessAll
             isSheetPresented = true
         } else if isSuccess && !matchManager.isTimerRunning && matchManager.isFinishedPlaying < 2 {
+            if matchManager.itemsToDrag.count > 4 {
+                matchManager.itemsToDrag.removeLast()
+            }
             currentSheet = .lose
             isSheetPresented = true
         } else if !isSuccess && !matchManager.isTimerRunning {
+            if matchManager.itemsToDrag.count > 4 {
+                matchManager.itemsToDrag.removeLast()
+            }
             currentSheet = .lose
             isSheetPresented = true
         }
@@ -271,6 +285,7 @@ struct ItemDragMulti: View {
     @Binding var askItems: Bool
     @Binding var askItems2: Bool
     @Binding var currentIndex: Int
+    @Binding var itemsName: [String]
     @Binding var items: [ToolBahasa]
     @Binding var imageTool: ToolBahasa
     
@@ -284,7 +299,7 @@ struct ItemDragMulti: View {
     let maxY = 300.0  // Adjust this value for the maximum Y-coordinate
     
     
-    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
+    init(askItems: Binding<Bool>, askItems2: Binding<Bool>, currentIndex: Binding<Int>, itemsName: Binding<[String]>, imageTool: Binding<ToolBahasa>, items: Binding<[ToolBahasa]>) {
         
         self._position = State(initialValue: CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY)))
         self._askItems = askItems
@@ -292,6 +307,7 @@ struct ItemDragMulti: View {
         self._currentIndex = currentIndex
         self._imageTool = imageTool
         self._items = items
+        self._itemsName = itemsName
     }
     
     var body: some View {
@@ -316,21 +332,14 @@ struct ItemDragMulti: View {
     func askItem() {
         
         if position.height < -80 {
-            if imageTool.bahasaName == matchManager.itemsToCollect[currentIndex]  {
+            if imageTool.bahasaName == itemsName[currentIndex]  {
                 items = items.filter { tool in
                     return tool.image != imageTool.bahasaName
                 }
                 
-                matchManager.itemsToCollect.remove(at: 0)
-//                matchManager.itemsToDrag = matchManager.itemsToDrag.filter { tool in
-//                    return tool.image != imageTool.bahasaName
-//                }
-//                
-//                matchManager.itemsToCollect = matchManager.itemsToCollect.filter { $0 != imageTool.bahasaName }
+                itemsName.remove(at: 0)
                 
-//                print(matchManager.itemsToCollect)
-                
-                if matchManager.itemsToCollect.count == 0 {
+                if itemsName.count == 0 && items.count == 0 {
                     askItems = true
                 } else {
                     position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
@@ -338,8 +347,6 @@ struct ItemDragMulti: View {
                 
                 playerViewModel.playAudio(fileName: "Correct")
                 hapticViewModel.simpleSuccess()
-
-//                currentIndex =  Int.random(in: 0..<matchManager.itemsToCollect.count)
             } else {
                 hapticViewModel.simpleError()
                 position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))
@@ -352,6 +359,10 @@ struct ItemDragMulti: View {
             
             items = items.filter { tool in
                 return tool.image != imageTool.bahasaName
+            }
+            
+            if itemsName.count == 0 && items.count == 0 {
+                askItems = true
             }
             
 //            matchManager.itemsToDrag = matchManager.itemsToDrag.filter { tool in

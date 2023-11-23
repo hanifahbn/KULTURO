@@ -58,6 +58,7 @@ struct OnBoardView: View {
                 }
                 Image("AppName")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 5)
                     .padding(.bottom, geometry.size.width * 1.4)
                     .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 2)
@@ -86,6 +87,7 @@ struct OnBoardView: View {
                 }
                 Image("AppName")
                     .resizable()
+                    .scaledToFit()
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height / 5)
                     .opacity(isOpacity ? 1 : 0)
                     .animation(.easeIn(duration: 5), value: isOpacity)
@@ -101,7 +103,7 @@ struct OnBoardView: View {
                 }
                 
                 ZStack{
-                    ComponentButton(textButton: "Start Game") {
+                    ComponentButton(textButton: "Mulai Permainan") {
                         matchManager.initiateMatch()
                     }
                     

@@ -41,7 +41,7 @@ class MatchManager: NSObject, ObservableObject{
     
     @Published var itemsToDrag: [ToolBahasa] = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
     
-    @Published var itemsToCollect: [String] = [""]
+    @Published var itemsToCollect: [String] = []
     
     override init() {
         super.init()
@@ -91,6 +91,11 @@ class MatchManager: NSObject, ObservableObject{
         isFinishedPlaying = 0
         localTools = nil
         otherTools = nil
+        
+        chosenCharacters = [
+            Karakter(name: "Asep", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", gifImage: "AnimationAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
+            Karakter(name: "Togar", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", gifImage: "AnimationTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+        ]
         
         itemsToDrag = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
         

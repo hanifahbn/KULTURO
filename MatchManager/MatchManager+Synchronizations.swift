@@ -29,6 +29,9 @@ extension MatchManager{
     
     func distributeItems() {
         let shuffledMatchToolList = matchToolList.shuffled()
+        itemsToDrag = []
+        itemsToCollect = []
+        
         itemsToDrag =  Array(shuffledMatchToolList[0..<4])
         itemsToCollect = Array(shuffledMatchToolList[0..<3]).map { $0.bahasaName }
         
