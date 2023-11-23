@@ -102,7 +102,9 @@ class PlayerViewModel: NSObject,ObservableObject, AVAudioPlayerDelegate {
     func playMultipleSound(fileName: String) {
 
         if duplicatePlayers.count == 1 {
+            duplicatePlayers[0].stop()
             duplicatePlayers.removeLast()
+
         }
 
 
@@ -130,6 +132,9 @@ class PlayerViewModel: NSObject,ObservableObject, AVAudioPlayerDelegate {
 
     func playBacksoundOnly()  {
         duplicatePlayers = []
+        for duplicatePlayer in duplicatePlayers {
+            duplicatePlayer.stop()
+        }
     }
 
     func stopAudio() {

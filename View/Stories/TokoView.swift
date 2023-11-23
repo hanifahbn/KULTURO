@@ -83,7 +83,7 @@ struct TokoView: View {
                                         .onAppear{
                                             if currentIndex == 0 {
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                                                    player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
+                                                    player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
                                                 }
                                             }
                                         }
@@ -95,8 +95,7 @@ struct TokoView: View {
                             HStack{
                                 Spacer()
                                 Button(action: {
-
-                                    player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
+                                    player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
 
                                 }, label: {
                                     Image("BackgroundButtonSound")
@@ -116,10 +115,11 @@ struct TokoView: View {
             }
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
+                player.stopAudio()
                 if isTapGestureEnabled {
                     if currentIndex < tokoStories.count - 2 {
                         currentIndex += 1
-                        player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
+                        player.playAudioStory(fileName: tokoStories[currentIndex].audioURL!)
                         //MARK: Ini tidak ada fungsimya
                         //                    if tokoStories[currentIndex].text == "" {
                         //                        isCharacterShown = true
@@ -143,7 +143,6 @@ struct TokoView: View {
                             matchManager.gameStatus = .soundGame
                         } else {
                             currentIndex += 1
-                            player.playBacksoundOnly()
                         }
                     }
                 }
@@ -151,14 +150,11 @@ struct TokoView: View {
             .onAppear{
                 player.playAudioLoop(fileName:"backsound-store")
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                    player.playAudioLoop(fileName:"backsound-store", volume: 0.5)
-                }
-
                 isFirstAnimation = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     isAnimationWalking = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+
                         isConversation = true
                         isTapGestureEnabled = true
                     }

@@ -83,7 +83,7 @@ struct StoryNarratorView: View {
 //            player.playAudioLoop(fileName: "backsound", volume: 0.06)
 
             typeWriter()
-//            matchManager.gameStatus = .dummy
+//           matchManager.gameStatus = .storyGudang
         }
         .onTapGesture {
             if isTapGestureEnabled {

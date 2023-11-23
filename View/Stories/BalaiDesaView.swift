@@ -101,11 +101,11 @@ struct BalaiDesaView: View {
                                     .onAppear{
                                         if currentIndex == 0 {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                                                player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                                             }
                                         }
                                         else {
-                                            player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                            player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                                         }
                                     }
                                 Spacer()
@@ -117,7 +117,7 @@ struct BalaiDesaView: View {
                             Spacer()
                             Button(action: {
 //                                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
-                                player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
+                                player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
 //                                }
 //                                soundOnOff.toggle()
                             }, label: {
@@ -138,11 +138,12 @@ struct BalaiDesaView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onTapGesture {
+            player.stopAudio()
             //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
                 if currentIndex < balaiDesaStories.count - 1 {
                     currentIndex += 1
-                    player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
+                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
 //                    player.playAudioStory(fileName: balaiDesaStories[currentIndex].audioURL!)
                     //MARK: tidak perlu lagi
 //                    if balaiDesaStories[currentIndex].text == "" {
@@ -176,7 +177,7 @@ struct BalaiDesaView: View {
                         isCharacterShown = false
                         isAnimatedKepalaDesa = false
                         isFirstAnimation = false
-                        
+
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                             viewModel.startTransition()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
@@ -189,9 +190,6 @@ struct BalaiDesaView: View {
         }
         .onAppear{
             player.playAudioLoop(fileName: "backsound-village")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                player.playAudioLoop(fileName: "backsound-village", volume: 0.06)
-            }
 
             isFirstAnimation = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {

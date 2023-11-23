@@ -139,16 +139,20 @@ struct MissionOneView: View {
                     .foregroundStyle(.black)
                     .padding(.bottom, 90)
                     .padding(.top, 35)
-                if textNamaTool.count > 2 {
+
                     VStack(spacing: 10){
-                        TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
-                        TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
-                            .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
-                        TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
-                            .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
+                        if textNamaTool.count > 2 {
+                            TextKata(textBahasa: $textNamaTool[0], textURL: tools[0].exampleAudioURL!)
+                            TextKata(textBahasa: $textNamaTool[1], textURL: tools[1].exampleAudioURL!)
+                                .opacity(currentStep == 1 || currentStep == 2 || currentStep == 3 ? 1 : 0)
+                        }
+                        if(textNamaTool.count > 3){
+                            TextKata(textBahasa: $textNamaTool[2], textURL: tools[2].exampleAudioURL!)
+                                .opacity(currentStep == 2 || currentStep == 3 ? 1 : 0)
+                        }
                     }
 
-                }
+                
 
                 Spacer()
                 RecordButton(textButton: $textButton, isWithIcon: $isWithIcon, buttonColor: $buttonColor, textColor: $textColor) {

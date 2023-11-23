@@ -63,6 +63,7 @@ struct CustomCameraView: View {
                         Rectangle().background(.ultraThinMaterial)
                     }
                     RoundedRectangle(cornerRadius: 81)
+                        .blendMode(.destinationOut)
                         .frame(width: geo.size.height * 1/2, height: geo.size.height * 1/2)
                         .padding(.bottom, 116)
 
