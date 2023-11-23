@@ -65,7 +65,7 @@ struct CustomCameraView: View {
                     RoundedRectangle(cornerRadius: 81)
                         .frame(width: geo.size.height * 1/2, height: geo.size.height * 1/2)
                         .padding(.bottom, 116)
-
+                        .blendMode(.destinationOut)
                 }
                 .compositingGroup()
                 .ignoresSafeArea()

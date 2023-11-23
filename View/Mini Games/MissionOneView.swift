@@ -128,7 +128,7 @@ struct MissionOneView: View {
                 ZStack{
                     HStack{
                         Spacer()
-                        TimerView(countTo: 46)
+                        TimerView(countTo: 301)
                             .environmentObject(matchManager)
                     }
                     .padding(.trailing, 30)
@@ -246,7 +246,7 @@ struct MissionOneView: View {
             tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                matchManager.startTimer(time: 46)
+                matchManager.startTimer(time: 301)
             }
         }
     }

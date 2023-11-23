@@ -171,6 +171,7 @@ struct BalaiDesaView: View {
                     isConversation = false
                     isTapGestureEnabled = false
                     isSecondAnimation = true
+                    player.playBacksoundOnly()
                     player.playAudioLoop(fileName: "backsound-village")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 
@@ -183,6 +184,7 @@ struct BalaiDesaView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                             viewModel.startTransition()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                player.playBacksoundOnly()
                                 matchManager.gameStatus = .storyToko
                             }
                         }

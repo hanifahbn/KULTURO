@@ -121,9 +121,6 @@ struct TokoView: View {
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 if isTapGestureEnabled {
-                    if player.player!.isPlaying {
-                        player.stopAudio()
-                    }
                     if currentIndex < tokoStories.count - 2 {
                         currentIndex += 1
                         player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
@@ -148,12 +145,11 @@ struct TokoView: View {
                         matchManager.synchronizeGameState("Reading")
                         if matchManager.isFinishedReading == 2 {
                             matchManager.gameStatus = .soundGame
-                            player.stopAudio()
                         } else {
                             currentIndex += 1
-//                            player.playBacksoundOnly()
-//                            audioViewModel.startRecording()
-//                            audioViewModel.stopRecording()
+                            player.playBacksoundOnly()
+                            audioViewModel.startRecording()
+                            audioViewModel.stopRecording()
                         }
                     }
                 }
@@ -166,7 +162,7 @@ struct TokoView: View {
                 }
 
                 isFirstAnimation = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                     isAnimationWalking = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
                         isConversation = true

@@ -17,6 +17,7 @@ struct MapAnimation: View {
     var body: some View {
         Button {
             matchManager.gameStatus = .beginning
+            matchManager.synchronizeGameState("BEGIN GAME TOBA")
         } label: {
             GeometryReader{ geometry in
             ZStack{

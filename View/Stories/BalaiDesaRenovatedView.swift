@@ -80,6 +80,7 @@ struct BalaiDesaRenovatedView: View {
                         player.playMultipleSound(fileName: medanSuccessStories[currentIndex].audioURL!)
                     }
                     else {
+                        player.playBacksoundOnly()
                         isTapGestureEnabled = false
                         isGoingToNextView = true
                         matchManager.gameStatus = .ending

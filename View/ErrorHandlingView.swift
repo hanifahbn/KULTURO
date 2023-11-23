@@ -42,7 +42,7 @@ struct ErrorHandlingView: View {
                     VStack{
                         Image("TextBoxStory")
                             .resizable()
-                            .frame(width: geometry.size.width * 0.8, height: geometry.size.height / 3)
+                            .frame(width: geometry.size.width * 0.9, height: geometry.size.height / 3)
                             .overlay {
                                 VStack{
                                     HStack{
@@ -64,7 +64,7 @@ struct ErrorHandlingView: View {
                                 
                             }
                         ComponentButtonMic(textButton: "Keluar") {
-                            matchManager.gameStatus = .setup
+                            matchManager.reset()
                         }
                     }
                     .padding(.top, geometry.size.height * 0.25)

@@ -167,6 +167,7 @@ struct GudangView: View {
                 }
             }
             .onAppear{
+                matchManager.isFinishedReading = 0
                 player.playAudioLoop(fileName: "backsound-village")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                     player.playAudioLoop(fileName:"backsound-village", volume: 0.06)

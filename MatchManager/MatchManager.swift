@@ -92,10 +92,13 @@ class MatchManager: NSObject, ObservableObject{
         localTools = nil
         otherTools = nil
         
-        chosenCharacters = [
-            Karakter(name: "Asep", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", gifImage: "AnimationAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
-            Karakter(name: "Togar", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", gifImage: "AnimationTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
-        ]
+//        chosenCharacters = [
+//            Karakter(name: "Asep", headImage: "HeadAsep", fullImage: "FullAsep", halfImage: "HalfAsep", gifImage: "AnimationAsep", origin: "Bandung", colorRight: "GkananBiru", colorLeft: "GkiriBiru", isChosen: false, isNPC: false),
+//            Karakter(name: "Togar", headImage: "HeadTogar", fullImage: "FullTogar", halfImage: "HalfTogar", gifImage: "AnimationTogar", origin: "Medan", colorRight: "GkananHijau", colorLeft: "GkiriHijau", isChosen: false, isNPC: false),
+//        ]
+        
+        chosenCharacters[0] = characters[0]
+        chosenCharacters[1] = characters[1]
         
         itemsToDrag = [ToolBahasa(bahasaName: "Tisu", image: "Tisu", width: 60, height: 60)]
         
@@ -104,6 +107,8 @@ class MatchManager: NSObject, ObservableObject{
         for (index, _) in characters.enumerated() {
             characters[index].isChosen = false
         }
+        
+        gameStatus = .setup
     }
 
     func startTimer(time: Int) {

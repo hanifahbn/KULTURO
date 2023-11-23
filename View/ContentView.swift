@@ -19,33 +19,25 @@ struct ContentView: View {
                     MissionOneView()
                         .environmentObject(matchManager)
                         .onAppear{
-//                            router.clear()
                             backsoundPlayer.stopAudio()
-//                           router.navigate(to: matchManager.gameStatus)
                         }
                 } else if matchManager.gameStatus == .cameraGame {
                     ObjectDetectionGame()
                         .environmentObject(matchManager)
                         .onAppear{
-//                            router.clear()
                             backsoundPlayer.stopAudio()
-//                           router.navigate(to: matchManager.gameStatus)
                         }
                 } else if matchManager.gameStatus == .dragAndDrop {
                     DragDropMultiView()
                         .environmentObject(matchManager)
                         .onAppear{
-//                            router.clear()
                             backsoundPlayer.stopAudio()
-//                           router.navigate(to: matchManager.gameStatus)
                         }
                 } else if matchManager.gameStatus == .shakeGame {
                     AyakPasirView()
                         .environmentObject(matchManager)
                         .onAppear{
-//                            router.clear()
                             backsoundPlayer.stopAudio()
-//                           router.navigate(to: matchManager.gameStatus)
                         }
                 }
             } else {
@@ -134,6 +126,7 @@ struct ContentView: View {
                         BalaiDesaRenovatedView()
                             .environmentObject(matchManager)
                             .onAppear{
+                                matchManager.stopMonitoringConnection()
                                 backsoundPlayer.stopAudio()
                             }
                     case .ending:

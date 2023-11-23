@@ -16,8 +16,10 @@ extension MatchManager: GKMatchDelegate{
             print("Player \(player.displayName) is connected.")
         case .disconnected:
             print("Player \(player.displayName) is disconnected.")
-            gameStatus = .error
-            errorType = .friendDisconnected
+            if gameStatus != .storyBalaiDesaRenovated || gameStatus != .ending {
+                gameStatus = .error
+                errorType = .friendDisconnected
+            }
         case .unknown:
             print("Player \(player.displayName) connection status is unknown.")
         @unknown default:
@@ -29,7 +31,7 @@ extension MatchManager: GKMatchDelegate{
         
         if let receivedCharacter = try? JSONDecoder().decode(Karakter.self, from: data) {
             if let index = characters.firstIndex(where: { $0.name == receivedCharacter.name }) {
-                characters[index].isChosen!.toggle()
+                characters[index].isChosen! = true
                 otherCharacter = characters[index]
                 
 //                joinVoiceChat()

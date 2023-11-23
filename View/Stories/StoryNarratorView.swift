@@ -83,7 +83,7 @@ struct StoryNarratorView: View {
 //            player.playAudioLoop(fileName: "backsound", volume: 0.06)
 
             typeWriter()
-            matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
+//            matchManager.gameStatus = .storyPerbaikanBalaiDesaFirst
         }
         .onTapGesture {
             if isTapGestureEnabled {
@@ -133,6 +133,9 @@ struct StoryNarratorView: View {
             viewModel.startTransition()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                 matchManager.gameStatus = nextGameStatus
+                if nextGameStatus == .setup {
+                    matchManager.reset()
+                }
             }
         }
     }
