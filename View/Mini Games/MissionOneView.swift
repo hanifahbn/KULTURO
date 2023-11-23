@@ -241,13 +241,13 @@ struct MissionOneView: View {
             playerViewModel.playAudio(fileName: tools[0].exampleAudioURL!)
         }
         .onAppear{
-            audioViewModel.startRecording()
-            audioViewModel.stopRecording()
             tools = tools.shuffled()
             tools = Array(tools.prefix(3))
             textNamaTool = tools.prefix(3).map { $0.localName! }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            matchManager.startTimer(time: 46)
+                matchManager.startTimer(time: 46)
+                audioViewModel.startRecording()
+                audioViewModel.stopRecording()
             }
         }
     }

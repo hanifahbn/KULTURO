@@ -330,7 +330,7 @@ struct ItemDragMulti: View {
                 
 //                print(matchManager.itemsToCollect)
                 
-                if matchManager.itemsToCollect  .count == 0 {
+                if matchManager.itemsToCollect.count == 0 {
                     askItems = true
                 } else {
                     position =  CGSize(width: Double.random(in: minX...maxX), height: Double.random(in: minY...maxY))

@@ -86,6 +86,9 @@ struct TokoView: View {
                                                     player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
                                                 }
                                             }
+                                            else {
+                                                player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)
+                                            }
                                         }
                                     Spacer()
                                 }
@@ -117,6 +120,9 @@ struct TokoView: View {
             .navigationBarBackButtonHidden(true)
             .onTapGesture {
                 if isTapGestureEnabled {
+                    if player.player!.isPlaying {
+                        player.stopAudio()
+                    }
                     if currentIndex < tokoStories.count - 2 {
                         currentIndex += 1
                         player.playMultipleSound(fileName: tokoStories[currentIndex].audioURL!)

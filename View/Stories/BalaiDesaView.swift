@@ -140,6 +140,9 @@ struct BalaiDesaView: View {
         .onTapGesture {
             //MARK: Nanti pindah ke view model
             if isTapGestureEnabled {
+                if player.player!.isPlaying {
+                    player.stopAudio()
+                }
                 if currentIndex < balaiDesaStories.count - 1 {
                     currentIndex += 1
                     player.playMultipleSound(fileName: balaiDesaStories[currentIndex].audioURL!)
