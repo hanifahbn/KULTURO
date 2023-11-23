@@ -32,7 +32,6 @@ struct MapView: View {
                                     .stroke(lineWidth: 0)
                                     .overlay(
                                         map[index]
-                                            .scaledToFill()
                                     )
                                     .rotation3DEffect(.degrees(-geometry.frame(in: .global).minX) / 10, axis: (x: 0, y: 1, z: 0))
                                     .cornerRadius(20)

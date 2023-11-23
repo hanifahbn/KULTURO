@@ -17,21 +17,29 @@ struct MapAnimation: View {
     var body: some View {
         Button {
             matchManager.gameStatus = .beginning
-            matchManager.synchronizeGameState("BEGIN GAME TOBA")
         } label: {
+            GeometryReader{ geometry in
             ZStack{
                 Image("Awan2")
-                Image("Awan")
+                    .resizable()
+                    .frame(width: geometry.size.width * 1)
                 Image("Awan")
                     .resizable()
+                    .frame(width: geometry.size.width * 1)
+                Image("Awan")
+                    .resizable()
+                    .frame(width: geometry.size.width * 1)
                     .offset(x: offsetxAwan)
                     .scaleEffect(scale)
                     .animation(Animation.linear(duration: 10).repeatForever(), value: isAnimating)
                 
                 Image("Kapal")
                     .resizable()
+                    .frame(width: geometry.size.width * 1)
                     .ignoresSafeArea()
                 Image("Air")
+                    .resizable()
+                    .frame(width: geometry.size.width * 1)
                     .opacity(isAnimating ? 1 : 0)
                     .offset(x:offsetx ,y: offsety)
                     .animation(Animation.easeInOut(duration: 2).repeatForever(autoreverses: true).delay(1), value: isAnimating)
@@ -45,7 +53,8 @@ struct MapAnimation: View {
                         startPoint: UnitPoint(x: 0.5, y: 0),
                         endPoint: UnitPoint(x: 0.5, y: 1)
                     )
-                    .frame(width: 400, height: 200)
+                    .ignoresSafeArea()
+                    .frame(width: geometry.size.width * 1, height: geometry.size.height / 3)
                     .opacity(0.3)
                 }
                 VStack{
@@ -53,7 +62,7 @@ struct MapAnimation: View {
                     HStack{
                         Spacer()
                         RoundedRectangle(cornerRadius: 25.0)
-                            .frame(width: 280, height: 150)
+                            .frame(width: geometry.size.width * 0.8, height: geometry.size.height / 5.5)
                             .foregroundStyle(.clear)
                             .overlay{
                                 Text("Marsiadapari/mar.si.a.da.pa.ri/ a gotong royong yang dilakukan beberapa orang secara serentak (rimpa atau rumpa), agar pekerjaan yang berat dipikul bersama hingga meringankan beban kumpulan.")
@@ -61,21 +70,23 @@ struct MapAnimation: View {
                                     .foregroundStyle(.white)
                                     .multilineTextAlignment(.trailing)
                             }
-                            .padding(.trailing, 50)
-                            .padding(.bottom, 70)
+                            .padding()
+                            .padding(.bottom, -geometry.size.width * 0.1)
+                        
                     }
+                    //
                     .padding(.bottom, 50)
-                
+                    
                     
                 }
                 VStack{
                     Image("Toba")
                         .resizable()
-                        .frame(width: 350, height: 200)
+                        .scaledToFit()
+                        .frame(width: geometry.size.width * 1, height: geometry.size.height / 5)
                         .padding(.top, 80)
                     Spacer()
                 }
-                
             }
             .ignoresSafeArea()
             .onAppear{
@@ -87,27 +98,11 @@ struct MapAnimation: View {
                     isAnimating = true
                 }
             }
-
+        }
         }
 
     }
 }
-
-//struct CustomBoldModifier: ViewModifier {
-//    let text: String
-//
-//    func body(content: Content) -> some View {
-//        let attributedString = NSMutableAttributedString(string: content.description as NSString)
-//        let range = (attributedString.string as NSString).range(of: text)
-//        
-//        if range.location != NSNotFound {
-//            attributedString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 16), range: range)
-//        }
-//
-//        return Text(attributedString)
-//    }
-//}
-
 
 #Preview {
     MapAnimation()
