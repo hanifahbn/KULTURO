@@ -35,16 +35,19 @@ struct ErrorHandlingView: View {
                     .padding(.bottom, geometry.size.width * 1)
                     .padding(.leading, geometry.size.width * 0.6)
                     Image("KepalaDesaFrown")
+                        .resizable()
+                        .scaledToFit()
+//                        .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.7)
                         .padding(.top, 100)
                     VStack{
                         Image("TextBoxStory")
                             .resizable()
-                            .frame(width: geometry.size.width * 1, height: geometry.size.height / 3)
+                            .frame(width: geometry.size.width * 0.8, height: geometry.size.height / 3)
                             .overlay {
                                 VStack{
                                     HStack{
                                         Text(pesanError)
-                                            .font(.custom("Chalkboard-Regular", size: 25))
+                                            .font(.custom("Chalkboard-Regular", size: UIFont.preferredFont(forTextStyle: .title2).pointSize))
                                             .foregroundStyle(.darkRed)
                                             .padding(15)
                                             .onAppear{
