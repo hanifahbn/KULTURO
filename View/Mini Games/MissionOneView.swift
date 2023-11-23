@@ -133,7 +133,7 @@ struct MissionOneView: View {
                     .padding(.trailing, 30)
                 }
 //                Spacer()
-                Text("List Belanja")
+                Text("Daftar Belanjaan")
                     .font(.custom("Chalkboard-Regular", size: 35))
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundStyle(.black)

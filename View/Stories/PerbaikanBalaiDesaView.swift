@@ -89,7 +89,7 @@ struct PerbaikanBalaiDesaView: View {
                         .overlay {
                             VStack(spacing : -15){
                                 HStack{
-                                    Text("\(medanSuccessStories[currentIndex].isTalking.name)")
+                                    Text("\(stories[currentIndex].isTalking.name)")
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(Color.darkRed)
                                     

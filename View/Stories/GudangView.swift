@@ -87,7 +87,7 @@ struct GudangView: View {
                         .overlay {
                             VStack(spacing : -15){
                                 HStack{
-                                    Text("\(medanSuccessStories[currentIndex].isTalking.name)")
+                                    Text("\(gudangStories[currentIndex].isTalking.name)")
                                         .font(.custom("Chalkboard-Regular", size: 30))
                                         .foregroundStyle(Color.darkRed)
                                     
