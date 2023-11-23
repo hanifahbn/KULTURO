@@ -53,20 +53,17 @@ struct MapAnimation: View {
                     HStack{
                         Spacer()
                         RoundedRectangle(cornerRadius: 25.0)
-                            .frame(width: 300, height: 150)
+                            .frame(width: 280, height: 150)
                             .foregroundStyle(.clear)
                             .overlay{
                                 Text("Marsiadapari/mar.si.a.da.pa.ri/ a gotong royong yang dilakukan beberapa orang secara serentak (rimpa atau rumpa), agar pekerjaan yang berat dipikul bersama hingga meringankan beban kumpulan.")
                                     .font(.system(size: 16,weight: .regular, design: .serif))
                                     .foregroundStyle(.white)
-//                                    .modifier(CustomBoldModifier(text: "Ngayah"))
                                     .multilineTextAlignment(.trailing)
                             }
                             .padding(.trailing, 50)
                             .padding(.bottom, 70)
-                        
                     }
-                    //
                     .padding(.bottom, 50)
                 
                     

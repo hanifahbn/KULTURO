@@ -62,7 +62,7 @@ struct MapBaliAnimation: View {
                             .frame(width: 300, height: 150)
                             .foregroundStyle(.clear)
                             .overlay{
-                                Text("Ngayah/ Nga.yah \n merupakan kearifan lokal yang tumbuh dan berkembang di masyarakat Bali di mana suatu kelompok akan bekerja sama dengan tulus untuk mencapai tujuan tertentu.")
+                                Text("Ngayah/ Nga.yah merupakan kearifan lokal yang tumbuh dan berkembang di masyarakat Bali di mana suatu kelompok akan bekerja sama dengan tulus untuk mencapai tujuan tertentu.")
                                     .font(.system(size: 16,weight: .regular, design: .serif))
                                     .foregroundStyle(.white)
                                     .multilineTextAlignment(.trailing)
@@ -72,7 +72,7 @@ struct MapBaliAnimation: View {
                         
                     }
                     //
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 20)
                 }
             }
             .onAppear{

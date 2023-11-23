@@ -17,10 +17,11 @@ struct MapView: View {
                     .ignoresSafeArea()
                 VStack{
                     Text("Pilih Cerita")
-                        .font(.custom("Chalkboard-Regular", size: 35))
+                        .font(.custom("Chalkboard-Regular", size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize))
                         .foregroundStyle(.black)
                     Spacer()
                 }
+                .padding(.bottom, 10)
                 ScrollView(.horizontal) {
                     
                     HStack(spacing: -10) {
