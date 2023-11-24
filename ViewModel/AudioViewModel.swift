@@ -61,7 +61,7 @@ class AudioViewModel: NSObject, ObservableObject, AVAudioRecorderDelegate {
         print("stopped recording")
         
         serverViewModel.sendAudioToServer(audioURL: getDocumentsDirectory().appendingPathComponent("recorded.wav"))
-        self.audio.label = serverViewModel.responseData
+//        self.audio.label = serverViewModel.responseData
         print("LABEL: \(self.audio.label)")
         
     }

@@ -160,6 +160,7 @@ struct MissionOneView: View {
                         textColor = "Hitam"
                     }
                     else {
+                        audioViewModel.audio.label = tools[currentStep].labelName!
                         audioViewModel.stopRecording()
                         print("Label di view: \(audioViewModel.audio.label)")
                         if(audioViewModel.audio.label == tools[currentStep].labelName && spoken[currentStep] == false) {
