@@ -37,7 +37,7 @@ struct MapView: View {
                                     .cornerRadius(20)
                                     .shadow(radius: 10)
                             }
-                            .frame(width: geometry.size.width * 0.87, height: geometry.size.height / 1.08)
+                            .frame(width: geometry.size.width * 0.83, height: geometry.size.height / 1.08)
                         }
                     }
                     .padding(24)
